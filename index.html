@@ -1,14 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>quizz matematicas JMGV</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matemáticas JMGV - Inicio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-	<h1>indice de quizz matematicas JMGV</h1>
-	
-	<a href="QUIZZ_TERMINOS SEMEJANTES.HTML">quizz terminos semejantes</a>
-	
+    <div class="container">
+        <header class="text-center">
+            <h1>Matemáticas JMGV</h1>
+            <p class="instruction">Selecciona un cuestionario para comenzar</p>
+        </header>
+        
+        <main class="quiz-container">
+            <div class="question-block">
+                <h2 class="question-title">Cuestionarios Disponibles</h2>
+                <div class="options-container">
+                    <a href="QUIZZ TERMINOS SEMEJANTES.HTML" class="nav-link">
+                        Términos Semejantes
+                    </a>
+                    <!-- Add more quiz links here as needed -->
+                    <a href="#" class="nav-link" style="opacity: 0.7; cursor: not-allowed;" title="Próximamente">
+                        Más cuestionarios (próximamente)
+                    </a>
+                </div>
+            </div>
+        </main>
+        
+        <footer class="text-center mt-4">
+            <p>© 2024 Matemáticas JMGV - Todos los derechos reservados</p>
+        </footer>
+    </div>
+    
+    <script src="js/app.js"></script>
 </body>
 </html>
