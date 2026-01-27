@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuestionario: Términos Semejantes | JMGV</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f4f9; color: #333; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        h1 { text-align: center; color: #2c3e50; }
+        .instruction { text-align: center; font-style: italic; margin-bottom: 30px; }
+        .question-block { margin-bottom: 25px; padding: 15px; border-bottom: 1px solid #eee; }
+        .question-title { font-weight: bold; font-size: 1.1em; margin-bottom: 10px; color: #34495e; }
+        .math { background-color: #f8f9fa; padding: 5px 10px; border-radius: 4px; font-family: 'Courier New', Courier, monospace; font-weight: bold; }
+        label { display: block; margin: 8px 0; cursor: pointer; }
+        input[type="radio"] { margin-right: 10px; }
+        button { display: block; width: 100%; padding: 15px; background-color: #27ae60; color: white; border: none; border-radius: 5px; font-size: 1.2em; cursor: pointer; margin-top: 20px; transition: background 0.3s; }
+        button:hover { background-color: #219150; }
+        #result { margin-top: 20px; padding: 20px; text-align: center; font-size: 1.5em; font-weight: bold; display: none; }
+        .correct { color: green; }
+        .incorrect { color: red; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Reducción de Términos Semejantes</h1>
+    <p class="instruction">Selecciona la opción que representa la simplificación correcta de cada expresión.</p>
+    
+    <form id="quizForm">
+        <div class="question-block">
+            <div class="question-title">1. 3x + 5y - 2 + 4x - 2y + 6</div>
+            <label><input type="radio" name="q1" value="wrong"> 7x + 7y + 4</label>
+            <label><input type="radio" name="q1" value="correct"> 7x + 3y + 4</label>
+            <label><input type="radio" name="q1" value="wrong"> 7x + 3y - 8</label>
+        </div>
+
+        <div class="question-block">
+            <div class="question-title">2. 2a² + 3a - 5 + a² - 4a + 9</div>
+            <label><input type="radio" name="q2" value="wrong"> 3a² + 7a + 4</label>
+            <label><input type="radio" name="q2" value="wrong"> 2a² - a + 4</label>
+            <label><input type="radio" name="q2" value="correct"> 3a² - a + 4</label>
+        </div>
+
+        <div class="question-block">
+            <div class="question-title">3. 5mn - 3m + 2n - mn + 7m - 5n</div>
+            <label><input type="radio" name="q3" value="correct"> 4mn + 4m - 3n</label>
+            <label><input type="radio" name="q3" value="wrong"> 6mn + 4m - 3n</label>
+            <label><input type="radio" name="q3" value="wrong"> 4mn - 10m - 3n</label>
+        </div>
+
+        <div class="question-block">
+            <div class="question-title">4. 4x²y - 2xy + 3x - x²y + 5xy - x</div>
+            <label><input type="radio" name="q4" value="correct"> 3x²y + 3xy + 2x</label>
+            <label><input type="radio" name="q4" value="wrong"> 5x²y + 3xy + 2x</label>
+            <label><input type="radio" name="q4" value="wrong"> 3x²y - 7xy + 2x</label>
+        </div>
+
+        <div class="question-block">
+            <div class="question-title">5. x³ + 4x² - 2x + 2x³ - x² + 5x</div>
+            <label><input type="radio" name="q5" value="wrong"> 2x³ + 3x² + 3x</label>
+            <label><input type="radio" name="q5" value="correct"> 3x³ + 3x² + 3x</label>
+            <label><input type="radio" name="q5" value="wrong"> 3x³ + 5x² + 3x</label>
+        </div>
+
+        <div class="question-block">
+            <div class="question-title">6. 10a - 6b + 4c - 3a + 2b - 8c</div>
+            <label><input type="radio" name="q6" value="correct"> 7a - 4b - 4c</label>
+            <label><input type="radio" name="q6" value="wrong"> 7a - 8b - 4c</label>
+            <label><input type="radio" name="q6" value="wrong"> 13a - 4b - 4c</label>
+        </div>
+
+        <div class="question-block">
+            <div class="question-title">7. -2x + 3y - 5 + 8x - y + 2</div>
+            <label><input type="radio" name="q7" value="wrong"> 10x + 2y - 3</label>
+            <label><input type="radio" name="q7" value="correct"> 6x + 2y - 3</label>
+            <label><input type="radio" name="q7" value="wrong"> 6x + 4y - 3</label>
+        </div>
+
+        <div class="question-block">
+            <div class="question-title">8. ab + a + b + 3ab - 5a + 2b</div>
+            <label><input type="radio" name="q8" value="wrong"> 3ab - 4a + 3b</label>
+            <label><input type="radio" name="q8" value="correct"> 4ab - 4a + 3b</label>
+            <label><input type="radio" name="q8" value="wrong"> 4ab + 6a + 3b</label>
+        </div>
+
+        <div class="question-block">
+            <div class="question-title">9. 1.5x + 2.0y - 3.0 + 0.5x - 1.0y + 1.5</div>
+            <label><input type="radio" name="q9" value="correct"> 2.0x + 1.0y - 1.5</label>
+            <label><input type="radio" name="q9" value="wrong"> 1.0x + 1.0y - 1.5</label>
+            <label><input type="radio" name="q9" value="wrong"> 2.0x + 3.0y - 1.5</label>
+        </div>
+
+        <div class="question-block">
+            <div class="question-title">10. x² + y² - xy + 2x² - 3y² + 4xy</div>
+            <label><input type="radio" name="q10" value="correct"> 3x² - 2y² + 3xy</label>
+            <label><input type="radio" name="q10" value="wrong"> 3x² + 4y² + 3xy</label>
+            <label><input type="radio" name="q10" value="wrong"> 3x² - 2y² - 5xy</label>
+        </div>
+
+        <button type="button" onclick="calcularResultado()">Enviar Respuestas</button>
+    </form>
+
+    <div id="result"></div>
+</div>
+
+<script>
+    function calcularResultado() {
+        let score = 0;
+        const total = 10;
+        const form = document.getElementById('quizForm');
+        const formData = new FormData(form);
+
+        for (let pair of formData.entries()) {
+            if (pair[1] === 'correct') {
+                score++;
+            }
+        }
+
+        const resultDiv = document.getElementById('result');
+        resultDiv.style.display = 'block';
+        
+        let mensaje = `Has obtenido ${score} de ${total} aciertos.`;
+        if(score === 10) {
+            resultDiv.innerHTML = `<span class="correct">¡Excelente! ${mensaje}</span>`;
+        } else if (score >= 6) {
+             resultDiv.innerHTML = `<span style="color:orange">Bien hecho. ${mensaje}</span>`;
+        } else {
+             resultDiv.innerHTML = `<span class="incorrect">Sigue practicando. ${mensaje}</span>`;
+        }
+        
+        // Deshabilitar botón para evitar múltiples envíos
+        document.querySelector('button').disabled = true;
+        document.querySelector('button').innerText = "Respuestas enviadas";
+    }
+</script>
+
+</body>
+</html>
