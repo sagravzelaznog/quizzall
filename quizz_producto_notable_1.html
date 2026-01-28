@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos Notables | JMGV</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos específicos para el cuestionario de productos notables */
+        .exercise-card {
+            background: white;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .exercise-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+        
+        .problem-statement {
+            font-size: 1.2em;
+            font-weight: 500;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .answer-area {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            font-size: 1.1em;
+        }
+        
+        .answer-area input[type="number"] {
+            width: 60px;
+            padding: 8px 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: var(--border-radius);
+            font-size: 1em;
+            transition: var(--transition);
+        }
+        
+        .answer-area input[type="number"]:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(74, 111, 165, 0.2);
+        }
+        
+        .answer-area select {
+            padding: 8px 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: var(--border-radius);
+            background-color: white;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .answer-area select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(74, 111, 165, 0.2);
+        }
+        
+        .static-math {
+            font-family: 'Times New Roman', Times, serif;
+            font-style: italic;
+            white-space: nowrap;
+        }
+        
+        .btn-check {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--primary-color);
+            color: white;
+            font-size: 1.1em;
+            font-weight: 600;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            margin: 2rem 0;
+            transition: var(--transition);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-check:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+        
+        #score-board {
+            text-align: center;
+            font-size: 1.2em;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            transition: all 0.5s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        #score-board.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .correct-input {
+            border-color: var(--success-color) !important;
+            background-color: rgba(40, 167, 69, 0.1);
+            color: var(--success-color) !important;
+        }
+        
+        .incorrect-input {
+            border-color: var(--danger-color) !important;
+            background-color: rgba(220, 53, 69, 0.1);
+        }
+        
+        .formula {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            display: inline-block;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Binomios al Cuadrado</h1>
+            <p class="instruction">Recuerda la regla de oro del álgebra:</p>
+            <div class="formula">
+                (a ± b)² = a² ± 2ab + b²
+            </div>
+            <p>Instrucciones: Escribe los coeficientes y selecciona los signos. Si el coeficiente es 1, escríbelo.</p>
+        </header>
+
+        <form id="algebraForm" class="quiz-container">
+            <div id="exercises-container"></div>
+
+            <button type="button" class="btn btn-primary" onclick="checkAnswers()">Validar Resultados</button>
+            
+            <div id="score-board"></div>
+        </form>
+        
+        <div class="text-center mt-4">
+            <a href="index.html" class="nav-link">Volver al Inicio</a>
+        </div>
+    </div>
+
+    <script>
+        // Configuración de los ejercicios
+        const problems = [
+            { id: 1, expr: "(x + 3)²",      p1: "x²",  p2: "x",  p3: "",   ans: {c1:1, s1:"+", c2:6,  s2:"+", c3:9} },
+            { id: 2, expr: "(x - 5)²",      p1: "x²",  p2: "x",  p3: "",   ans: {c1:1, s1:"-", c2:10, s2:"+", c3:25} },
+            { id: 3, expr: "(2a + 4)²",     p1: "a²",  p2: "a",  p3: "",   ans: {c1:4, s1:"+", c2:16, s2:"+", c3:16} },
+            { id: 4, expr: "(3m - 2)²",     p1: "m²",  p2: "m",  p3: "",   ans: {c1:9, s1:"-", c2:12, s2:"+", c3:4} },
+            { id: 5, expr: "(y + 1)²",      p1: "y²",  p2: "y",  p3: "",   ans: {c1:1, s1:"+", c2:2,  s2:"+", c3:1} },
+            { id: 6, expr: "(4x - 3)²",     p1: "x²",  p2: "x",  p3: "",   ans: {c1:16, s1:"-", c2:24, s2:"+", c3:9} },
+            { id: 7, expr: "(a + b)²",      p1: "a²",  p2: "ab", p3: "b²", ans: {c1:1, s1:"+", c2:2,  s2:"+", c3:1} },
+            { id: 8, expr: "(2x - 3y)²",    p1: "x²",  p2: "xy", p3: "y²", ans: {c1:4, s1:"-", c2:12, s2:"+", c3:9} },
+            { id: 9, expr: "(5m + 2n)²",    p1: "m²",  p2: "mn", p3: "n²", ans: {c1:25, s1:"+", c2:20, s2:"+", c3:4} },
+            { id: 10, expr: "(x² - 6)²",    p1: "x⁴",  p2: "x²", p3: "",   ans: {c1:1, s1:"-", c2:12, s2:"+", c3:36} }
+        ];
+
+        const container = document.getElementById('exercises-container');
+
+        // Generador de HTML Dinámico
+        problems.forEach((p, index) => {
+            const html = `
+            <div class="exercise-card" id="card-${index}">
+                <div class="problem-statement">
+                    <span class="math">${index + 1}. ${p.expr} =</span>
+                </div>
+                <div class="answer-area">
+                    <input type="number" id="c1-${index}" placeholder="#">
+                    <span class="static-math">${p.p1}</span>
+                    
+                    <select id="s1-${index}" class="form-control">
+                        <option value="">?</option>
+                        <option value="+">+</option>
+                        <option value="-">-</option>
+                    </select>
+
+                    <input type="number" id="c2-${index}" placeholder="#">
+                    <span class="static-math">${p.p2}</span>
+
+                    <select id="s2-${index}" class="form-control">
+                        <option value="">?</option>
+                        <option value="+">+</option>
+                        <option value="-">-</option>
+                    </select>
+
+                    <input type="number" id="c3-${index}" placeholder="#">
+                    <span class="static-math">${p.p3}</span>
+                </div>
+            </div>
+            `;
+            container.innerHTML += html;
+        });
+
+        function checkAnswers() {
+            let score = 0;
+            let totalFields = problems.length * 5; // 5 campos por pregunta
+
+            problems.forEach((p, index) => {
+                // Obtener inputs
+                const i_c1 = document.getElementById(`c1-${index}`);
+                const i_s1 = document.getElementById(`s1-${index}`);
+                const i_c2 = document.getElementById(`c2-${index}`);
+                const i_s2 = document.getElementById(`s2-${index}`);
+                const i_c3 = document.getElementById(`c3-${index}`);
+
+                // Validar Coeficiente 1
+                if(parseInt(i_c1.value) === p.ans.c1) { 
+                    i_c1.classList.add('correct-input');
+                    score++; 
+                } else { 
+                    i_c1.classList.add('incorrect-input');
+                }
+
+                // Validar Signo 1
+                if(i_s1.value === p.ans.s1) { 
+                    i_s1.classList.add('correct-input');
+                    score++; 
+                } else { 
+                    i_s1.classList.add('incorrect-input');
+                }
+
+                // Validar Coeficiente 2
+                if(parseInt(i_c2.value) === p.ans.c2) { 
+                    i_c2.classList.add('correct-input');
+                    score++; 
+                } else { 
+                    i_c2.classList.add('incorrect-input');
+                }
+
+                // Validar Signo 2
+                if(i_s2.value === p.ans.s2) { 
+                    i_s2.classList.add('correct-input');
+                    score++; 
+                } else { 
+                    i_s2.classList.add('incorrect-input');
+                }
+
+                // Validar Coeficiente 3
+                if(parseInt(i_c3.value) === p.ans.c3) { 
+                    i_c3.classList.add('correct-input');
+                    score++; 
+                } else { 
+                    i_c3.classList.add('incorrect-input');
+                }
+            });
+
+            // Feedback Final
+            const scoreboard = document.getElementById('score-board');
+            const finalScore = Math.round((score / totalFields) * 100);
+            
+            // Aplicar estilos dinámicamente
+            scoreboard.className = 'result-message';
+            scoreboard.classList.add('visible');
+            
+            if (finalScore === 100) {
+                scoreboard.innerHTML = `
+                    <div class="result-success">
+                        <h3>¡Excelente! ★ ${finalScore}%</h3>
+                        <p>¡Eres un Genio Matemático! Has dominado los productos notables.</p>
+                        <p>${score} de ${totalFields} respuestas correctas</p>
+                    </div>`;
+            } else if (finalScore >= 80) {
+                scoreboard.innerHTML = `
+                    <div class="result-info">
+                        <h3>¡Muy bien! ${finalScore}%</h3>
+                        <p>Casi lo tienes, sigue practicando para mejorar.</p>
+                        <p>${score} de ${totalFields} respuestas correctas</p>
+                    </div>`;
+            } else {
+                scoreboard.innerHTML = `
+                    <div class="result-warning">
+                        <h3>Sigue practicando ${finalScore}%</h3>
+                        <p>Revisa los campos marcados en rojo e inténtalo de nuevo.</p>
+                        <p>${score} de ${totalFields} respuestas correctas</p>
+                    </div>`;
+            }
+            
+            // Desplazarse suavemente al resultado
+            scoreboard.scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Hacer la función accesible globalmente
+        window.checkAnswers = checkAnswers;
+    </script>
+</body>
+</html>
