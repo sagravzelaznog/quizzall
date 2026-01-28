@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binomio al Cubo | JMGV</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos específicos para el cuestionario de binomio al cubo */
+        .formula-box {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            display: inline-block;
+            font-size: 1.2em;
+            font-weight: 500;
+            margin: 1rem 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .rule-box {
+            background: rgba(255, 255, 255, 0.1);
+            border-left: 3px solid var(--accent-color);
+            padding: 10px 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            font-size: 0.95em;
+        }
+
+        /* Contenedor de tabla responsiva */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 1.5rem 0;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 900px;
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 15px 10px;
+            text-align: center;
+            vertical-align: middle;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        /* Estilos de los Inputs y Selects */
+        .expression {
+            font-size: 1.1em;
+            font-weight: 500;
+            color: var(--text-dark);
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        .equal-sign {
+            font-size: 1.3em;
+            color: var(--primary-color);
+            font-weight: bold;
+            padding: 0 10px;
+        }
+
+        input[type="number"] {
+            width: 60px;
+            padding: 8px 10px;
+            border: 2px solid #e0e0e0;
+            border-radius: var(--border-radius);
+            text-align: center;
+            font-size: 1em;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        input[type="number"]:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(74, 111, 165, 0.2);
+        }
+
+        select {
+            padding: 8px 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: var(--border-radius);
+            background-color: white;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(74, 111, 165, 0.2);
+        }
+
+        .math-static {
+            font-family: 'Times New Roman', Times, serif;
+            font-style: italic;
+            white-space: nowrap;
+            margin: 0 3px;
+            font-size: 1.1em;
+        }
+
+        /* Estilos para los mensajes de resultado */
+        #score-panel {
+            text-align: center;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            transition: all 0.5s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        #score-panel.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Feedback Visual */
+        .valid {
+            border-color: var(--success-color) !important;
+            background-color: rgba(40, 167, 69, 0.1) !important;
+            color: var(--success-color) !important;
+        }
+
+        .invalid {
+            border-color: var(--danger-color) !important;
+            background-color: rgba(220, 53, 69, 0.1) !important;
+        }
+
+        /* Estilos responsivos */
+        @media (max-width: 768px) {
+            .expression {
+                font-size: 1em;
+            }
+            
+            input[type="number"], select {
+                padding: 6px 8px;
+                font-size: 0.9em;
+                width: 50px;
+            }
+            
+            .math-static {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="text-center">
+            <h1>Binomio al Cubo</h1>
+            <p class="instruction">Completa los coeficientes y signos faltantes para cada ejercicio.</p>
+            <div class="formula-box">
+                (a ± b)³ = a³ ± 3a²b + 3ab² ± b³
+                <div class="rule-box">
+                    <small>Regla: Cubo del primer término <strong>±</strong> triple del cuadrado del primero por el segundo 
+                    <strong>+</strong> triple del primero por el cuadrado del segundo <strong>±</strong> cubo del segundo término.</small>
+                </div>
+            </div>
+        </header>
+
+        <form id="algebraForm" class="quiz-container">
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th width="5%">#</th>
+                            <th width="15%">Binomio</th>
+                            <th width="5%"></th>
+                            <th width="75%">Desarrollo (4 Términos)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-body">
+                        <!-- Los ejercicios se generarán aquí dinámicamente -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="text-center">
+                <button type="button" class="btn btn-primary" onclick="verificarRespuestas()">Validar Resultados</button>
+            </div>
+            
+            <div id="score-panel"></div>
+        </form>
+        
+        <div class="text-center mt-4">
+            <a href="index.html" class="nav-link">Volver al Inicio</a>
+        </div>
+    </div>
+
+    <script>
+        // Configuración de los ejercicios
+        const ejercicios = [
+            { expr: "(x + 2)³",     a_coef:1, a_var:"x", b_val:2,  sign:"+" }, // x³ + 6x² + 12x + 8
+            { expr: "(x - 3)³",     a_coef:1, a_var:"x", b_val:3,  sign:"-" }, // x³ - 9x² + 27x - 27
+            { expr: "(2a + 1)³",    a_coef:2, a_var:"a", b_val:1,  sign:"+" }, // 8a³ + 12a² + 6a + 1
+            { expr: "(m - 4)³",     a_coef:1, a_var:"m", b_val:4,  sign:"-" }, // m³ - 12m² + 48m - 64
+            { expr: "(3x + 2)³",    a_coef:3, a_var:"x", b_val:2,  sign:"+" }, // 27x³ + 54x² + 36x + 8
+            { expr: "(x - 5)³",     a_coef:1, a_var:"x", b_val:5,  sign:"-" }, // x³ - 15x² + 75x - 125
+            { expr: "(2y - 3)³",    a_coef:2, a_var:"y", b_val:3,  sign:"-" }, // 8y³ - 36y² + 54y - 27
+            { expr: "(10 + x)³",    a_coef:10, a_var:"", b_val:1,  b_var:"x", isSpecial:true, sign:"+" }, // 1000 + 300x + 30x² + x³
+            { expr: "(4a + 2)³",    a_coef:4, a_var:"a", b_val:2,  sign:"+" }, // 64a³ + 96a² + 48a + 8
+            { expr: "(x - 1)³",     a_coef:1, a_var:"x", b_val:1,  sign:"-" }  // x³ - 3x² + 3x - 1
+        ];
+
+        // Generar la tabla dinámicamente cuando el DOM esté listo
+        document.addEventListener('DOMContentLoaded', function() {
+            const tbody = document.getElementById('table-body');
+            
+            // Función auxiliar para calcular potencias
+            const pow3 = (n) => n * n * n;
+            const pow2 = (n) => n * n;
+
+            ejercicios.forEach((ex, i) => {
+                // Cálculo de respuestas correctas (Valores absolutos para coeficientes)
+                let t1_coef, t2_coef, t3_coef, t4_coef;
+                let s1_ans, s2_ans, s3_ans; // Signos entre términos
+
+                if(!ex.isSpecial) {
+                    // Caso normal (ax ± b)³
+                    t1_coef = pow3(ex.a_coef);             // (ax)³
+                    t2_coef = 3 * pow2(ex.a_coef) * ex.b_val; // 3(ax)²(b)
+                    t3_coef = 3 * ex.a_coef * pow2(ex.b_val); // 3(ax)(b)²
+                    t4_coef = pow3(ex.b_val);              // (b)³
+                    
+                    // Textos estáticos para variables (visuales)
+                    var t1_txt = ex.a_var + "³";
+                    var t2_txt = ex.a_var + "²";
+                    var t3_txt = ex.a_var;
+                    var t4_txt = "";
+                } else {
+                    // Caso especial (10 + x)³ donde A es número y B es variable
+                    t1_coef = pow3(ex.a_coef); 
+                    t2_coef = 3 * pow2(ex.a_coef) * ex.b_val;
+                    t3_coef = 3 * ex.a_coef * pow2(ex.b_val);
+                    t4_coef = pow3(ex.b_val);
+
+                    var t1_txt = "";
+                    var t2_txt = ex.b_var;
+                    var t3_txt = ex.b_var + "²";
+                    var t4_txt = ex.b_var + "³";
+                }
+
+                // Determinar signos esperados
+                if (ex.sign === "+") {
+                    s1_ans = "+"; s2_ans = "+"; s3_ans = "+";
+                } else {
+                    // En resta: a³ - 3a²b + 3ab² - b³
+                    s1_ans = "-"; s2_ans = "+"; s3_ans = "-";
+                }
+
+                const row = `
+                <tr>
+                    <td><strong>${i + 1}</strong></td>
+                    <td class="expression">${ex.expr}</td>
+                    <td class="equal-sign">=</td>
+                    <td>
+                        <input type="number" id="t1_${i}" data-ans="${t1_coef}">
+                        <span class="math-static">${t1_txt}</span>
+
+                        <select id="s1_${i}" data-ans="${s1_ans}">
+                            <option value="">?</option>
+                            <option value="+">+</option>
+                            <option value="-">-</option>
+                        </select>
+
+                        <input type="number" id="t2_${i}" data-ans="${t2_coef}">
+                        <span class="math-static">${t2_txt}</span>
+
+                        <select id="s2_${i}" data-ans="${s2_ans}">
+                            <option value="">?</option>
+                            <option value="+">+</option>
+                            <option value="-">-</option>
+                        </select>
+
+                        <input type="number" id="t3_${i}" data-ans="${t3_coef}">
+                        <span class="math-static">${t3_txt}</span>
+
+                        <select id="s3_${i}" data-ans="${s3_ans}">
+                            <option value="">?</option>
+                            <option value="+">+</option>
+                            <option value="-">-</option>
+                        </select>
+
+                        <input type="number" id="t4_${i}" data-ans="${t4_coef}">
+                        <span class="math-static">${t4_txt}</span>
+                    </td>
+                </tr>
+                `;
+                tbody.innerHTML += row;
+            });
+        });
+
+        function verificarRespuestas() {
+            let score = 0;
+            const totalFields = ejercicios.length * 7; // 4 coeficientes + 3 signos = 7 campos por fila
+            const panel = document.getElementById('score-panel');
+
+            // Resetear estilos
+            document.querySelectorAll('input, select').forEach(el => {
+                el.classList.remove('valid', 'invalid');
+            });
+
+            // Validar cada ejercicio
+            ejercicios.forEach((ex, i) => {
+                // Validar Coeficientes
+                checkInput(`t1_${i}`);
+                checkInput(`t2_${i}`);
+                checkInput(`t3_${i}`);
+                checkInput(`t4_${i}`);
+
+                // Validar Signos
+                checkInput(`s1_${i}`);
+                checkInput(`s2_${i}`);
+                checkInput(`s3_${i}`);
+            });
+
+            function checkInput(id) {
+                const el = document.getElementById(id);
+                const userVal = el.value;
+                const correctVal = el.dataset.ans;
+
+                // Comparación laxa (string vs number)
+                if (userVal == correctVal) {
+                    el.classList.add('valid');
+                    score++;
+                } else {
+                    el.classList.add('invalid');
+                }
+            }
+
+            // Mostrar resultados
+            const percentage = Math.round((score / totalFields) * 100);
+            panel.className = 'visible';
+            
+            let message = "";
+            if (percentage === 100) {
+                message = `
+                    <div class="result-success">
+                        <h3>¡Perfecto! ${percentage}%</h3>
+                        <p>¡Dominas perfectamente el binomio al cubo!</p>
+                        <p>${score} de ${totalFields} respuestas correctas</p>
+                    </div>`;
+            } else if (percentage >= 80) {
+                message = `
+                    <div class="result-info">
+                        <h3>¡Muy bien! ${percentage}%</h3>
+                        <p>Vas por buen camino, sigue practicando.</p>
+                        <p>${score} de ${totalFields} respuestas correctas</p>
+                    </div>`;
+            } else {
+                message = `
+                    <div class="result-warning">
+                        <h3>Sigue practicando ${percentage}%</h3>
+                        <p>Recuerda la regla: Cubo del primero, triple del cuadrado del primero por el segundo, triple del primero por el cuadrado del segundo, cubo del segundo.</p>
+                        <p>${score} de ${totalFields} respuestas correctas</p>
+                    </div>`;
+            }
+            
+            panel.innerHTML = message;
+            panel.scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Hacer la función accesible globalmente
+        window.verificarRespuestas = verificarRespuestas;
+    </script>
+</body>
+</html>
