@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elementos del Término Algebraico | JMGV</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos específicos para este cuestionario */
+        .table-wrapper { 
+            overflow-x: auto;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            margin-bottom: 20px;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        th { 
+            background-color: var(--primary-color);
+            color: white; 
+            padding: 15px; 
+            text-align: center; 
+            font-weight: 500; 
+            letter-spacing: 0.5px;
+        }
+        
+        td { 
+            padding: 15px 10px; 
+            border-bottom: 1px solid #eee; 
+            text-align: center; 
+            transition: background 0.2s;
+        }
+        
+        tr:hover td {
+            background-color: #f8f9fa;
+        }
+        
+        tr:nth-child(even) { 
+            background-color: #fafafa; 
+        }
+        
+        .term { 
+            font-family: 'Courier New', monospace;
+            font-size: 1.2em; 
+            font-weight: bold; 
+            color: var(--primary-color);
+            padding: 5px 10px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            display: inline-block;
+            min-width: 60px;
+        }
+
+        select { 
+            padding: 10px 8px;
+            border-radius: 4px; 
+            border: 2px solid #e0e0e0;
+            background-color: white; 
+            width: 100%; 
+            max-width: 200px;
+            cursor: pointer; 
+            font-size: 0.95em;
+            transition: all 0.3s ease;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%232c3e50%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+            background-repeat: no-repeat;
+            background-position: right 10px top 50%;
+            background-size: 12px auto;
+            padding-right: 30px;
+        }
+        
+        select:focus { 
+            outline: none; 
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(74, 111, 165, 0.2);
+        }
+        
+        .btn-container { 
+            text-align: center; 
+            margin: 30px 0 20px;
+        }
+        
+        #finalScore { 
+            text-align: center; 
+            font-size: 1.5em; 
+            font-weight: bold; 
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #f8f9fa;
+        }
+        
+        /* Estilos para móviles */
+        @media (max-width: 768px) {
+            .table-wrapper {
+                margin: 10px -15px;
+                width: calc(100% + 30px);
+            }
+            
+            th, td {
+                padding: 12px 8px;
+                font-size: 0.9em;
+            }
+            
+            .term {
+                font-size: 1em;
+                padding: 3px 6px;
+            }
+            
+            select {
+                padding: 8px 25px 8px 8px;
+                font-size: 0.9em;
+            }
+        }
+
+        /* Estilos para los resultados */
+        .result-container {
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .result-success {
+            background-color: rgba(40, 167, 69, 0.1);
+            border-left: 4px solid #28a745;
+        }
+        
+        .result-warning {
+            background-color: rgba(255, 193, 7, 0.1);
+            border-left: 4px solid #ffc107;
+        }
+        
+        .result-error {
+            background-color: rgba(220, 53, 69, 0.1);
+            border-left: 4px solid #dc3545;
+        }
+        
+        .btn-secondary {
+            background-color: #6c757d;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #5a6268;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="text-center">
+            <h1>Elementos del Término Algebraico</h1>
+            <p class="instruction">Identifica el signo, coeficiente, literales y exponentes de cada término.</p>
+        </header>
+
+        <form id="algebraForm" class="quiz-container">
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th width="5%">No.</th>
+                            <th width="20%">Término</th>
+                            <th width="15%">Signo</th>
+                            <th width="20%">Coeficiente</th>
+                            <th width="20%">Parte Literal</th>
+                            <th width="20%">Exponente(s)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="btn-container">
+                <button type="button" class="btn" onclick="verificarRespuestas()">Calificar Ejercicios</button>
+            </div>
+            <div id="finalScore"></div>
+        </form>
+        
+        <div class="text-center mt-4">
+            <a href="index.html" class="nav-link">Volver al Inicio</a>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script>
+        // Configuración de los ejercicios
+        const ejercicios = [
+            { term: "-5x³",       sign: "-",  coef: "5",    lit: "x",    exp: "3" },
+            { term: "4y",         sign: "+",  coef: "4",    lit: "y",    exp: "1" },
+            { term: "-a²b",       sign: "-",  coef: "1",    lit: "a, b", exp: "2, 1" },
+            { term: "2/3 m⁴",     sign: "+",  coef: "2/3",  lit: "m",    exp: "4" },
+            { term: "x²y⁵",       sign: "+",  coef: "1",    lit: "x, y", exp: "2, 5" },
+            { term: "-0.8z",      sign: "-",  coef: "0.8",  lit: "z",    exp: "1" },
+            { term: "-w",         sign: "-",  coef: "1",    lit: "w",    exp: "1" },
+            { term: "-1/2 p²q",   sign: "-",  coef: "1/2",  lit: "p, q", exp: "2, 1" },
+            { term: "7mn⁶",       sign: "+",  coef: "7",    lit: "m, n", exp: "1, 6" },
+            { term: "k⁹",         sign: "+",  coef: "1",    lit: "k",    exp: "9" }
+        ];
+
+        // Opciones para los desplegables (mezcla de correctas y distractores)
+        const opts = {
+            sign: ["+", "-"],
+            coef: ["1", "4", "5", "7", "0.8", "2/3", "1/2", "0"],
+            lit:  ["x", "y", "z", "w", "k", "m", "a, b", "m, n", "x, y", "p, q", "Ninguna"],
+            exp:  ["1", "2", "3", "4", "6", "9", "2, 1", "2, 5", "1, 6", "0"]
+        };
+
+        // Inicialización cuando el DOM esté listo
+        document.addEventListener('DOMContentLoaded', function() {
+            const tbody = document.getElementById("tableBody");
+
+            // Generar la tabla dinámicamente
+            ejercicios.forEach((ej, index) => {
+                let row = document.createElement("tr");
+                row.className = "question-block";
+                
+                // Crear las celdas con Selects
+                row.innerHTML = `
+                    <td><strong>${index + 1}</strong></td>
+                    <td class="term">${ej.term}</td>
+                    <td>${crearSelect("sign", ej.sign)}</td>
+                    <td>${crearSelect("coef", ej.coef)}</td>
+                    <td>${crearSelect("lit", ej.lit)}</td>
+                    <td>${crearSelect("exp", ej.exp)}</td>
+                `;
+                tbody.appendChild(row);
+            });
+
+            // Inicializar tooltips o eventos adicionales
+            inicializarEventos();
+        });
+
+        // Función auxiliar para crear <select> con opciones
+        function crearSelect(tipo, respuestaCorrecta) {
+            // Combinamos la respuesta correcta con las opciones generales
+            let opciones = [...new Set([...opts[tipo], respuestaCorrecta])];
+            
+            // Ordenamos para que no sea obvio cuál es la respuesta correcta
+            opciones.sort((a, b) => a.toString().localeCompare(b.toString()));
+
+            let html = `<select class="form-select" data-correct="${respuestaCorrecta}">`;
+            html += `<option value="" selected disabled>Selecciona...</option>`;
+            opciones.forEach(op => {
+                html += `<option value="${op}">${op}</option>`;
+            });
+            html += `</select>`;
+            return html;
+        }
+
+        function inicializarEventos() {
+            // Agregar eventos a los selects para feedback inmediato
+            document.querySelectorAll('select').forEach(select => {
+                select.addEventListener('change', function() {
+                    this.style.borderColor = this.value ? '#4CAF50' : '#e0e0e0';
+                });
+            });
+        }
+
+        function verificarRespuestas() {
+            let aciertos = 0;
+            let totalCeldas = ejercicios.length * 4; // 4 columnas evaluables por fila
+            const selects = document.querySelectorAll("select");
+            const resultDiv = document.getElementById("finalScore");
+            
+            // Verificar si hay campos sin completar
+            let camposIncompletos = false;
+            selects.forEach(select => {
+                if (!select.value) {
+                    select.style.borderColor = '#FF9800';
+                    camposIncompletos = true;
+                }
+            });
+            
+            if (camposIncompletos) {
+                resultDiv.innerHTML = '<div class="result-warning" style="padding: 15px;">Por favor, completa todos los campos antes de calificar.</div>';
+                resultDiv.scrollIntoView({ behavior: 'smooth' });
+                return;
+            }
+
+            // Calificar respuestas
+            selects.forEach(select => {
+                const userVal = select.value;
+                const correctVal = select.getAttribute("data-correct");
+                const isCorrect = userVal === correctVal;
+                
+                if (isCorrect) {
+                    select.classList.add('valid');
+                    select.classList.remove('invalid');
+                    aciertos++;
+                } else {
+                    select.classList.add('invalid');
+                    select.classList.remove('valid');
+                }
+            });
+
+            // Calcular puntaje
+            let porcentaje = Math.round((aciertos / totalCeldas) * 10); // Escala de 0 a 10
+            
+            // Mostrar resultado
+            let mensaje = "";
+            let tipoMensaje = "";
+            
+            if (porcentaje === 10) {
+                mensaje = "¡Excelente! Has dominado los elementos del término algebraico.";
+                tipoMensaje = "success";
+            } else if (porcentaje >= 8) {
+                mensaje = "¡Muy bien! Casi perfecto, sigue practicando.";
+                tipoMensaje = "success";
+            } else if (porcentaje >= 6) {
+                mensaje = "Bien, pero hay algunos detalles por mejorar. Revisa las respuestas incorrectas.";
+                tipoMensaje = "warning";
+            } else {
+                mensaje = "Sigue practicando. Recuerda que los coeficientes y exponentes pueden ser 1 aunque no se escriban.";
+                tipoMensaje = "error";
+            }
+
+            // Mostrar resultado con animación
+            resultDiv.innerHTML = `
+                <div class="result-container result-${tipoMensaje}">
+                    <h3>Tu calificación: ${porcentaje}/10</h3>
+                    <p>${aciertos} de ${totalCeldas} respuestas correctas</p>
+                    <p>${mensaje}</p>
+                    <button class="btn btn-secondary mt-2" onclick="location.reload()">Intentar de nuevo</button>
+                </div>
+            `;
+            
+            resultDiv.scrollIntoView({ behavior: 'smooth' });
+            
+            // Bloquear botón de envío
+            const submitBtn = document.querySelector('button[type="button"]');
+            if (submitBtn) {
+                submitBtn.disabled = true;
+            }
+        }
+        
+        // Hacer la función accesible globalmente
+        window.verificarRespuestas = verificarRespuestas;
+    </script>
+</body>
+</html>
