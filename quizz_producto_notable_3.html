@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binomios con Término Común | JMGV</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos específicos para el cuestionario de binomios con término común */
+        .formula-box {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            display: inline-block;
+            font-size: 1.2em;
+            font-weight: 500;
+            margin: 1rem 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Contenedor de tabla responsiva */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 1.5rem 0;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 700px;
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 15px 10px;
+            text-align: center;
+            vertical-align: middle;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        /* Estilos de los Inputs y Selects */
+        .problem-text {
+            font-size: 1.1em;
+            font-weight: 500;
+            color: var(--text-dark);
+            text-align: left;
+            padding-right: 15px;
+            white-space: nowrap;
+        }
+
+        .equal-sign {
+            font-size: 1.3em;
+            color: var(--primary-color);
+            font-weight: bold;
+            padding: 0 10px;
+        }
+
+        input[type="number"] {
+            width: 60px;
+            padding: 8px 10px;
+            border: 2px solid #e0e0e0;
+            border-radius: var(--border-radius);
+            text-align: center;
+            font-size: 1em;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        input[type="number"]:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(74, 111, 165, 0.2);
+        }
+
+        select {
+            padding: 8px 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: var(--border-radius);
+            background-color: white;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(74, 111, 165, 0.2);
+        }
+
+        .static-math {
+            font-family: 'Times New Roman', Times, serif;
+            font-style: italic;
+            white-space: nowrap;
+            margin: 0 3px;
+            font-size: 1.1em;
+        }
+
+        /* Estilos para los mensajes de resultado */
+        #final-score {
+            text-align: center;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            transition: all 0.5s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        #final-score.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Feedback Visual */
+        .valid {
+            border-color: var(--success-color) !important;
+            background-color: rgba(40, 167, 69, 0.1) !important;
+            color: var(--success-color) !important;
+        }
+
+        .invalid {
+            border-color: var(--danger-color) !important;
+            background-color: rgba(220, 53, 69, 0.1) !important;
+        }
+
+        /* Estilos responsivos */
+        @media (max-width: 768px) {
+            .problem-text {
+                font-size: 1em;
+                padding-right: 10px;
+            }
+            
+            input[type="number"], select {
+                padding: 6px 8px;
+                font-size: 0.9em;
+            }
+            
+            .static-math {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="text-center">
+            <h1>Binomios con Término Común</h1>
+            <p class="instruction">Completa los coeficientes y signos faltantes para cada ejercicio.</p>
+            <div class="formula-box">
+                (x + a)(x + b) = x² + (a+b)x + (ab)
+                <div class="rule-box">
+                    <small>Regla: Cuadrado del común <strong>+ SUMA</strong> de los no comunes <strong>+ PRODUCTO</strong> de los no comunes.</small>
+                </div>
+            </div>
+        </header>
+
+        <form id="algebraForm" class="quiz-container">
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th width="5%">#</th>
+                            <th width="25%">Binomios</th>
+                            <th width="5%"></th>
+                            <th width="65%">Trinomio Resultante</th>
+                        </tr>
+                    </thead>
+                    <tbody id="exercise-body">
+                        <!-- Los ejercicios se generarán aquí dinámicamente -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="text-center">
+                <button type="button" class="btn btn-primary" onclick="checkAnswers()">Validar Resultados</button>
+            </div>
+            
+            <div id="final-score"></div>
+        </form>
+        
+        <div class="text-center mt-4">
+            <a href="index.html" class="nav-link">Volver al Inicio</a>
+        </div>
+    </div>
+
+    <script>
+        // Configuración de los ejercicios
+        const exercises = [
+            { term: "x", a: 5,  b: 2 },  // x^2 + 7x + 10
+            { term: "x", a: 4,  b: 3 },  // x^2 + 7x + 12
+            { term: "m", a: -2, b: -3 }, // m^2 - 5m + 6
+            { term: "a", a: 5,  b: -2 }, // a^2 + 3a - 10
+            { term: "y", a: -6, b: 2 },  // y^2 - 4y - 12
+            { term: "x", a: 7,  b: 1 },  // x^2 + 8x + 7
+            { term: "n", a: -5, b: -4 }, // n^2 - 9n + 20
+            { term: "x", a: 10, b: -3 }, // x^2 + 7x - 30
+            { term: "z", a: -8, b: 3 },  // z^2 - 5z - 24
+            { term: "x", a: -1, b: -1 }  // x^2 - 2x + 1
+        ];
+
+        // Generar la tabla dinámicamente cuando el DOM esté listo
+        document.addEventListener('DOMContentLoaded', function() {
+            const tbody = document.getElementById('exercise-body');
+            
+            exercises.forEach((ex, index) => {
+                // Cálculos internos
+                const sum = ex.a + ex.b;
+                const prod = ex.a * ex.b;
+
+                // Determinar respuestas esperadas (Signo y Valor Absoluto)
+                const sign2 = sum >= 0 ? "+" : "-";
+                const val2 = Math.abs(sum);
+                
+                const sign3 = prod >= 0 ? "+" : "-";
+                const val3 = Math.abs(prod);
+
+                // Construcción de la cadena del problema visual (ej: (x - 2)(x + 4))
+                const signA = ex.a >= 0 ? "+" : "";
+                const signB = ex.b >= 0 ? "+" : "";
+                const problemStr = `(${ex.term} ${signA}${ex.a})(${ex.term} ${signB}${ex.b})`;
+
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td><strong>${index + 1}</strong></td>
+                    <td class="problem-text">${problemStr}</td>
+                    <td class="equal-sign">=</td>
+                    <td>
+                        <span class="static-math">${ex.term}²</span>
+
+                        <select id="s2_${index}" data-ans="${sign2}">
+                            <option value="">?</option>
+                            <option value="+">+</option>
+                            <option value="-">-</option>
+                        </select>
+
+                        <input type="number" id="c2_${index}" placeholder="#" data-ans="${val2}">
+                        <span class="static-math">${ex.term}</span>
+
+                        <select id="s3_${index}" data-ans="${sign3}">
+                            <option value="">?</option>
+                            <option value="+">+</option>
+                            <option value="-">-</option>
+                        </select>
+
+                        <input type="number" id="c3_${index}" placeholder="#" data-ans="${val3}">
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        });
+
+        function checkAnswers() {
+            let score = 0;
+            const totalItems = exercises.length * 4; // 4 campos por ejercicio
+            const resultBox = document.getElementById('final-score');
+
+            // Resetear estilos
+            document.querySelectorAll('input, select').forEach(el => {
+                el.classList.remove('valid', 'invalid');
+            });
+
+            // Validar cada ejercicio
+            exercises.forEach((ex, index) => {
+                // Elementos
+                const s2 = document.getElementById(`s2_${index}`);
+                const c2 = document.getElementById(`c2_${index}`);
+                const s3 = document.getElementById(`s3_${index}`);
+                const c3 = document.getElementById(`c3_${index}`);
+
+                // Validar S2 (signo del término medio)
+                if(s2.value === s2.dataset.ans) {
+                    s2.classList.add('valid');
+                    score++;
+                } else {
+                    s2.classList.add('invalid');
+                }
+
+                // Validar C2 (coeficiente del término medio)
+                if(parseInt(c2.value) === parseInt(c2.dataset.ans)) {
+                    c2.classList.add('valid');
+                    score++;
+                } else {
+                    c2.classList.add('invalid');
+                }
+
+                // Validar S3 (signo del término independiente)
+                if(s3.value === s3.dataset.ans) {
+                    s3.classList.add('valid');
+                    score++;
+                } else {
+                    s3.classList.add('invalid');
+                }
+
+                // Validar C3 (término independiente)
+                if(parseInt(c3.value) === parseInt(c3.dataset.ans)) {
+                    c3.classList.add('valid');
+                    score++;
+                } else {
+                    c3.classList.add('invalid');
+                }
+            });
+
+            // Mostrar resultados
+            const percentage = Math.round((score / totalItems) * 100);
+            resultBox.className = 'visible';
+            
+            let message = "";
+            if (percentage === 100) {
+                message = `
+                    <div class="result-success">
+                        <h3>¡Perfecto! ${percentage}%</h3>
+                        <p>¡Dominas perfectamente los binomios con término común!</p>
+                        <p>${score} de ${totalItems} respuestas correctas</p>
+                    </div>`;
+            } else if (percentage >= 80) {
+                message = `
+                    <div class="result-info">
+                        <h3>¡Muy bien! ${percentage}%</h3>
+                        <p>Vas por buen camino, sigue practicando.</p>
+                        <p>${score} de ${totalItems} respuestas correctas</p>
+                    </div>`;
+            } else {
+                message = `
+                    <div class="result-warning">
+                        <h3>Sigue practicando ${percentage}%</h3>
+                        <p>Recuerda: Suma en el medio, producto al final.</p>
+                        <p>${score} de ${totalItems} respuestas correctas</p>
+                    </div>`;
+            }
+            
+            resultBox.innerHTML = message;
+            resultBox.scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Hacer la función accesible globalmente
+        window.checkAnswers = checkAnswers;
+    </script>
+</body>
+</html>

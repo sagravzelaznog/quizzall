@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diferencia de Cuadrados | JMGV</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos específicos para el cuestionario de diferencia de cuadrados */
+        .formula-box {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            display: inline-block;
+            font-size: 1.3em;
+            font-weight: 500;
+            margin: 1rem 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Contenedor de tabla responsiva */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 1.5rem 0;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 700px;
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 15px 10px;
+            text-align: center;
+            vertical-align: middle;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        /* Estilos de los Inputs y Selects */
+        .problem-text {
+            font-size: 1.1em;
+            font-weight: 500;
+            color: var(--text-dark);
+            text-align: right;
+            padding-right: 15px;
+            white-space: nowrap;
+        }
+
+        .equal-sign {
+            font-size: 1.3em;
+            color: var(--primary-color);
+            font-weight: bold;
+            padding: 0 10px;
+        }
+
+        input[type="number"] {
+            width: 60px;
+            padding: 8px 10px;
+            border: 2px solid #e0e0e0;
+            border-radius: var(--border-radius);
+            text-align: center;
+            font-size: 1em;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        input[type="number"]:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(74, 111, 165, 0.2);
+        }
+
+        select {
+            padding: 8px 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: var(--border-radius);
+            background-color: white;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(74, 111, 165, 0.2);
+        }
+
+        .static-math {
+            font-family: 'Times New Roman', Times, serif;
+            font-style: italic;
+            white-space: nowrap;
+            margin: 0 3px;
+            font-size: 1.1em;
+        }
+
+        /* Estilos para los mensajes de resultado */
+        #score-display {
+            text-align: center;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            transition: all 0.5s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        #score-display.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Feedback Visual */
+        .valid {
+            border-color: var(--success-color) !important;
+            background-color: rgba(40, 167, 69, 0.1) !important;
+            color: var(--success-color) !important;
+        }
+
+        .invalid {
+            border-color: var(--danger-color) !important;
+            background-color: rgba(220, 53, 69, 0.1) !important;
+        }
+
+        /* Estilos responsivos */
+        @media (max-width: 768px) {
+            .problem-text {
+                font-size: 1em;
+                padding-right: 10px;
+            }
+            
+            input[type="number"], select {
+                padding: 6px 8px;
+                font-size: 0.9em;
+            }
+            
+            .static-math {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="text-center">
+            <h1>Productos Notables: Diferencia de Cuadrados</h1>
+            <p class="instruction">Completa los coeficientes que faltan y selecciona el signo correcto.</p>
+            <div class="formula-box">
+                (a + b)(a - b) = a² - b²
+                <div class="rule-box">
+                    <small>Regla: El cuadrado del primer término <strong>-</strong> el cuadrado del segundo término.</small>
+                </div>
+            </div>
+        </header>
+
+        <form id="algebraForm" class="quiz-container">
+            <div class="table-responsive">
+                <table id="exerciseTable">
+                    <thead>
+                        <tr>
+                            <th width="5%">#</th>
+                            <th width="35%">Ejercicio</th>
+                            <th width="5%"></th>
+                            <th width="55%">Resultado (a² - b²)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                        <!-- Los ejercicios se generarán aquí dinámicamente -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="text-center">
+                <button type="button" class="btn btn-primary" onclick="verificar()">Validar Resultados</button>
+            </div>
+            
+            <div id="score-display"></div>
+        </form>
+        
+        <div class="text-center mt-4">
+            <a href="index.html" class="nav-link">Volver al Inicio</a>
+        </div>
+    </div>
+
+    <script>
+        // Configuración de los ejercicios
+        const problems = [
+            { q: "(x + 3)(x - 3)",       term1_static: "x²", ans_c1: 1,  ans_sign: "-", term2_static: "",   ans_c2: 9 },
+            { q: "(y - 5)(y + 5)",       term1_static: "y²", ans_c1: 1,  ans_sign: "-", term2_static: "",   ans_c2: 25 },
+            { q: "(2a + 4)(2a - 4)",     term1_static: "a²", ans_c1: 4,  ans_sign: "-", term2_static: "",   ans_c2: 16 },
+            { q: "(3m - 2)(3m + 2)",     term1_static: "m²", ans_c1: 9,  ans_sign: "-", term2_static: "",   ans_c2: 4 },
+            { q: "(x + 7y)(x - 7y)",     term1_static: "x²", ans_c1: 1,  ans_sign: "-", term2_static: "y²", ans_c2: 49 },
+            { q: "(4x² + 1)(4x² - 1)",   term1_static: "x⁴", ans_c1: 16, ans_sign: "-", term2_static: "",   ans_c2: 1 },
+            { q: "(5a + 3b)(5a - 3b)",   term1_static: "a²", ans_c1: 25, ans_sign: "-", term2_static: "b²", ans_c2: 9 },
+            { q: "(k³ - 8)(k³ + 8)",     term1_static: "k⁶", ans_c1: 1,  ans_sign: "-", term2_static: "",   ans_c2: 64 },
+            { q: "(10 + z)(10 - z)",     term1_static: "",   ans_c1: 100,ans_sign: "-", term2_static: "z²", ans_c2: 1 },
+            { q: "(2xy + 5)(2xy - 5)",   term1_static: "x²y²", ans_c1: 4, ans_sign: "-", term2_static: "",  ans_c2: 25 }
+        ];
+
+        // Generar la tabla dinámicamente cuando el DOM esté listo
+        document.addEventListener('DOMContentLoaded', function() {
+            const tbody = document.getElementById('tableBody');
+            
+            problems.forEach((p, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td><strong>${index + 1}</strong></td>
+                    <td class="problem-text">${p.q}</td>
+                    <td class="equal-sign">=</td>
+                    <td>
+                        <input type="number" id="c1_${index}" placeholder="#">
+                        <span class="static-math">${p.term1_static}</span>
+                        
+                        <select id="sign_${index}">
+                            <option value="">?</option>
+                            <option value="+">+</option>
+                            <option value="-">-</option>
+                        </select>
+                        
+                        <input type="number" id="c2_${index}" placeholder="#">
+                        <span class="static-math">${p.term2_static}</span>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        });
+
+        function verificar() {
+            let score = 0;
+            const totalInputs = problems.length * 3; // 3 campos por problema (coef1, signo, coef2)
+            const scoreDisplay = document.getElementById('score-display');
+
+            // Resetear estilos
+            document.querySelectorAll('input, select').forEach(el => {
+                el.classList.remove('valid', 'invalid');
+            });
+
+            // Validar cada ejercicio
+            problems.forEach((p, index) => {
+                const inputC1 = document.getElementById(`c1_${index}`);
+                const inputSign = document.getElementById(`sign_${index}`);
+                const inputC2 = document.getElementById(`c2_${index}`);
+
+                // Validar Coeficiente 1
+                if (parseInt(inputC1.value) === p.ans_c1) {
+                    inputC1.classList.add('valid');
+                    score++;
+                } else {
+                    inputC1.classList.add('invalid');
+                }
+
+                // Validar Signo
+                if (inputSign.value === p.ans_sign) {
+                    inputSign.classList.add('valid');
+                    score++;
+                } else {
+                    inputSign.classList.add('invalid');
+                }
+
+                // Validar Coeficiente 2
+                if (parseInt(inputC2.value) === p.ans_c2) {
+                    inputC2.classList.add('valid');
+                    score++;
+                } else {
+                    inputC2.classList.add('invalid');
+                }
+            });
+
+            // Calcular porcentaje
+            const percentage = Math.round((score / totalInputs) * 100);
+            
+            // Mostrar resultados
+            scoreDisplay.className = 'visible';
+            
+            if (percentage === 100) {
+                scoreDisplay.innerHTML = `
+                    <div class="result-success">
+                        <h3>¡Excelente! ${percentage}%</h3>
+                        <p>¡Dominas perfectamente la diferencia de cuadrados!</p>
+                        <p>${score} de ${totalInputs} respuestas correctas</p>
+                    </div>`;
+            } else if (percentage >= 70) {
+                scoreDisplay.innerHTML = `
+                    <div class="result-info">
+                        <h3>¡Buen trabajo! ${percentage}%</h3>
+                        <p>Vas por buen camino, sigue practicando.</p>
+                        <p>${score} de ${totalInputs} respuestas correctas</p>
+                    </div>`;
+            } else {
+                scoreDisplay.innerHTML = `
+                    <div class="result-warning">
+                        <h3>Sigue practicando ${percentage}%</h3>
+                        <p>Revisa los campos marcados en rojo e inténtalo de nuevo.</p>
+                        <p>${score} de ${totalInputs} respuestas correctas</p>
+                    </div>`;
+            }
+
+            // Desplazarse suavemente a los resultados
+            scoreDisplay.scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Hacer la función accesible globalmente
+        window.verificar = verificar;
+    </script>
+</body>
+</html>

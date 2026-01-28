@@ -202,6 +202,15 @@ p {
     border-left: 4px solid var(--success-color);
     color: var(--success-color);
 }
+.rule-box {
+    background: var(--primary-color);
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 15px;
+    font-size: 1.2rem;
+    box-shadow: 0 5px 15px rgba(74, 20, 140, 0.3);
+}
 
 .result-warning {
     background-color: rgba(255, 193, 7, 0.1);
