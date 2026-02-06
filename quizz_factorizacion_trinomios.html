@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorización de Trinomios | JMGV</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        /* Estilos específicos para el cuestionario de factorización */
+        .formula-box {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            display: inline-block;
+            font-size: 1.2em;
+            font-weight: 500;
+            margin: 1rem 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .rule-box {
+            background: rgba(255, 255, 255, 0.15);
+            border-left: 3px solid var(--accent-color);
+            padding: 10px 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            font-size: 0.95em;
+            color: white;
+        }
+
+        /* Contenedor de tabla responsiva */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 1.5rem 0;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 700px;
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 15px 10px;
+            text-align: center;
+            vertical-align: middle;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        /* Estilos de los Inputs y Selects */
+        .expression {
+            font-size: 1.1em;
+            font-weight: 500;
+            color: var(--text-dark);
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        input[type="text"], input[type="number"] {
+            width: 60px;
+            padding: 8px 10px;
+            border: 2px solid #e0e0e0;
+            border-radius: var(--border-radius);
+            text-align: center;
+            font-size: 1em;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        input:focus, select:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(74, 111, 165, 0.2);
+        }
+
+        select {
+            padding: 8px 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: var(--border-radius);
+            background-color: white;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .math-static {
+            font-family: 'Times New Roman', Times, serif;
+            font-style: italic;
+            white-space: nowrap;
+            margin: 0 3px;
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        /* Estilos para los mensajes de resultado */
+        #final-score {
+            text-align: center;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            transition: all 0.5s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        #final-score.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Feedback Visual */
+        .valid {
+            border-color: var(--success-color) !important;
+            background-color: rgba(40, 167, 69, 0.1) !important;
+            color: var(--success-color) !important;
+        }
+
+        .invalid {
+            border-color: var(--danger-color) !important;
+            background-color: rgba(220, 53, 69, 0.1) !important;
+        }
+
+        /* Estilos responsivos */
+        @media (max-width: 768px) {
+            input[type="text"], input[type="number"] {
+                padding: 6px 8px;
+                font-size: 0.9em;
+                width: 50px;
+            }
+            
+            .math-static {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="text-center">
+            <h1>Factorización de Trinomios</h1>
+            <p class="instruction">Completa los coeficientes y signos faltantes para cada ejercicio.</p>
+        </header>
+
+        <section>
+            <h2>1. Trinomios Cuadrados Perfectos (TCP)</h2>
+            <div class="formula-box">
+                a² ± 2ab + b² = (a ± b)²
+                <div class="rule-box">
+                    <small>Regla: El cuadrado del primer término <strong>±</strong> doble del primer término por el segundo <strong>+</strong> cuadrado del segundo término.</small>
+                </div>
+            </div>
+            
+            <div class="table-responsive">
+                <table id="tcp-table">
+                    <thead>
+                        <tr>
+                            <th width="30%">Trinomio</th>
+                            <th width="70%">Factorización (Binomio al Cuadrado)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tcp-body">
+                        <!-- Los ejercicios se generarán aquí dinámicamente -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section>
+            <h2>2. Trinomios de la forma x² + bx + c</h2>
+            <div class="formula-box">
+                x² + (m+n)x + mn = (x + m)(x + n)
+                <div class="rule-box">
+                    <small>Busca dos números que sumados den <strong>b</strong> y multiplicados den <strong>c</strong>.</small>
+                </div>
+            </div>
+            
+            <div class="table-responsive">
+                <table id="x2-table">
+                    <thead>
+                        <tr>
+                            <th width="30%">Trinomio</th>
+                            <th width="70%">Factorización (Producto de Binomios)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="x2-body">
+                        <!-- Los ejercicios se generarán aquí dinámicamente -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <div class="text-center">
+            <button type="button" class="btn btn-primary" onclick="verificarTodo()">Validar Resultados</button>
+        </div>
+        
+        <div id="final-score"></div>
+        
+        <div class="text-center mt-4">
+            <a href="index.html" class="nav-link">Volver al Inicio</a>
+        </div>
+    </div>
+
+    <script>
+        // Configuración de los ejercicios
+        
+        // 5 TCP: Estructura (a sign b)^2
+        const tcpExercises = [
+            { expr: "x² + 6x + 9",     ans_a: "x",  ans_sign: "+", ans_b: "3" },
+            { expr: "x² - 10x + 25",   ans_a: "x",  ans_sign: "-", ans_b: "5" },
+            { expr: "4m² + 12m + 9",   ans_a: "2m", ans_sign: "+", ans_b: "3" },
+            { expr: "y² - 14y + 49",   ans_a: "y",  ans_sign: "-", ans_b: "7" },
+            { expr: "9a² - 6a + 1",    ans_a: "3a", ans_sign: "-", ans_b: "1" }
+        ];
+
+        // 5 Forma x²+bx+c: Estructura (var sign1 num1)(var sign2 num2)
+        const x2Exercises = [
+            { expr: "x² + 7x + 10",    v: "x", s1: "+", n1: 5, s2: "+", n2: 2 }, // (x+5)(x+2)
+            { expr: "x² - 5x + 6",     v: "x", s1: "-", n1: 3, s2: "-", n2: 2 }, // (x-3)(x-2)
+            { expr: "m² + 3m - 10",    v: "m", s1: "+", n1: 5, s2: "-", n2: 2 }, // (m+5)(m-2)
+            { expr: "y² - y - 20",     v: "y", s1: "-", n1: 5, s2: "+", n2: 4 }, // (y-5)(y+4)
+            { expr: "a² + 8a + 15",    v: "a", s1: "+", n1: 5, s2: "+", n2: 3 }  // (a+5)(a+3)
+        ];
+
+        // Generar la tabla dinámicamente cuando el DOM esté listo
+        document.addEventListener('DOMContentLoaded', function() {
+            // Render TCP
+            const tcpBody = document.getElementById('tcp-body');
+            tcpExercises.forEach((ex, i) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td class="expression">${ex.expr}</td>
+                    <td>
+                        <span class="math-static">(</span>
+                        <input type="text" id="tcp_a_${i}" placeholder="a">
+                        <select id="tcp_s_${i}">
+                            <option value="">?</option>
+                            <option value="+">+</option>
+                            <option value="-">-</option>
+                        </select>
+                        <input type="text" id="tcp_b_${i}" placeholder="b">
+                        <span class="math-static">)²</span>
+                    </td>
+                `;
+                tcpBody.appendChild(row);
+            });
+
+            // Render X2
+            const x2Body = document.getElementById('x2-body');
+            x2Exercises.forEach((ex, i) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td class="expression">${ex.expr}</td>
+                    <td>
+                        <span class="math-static">(</span>
+                        <input type="text" id="x2_v1_${i}" placeholder="var" style="width:40px">
+                        <select id="x2_s1_${i}">
+                            <option value="">?</option>
+                            <option value="+">+</option>
+                            <option value="-">-</option>
+                        </select>
+                        <input type="number" id="x2_n1_${i}" placeholder="#">
+                        <span class="math-static">)</span>
+                        
+                        <span class="math-static">(</span>
+                        <input type="text" id="x2_v2_${i}" placeholder="var" style="width:40px">
+                        <select id="x2_s2_${i}">
+                            <option value="">?</option>
+                            <option value="+">+</option>
+                            <option value="-">-</option>
+                        </select>
+                        <input type="number" id="x2_n2_${i}" placeholder="#">
+                        <span class="math-static">)</span>
+                    </td>
+                `;
+                x2Body.appendChild(row);
+            });
+        });
+
+        function verificarTodo() {
+            let score = 0;
+            const total = tcpExercises.length + x2Exercises.length;
+            const finalDiv = document.getElementById('final-score');
+
+            // Resetear estilos
+            document.querySelectorAll('input, select').forEach(el => {
+                el.classList.remove('valid', 'invalid');
+            });
+
+            // 1. Validar TCP
+            tcpExercises.forEach((ex, i) => {
+                const inputA = document.getElementById(`tcp_a_${i}`);
+                const inputS = document.getElementById(`tcp_s_${i}`);
+                const inputB = document.getElementById(`tcp_b_${i}`);
+
+                const isA = inputA.value.trim() === ex.ans_a;
+                const isS = inputS.value === ex.ans_sign;
+                const isB = inputB.value.trim() === ex.ans_b;
+
+                setStyle(inputA, isA);
+                setStyle(inputS, isS);
+                setStyle(inputB, isB);
+
+                if(isA && isS && isB) score++;
+            });
+
+            // 2. Validar X2 + BX + C
+            x2Exercises.forEach((ex, i) => {
+                // Binomio 1 Inputs
+                const v1 = document.getElementById(`x2_v1_${i}`);
+                const s1 = document.getElementById(`x2_s1_${i}`);
+                const n1 = document.getElementById(`x2_n1_${i}`);
+                
+                // Binomio 2 Inputs
+                const v2 = document.getElementById(`x2_v2_${i}`);
+                const s2 = document.getElementById(`x2_s2_${i}`);
+                const n2 = document.getElementById(`x2_n2_${i}`);
+
+                // Validar variables
+                const okV1 = v1.value.trim() === ex.v;
+                const okV2 = v2.value.trim() === ex.v;
+                setStyle(v1, okV1);
+                setStyle(v2, okV2);
+
+                // Verificar coincidencia directa o cruzada
+                const matchDirect = (s1.value === ex.s1 && parseInt(n1.value) === ex.n1) && 
+                                  (s2.value === ex.s2 && parseInt(n2.value) === ex.n2);
+                
+                const matchCross = (s1.value === ex.s2 && parseInt(n1.value) === ex.n2) && 
+                                 (s2.value === ex.s1 && parseInt(n2.value) === ex.n1);
+
+                if (matchDirect || matchCross) {
+                    if(okV1 && okV2) score++;
+                    // Marcar todo verde
+                    setStyle(s1, true); setStyle(n1, true);
+                    setStyle(s2, true); setStyle(n2, true);
+                } else {
+                    // Marcar individualmente
+                    setStyle(s1, s1.value === ex.s1); 
+                    setStyle(n1, parseInt(n1.value) === ex.n1);
+                    setStyle(s2, s2.value === ex.s2); 
+                    setStyle(n2, parseInt(n2.value) === ex.n2);
+                }
+            });
+
+            // Mostrar resultados
+            const percentage = Math.round((score / total) * 100);
+            finalDiv.className = 'visible';
+            
+            let message = "";
+            if (percentage === 100) {
+                message = `
+                    <div class="result-success">
+                        <h3>¡Perfecto! ${percentage}%</h3>
+                        <p>¡Dominas perfectamente la factorización de trinomios!</p>
+                        <p>${score} de ${total} respuestas correctas</p>
+                    </div>`;
+            } else if (percentage >= 70) {
+                message = `
+                    <div class="result-info">
+                        <h3>¡Buen trabajo! ${percentage}%</h3>
+                        <p>Vas por buen camino, sigue practicando.</p>
+                        <p>${score} de ${total} respuestas correctas</p>
+                    </div>`;
+            } else {
+                message = `
+                    <div class="result-warning">
+                        <h3>Sigue practicando ${percentage}%</h3>
+                        <p>Revisa los campos marcados en rojo y recuerda las reglas de factorización.</p>
+                        <p>${score} de ${total} respuestas correctas</p>
+                    </div>`;
+            }
+            
+            finalDiv.innerHTML = message;
+            finalDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function setStyle(element, isValid) {
+            if(isValid) {
+                element.classList.remove('invalid');
+                element.classList.add('valid');
+            } else {
+                element.classList.remove('valid');
+                element.classList.add('invalid');
+            }
+        }
+        
+        // Hacer la función accesible globalmente
+        window.verificarTodo = verificarTodo;
+    </script>
+				<footer>
+					<p>Copyright &copy; 2026 JMGV-PTEL. Todos los derechos reservados.</p>
+				</footer>
+</body>
+</html>
