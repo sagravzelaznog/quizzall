@@ -1,0 +1,97 @@
+:root {
+	--primary: #1a365d;
+	--accent: #d4af37;
+	--bg: #f4f4f4;
+	--text: #2d3748;
+	--white: #ffffff;
+}
+
+body {
+	font-family: 'Segoe UI', sans-serif;
+	background-color: var(--bg);
+	color: var(--text);
+	margin: 0;
+	line-height: 1.6;
+}
+
+header {
+	background-color: var(--primary);
+	color: var(--white);
+	padding: 3rem 1rem;
+	text-align: center;
+	border-bottom: 5px solid var(--accent);
+}
+
+.branding {
+	font-size: 0.9rem;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	opacity: 0.8;
+}
+
+.instructor {
+	font-style: italic;
+	color: var(--accent);
+}
+
+.container {
+	max-width: 900px;
+	margin: 2rem auto;
+	padding: 0 1rem;
+}
+
+.card {
+	background: var(--white);
+	padding: 2rem;
+	margin-bottom: 1.5rem;
+	border-radius: 8px;
+	box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+h2 {
+	color: var(--primary);
+	border-bottom: 2px solid var(--accent);
+	display: inline-block;
+	padding-bottom: 5px;
+}
+
+.step {
+	background: #f8fafc;
+	padding: 1rem;
+	border-left: 4px solid var(--primary);
+	margin-top: 1rem;
+}
+
+input {
+	padding: 10px;
+	border: 2px solid #e2e8f0;
+	border-radius: 4px;
+	margin-right: 10px;
+}
+
+button {
+	background-color: var(--primary);
+	color: white;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+button:hover {
+	background-color: var(--accent);
+	color: var(--primary);
+}
+
+footer {
+	text-align: center;
+	padding: 2rem;
+	background: var(--primary);
+	color: var(--white);
+	font-size: 0.8rem;
+	margin-top: 3rem;
+}
+
+.success { color: #2f855a; font-weight: bold; }
+.error { color: #c53030; }

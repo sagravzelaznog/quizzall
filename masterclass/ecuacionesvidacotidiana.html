@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masterclass: Ecuaciones en la Vida Cotidiana | JMGV-PTEL</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+				<script>
+					window.MathJax = {
+							tex: {
+									// Aquí le decimos que reconozca el signo de peso simple como fórmula en línea
+									inlineMath: [['$', '$'], ['\\(', '\\)']]
+							}
+					};
+			</script>
+			
+			<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+			</head>
+<body>
+    <header>
+        <div class="branding">Pedagogo, Andragogo y Genio Matemático</div>
+        <h1>Ecuaciones en la Vida Cotidiana</h1>
+        <p class="instructor">Instructor: José Manuel González Vargas</p>
+    </header>
+
+    <main class="container">
+        <section class="intro card">
+            <h2>¿Por qué usamos ecuaciones?</h2>
+            <p>Una ecuación no es más que una balanza en equilibrio. En la vida diaria, las usamos para predecir costos, calcular tiempos y optimizar recursos sin darnos cuenta.</p>
+        </section>
+
+        <section class="examples">
+            <h2>Ejemplos Maestros</h2>
+            
+            <article class="card">
+                <h3>Ejemplo 1: El Presupuesto de Compras (Álgebra)</h3>
+                <p>Quieres comprar 5 cuadernos iguales y te sobran $20$ pesos de un billete de $200$ pesos. ¿Cuánto cuesta cada cuaderno?</p>
+                <div class="step">
+                    <strong>Paso 1:</strong> Definir la variable. $x$ = precio del cuaderno.<br>
+                    <strong>Paso 2:</strong> Plantear la ecuación: $$5x + 20 = 200$$
+                    <strong>Paso 3:</strong> Resolver: $5x = 180 \rightarrow x = 36$.
+                </div>
+            </article>
+
+            <article class="card">
+                <h3>Ejemplo 2: La Sombra y la Altura (Trigonometría)</h3>
+                <p>Un poste proyecta una sombra de 3 metros cuando el sol está a 60°. ¿Cuál es la altura del poste?</p>
+                <div class="step">
+                    <strong>Paso 1:</strong> Usar la función tangente: $$\tan(60^\circ) = \frac{h}{3}$$
+                    <strong>Paso 2:</strong> Despejar altura ($h$): $h = 3 \cdot \tan(60^\circ) \approx 5.19\text{ m}$.
+                </div>
+            </article>
+
+            <article class="card">
+                <h3>Ejemplo 3: Rendimiento de Combustible (Aritmética/Álgebra)</h3>
+                <p>Tu auto consume 8 litros por cada 100km. Tienes 12 litros. ¿Cuántos km puedes recorrer?</p>
+                <div class="step">
+                    <strong>Paso 1:</strong> Relación proporcional: $$\frac{8}{100} = \frac{12}{x}$$
+                    <strong>Paso 2:</strong> Resolver: $8x = 1200 \rightarrow x = 150\text{ km}$.
+                </div>
+            </article>
+        </section>
+
+        <section class="activities">
+            <h2>Desafíos de Aplicación</h2>
+            
+            <div class="card activity" id="act1">
+                <h4>Actividad 1: El Plan de Ahorro</h4>
+                <p>Si ahorras $15$ pesos diarios, ¿en cuántos días tendrás $1,200$ pesos? </p>
+                <input type="number" id="ans1" placeholder="Días">
+                <button onclick="checkAct1()">Validar</button>
+                <p id="feedback1"></p>
+            </div>
+
+            <div class="card activity" id="act2">
+                <h4>Actividad 2: Triangulación de Rescate</h4>
+                <p>Un dron observa un objetivo con un ángulo de depresión de 30°. Si el dron está a 50m de altura, ¿a qué distancia horizontal está el objetivo?</p>
+                <p>Usa: $$\tan(30^\circ) = \frac{50}{d}$$</p>
+                <input type="number" id="ans2" placeholder="Distancia (m)">
+                <button onclick="checkAct2()">Validar</button>
+                <p id="feedback2"></p>
+            </div>
+
+            <div class="card activity" id="act3">
+                <h4>Actividad 3: Mezcla de Negocios</h4>
+                <p>Tienes que pagar $450 por un servicio. El IVA es del 16%. ¿Cuál es el precio base antes de impuestos?</p>
+                <input type="number" id="ans3" placeholder="Precio Base">
+                <button onclick="checkAct3()">Validar</button>
+                <p id="feedback3"></p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>copyright &copy;JMGV-PTEL-2026. masterclass ecuaciones en la vida cotidiana. Todos los derechos reservados</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
