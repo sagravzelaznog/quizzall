@@ -95,3 +95,21 @@ footer {
 
 .success { color: #2f855a; font-weight: bold; }
 .error { color: #c53030; }
+.container::before {
+	content: "";
+	position: absolute;
+	top: 0; left: 0;
+	width: 100%;
+	height: 100%;
+	
+	/* Aquí va tu imagen */
+	background-image: url('../logo final.png');
+	background-size: cover;
+	background-position: contain;
+	
+	/* LA CLAVE: Opacidad solo a la imagen */
+	opacity: 0.05;  /* 0.0 es invisible, 1.0 es sólido */
+	
+	/* Z-Index negativo para que quede DETRÁS del texto */
+	z-index: 1; 
+}

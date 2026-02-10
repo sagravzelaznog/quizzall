@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masterclass: Despeje de Variables | JMGV-PTEL</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <header>
+        <div class="branding">Pedagogo, Andragogo y Genio Matemático</div>
+        <h1>Dominando el Despeje de Variables</h1>
+        <p class="instructor">Por: José Manuel González Vargas</p>
+    </header>
+
+    <main class="container">
+        <section class="card intro">
+            <h2><span class="step-num">!</span> La Regla de Oro</h2>
+            <p>Despejar es dejar sola a la variable. Imagina una balanza: lo que haces de un lado, debes hacerlo del otro usando la <strong>Operación Inversa</strong>.</p>
+            <ul>
+                <li>Suma \(\leftrightarrow\) Resta</li>
+                <li>Multiplicación \(\leftrightarrow\) División</li>
+                <li>Potencia \(\leftrightarrow\) Raíz</li>
+            </ul>
+        </section>
+
+        <section class="examples">
+            <h2>Ejemplos Guiados</h2>
+            
+            <article class="card">
+                <h3>Ejemplo 1: Trasposición Simple</h3>
+                <p>Despejar \(x\) en: \(x + 15 = 40\)</p>
+                <div class="step-box">
+                    <strong>Paso 1:</strong> El 15 está sumando, pasa al otro lado restando.<br>
+                    <strong>Paso 2:</strong> \(x = 40 - 15\)<br>
+                    <strong>Resultado:</strong> \(x = 25\)
+                </div>
+            </article>
+
+            <article class="card">
+                <h3>Ejemplo 2: Despeje de Coeficiente</h3>
+                <p>Despejar \(y\) en: \(3y - 4 = 11\)</p>
+                <div class="step-box">
+                    <strong>Paso 1:</strong> El 4 resta, pasa sumando: \(3y = 11 + 4 \rightarrow 3y = 15\).<br>
+                    <strong>Paso 2:</strong> El 3 multiplica, pasa dividiendo: \(y = \frac{15}{3}\).<br>
+                    <strong>Resultado:</strong> \(y = 5\)
+                </div>
+            </article>
+
+            <article class="card">
+                <h3>Ejemplo 3: Aplicación Trigonométrica</h3>
+                <p>Despejar el cateto opuesto (\(o\)) en: \(\sin(\theta) = \frac{o}{h}\)</p>
+                <div class="step-box">
+                    <strong>Paso 1:</strong> La hipotenusa (\(h\)) divide al opuesto.<br>
+                    <strong>Paso 2:</strong> Pasa al otro lado multiplicando al seno.<br>
+                    <strong>Resultado:</strong> \(o = h \cdot \sin(\theta)\)
+                </div>
+            </article>
+        </section>
+
+        <section class="activities">
+            <h2>Desafíos de Aplicación</h2>
+            <p class="score-display">Puntuación: <span id="current-score">0</span> / 3</p>
+
+            <div class="card" id="act-1">
+                <h4>Actividad 1: Álgebra Básica</h4>
+                <p>Despeja \(x\): \(x - 12 = 30\)</p>
+                <input type="number" id="input-1" placeholder="Valor de x">
+                <button onclick="checkAnswer(1, 42)">Verificar</button>
+            </div>
+
+            <div class="card" id="act-2">
+                <h4>Actividad 2: Ecuación Lineal</h4>
+                <p>Despeja \(x\): \(2x + 10 = 50\)</p>
+                <input type="number" id="input-2" placeholder="Valor de x">
+                <button onclick="checkAnswer(2, 20)">Verificar</button>
+            </div>
+
+            <div class="card" id="act-3">
+                <h4>Actividad 3: Geometría / Aritmética</h4>
+                <p>Despeja el radio (\(r\)) en el área de un círculo si \(A = \pi \cdot r^2\).<br>
+                Si \(A = 314.16\) y \(\pi = 3.1416\), ¿cuánto vale \(r\)?</p>
+                <input type="number" id="input-3" placeholder="Valor de r">
+                <button onclick="checkAnswer(3, 10)">Verificar</button>
+            </div>
+        </section>
+
+        <section id="special-reward" class="card reward-hidden">
+            <div class="reward-content">
+                <h3>🏆 ¡Mensaje de Genio Desbloqueado!</h3>
+                <p>"Has demostrado que el equilibrio de las ecuaciones es el reflejo de una mente ordenada. Tu dominio del despeje es la base del éxito en el cálculo avanzado. ¡Felicidades, colega Genio Matemático!"</p>
+                <p><strong>- JMGV-PTEL</strong></p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>copyright &copy;JMGV-PTEL-2026. masterclass despeje de variables. Todos los derechos reservados</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
