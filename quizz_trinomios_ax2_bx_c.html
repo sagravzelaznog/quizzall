@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorización de Trinomios ax² + bx + c | JMGV</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos específicos para el cuestionario de factorización */
+        .formula-box {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            display: inline-block;
+            font-size: 1.2em;
+            font-weight: 500;
+            margin: 1rem 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .rule-box {
+            background: rgba(255, 255, 255, 0.15);
+            border-left: 3px solid var(--accent-color);
+            padding: 10px 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            font-size: 0.95em;
+            color: white;
+        }
+
+        /* Contenedor de tabla responsiva */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 1.5rem 0;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 900px;
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 15px 10px;
+            text-align: center;
+            vertical-align: middle;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        /* Estilos de los Inputs y Selects */
+        .expression {
+            font-size: 1.1em;
+            font-weight: 500;
+            color: var(--text-dark);
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        input[type="text"], input[type="number"] {
+            width: 60px;
+            padding: 8px 10px;
+            border: 2px solid #e0e0e0;
+            border-radius: var(--border-radius);
+            text-align: center;
+            font-size: 1em;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        input:focus, select:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(74, 111, 165, 0.2);
+        }
+
+        select {
+            padding: 8px 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: var(--border-radius);
+            background-color: white;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .math-static {
+            font-family: 'Times New Roman', Times, serif;
+            font-style: italic;
+            white-space: nowrap;
+            margin: 0 3px;
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        /* Estilos para los mensajes de resultado */
+        #result {
+            text-align: center;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            transition: all 0.5s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        #result.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Feedback Visual */
+        .valid {
+            border-color: var(--success-color) !important;
+            background-color: rgba(40, 167, 69, 0.1) !important;
+            color: var(--success-color) !important;
+        }
+
+        .invalid {
+            border-color: var(--danger-color) !important;
+            background-color: rgba(220, 53, 69, 0.1) !important;
+        }
+
+        /* Estilos responsivos */
+        @media (max-width: 768px) {
+            input[type="text"], input[type="number"] {
+                padding: 6px 8px;
+                font-size: 0.9em;
+                width: 50px;
+            }
+            
+            .math-static {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="text-center">
+            <h1>Factorización de Trinomios de la forma ax² + bx + c</h1>
+            <p class="instruction">Factoriza cada trinomio en la forma (px + q)(rx + s)</p>
+            <div class="formula-box">
+                ax² + bx + c = (px + q)(rx + s)
+                <div class="rule-box">
+                    <small>Regla: Encuentra p, q, r, s tales que p×r = a, q×s = c, y p×s + q×r = b</small>
+                </div>
+            </div>
+        </header>
+
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th width="5%">#</th>
+                        <th width="25%">Trinomio</th>
+                        <th width="5%"></th>
+                        <th width="65%">Factorización (px + q)(rx + s)</th>
+                    </tr>
+                </thead>
+                <tbody id="exercise-body">
+                    <!-- Los ejercicios se generarán aquí dinámicamente -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="text-center">
+            <button type="button" class="btn btn-primary" onclick="checkAnswers()">Validar Respuestas</button>
+        </div>
+        
+        <div id="result"></div>
+        
+        <div class="text-center mt-4">
+            <a href="index.html" class="nav-link">Volver al Inicio</a>
+        </div>
+    </div>
+
+    <script>
+        // Configuración de los ejercicios
+        const exercises = [
+            { id: 1, a: 2, b: 7, c: 3, p: 2, q: 1, r: 1, s: 3 },
+            { id: 2, a: 3, b: 11, c: 6, p: 3, q: 2, r: 1, s: 3 },
+            { id: 3, a: 5, b: 17, c: 6, p: 5, q: 2, r: 1, s: 3 },
+            { id: 4, a: 2, b: 5, c: 3, p: 2, q: 3, r: 1, s: 1 },
+            { id: 5, a: 3, b: 10, c: 3, p: 3, q: 1, r: 1, s: 3 },
+            { id: 6, a: 4, b: 8, c: 3, p: 2, q: 1, r: 2, s: 3 },
+            { id: 7, a: 6, b: 11, c: 3, p: 3, q: 1, r: 2, s: 3 },
+            { id: 8, a: 5, b: 16, c: 3, p: 5, q: 1, r: 1, s: 3 },
+            { id: 9, a: 4, b: 13, c: 3, p: 4, q: 1, r: 1, s: 3 },
+            { id: 10, a: 7, b: 19, c: 6, p: 7, q: 5, r: 1, s: 6 }
+        ];
+
+        // Generar la tabla dinámicamente cuando el DOM esté listo
+        document.addEventListener('DOMContentLoaded', function() {
+            const tbody = document.getElementById('exercise-body');
+            
+            exercises.forEach((ex, index) => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td><strong>${index + 1}</strong></td>
+                    <td class="expression">${ex.a}x² + ${ex.b}x + ${ex.c}</td>
+                    <td class="math-static">=</td>
+                    <td>
+                        <span class="math-static">(</span>
+                        <input type="number" id="p-${index}" placeholder="p" min="-20" max="20">
+                        <span class="math-static">x</span>
+                        <select id="s1-${index}">
+                            <option value="+">+</option>
+                            <option value="-">-</option>
+                        </select>
+                        <input type="number" id="q-${index}" placeholder="q" min="1" max="20">
+                        <span class="math-static">)(</span>
+                        <input type="number" id="r-${index}" placeholder="r" min="-20" max="20">
+                        <span class="math-static">x</span>
+                        <select id="s2-${index}">
+                            <option value="+">+</option>
+                            <option value="-">-</option>
+                        </select>
+                        <input type="number" id="s-${index}" placeholder="s" min="1" max="20">
+                        <span class="math-static">)</span>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        });
+
+        function checkAnswers() {
+            let correctCount = 0;
+            const resultDiv = document.getElementById('result');
+            
+            // Reset styles
+            document.querySelectorAll('input, select').forEach(el => {
+                el.classList.remove('valid', 'invalid');
+            });
+
+            exercises.forEach((ex, index) => {
+                const p = parseInt(document.getElementById(`p-${index}`).value) || 0;
+                const q = parseInt(document.getElementById(`q-${index}`).value) || 0;
+                const r = parseInt(document.getElementById(`r-${index}`).value) || 0;
+                const s = parseInt(document.getElementById(`s-${index}`).value) || 0;
+                const s1 = document.getElementById(`s1-${index}`).value;
+                const s2 = document.getElementById(`s2-${index}`).value;
+
+                // Check if the factorization is correct
+                const correct1 = (p === ex.p && q === ex.q && r === ex.r && s === ex.s);
+                const correct2 = (p === ex.r && q === ex.s && r === ex.p && s === ex.q);
+                
+                const rowInputs = [
+                    document.getElementById(`p-${index}`), 
+                    document.getElementById(`q-${index}`), 
+                    document.getElementById(`r-${index}`), 
+                    document.getElementById(`s-${index}`),
+                    document.getElementById(`s1-${index}`),
+                    document.getElementById(`s2-${index}`)
+                ];
+
+                if (correct1 || correct2) {
+                    correctCount++;
+                    rowInputs.forEach(el => el.classList.add('valid'));
+                } else {
+                    rowInputs.forEach(el => el.classList.add('invalid'));
+                }
+            });
+
+            // Show results
+            const percentage = Math.round((correctCount / exercises.length) * 100);
+            resultDiv.className = 'visible';
+            
+            let message = '';
+            if (percentage === 100) {
+                message = `
+                    <div class="result-success">
+                        <h3>¡Perfecto! ${percentage}%</h3>
+                        <p>¡Dominas perfectamente la factorización de trinomios!</p>
+                        <p>${correctCount} de ${exercises.length} respuestas correctas</p>
+                    </div>`;
+            } else if (percentage >= 70) {
+                message = `
+                    <div class="result-info">
+                        <h3>¡Buen trabajo! ${percentage}%</h3>
+                        <p>Vas por buen camino, sigue practicando.</p>
+                        <p>${correctCount} de ${exercises.length} respuestas correctas</p>
+                    </div>`;
+            } else {
+                message = `
+                    <div class="result-warning">
+                        <h3>Sigue practicando ${percentage}%</h3>
+                        <p>Revisa los campos marcados en rojo. Recuerda que (px + q)(rx + s) = ax² + bx + c</p>
+                        <p>${correctCount} de ${exercises.length} respuestas correctas</p>
+                    </div>`;
+            }
+            
+            resultDiv.innerHTML = message;
+            resultDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Hacer la función accesible globalmente
+        window.checkAnswers = checkAnswers;
+    </script>
+</body>
+</html>

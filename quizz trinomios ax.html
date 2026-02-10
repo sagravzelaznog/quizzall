@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorización Especial | JMGV</title>
+    <style>
+        :root {
+            --primary: #1e293b;
+            --secondary: #334155;
+            --accent: #10b981;
+            --bg: #f8fafc;
+            --white: #ffffff;
+            --border: #e2e8f0;
+            --error: #ef4444;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--primary);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 3px solid var(--accent);
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+        }
+
+        .branding {
+            font-size: 0.8rem;
+            color: var(--secondary);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        h1 { margin: 10px 0; color: var(--primary); }
+
+        .instruction {
+            background: #f1f5f9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            font-style: italic;
+            border-left: 4px solid var(--secondary);
+        }
+
+        /* --- CONTENEDOR DE TABLA RESPONSIVA --- */
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            margin-bottom: 30px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 800px;
+        }
+
+        th {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* --- DISEÑO DE CELDAS DE RESPUESTA --- */
+        .factor-group {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        input[type="number"] {
+            width: 50px;
+            padding: 8px;
+            border: 2px solid var(--border);
+            border-radius: 4px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        select {
+            padding: 8px;
+            border: 2px solid var(--border);
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input.correct, select.correct {
+            border-color: var(--accent);
+            background-color: #ecfdf5;
+        }
+
+        input.incorrect, select.incorrect {
+            border-color: var(--error);
+            background-color: #fef2f2;
+        }
+
+        .btn-check {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+
+        .btn-check:hover { background-color: #0f172a; }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 0.85rem;
+            color: var(--secondary);
+            border-top: 1px solid var(--border);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="branding">Pedagogo, Andragogo y Genio Matemático</div>
+        <h1>José Manuel González Vargas</h1>
+        <p>Pensamiento Matemático III: Factorización de Trinomios Especiales</p>
+    </header>
+
+    <div class="instruction">
+        Factoriza los siguientes trinomios de la forma \(ax^2 + bx + c\). Ingresa los coeficientes numéricos y selecciona el signo correspondiente.
+    </div>
+
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th width="5%">#</th>
+                    <th width="35%">Trinomio</th>
+                    <th width="60%">Factorización Final: (px ± q)(rx ± s)</th>
+                </tr>
+            </thead>
+            <tbody id="quiz-body">
+                </tbody>
+        </table>
+    </div>
+
+    <div style="text-align: center;">
+        <button class="btn-check" onclick="checkAll()">Validar Factorización</button>
+        <p id="score-text" style="margin-top: 20px; font-weight: bold;"></p>
+    </div>
+
+    <footer>
+        © 2025-JMGV-PTEL Programa de PENSAMIENTO MATEMÁTICO III. Todos los derechos reservados.
+    </footer>
+</div>
+
+<script>
+    // Base de datos de ejercicios: (px + q)(rx + s)
+    // El orden de los binomios puede variar, la lógica de validación lo permite.
+    const exercises = [
+        { id: 1, text: "2x² + 5x + 3", p: 2, q: 3, r: 1, s: 1, s1: "+", s2: "+" },
+        { id: 2, text: "3x² + 7x + 2", p: 3, q: 1, r: 1, s: 2, s1: "+", s2: "+" },
+        { id: 3, text: "2x² + 7x + 5", p: 2, q: 5, r: 1, s: 1, s1: "+", s2: "+" },
+        { id: 4, text: "5x² + 7x + 2", p: 5, q: 2, r: 1, s: 1, s1: "+", s2: "+" },
+        { id: 5, text: "3x² - 5x - 2", p: 3, q: 1, r: 1, s: 2, s1: "+", s2: "-" },
+        { id: 6, text: "2x² - x - 3",  p: 2, q: 3, r: 1, s: 1, s1: "-", s2: "+" },
+        { id: 7, text: "6x² + 7x + 2", p: 3, q: 2, r: 2, s: 1, s1: "+", s2: "+" },
+        { id: 8, text: "4x² + 8x + 3", p: 2, q: 3, r: 2, s: 1, s1: "+", s2: "+" },
+        { id: 9, text: "2x² + 11x + 5",p: 2, q: 1, r: 1, s: 5, s1: "+", s2: "+" },
+        { id: 10, text: "6x² - 7x - 3",p: 3, q: 1, r: 2, s: 3, s1: "+", s2: "-" }
+    ];
+
+    const body = document.getElementById('quiz-body');
+
+    exercises.forEach((ex, i) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${ex.id}</td>
+            <td><strong>${ex.text}</strong></td>
+            <td>
+                <div class="factor-group">
+                    ( <input type="number" id="p-${i}"> x 
+                    <select id="s1-${i}"><option value="+">+</option><option value="-">-</option></select>
+                    <input type="number" id="q-${i}"> )
+                    ( <input type="number" id="r-${i}"> x 
+                    <select id="s2-${i}"><option value="+">+</option><option value="-">-</option></select>
+                    <input type="number" id="s-${i}"> )
+                </div>
+            </td>
+        `;
+        body.appendChild(row);
+    });
+
+    function checkAll() {
+        let correctCount = 0;
+        exercises.forEach((ex, i) => {
+            const up = parseInt(document.getElementById(`p-${i}`).value);
+            const uq = parseInt(document.getElementById(`q-${i}`).value);
+            const ur = parseInt(document.getElementById(`r-${i}`).value);
+            const us = parseInt(document.getElementById(`s-${i}`).value);
+            const us1 = document.getElementById(`s1-${i}`).value;
+            const us2 = document.getElementById(`s2-${i}`).value;
+
+            // Validación genio: Comprobar ambas combinaciones posibles (p,q,r,s) o (r,s,p,q)
+            const matchNormal = (up === ex.p && uq === ex.q && ur === ex.r && us === ex.s && us1 === ex.s1 && us2 === ex.s2);
+            const matchReverse = (up === ex.r && uq === ex.s && ur === ex.p && us === ex.q && us1 === ex.s2 && us2 === ex.s1);
+
+            const rowInputs = [document.getElementById(`p-${i}`), document.getElementById(`q-${i}`), document.getElementById(`r-${i}`), document.getElementById(`s-${i}`), document.getElementById(`s1-${i}`), document.getElementById(`s2-${i}`)];
+
+            if (matchNormal || matchReverse) {
+                correctCount++;
+                rowInputs.forEach(el => { el.classList.add('correct'); el.classList.remove('incorrect'); });
+            } else {
+                rowInputs.forEach(el => { el.classList.add('incorrect'); el.classList.remove('correct'); });
+            }
+        });
+        document.getElementById('score-text').innerText = `Resultado: ${correctCount} de 10 correctos.`;
+    }
+</script>
+</body>
+</html>
