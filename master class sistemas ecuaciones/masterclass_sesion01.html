@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sesión 01 - Pensamiento Matemático 2</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="hero">
+        <div class="container">
+            <h1>Pensamiento Matemático II</h1>
+            <h2>Sesión 01: Solución de Sistemas de Ecuaciones (Suma y Resta)</h2>
+            <p>Domina la resolución analítica a través del método de eliminación.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="module-section" id="introduccion">
+            <h3>Objetivo de la Sesión</h3>
+            <p>Al finalizar esta sesión, el estudiante será capaz de resolver sistemas de ecuaciones lineales con
+                coeficientes fraccionarios mediante el método de suma y resta (eliminación), comprobando analíticamente
+                sus resultados.</p>
+        </section>
+
+        <section class="module-section" id="ejercicio-practico">
+            <h3>Desarrollo del Ejercicio Práctico</h3>
+            <p>Analizaremos el siguiente sistema de ecuaciones:</p>
+            <div class="math-box">
+                <p>1) \(\frac{3}{4}x + \frac{2}{3}y = \frac{20}{5}\)</p>
+                <p>2) \(5x - 3y = 13\)</p>
+            </div>
+
+            <div class="step-card">
+                <h4>Paso 1: Eliminación de denominadores</h4>
+                <p>Multiplicamos la primera ecuación por el producto de sus denominadores \((4)(3)(5)\).
+                <div class="hidden">
+                    <img src="img/multiplicadenominadores.png" alt="multiplicación de denominadores">
+                </div>
+                Esto nos da como resultado la ecuación simplificada \(45x + 40y = 240\).</p>
+            </div>
+
+            <div class="step-card">
+                <h4>Paso 2: Igualación de coeficientes y suma</h4>
+                <p>Multiplicamos las ecuaciones para eliminar una variable.
+                <div class="hidden">
+                    <img src="img/multiplicaecuaciones.png" alt="igualación de coeficientes">
+                </div>
+                Obtenemos \(135x + 120y = 720\) y \(200x - 120y = 520\). Al sumarlas, eliminamos \(y\),
+                <div class="hidden">
+                    <img src="img/eliminavariable.png" alt="suma de ecuaciones">
+                </div> resultando en \(335x = 1240\).</p>
+            </div>
+
+            <div class="step-card">
+                <h4>Paso 3: Despejar las variables</h4>
+                <p>Resolviendo para \(x\), obtenemos \(x = \frac{1240}{335}\),
+                <div class="hidden">
+                    <img src="img/despejex.png" alt="despeje de x">
+                </div> que se simplifica a \(x = \frac{248}{67}\).</p>
+                <p>Sustituyendo \(x\) en la ecuación original \(5x - 3y = 13\)
+                <div class="hidden">
+                    <img src="img/sustituyex.png" alt="sustitución de x">
+                </div>
+                llegamos a la expresión \(-201y = 871 - 1240\)
+                <div class="hidden">
+                    <img src="img/despejey.png" alt="despeje de y">
+                </div> lo que nos da \(y = \frac{123}{67}\).</p>
+            </div>
+
+            <div class="step-card">
+                <h4>Paso 4: Comprobación</h4>
+                <p>Sustituimos ambos valores en la primera ecuación.
+                <div class="hidden">
+                    <img src="img/comprobacion1.png" alt="comprobación">
+                </div> Para sumar las fracciones \(\frac{744}{268} + \frac{246}{201}\), obtenemos el mínimo común
+                múltiplo (mcm) de los denominadores,
+                <div class="hidden">
+                    <img src="img/mcm.png" alt="mcm">
+                </div> que es \(804\).</p>
+                <p>
+                <div class="hidden">
+                    <img src="img/sumafracciones.png" alt="suma de fracciones">
+                </div>Esto resulta en \(\frac{3216}{804}\). Utilizando el máximo común divisor (mcd), que también es
+                \(804\), <div>
+                    <img src="img/mcd.png" alt="mcd">
+                </div>simplificamos la fracción a \(4\). <div>
+                    <img src="img/resultadodecomprobacion.png" alt="resultado de comprobación">
+                </div>Como \(\frac{20}{5} = 4\), la igualdad se cumple: \(4 = 4\).</p>
+            </div>
+        </section>
+
+        <section class="module-section quiz-container" id="quiz-section">
+            <h3>Evaluación Interactiva</h3>
+            <p>Pon a prueba lo aprendido. Selecciona la respuesta correcta lo más rápido posible.</p>
+            <div id="quiz-app">
+                <div id="question-text" class="question">Presiona "Iniciar" para comenzar.</div>
+                <div id="options-container" class="options"></div>
+                <button id="start-btn" class="btn">Iniciar Quiz</button>
+                <button id="next-btn" class="btn hidden">Siguiente Pregunta</button>
+                <div id="score-display" class="hidden"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>copyright &copy;JMGV-PTEL-2026. sesion 01 pensamiento matematico 2 solucion de sistemas de ecuaciones. Todos
+        los derechos reservados</footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
