@@ -1,0 +1,232 @@
+/* --- VARIABLES Y RESET --- */
+:root {
+	--primary-color: #46178f; /* Kahoot Purple */
+	--secondary-color: #fff;
+	--accent-color: #333;
+	--bg-color: #f4f7f6;
+	--text-color: #333;
+	--border-radius: 8px;
+	
+	/* Kahoot Quiz Colors */
+	--kh-red: #e21b3c;
+	--kh-blue: #1368ce;
+	--kh-yellow: #d89e00;
+	--kh-green: #26890c;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	line-height: 1.6;
+	background-color: var(--bg-color);
+	color: var(--text-color);
+}
+
+.container {
+	width: 90%;
+	max-width: 1100px;
+	margin: 0 auto;
+	padding: 20px 0;
+}
+
+hr {
+	border: 0;
+	border-top: 2px solid #ddd;
+	margin: 40px 0;
+}
+
+/* --- HEADER Y FOOTER --- */
+header {
+	background-color: var(--primary-color);
+	color: var(--secondary-color);
+	text-align: center;
+	padding: 30px 0;
+}
+
+.subtitle {
+	font-size: 1.1rem;
+	opacity: 0.9;
+	margin-top: 5px;
+}
+
+footer {
+	background-color: #333;
+	color: #ccc;
+	text-align: center;
+	padding: 20px 0;
+	margin-top: 40px;
+	font-size: 0.9rem;
+}
+
+/* --- SECCIÓN EJERCICIOS --- */
+h2 {
+	color: var(--primary-color);
+	margin-bottom: 10px;
+}
+
+.instruction {
+	margin-bottom: 20px;
+	color: #666;
+}
+
+.grid-exercises {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	gap: 20px;
+}
+
+/* TARJETAS DE EJERCICIO */
+.exercise-card {
+	background: #fff;
+	padding: 20px;
+	border-radius: var(--border-radius);
+	box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+	transition: transform 0.2s;
+}
+
+.exercise-card:hover {
+	transform: translateY(-3px);
+}
+
+.exercise-card h3 {
+	margin-bottom: 15px;
+	border-bottom: 2px solid var(--primary-color);
+	display: inline-block;
+	color: var(--primary-color);
+}
+
+.equation {
+	font-family: 'Courier New', Courier, monospace;
+	font-weight: bold;
+	font-size: 1.2rem;
+	margin-bottom: 15px;
+	padding-left: 10px;
+}
+
+/* BOTONES */
+.btn-solution, .btn-primary {
+	background-color: var(--primary-color);
+	color: white;
+	border: none;
+	padding: 10px 15px;
+	border-radius: 5px;
+	cursor: pointer;
+	font-weight: bold;
+	width: 100%;
+	transition: background-color 0.2s;
+}
+
+.btn-solution:hover, .btn-primary:hover {
+	background-color: #5d25b3;
+}
+
+/* SOLUCIÓN OCULTA */
+.solution-container {
+	margin-top: 15px;
+	padding-top: 15px;
+	border-top: 1px solid #eee;
+	display: none; /* Oculto por defecto */
+}
+
+.solution-container.show {
+	display: block; /* Se muestra con JS */
+	animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+
+.matrix-block {
+	margin-bottom: 10px;
+	background: #f9f9f9;
+	padding: 10px;
+	border-radius: 4px;
+}
+
+.final-answer {
+	font-weight: bold;
+	color: #26890c;
+	text-align: center;
+	margin-top: 10px;
+	font-size: 1.1rem;
+}
+
+/* --- SECCIÓN QUIZZ (STYLE KAHOOT) --- */
+.quiz-section {
+	text-align: center;
+}
+
+.kahoot-style {
+	color: var(--kh-red);
+	font-weight: 800;
+}
+
+.quiz-card {
+	background: #fff;
+	padding: 30px;
+	border-radius: var(--border-radius);
+	box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+	max-width: 600px;
+	margin: 20px auto;
+}
+
+#quiz-question {
+	font-size: 1.4rem;
+	margin-bottom: 25px;
+	color: var(--accent-color);
+}
+
+.quiz-options {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 15px;
+}
+
+.opt-btn {
+	border: none;
+	padding: 20px;
+	color: white;
+	font-size: 1.1rem;
+	font-weight: bold;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: opacity 0.2s;
+}
+
+.opt-btn:hover {
+	opacity: 0.8;
+}
+
+/* Colores de las opciones estilo Kahoot */
+.opt-0 { background-color: var(--kh-red); }
+.opt-1 { background-color: var(--kh-blue); }
+.opt-2 { background-color: var(--kh-yellow); }
+.opt-3 { background-color: var(--kh-green); }
+
+/* Retroalimentación del Quiz */
+.correct-flash {
+	animation: correctFlash 0.5s;
+}
+
+.incorrect-flash {
+	animation: incorrectFlash 0.5s;
+}
+
+@keyframes correctFlash {
+	0% { background-color: white; }
+	50% { background-color: #c3e6cb; } /* greenish */
+	100% { background-color: white; }
+}
+
+@keyframes incorrectFlash {
+	0% { background-color: white; }
+	50% { background-color: #f5c6cb; } /* reddish */
+	100% { background-color: white; }
+}

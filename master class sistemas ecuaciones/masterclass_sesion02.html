@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sesión 02: Método de Igualación | Pensamiento Matemático 2</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                // Aquí le decimos que reconozca el signo de peso simple como fórmula en línea
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Pensamiento Matemático II</h1>
+            <h2>Sesión 02: Solución de Sistemas por Igualación</h2>
+            <p>Descubre cómo el equilibrio algebraico nos lleva a la verdad matemática.</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="intro card">
+            <h3>Objetivo de la Sesión</h3>
+            <p>Comprender y aplicar el método de igualación para resolver sistemas de ecuaciones lineales de 2x2,
+                desarrollando un pensamiento lógico y estructurado mediante la práctica paso a paso.</p>
+
+            <div class="theory-box">
+                <h4>¿En qué consiste?</h4>
+                <p>El <strong>método de igualación</strong> se basa en un principio lógico simple: si dos expresiones
+                    son iguales a una misma tercera expresión, entonces son iguales entre sí. El proceso es:</p>
+                <ol>
+                    <li>Despejar la misma incógnita en ambas ecuaciones.</li>
+                    <li>Igualar las dos expresiones resultantes.</li>
+                    <li>Resolver la nueva ecuación de una sola variable.</li>
+                    <li>Sustituir el valor encontrado para hallar la segunda variable.</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="examples-detailed card">
+            <h3>Análisis Profundo: Paso a Paso</h3>
+            <p>Haz clic en cada paso para revelar el desarrollo algebraico.</p>
+
+            <div class="interactive-example">
+                <h4>Ejemplo 1</h4>
+                <div class="math-block">
+                    $$x + y = 5$$
+                    $$x - y = 1$$
+                </div>
+                <button class="reveal-btn" onclick="toggleStep('ex1-steps')">Ver Solución Paso a Paso</button>
+                <div id="ex1-steps" class="steps hidden">
+                    <p><strong>1. Despejar $x$:</strong> De la primera: $x = 5 - y$ | De la segunda: $x = 1 + y$</p>
+                    <p><strong>2. Igualar:</strong> $$5 - y = 1 + y$$</p>
+                    <p><strong>3. Resolver para $y$:</strong> $$5 - 1 = y + y \implies 4 = 2y \implies y = 2$$</p>
+                    <p><strong>4. Sustituir:</strong> $$x = 5 - 2 \implies x = 3$$</p>
+                    <div class="solution-box">Solución: $x = 3$, $y = 2$</div>
+                </div>
+            </div>
+
+            <div class="interactive-example">
+                <h4>Ejemplo 2</h4>
+                <div class="math-block">
+                    $$2x + 3y = 12$$
+                    $$x - y = 1$$
+                </div>
+                <button class="reveal-btn" onclick="toggleStep('ex2-steps')">Ver Solución Paso a Paso</button>
+                <div id="ex2-steps" class="steps hidden">
+                    <p><strong>1. Despejar $x$:</strong> De la primera: $x = \frac{12 - 3y}{2}$ | De la segunda: $x = 1
+                        + y$</p>
+                    <p><strong>2. Igualar:</strong> $$\frac{12 - 3y}{2} = 1 + y$$</p>
+                    <p><strong>3. Resolver para $y$:</strong> $$12 - 3y = 2(1 + y) \implies 10 = 5y \implies y = 2$$</p>
+                    <p><strong>4. Sustituir:</strong> $$x = 1 + 2 \implies x = 3$$</p>
+                    <div class="solution-box">Solución: $x = 3$, $y = 2$</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="examples-grid-section card">
+            <h3>Estructuras de Aplicación (Ejemplos 3 al 10)</h3>
+            <p>Analiza los siguientes patrones de resolución.</p>
+            <div class="grid-container">
+                <div class="grid-item">
+                    <h5>Ejemplo 3</h5>
+                    <p>Sistema:<br></p>
+                    <div class="math-block">
+                        $$3x - 2y = -2$$
+                        $$5x + 8y = -60$$
+                    </div>
+                    <p>Solución: $x = -4$, $y = -5$</p>
+                </div>
+                <div class="grid-item">
+                    <h5>Ejemplo 4</h5>
+                    <p>Sistema:<br></p>
+                    <div class="math-block">
+                        $$x + 2y = 8$$
+                        $$3x - y = 3$$
+                    </div>
+                    <p>Solución: $x = 2$, $y = 3$</p>
+                </div>
+                <div class="grid-item">
+                    <h5>Ejemplo 5</h5>
+                    <p>Sistema:<br>$$4x + y = 11$$ $$2x + 5y = 1$$</p>
+                    <p>Solución: $x = 3$, $y = -1$</p>
+                </div>
+                <div class="grid-item">
+                    <h5>Ejemplo 6</h5>
+                    <p>Sistema:<br>$$3x + 2y = 8$$ $$4x - y = 7$$</p>
+                    <p>Solución: $x = 2$, $y = 1$</p>
+                </div>
+                <div class="grid-item">
+                    <h5>Ejemplo 7</h5>
+                    <p>Sistema:<br>$$2x + y = 2$$ $$-x + 3y = 13$$</p>
+                    <p>Solución: $x = -1$, $y = 4$</p>
+                </div>
+                <div class="grid-item">
+                    <h5>Ejemplo 8</h5>
+                    <p>Sistema:<br>$$x + 4y = -3$$ $$2x - 3y = 16$$</p>
+                    <p>Solución: $x = 5$, $y = -2$</p>
+                </div>
+                <div class="grid-item">
+                    <h5>Ejemplo 9</h5>
+                    <p>Sistema:<br>$$7x + 2y = 10$$ $$x - y = -5$$</p>
+                    <p>Solución: $x = 0$, $y = 5$</p>
+                </div>
+                <div class="grid-item">
+                    <h5>Ejemplo 10</h5>
+                    <p>Sistema:<br>$$x + y = 8$$ $$5x - 2y = 12$$</p>
+                    <p>Solución: $x = 4$, $y = 4$</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="quiz-section card" id="quiz-container">
+            <h3>Reto Interactivo: Comprueba tu Genialidad</h3>
+            <div id="quiz-app">
+                <div id="question-text" class="question">Cargando desafío...</div>
+                <div id="options-container" class="options"></div>
+                <div id="feedback" class="feedback"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>copyright &copy;JMGV-PTEL-2026. sesion 02 pensamiento matematico 2 solucion de sistemas de ecuaciones. Todos
+        los derechos reservados</footer>
+
+    <script src="js/sesion02.js"></script>
+</body>
+
+</html>
