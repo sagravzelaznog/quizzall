@@ -1,0 +1,123 @@
+/* --- VARIABLES Y RESET --- */
+:root {
+	--primary-color: #023E8A; /* Azul Lógico */
+	--secondary-color: #00B4D8; /* Celeste Fluidez */
+	--accent-color: #06D6A0; /* Verde Éxito */
+	--bg-color: #F8F9FA;
+	--card-bg: #FFFFFF;
+	--text-main: #2B2D42;
+	--error-color: #EF233C;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, sans-serif; }
+
+body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.5; }
+
+/* --- HEADER E IDENTIFICACIÓN --- */
+.hero {
+	background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+	color: white; padding: 2rem 1rem; text-align: center;
+}
+.hero h1 { font-size: 2rem; margin-bottom: 0.2rem; }
+.hero h2 { font-size: 1.2rem; font-weight: 300; }
+
+.student-info {
+	display: flex; justify-content: center; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;
+}
+.info-field { display: flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.1); padding: 0.5rem; border-radius: 5px; }
+.info-field input { border: none; padding: 0.3rem; border-radius: 3px; outline: none; }
+
+/* --- CONTENIDO PRINCIPAL --- */
+main { max-width: 1000px; margin: 1.5rem auto; padding: 0 1rem; }
+
+.card {
+	background-color: var(--card-bg); border-radius: 10px; padding: 1.5rem;
+	margin-bottom: 1.5rem; box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+	border-top: 4px solid var(--secondary-color);
+}
+
+h3 { color: var(--primary-color); margin-bottom: 1rem; font-size: 1.4rem; border-bottom: 2px solid #eee; padding-bottom: 0.5rem; }
+h4 { color: var(--secondary-color); margin-bottom: 0.5rem; font-size: 1.1rem; }
+
+.math-highlight {
+	background: rgba(0, 180, 216, 0.1); padding: 1rem; border-radius: 8px;
+	font-size: 1.5rem; text-align: center; margin: 1rem 0; font-weight: bold;
+}
+
+/* --- GRIDS PARA MATEMÁTICAS --- */
+.grid-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.grid-3col { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
+
+.math-box { border: 1px solid #e0e0e0; border-radius: 8px; padding: 1rem; background: #fdfdfd; text-align: center; }
+.step { margin: 0.4rem 0; font-size: 0.95rem; }
+.tiny-text { font-size: 0.85rem; margin: 0.3rem 0; color: #555; }
+
+.solution-box {
+	background-color: rgba(6, 214, 160, 0.15); color: #038a66;
+	padding: 0.5rem; border-radius: 5px; margin-top: 0.8rem; display: inline-block;
+}
+
+/* --- BOTONES E INTERACTIVIDAD --- */
+.reveal-btn {
+	background-color: var(--secondary-color); color: white; border: none;
+	padding: 0.5rem 1rem; border-radius: 20px; cursor: pointer; font-weight: bold; margin-top: 0.5rem;
+}
+.reveal-btn:hover { background-color: var(--primary-color); }
+.hidden { display: none; }
+
+/* --- QUIZ ESTILO KAHOOT --- */
+.quiz-section { background: linear-gradient(135deg, #4361ee, #7209b7); color: white; text-align: center; border-top: none; }
+.quiz-section h3 { color: white; border-bottom: 1px solid rgba(255,255,255,0.3); }
+.question { font-size: 1.3rem; font-weight: bold; margin: 1.5rem 0; }
+.options { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+.option-btn {
+	background-color: rgba(255,255,255,0.2); border: 2px solid transparent; color: white;
+	padding: 1rem; border-radius: 8px; cursor: pointer; font-size: 1rem; font-weight: bold; transition: 0.2s;
+}
+.option-btn:hover { background-color: rgba(255,255,255,0.3); transform: scale(1.02); }
+.option-btn.correct { background-color: var(--accent-color) !important; color: #fff; border-color: #fff; }
+.option-btn.incorrect { background-color: var(--error-color) !important; color: #fff; border-color: #fff; }
+.feedback { margin-top: 1rem; min-height: 1.5rem; font-weight: bold; font-size: 1.1rem; }
+.score-display { margin-top: 1rem; font-size: 1.2rem; font-weight: bold; background: rgba(0,0,0,0.2); display: inline-block; padding: 0.5rem 1rem; border-radius: 20px; }
+
+/* --- FOOTER --- */
+footer { background-color: var(--text-main); color: white; text-align: center; padding: 1.5rem; font-size: 0.8rem; text-transform: uppercase; }
+
+/* ==========================================================================
+GENIO ARQUITECTO: OPTIMIZACIÓN EXTREMA PARA IMPRESIÓN (PDF 2 HOJAS MÁX)
+========================================================================== */
+@media print {
+	@page { size: letter; margin: 1cm; }
+	
+	body { background: white; font-size: 10pt; color: black; line-height: 1.2; }
+	main { margin: 0; padding: 0; max-width: 100%; }
+	
+	.hero { background: transparent; color: black; padding: 0; margin-bottom: 10px; border-bottom: 2px solid black; }
+	.hero h1 { font-size: 14pt; color: black; }
+	.hero h2 { font-size: 12pt; color: #333; }
+	
+	.student-info { justify-content: space-between; margin-top: 5px; }
+	.info-field { background: transparent; padding: 0; }
+	.info-field input { border-bottom: 1px solid black; border-radius: 0; background: transparent; }
+	
+	.card { box-shadow: none; border: none; padding: 5px 0; margin-bottom: 5px; page-break-inside: avoid; }
+	h3 { font-size: 12pt; margin-bottom: 5px; color: black; padding-bottom: 2px; }
+	
+	.math-highlight { padding: 5px; margin: 5px 0; font-size: 12pt; }
+	
+	/* Condensar grids para que quepan en la página */
+	.grid-2col, .grid-3col { display: flex; flex-wrap: wrap; gap: 5px; justify-content: space-between; }
+	.math-box { flex: 1; min-width: 30%; border: 1px solid #ccc; padding: 5px; margin-bottom: 5px; font-size: 9pt; }
+	.print-full-width { min-width: 100%; } /* Ejemplo 3 toma el ancho completo para balancear */
+	
+	.tiny-text { font-size: 8pt; margin: 1px 0; }
+	.solution-box { border: 1px solid black; background: transparent; color: black; padding: 2px; margin-top: 3px; }
+	
+	/* Elementos a ocultar en impresión */
+	.no-print { display: none !important; }
+	
+	/* Forzar visualización de respuestas ocultas al imprimir */
+	.print-visible { display: block !important; }
+	
+	footer { background: transparent; color: black; border-top: 1px solid black; padding: 5px; font-size: 7pt; position: fixed; bottom: 0; width: 100%; }
+}

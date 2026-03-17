@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masterclass: Sistemas 3x3 | JMGV-PTEL</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <header>
+        <div class="branding">Pedagogo, Andragogo y Genio Matemático</div>
+        <h1>Sistemas de 3 Ecuaciones con 3 Incógnitas</h1>
+        <p class="instructor">Instructor: José Manuel González Vargas</p>
+    </header>
+
+    <main class="container">
+        <section class="card intro">
+            <h2>El Poder del Determinante (Regla de Cramer)</h2>
+            <p>Resolver un sistema 3x3 significa encontrar el punto exacto en el espacio tridimensional donde tres planos se intersectan. La <strong>Regla de Cramer</strong> es el método más estructurado y elegante para lograrlo.</p>
+            <div class="table-responsive">
+                \[ x = \frac{\Delta x}{\Delta s}, \quad y = \frac{\Delta y}{\Delta s}, \quad z = \frac{\Delta z}{\Delta s} \]
+            </div>
+            <p>Donde \(\Delta s\) es el determinante del sistema. Si \(\Delta s \neq 0\), el sistema tiene una solución única.</p>
+        </section>
+
+        <section class="examples">
+            <h2>Ejemplos Guiados</h2>
+            
+            <article class="card">
+                <h3>Ejemplo 1: Cálculo del Determinante del Sistema (\(\Delta s\))</h3>
+                <p>Dado el sistema:</p>
+                <div class="table-responsive math-box">
+                    \( \begin{cases} 
+                    x + y + z = 6 \\ 
+                    2x - y + z = 3 \\ 
+                    x + 2y - z = 2 
+                    \end{cases} \)
+                </div>
+                <div class="step-box">
+                    <strong>Paso 1:</strong> Extraer los coeficientes de las variables (x, y, z).<br>
+                    <img src="img/matrizej1.png" alt="matriz ejemplo 1">
+                    <strong>Paso 2:</strong> Formar la matriz y resolver por regla de Sarrus o cofactores.<br>
+                    \[ \Delta s = 1(1-2) - 1(-2-1) + 1(4 - (-1)) = -1 + 3 + 5 = 7 \]
+                </div>
+            </article>
+
+            <article class="card">
+                <h3>Ejemplo 2: Encontrar una Variable (\(x\))</h3>
+                <p>Usando el mismo sistema, calculemos \(\Delta x\). Sustituimos la columna de las \(x\) por los resultados (6, 3, 2).</p>
+                <div class="step-box">
+                    <strong>Paso 1:</strong> Formar el determinante de x (\(\Delta x\)).<br>
+                    \[ \Delta x = 6(1-2) - 1(-3-2) + 1(6 - (-2)) = -6 + 5 + 8 = 7 \]<br>
+                    <strong>Paso 2:</strong> Dividir \(\Delta x\) entre \(\Delta s\).<br>
+                    \[ x = \frac{7}{7} = 1 \]
+                </div>
+            </article>
+
+            <article class="card">
+                <h3>Ejemplo 3: Método de Reducción (Gauss)</h3>
+                <p>Alternativamente, podemos sumar o restar ecuaciones para eliminar variables. Si sumamos la Ecuación 1 y la Ecuación 2 del ejemplo anterior:</p>
+                <div class="step-box">
+                    <strong>Eq 1:</strong> \(x + y + z = 6\)<br>
+                    <strong>Eq 2:</strong> \(2x - y + z = 3\)<br>
+                    <strong>Suma:</strong> \(3x + 2z = 9\)<br>
+                    <em>Nota: Hemos eliminado la variable \(y\). Repitiendo este proceso con otras ecuaciones, reducimos el sistema a 2x2.</em>
+                </div>
+            </article>
+        </section>
+
+        <section class="activities">
+            <h2>Desafíos de Nivel Genio</h2>
+            <div class="score-display">Puntos de Genio: <span id="current-score">0</span> / 3</div>
+
+            <div class="card activity" id="act-1">
+                <h4>Desafío 1: El Determinante</h4>
+                <p>Calcula el determinante del sistema (\(\Delta s\)) para la siguiente matriz de coeficientes:</p>
+                <div class="table-responsive math-box">
+                    \( \begin{vmatrix} 2 & 1 & -1 \\ 1 & 2 & 1 \\ 3 & -1 & 2 \end{vmatrix} \)
+                </div>
+                <div class="input-group">
+                    <input type="number" id="input-1" placeholder="Tu respuesta">
+                    <button onclick="checkAnswer(1, 18)">Comprobar</button>
+                </div>
+            </div>
+
+            <div class="card activity" id="act-2">
+                <h4>Desafío 2: Despeje Final</h4>
+                <p>En un sistema, calculaste que el determinante del sistema es \(\Delta s = 10\) y el determinante de \(y\) es \(\Delta y = 50\). ¿Cuál es el valor de \(y\)?</p>
+                <div class="input-group">
+                    <input type="number" id="input-2" placeholder="Valor de y">
+                    <button onclick="checkAnswer(2, 5)">Comprobar</button>
+                </div>
+            </div>
+
+            <div class="card activity" id="act-3">
+                <h4>Desafío 3: Resolución por Reducción</h4>
+                <p>Observa estas dos ecuaciones simplificadas de un sistema:<br>
+                1) \(x + z = 4\)<br>
+                2) \(3x = 3\)<br>
+                ¿Cuál es el valor exacto de la incógnita \(z\)?</p>
+                <div class="input-group">
+                    <input type="number" id="input-3" placeholder="Valor de z">
+                    <button onclick="checkAnswer(3, 3)">Comprobar</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="special-reward" class="card reward-hidden">
+            <div class="reward-content">
+                <h3>🏆 ¡Nivel Genio Matemático Alcanzado!</h3>
+                <p>"El álgebra no es solo números, es la estructura lógica del universo. Al dominar los sistemas de 3x3, has demostrado poseer una mente analítica capaz de resolver problemas complejos dividiéndolos en pasos simples. ¡Excelente trabajo!"</p>
+                <p class="signature"><strong>- JMGV-PTEL</strong></p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>copyright &copy;JMGV-PTEL-2026. masterclass sistema de 3 ecuaciones con 3 incognitas. Todos los derechos reservados</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
