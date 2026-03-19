@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masterclass: Funciones Polinomiales | JMGV-PTEL</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="styles.css">
+				<script>
+					window.MathJax = {
+							tex: {
+									// Aquí le decimos que reconozca el signo de peso simple como fórmula en línea
+									inlineMath: [['$', '$'], ['\\(', '\\)']]
+							}
+					};
+</head>
+<body>
+    <button id="teacher-lock" onclick="activateTeacherMode()" title="Acceso a Maestros">🔒</button>
+
+    <header>
+        <div class="branding">Pedagogo, Andragogo y Genio Matemático</div>
+        <h1>Funciones Polinomiales</h1>
+        <p class="instructor">Instructor: José Manuel González Vargas</p>
+    </header>
+
+    <main class="container">
+        <section class="card intro">
+            <h2>1. ¿Qué es una Función Polinomial?</h2>
+            <p>Una función polinomial es una expresión matemática formada por variables y constantes, utilizando únicamente operaciones de suma, resta y multiplicación, con exponentes enteros no negativos.</p>
+            <div class="math-box">
+                $$f(x) = a_nx^n + a_{n-1}x^{n-1} + \dots + a_1x + a_0$$
+            </div>
+            <ul>
+                <li><strong>Grado ($n$):</strong> Es el exponente mayor de la variable.</li>
+                <li><strong>Coeficiente Principal ($a_n$):</strong> Es el número que acompaña a la variable con el mayor exponente.</li>
+                <li><strong>Término Independiente ($a_0$):</strong> Es el número que no tiene variable (intersección con el eje y).</li>
+            </ul>
+            <div class="teacher-note hidden">
+                <strong>👨‍🏫 Tip Pedagógico:</strong> Haz énfasis en que los exponentes fraccionarios o negativos rompen la regla. Usa analogías visuales: un polinomio es como un tren donde cada vagón es un término perfectamente estructurado.
+            </div>
+        </section>
+
+        <section class="examples">
+            <h2>2. Ejemplos Maestros</h2>
+            
+            <article class="card">
+                <h3>Ejemplo 1: Función Lineal (Grado 1)</h3>
+                <p>$$f(x) = 3x - 5$$</p>
+                <p>El grado es 1, su coeficiente principal es 3 y su gráfica es una línea recta.</p>
+            </article>
+
+            <article class="card">
+                <h3>Ejemplo 2: Función Cuadrática (Grado 2)</h3>
+                <p>$$g(x) = -2x^2 + 4x + 1$$</p>
+                <p>El grado es 2, el coeficiente principal es -2 (abre hacia abajo) y el término independiente es 1. Su gráfica es una parábola.</p>
+            </article>
+
+            <article class="card">
+                <h3>Ejemplo 3: Función Cúbica (Grado 3)</h3>
+                <p>$$h(x) = x^3 - 4x^2 + x + 6$$</p>
+                <p>El grado es 3 y el coeficiente principal es 1. Describe curvas más complejas con hasta dos puntos de retorno.</p>
+                <div class="teacher-note hidden">
+                    <strong>👨‍🏫 Nota Andragógica:</strong> Para adultos, relaciona el grado con el número máximo de veces que la gráfica puede cruzar el eje horizontal (raíces).
+                </div>
+            </article>
+        </section>
+
+        <section class="exercises">
+            <h2>3. Ejercicios de Consolidación</h2>
+            <p>Identifica los elementos clave en cada expresión:</p>
+            
+            <div class="exercise-box">
+                <p><strong>Ejercicio 1:</strong> Determina el grado y el coeficiente principal de $P(x) = -7x^5 + 3x^2 - x + 9$.</p>
+                <details>
+                    <summary>Ver Solución</summary>
+                    <p>Grado = 5, Coeficiente Principal = -7.</p>
+                </details>
+            </div>
+
+            <div class="exercise-box">
+                <p><strong>Ejercicio 2:</strong> Evalúa la función $f(x) = x^2 - 3x + 2$ para $x = -2$.</p>
+                <details>
+                    <summary>Ver Solución</summary>
+                    <p>$$f(-2) = (-2)^2 - 3(-2) + 2 = 4 + 6 + 2 = 12$$</p>
+                </details>
+            </div>
+
+            <div class="exercise-box">
+                <p><strong>Ejercicio 3:</strong> ¿Es $g(x) = 4x^{1/2} - 3$ una función polinomial? ¿Por qué?</p>
+                <details>
+                    <summary>Ver Solución</summary>
+                    <p>No lo es. El exponente 1/2 es fraccionario, y los polinomios solo aceptan enteros no negativos.</p>
+                </details>
+            </div>
+        </section>
+
+        <section class="activities">
+            <h2>4. Actividades en la Vida Real</h2>
+            
+            <article class="card">
+                <h4>Actividad A: Trayectoria de un Proyectil</h4>
+                <p>La altura de un cohete está dada por $h(t) = -5t^2 + 50t + 10$ (en metros). Calcula la altura a los 3 segundos.</p>
+                <div class="teacher-note hidden">
+                    <strong>🔑 Clave:</strong> $h(3) = -5(9) + 150 + 10 = -45 + 160 = 115$ metros.
+                </div>
+            </article>
+
+            <article class="card">
+                <h4>Actividad B: Maximización de Volumen</h4>
+                <p>El volumen de una caja depende del corte $x$ en sus esquinas: $V(x) = 4x^3 - 40x^2 + 100x$. ¿Cuál es el volumen si el corte es de 2 cm?</p>
+                <div class="teacher-note hidden">
+                    <strong>🔑 Clave:</strong> $V(2) = 4(8) - 40(4) + 100(2) = 32 - 160 + 200 = 72$ cm³.
+                </div>
+            </article>
+
+            <article class="card">
+                <h4>Actividad C: Modelo de Ganancias</h4>
+                <p>Las ganancias de una empresa se modelan con $G(x) = -2x^2 + 400x - 5000$. ¿Cuánto ganan si producen $x = 100$ artículos?</p>
+                <div class="teacher-note hidden">
+                    <strong>🔑 Clave:</strong> $G(100) = -2(10000) + 40000 - 5000 = -20000 + 40000 - 5000 = 15000$.
+                </div>
+            </article>
+        </section>
+
+        <section class="quiz-section card">
+            <h2>5. Quiz Final: ¡Demuestra tu Genialidad!</h2>
+            <div id="quiz-container">
+                <h3 id="question-text">Pregunta...</h3>
+                <div class="kahoot-grid" id="answer-buttons">
+                    </div>
+                <div class="teacher-note hidden" id="quiz-rationale" style="margin-top: 15px;">
+                    </div>
+                <button id="next-btn" class="hidden-btn" onclick="nextQuestion()">Siguiente Pregunta ❯</button>
+            </div>
+            <div id="result-container" class="hidden-btn text-center">
+                <h3>¡Quiz Terminado!</h3>
+                <p id="final-score" style="font-size: 2rem; font-weight: bold; color: var(--primary);"></p>
+                <button onclick="location.reload()" style="padding: 10px 20px; background: var(--primary); color: white; border-radius: 5px; cursor:pointer;">Reiniciar Masterclass</button>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; JMGV-PTEL. PENSAMIENTO MATEMATICO 2. TODOS LOS DERECHOS RESERVADOS</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
