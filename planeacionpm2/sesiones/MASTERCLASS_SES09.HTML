@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S-09 Masterclass: Propiedades de los Enteros | PM2</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <script>
+        window.MathJax = {
+            tex: {
+                // Aquí le decimos que reconozca el signo de peso simple como fórmula en línea
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+
+    <div id="teacher-access">
+        <div class="teacher-control">
+            <svg class="icon-key" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path></svg>
+            <input type="password" id="teacher-pass" placeholder="Clave Docente">
+            <button onclick="checkTeacherAccess()">Desbloquear Notas</button>
+        </div>
+        <div id="teacher-notes-content" class="hidden">
+            <h3>👨‍🏫 Notas Pedagógicas - Sesión 9 </h3>
+            <p><strong>Enfoque de la Sesión:</strong></p>
+            <ul>
+                <li><strong>Inicio:</strong> Al trabajar con "Patrones numéricos" , escriba en el pizarrón  secuencias simples (ej. 2, 4, 8, 16...) y pregunte qué sigue. El objetivo es que noten que los números tienen una estructura predecible.</li>
+                <li><strong>Desarrollo:</strong> El "Teorema fundamental de la aritmética"  suena intimidante. Tradúzcalo como "Todo número entero tiene una huella dactilar única hecha de números primos".</li>
+                <li><strong>Cierre:</strong> Para la "Descomposición en factores primos", use el método del árbol. Es muy visual y reduce la ansiedad matemática.</li>
+            </ul>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <svg class="main-logo" viewBox="0 0 100 100" fill="none">
+                <path d="M30 20 Q 50 50 70 80 M70 20 Q 50 50 30 80" stroke="#00e5ff" stroke-width="4" stroke-linecap="round"/>
+                <line x1="38" y1="32" x2="62" y2="32" stroke="#bc13fe" stroke-width="3"/>
+                <line x1="45" y1="50" x2="55" y2="50" stroke="#00ff00" stroke-width="3"/>
+                <line x1="38" y1="68" x2="62" y2="68" stroke="#bc13fe" stroke-width="3"/>
+                <circle cx="50" cy="50" r="5" fill="#fff"/>
+            </svg>
+            <h1>Propiedades de los Enteros</h1>
+            <p class="subtitle">Sesión 9 | Secuenciando el ADN Matemático</p>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <section id="definicion" class="card section-fade-in">
+            <h2><span class="icon">🧬</span> ¿Qué es el Teorema Fundamental?</h2>
+            <div class="definition-wrapper">
+                <p>En biología, todos los seres vivos estamos hechos de células con un ADN único. En matemáticas, ocurre algo increíble: <strong>El Teorema Fundamental de la Aritmética</strong>  dicta que cualquier número entero (mayor que 1) es un número primo, o se puede crear multiplicando números primos.</p>
+                <p>A esta "receta" única de números primos se le llama <strong>Descomposición en factores primos</strong>. ¡No existen dos números con el mismo código genético!</p>
+            </div>
+        </section>
+
+        <section id="actividades" class="card section-fade-in">
+            <h2><span class="icon">🔬</span> Fases del Laboratorio (Actividades)</h2>
+            <div class="activities-grid">
+                <div class="activity-box inicio">
+                    <h3>1. Patrones Numéricos </h3>
+                    <p>Detectives en acción: Analizaremos secuencias en el pizarrón para descubrir cómo los números crecen siguiendo reglas secretas.</p>
+                </div>
+                <div class="activity-box desarrollo">
+                    <h3>2. El Teorema Fundamental </h3>
+                    <p>Comprenderemos la ley universal de los números enteros: los primos son los "bloques de lego" indestructibles del universo matemático.</p>
+                </div>
+                <div class="activity-box cierre">
+                    <h3>3. Descomposición en Factores Primos </h3>
+                    <p>Aprenderemos a usar el "Árbol de Factores" para destrozar números compuestos y encontrar su ADN primo oculto.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="ejemplos" class="card section-fade-in">
+            <h2><span class="icon">💡</span> 3 Ejemplos de Secuenciación</h2>
+            <div class="examples-list">
+                <div class="example-item">
+                    <h4>Ejemplo 1: El código del 12</h4>
+                    <p>Vamos a dividir el 12 usando solo números primos (2, 3, 5, 7...):</p>
+                    <ul>
+                        <li>$12 \div 2 = 6$</li>
+                        <li>$6 \div 2 = 3$</li>
+                        <li>$3 \div 3 = 1$</li>
+                    </ul>
+                    <p class="result-math">ADN del 12: <span class="accent-c">$2 \times 2 \times 3$</span> o <span class="accent-c">$2^2 \times 3$</span></p>
+                </div>
+                <div class="example-item">
+                    <h4>Ejemplo 2: El código del 30</h4>
+                    <p>Buscamos qué primos multiplicados nos dan 30:</p>
+                    <p class="result-math">ADN del 30: <span class="accent-l">$2 \times 3 \times 5$</span></p>
+                </div>
+                <div class="example-item">
+                    <h4>Ejemplo 3: El código del 60</h4>
+                    <p>Si notas, 60 es el doble de 30. Solo agregamos un "2" a la receta anterior:</p>
+                    <p class="result-math">ADN del 60: <span class="accent-e">$2 \times 2 \times 3 \times 5$</span> o <span class="accent-e">$2^2 \times 3 \times 5$</span></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="ejercicios" class="card section-fade-in">
+            <h2><span class="icon">✍️</span> Extracción de ADN (Ejercicios)</h2>
+            <p>En tu cuaderno, utiliza el método del árbol o divisiones sucesivas para encontrar la <strong>descomposición en factores primos</strong>  de los siguientes números:</p>
+            <ol class="exercise-list">
+                <li>Extrae el ADN del número <strong>28</strong>.</li>
+                <li>Encuentra los factores primos del número <strong>45</strong>.</li>
+                <li>Reto mayor: Descompón el número <strong>100</strong>. (Recuerda usar potencias al final).</li>
+            </ol>
+        </section>
+
+        <section id="quiz" class="card quiz-section section-fade-in">
+            <h2><span class="icon">🎮</span> Simulador de Evaluación Genética</h2>
+            <p>Demuestra tu dominio sobre las Propiedades de los Enteros.</p>
+            
+            <div id="quiz-container">
+                <div class="progress-bar"><div id="progress-fill"></div></div>
+                <div id="question-text">Preparando escáner...</div>
+                <div id="answers-grid" class="kahoot-style">
+                    <button class="answer-btn k-red" onclick="answerQuestion(0)">
+                        <span class="shape-triangle">▲</span> <span class="ans-content">1</span>
+                    </button>
+                    <button class="answer-btn k-blue" onclick="answerQuestion(1)">
+                        <span class="shape-diamond">◆</span> <span class="ans-content">2</span>
+                    </button>
+                    <button class="answer-btn k-yellow" onclick="answerQuestion(2)">
+                        <span class="shape-circle">●</span> <span class="ans-content">3</span>
+                    </button>
+                    <button class="answer-btn k-green" onclick="answerQuestion(3)">
+                        <span class="shape-square">■</span> <span class="ans-content">4</span>
+                    </button>
+                </div>
+                <div id="result-message" class="hidden"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; jmgvptel. Masterclass s-09 PM2. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+<style> 
+/* Tema "Genética Matemática" / Dark Neon */
+:root {
+    --bg-color: #080c16; 
+    --card-bg: #111827; 
+    --text-main: #f3f4f6;
+    --text-muted: #9ca3af;
+    
+    --neon-cyan: #00e5ff;
+    --neon-purple: #bc13fe;
+    --neon-green: #00ff66;
+    --neon-pink: #ff007f;
+
+    /* Kahoot Colors */
+    --k-red: #e21b3c;
+    --k-blue: #1368ce;
+    --k-yellow: #d89e00;
+    --k-green: #26890c;
+
+    --font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font-family);
+    line-height: 1.6;
+}
+
+.container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+/* Docente */
+#teacher-access { background: #000; border-bottom: 2px solid var(--neon-cyan); padding: 8px 0; }
+.teacher-control { display: flex; justify-content: flex-end; gap: 10px; padding: 0 20px; align-items: center; }
+.icon-key { width: 16px; color: var(--neon-cyan); }
+#teacher-pass { background: #1f2937; border: 1px solid #374151; color: #fff; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem; outline: none; }
+#teacher-pass:focus { border-color: var(--neon-cyan); }
+.teacher-control button { background: var(--neon-cyan); color: #000; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 0.8rem; }
+#teacher-notes-content { background: rgba(0, 229, 255, 0.05); padding: 20px; border-top: 1px dashed var(--neon-cyan); font-size: 0.95rem; margin-top: 5px;}
+#teacher-notes-content h3 { color: var(--neon-cyan); margin-bottom: 10px; }
+#teacher-notes-content ul { margin-left: 20px; margin-top: 10px; color: var(--text-muted); }
+
+/* Header */
+header { padding: 60px 0 40px; text-align: center; background: radial-gradient(circle at top, rgba(188,19,254,0.1) 0%, transparent 70%); }
+.main-logo { width: 110px; height: 110px; margin-bottom: 15px; filter: drop-shadow(0 0 10px rgba(0,229,255,0.4)); }
+h1 { font-size: 2.6rem; color: var(--text-main); margin-bottom: 5px; font-weight: 800; letter-spacing: -1px;}
+.subtitle { color: var(--neon-purple); font-weight: 600; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 2px; }
+
+/* Cards */
+.card { background-color: var(--card-bg); border-radius: 12px; padding: 30px; margin-bottom: 30px; border: 1px solid #1f2937; box-shadow: 0 8px 25px rgba(0,0,0,0.5); }
+h2 { color: var(--neon-cyan); font-size: 1.6rem; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #1f2937; padding-bottom: 10px; }
+p { color: var(--text-muted); margin-bottom: 15px; }
+
+/* Grid Actividades */
+.activities-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+.activity-box { background: #1f2937; padding: 20px; border-radius: 8px; border-left: 3px solid #374151; transition: transform 0.2s; }
+.activity-box:hover { transform: translateY(-3px); }
+.activity-box h3 { font-size: 1.1rem; margin-bottom: 10px; color: #fff; }
+.inicio { border-left-color: var(--neon-pink); }
+.desarrollo { border-left-color: var(--neon-cyan); }
+.cierre { border-left-color: var(--neon-green); }
+
+/* Ejemplos */
+.examples-list { display: flex; flex-direction: column; gap: 15px; }
+.example-item { background: #1f2937; padding: 20px; border-radius: 8px; }
+.example-item h4 { color: #fff; margin-bottom: 10px; }
+.example-item ul { margin-left: 20px; color: var(--text-muted); font-size: 0.95rem; margin-bottom: 10px;}
+.result-math { background: #111827; padding: 12px; border-radius: 6px; display: inline-block; font-size: 1.1rem; border: 1px solid #374151; margin-top: 5px;}
+.accent-c { color: var(--neon-cyan); font-weight: bold; }
+.accent-l { color: var(--neon-purple); font-weight: bold; }
+.accent-e { color: var(--neon-green); font-weight: bold; }
+
+/* Ejercicios */
+.exercise-list { margin-left: 20px; font-size: 1.1rem; color: #e5e7eb; }
+.exercise-list li { margin-bottom: 15px; background: #1f2937; padding: 15px; border-radius: 8px; border-left: 2px solid var(--neon-purple); }
+
+/* Quiz Kahoot */
+.quiz-section { text-align: center; border-top: 4px solid var(--neon-purple); }
+.progress-bar { width: 100%; height: 6px; background: #1f2937; border-radius: 3px; margin-bottom: 20px; overflow: hidden; }
+#progress-fill { height: 100%; background: var(--neon-purple); width: 0%; transition: width 0.3s; }
+#question-text { font-size: 1.3rem; font-weight: bold; margin-bottom: 25px; min-height: 50px; color: #fff; }
+.kahoot-style { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.answer-btn { display: flex; align-items: center; color: #fff; border: none; border-radius: 8px; padding: 20px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: transform 0.1s; box-shadow: 0 4px 0 rgba(0,0,0,0.4); text-align: left; }
+.answer-btn:active { transform: translateY(4px); box-shadow: none; }
+.ans-content { margin-left: 15px; width: 100%; text-align: center; }
+[class^="shape-"] { font-size: 1.5rem; opacity: 0.8; }
+.k-red { background-color: var(--k-red); } .k-blue { background-color: var(--k-blue); } .k-yellow { background-color: var(--k-yellow); color: #000; } .k-green { background-color: var(--k-green); }
+
+#result-message { margin-top: 20px; font-size: 1.2rem; font-weight: bold; padding: 15px; border-radius: 8px; }
+.correct { background: rgba(0,255,102,0.1); color: var(--neon-green); border: 1px solid var(--neon-green); }
+.incorrect { background: rgba(226,27,60,0.1); color: #ff4d4d; border: 1px solid #ff4d4d; }
+
+/* Footer */
+footer { text-align: center; padding: 30px 0; color: #6b7280; font-size: 0.85rem; margin-top: 20px; }
+.hidden { display: none !important; }
+.section-fade-in { animation: fadeIn 0.8s ease-out; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 600px) { .kahoot-style { grid-template-columns: 1fr; } h1 { font-size: 2rem; } }
+</style>
+
+<script>
+/* =========================================
+   SISTEMA DOCENTE (CLAVE DE ACCESO)
+   ========================================= */
+function checkTeacherAccess() {
+    const input = document.getElementById("teacher-pass");
+    const content = document.getElementById("teacher-notes-content");
+
+    // Clave obligatoria "1983"
+    if (input.value === "1983") {
+        content.classList.remove('hidden');
+        input.value = ""; 
+        input.placeholder = "Desbloqueado";
+        input.style.borderColor = "#00e5ff";
+        input.disabled = true;
+    } else {
+        alert("Acceso Restringido. Clave incorrecta.");
+        input.value = "";
+    }
+}
+
+/* =========================================
+   QUIZ ESTILO KAHOOT (SESIÓN 9)
+   ========================================= */
+// Nota: Para usar MathJax en Strings JS, usa doble barra invertida: \\( ... \\)
+const quizQuestions = [
+    {
+        question: "¿Qué nos dice el Teorema Fundamental de la Aritmética?",
+        answers: ["Todos los números son impares", "Todo número se puede descomponer en factores primos de forma única", "Los números primos no existen", "Solo se puede dividir entre 2"],
+        correct: 1
+    },
+    {
+        question: "¿Qué es un patrón numérico?",
+        answers: ["Una pintura de números", "Un error matemático", "Una secuencia de números que sigue una regla o estructura lógica", "Un número decimal"],
+        correct: 2
+    },
+    {
+        question: "¿Cuáles son los factores primos del número 18?",
+        answers: ["2 y 9", "3 y 6", "Solo el 3", "2 y 3"],
+        correct: 3 // Porque 18 = 2 * 3^2
+    },
+    {
+        question: "¿Cuál es la correcta descomposición en factores primos de 20?",
+        answers: ["\\(4 \\times 5\\)", "\\(2 \\times 10\\)", "\\(2^2 \\times 5\\)", "\\(2 \\times 2 \\times 2\\)"],
+        correct: 2 // 2^2 * 5
+    },
+    {
+        question: "Si la descomposición de un número es \\(2 \\times 3^2\\), ¿de qué número estamos hablando?",
+        answers: ["12", "18", "36", "10"],
+        correct: 1 // 2 * 9 = 18
+    }
+];
+
+let currentIndex = 0;
+let score = 0;
+
+function renderQuestion() {
+    const container = document.getElementById('quiz-container');
+    const questionEl = document.getElementById('question-text');
+    const gridEl = document.getElementById('answers-grid');
+    const resultEl = document.getElementById('result-message');
+    const progressFill = document.getElementById('progress-fill');
+
+    resultEl.classList.add('hidden');
+    gridEl.classList.remove('hidden');
+
+    if (currentIndex < quizQuestions.length) {
+        const q = quizQuestions[currentIndex];
+        
+        progressFill.style.width = `${(currentIndex / quizQuestions.length) * 100}%`;
+        questionEl.innerHTML = `Pregunta ${currentIndex + 1}: ${q.question}`;
+        
+        const buttons = gridEl.getElementsByTagName('button');
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].querySelector('.ans-content').innerHTML = q.answers[i];
+        }
+
+        // Renderizar ecuaciones de MathJax inyectadas
+        if (window.MathJax) {
+            MathJax.typesetPromise([container]).catch((err) => console.log(err.message));
+        }
+
+    } else {
+        // Fin del quiz
+        progressFill.style.width = "100%";
+        questionEl.innerHTML = "¡Secuenciación de ADN completada! 🧬";
+        gridEl.classList.add('hidden');
+        
+        let finalMsg = `Aciertos: ${score} de ${quizQuestions.length}.<br><br>`;
+        if (score >= 4) {
+            finalMsg += "¡Excelente! Has dominado el Teorema Fundamental de la Aritmética.";
+        } else {
+            finalMsg += "Sigue practicando la división sucesiva. ¡La práctica hace al maestro!";
+        }
+        
+        resultEl.innerHTML = finalMsg;
+        resultEl.className = "correct";
+        resultEl.classList.remove('hidden');
+    }
+}
+
+function answerQuestion(index) {
+    const q = quizQuestions[currentIndex];
+    const gridEl = document.getElementById('answers-grid');
+    const resultEl = document.getElementById('result-message');
+
+    gridEl.classList.add('hidden');
+
+    if (index === q.correct) {
+        score++;
+        resultEl.innerHTML = "¡CORRECTO! Patrón genético validado. ⚡";
+        resultEl.className = "correct";
+    } else {
+        resultEl.innerHTML = `Incorrecto. La respuesta correcta era:<br><strong>${q.answers[q.correct]}</strong>`;
+        resultEl.className = "incorrect";
+    }
+
+    resultEl.classList.remove('hidden');
+
+    if (window.MathJax) {
+        MathJax.typesetPromise([resultEl]).catch((err) => console.log(err.message));
+    }
+
+    currentIndex++;
+    setTimeout(renderQuestion, 3000);
+}
+
+// Inicializar el quiz
+window.onload = renderQuestion;
+</script>

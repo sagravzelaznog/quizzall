@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S25: Telemetría de Puntos | PM2</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+
+    <div id="teacher-auth">
+        <div class="container">
+            <span>📡 Frecuencia Privada:</span>
+            <input type="password" id="unlock-key" placeholder="Clave 1983">
+            <button onclick="revealSecretData()">Sincronizar</button>
+        </div>
+    </div>
+
+    <header class="master-header s25-ocean">
+        <div class="container header-grid">
+            <div class="branding">
+                <h1>Distancia entre Dos Puntos</h1>
+                <p>Sesión 25: El Teorema de Pitágoras en el plano</p>
+            </div>
+            <div class="visual-element">
+                <svg width="100" height="100" viewBox="0 0 100 100">
+                    <circle cx="20" cy="80" r="4" fill="#64FFDA" />
+                    <circle cx="80" cy="20" r="4" fill="#64FFDA" />
+                    <line x1="20" y1="80" x2="80" y2="20" stroke="#64FFDA" stroke-width="2" stroke-dasharray="4" />
+                    <path d="M20 80 L80 80 L80 20" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2" />
+                    <text x="45" y="45" fill="white" font-size="8" font-family="monospace">$d$</text>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="teacher-content" class="hidden">
+            <div class="gold-card">
+                <h4>🧠 Guía del Genio Pedagógico</h4>
+                <p><strong>Andragogía:</strong> No presente la fórmula como un dogma. Muestre que la distancia es simplemente la hipotenusa de un triángulo invisible cuyos catetos son las diferencias de $x$ y $y$.</p>
+                <p><strong>Psicología:</strong> El error común es el signo negativo dentro de los paréntesis. Anticipe esto con la frase: "La distancia siempre es positiva, como la velocidad en un radar".</p>
+            </div>
+        </section>
+
+        <section class="session-block">
+            <h2><span class="accent">25.1</span> El Escáner de Distancias</h2>
+            <p>Para hallar la longitud exacta del segmento que une dos coordenadas $P_1(x_1, y_1)$ y $P_2(x_2, y_2)$, aplicamos la evolución analítica del Teorema de Pitágoras:</p>
+            <div class="main-formula">
+                $d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$
+            </div>
+        </section>
+
+        <section class="session-block">
+            <h2><span class="accent">25.2</span> Registros de Navegación (Ejemplos)</h2>
+            <div class="card-grid">
+                <div class="data-card">
+                    <h5>Ejemplo 1</h5>
+                    <p>De $A(1, 2)$ a $B(4, 6)$:</p>
+                    <p>$d = \sqrt{(4-1)^2 + (6-2)^2}$</p>
+                    <p>$d = \sqrt{3^2 + 4^2} = \mathbf{5u}$</p>
+                </div>
+                <div class="data-card">
+                    <h5>Ejemplo 2</h5>
+                    <p>De $C(-2, -1)$ a $D(4, 7)$:</p>
+                    <p>$d = \sqrt{(6)^2 + (8)^2}$</p>
+                    <p>$d = \sqrt{36+64} = \mathbf{10u}$</p>
+                </div>
+                <div class="data-card">
+                    <h5>Ejemplo 3</h5>
+                    <p>De $P(0, 0)$ a $Q(-3, -4)$:</p>
+                    <p>$d = \sqrt{(-3)^2 + (-4)^2}$</p>
+                    <p>$d = \sqrt{9+16} = \mathbf{5u}$</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="session-block">
+            <h2><span class="accent">25.3</span> Desafíos de Exploración</h2>
+            <div class="task-list">
+                <div class="task">
+                    <strong>📍 El Naufragio:</strong> Un barco está en $(10, 20)$ y el puerto en $(0, 0)$. Calcula la distancia de rescate.
+                </div>
+                <div class="task">
+                    <strong>📡 Triangulación:</strong> Verifica si los puntos $(0,0), (4,0)$ y $(0,3)$ forman un triángulo de qué tipo usando sus distancias.
+                </div>
+                <div class="task">
+                    <strong>🧭 Ruta Óptima:</strong> Crea un punto en el tercer cuadrante que esté exactamente a 13 unidades del origen.
+                </div>
+            </div>
+        </section>
+
+        <section class="session-block border-glow">
+            <h2><span class="accent">25.4</span> Panel de Control (Ejercicios)</h2>
+            <ol class="check-list">
+                <li>Halla la distancia entre $M(-5, 3)$ y $N(7, -2)$.</li>
+                <li>Calcula el perímetro de un triángulo cuyos vértices son $A(-1, 1), B(3, 1)$ y $C(1, 4)$.</li>
+                <li>Demuestra que la distancia entre $(a, b)$ y $(0, 0)$ es $\sqrt{a^2 + b^2}$.</li>
+            </ol>
+        </section>
+
+        <section class="kahoot-module">
+            <div class="k-info">
+                <span class="badge">S25 EVAL</span>
+                <h3 id="display-q">¿Preparado para la inmersión?</h3>
+                <p id="q-status">Pregunta 1 de 5</p>
+            </div>
+            <div id="quiz-ui">
+                <div class="k-options">
+                    <button class="k-btn c1" onclick="submitAns(0)">▲ <span id="txt0"></span></button>
+                    <button class="k-btn c2" onclick="submitAns(1)">◆ <span id="txt1"></span></button>
+                    <button class="k-btn c3" onclick="submitAns(2)">● <span id="txt2"></span></button>
+                    <button class="k-btn c4" onclick="submitAns(3)">■ <span id="txt3"></span></button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; jmgvptel. Masterclass s-25 PM2. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+/* ESTILO S25 OCEAN EXPLORER */
+:root {
+    --deep-blue: #1A237E;
+    --neon-cyan: #64FFDA;
+    --surface: #ffffff;
+    --bg-light: #F0F4F8;
+    --k-red: #E21B3C;
+    --k-blue: #1368CE;
+    --k-yellow: #D89E00;
+    --k-green: #26890C;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: #37474F;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    margin: 0;
+}
+
+.container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+/* AUTH BAR */
+#teacher-auth { background: #000; color: #aaa; padding: 12px 0; font-size: 0.8rem; }
+#teacher-auth input { background: #222; border: 1px solid #444; color: var(--neon-cyan); padding: 4px; border-radius: 4px; }
+.hidden { display: none; }
+
+/* HEADER */
+.master-header {
+    background: linear-gradient(135deg, #0D47A1 0%, var(--deep-blue) 100%);
+    color: white;
+    padding: 80px 0;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+.header-grid { display: flex; justify-content: space-between; align-items: center; }
+.accent { color: var(--deep-blue); border-bottom: 3px solid var(--neon-cyan); }
+
+/* CONTENT BLOCKS */
+.session-block {
+    background: var(--surface);
+    padding: 40px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+.main-formula {
+    font-size: 2.2rem;
+    padding: 30px;
+    background: #E8EAF6;
+    border-radius: 8px;
+    text-align: center;
+    color: var(--deep-blue);
+    margin: 20px 0;
+}
+
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+.data-card { background: #f8f9fa; padding: 20px; border-left: 4px solid var(--neon-cyan); }
+
+.border-glow { border: 2px solid var(--neon-cyan); }
+
+/* KAHOOT UI */
+.kahoot-module {
+    background: #46178F;
+    padding: 40px;
+    border-radius: 20px;
+    color: white;
+    margin-bottom: 60px;
+}
+.k-options { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 30px; }
+.k-btn {
+    height: 120px; border: none; border-radius: 10px; color: white;
+    font-size: 1.4rem; font-weight: bold; cursor: pointer; text-align: left; padding-left: 30px;
+    transition: transform 0.2s;
+}
+.k-btn:hover { transform: translateY(-3px); }
+.c1 { background: var(--k-red); } .c2 { background: var(--k-blue); }
+.c3 { background: var(--k-yellow); } .c4 { background: var(--k-green); }
+
+footer { background: #263238; color: #cfd8dc; padding: 40px 0; text-align: center; font-size: 0.8rem; }
+/* --- SISTEMA DE SEGURIDAD S25 --- */
+function revealSecretData() {
+    const key = document.getElementById('unlock-key').value;
+    if (key === "1983") {
+        document.getElementById('teacher-content').classList.remove('hidden');
+        alert("Enlace seguro establecido. Bienvenido, Profesor.");
+    } else {
+        alert("Frecuencia bloqueada.");
+    }
+}
+
+/* --- BANCO DE PREGUNTAS S25 --- */
+const dbS25 = [
+    {
+        q: "¿Qué teorema es la base para calcular la distancia entre dos puntos?",
+        o: ["Tales", "Pitágoras", "Euclides", "Newton"],
+        c: 1
+    },
+    {
+        q: "Si la distancia es d = √(9 + 16), el resultado es:",
+        o: ["25", "7", "5", "12"],
+        c: 2
+    },
+    {
+        q: "¿Cómo se llama la diferencia (x2 - x1)?",
+        o: ["Desplazamiento vertical", "Desplazamiento horizontal", "Hipotenusa", "Pendiente"],
+        c: 1
+    },
+    {
+        q: "La distancia entre (0,0) y (3,0) es:",
+        o: ["0", "3", "9", "6"],
+        c: 1
+    },
+    {
+        q: "Si el resultado de d es √50, simplificado es:",
+        o: ["2√5", "5√2", "10√5", "25"],
+        c: 1
+    }
+];
+
+let currentIdx = 0;
+
+function updateQuiz() {
+    if (currentIdx < dbS25.length) {
+        const item = dbS25[currentIdx];
+        document.getElementById('q-status').innerText = `Pregunta ${currentIdx + 1} de ${dbS25.length}`;
+        document.getElementById('display-q').innerText = item.q;
+        for (let i = 0; i < 4; i++) {
+            document.getElementById(`txt${i}`).innerText = item.o[i];
+        }
+    } else {
+        document.getElementById('quiz-ui').innerHTML = `
+            <div style="text-align:center; padding: 40px;">
+                <h2 style="color:var(--neon-cyan)">💎 EXPERTO EN TELEMETRÍA</h2>
+                <p>Has completado el escaneo de la Sesión 25.</p>
+                <button onclick="location.reload()" style="padding:15px 30px; cursor:pointer; border-radius:30px; border:none; background:var(--neon-cyan); font-weight:bold;">Reiniciar Misión</button>
+            </div>
+        `;
+    }
+}
+
+function submitAns(idx) {
+    if (idx === dbS25[currentIdx].c) {
+        alert("¡Objetivo localizado!");
+    } else {
+        alert("Error de radar. Verifica los catetos.");
+    }
+    currentIdx++;
+    updateQuiz();
+}
+
+// Carga Inicial
+window.onload = updateQuiz;

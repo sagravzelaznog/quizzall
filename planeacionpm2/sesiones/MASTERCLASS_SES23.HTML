@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S23: Geometría de Superficies | PM2</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+
+    <div id="top-admin">
+        <div class="container">
+            <span>🛡️ Área Restringida:</span>
+            <input type="password" id="pass-teacher" placeholder="Clave 1983">
+            <button onclick="revealTeacherContent()">Desbloquear</button>
+        </div>
+    </div>
+
+    <header class="master-header s23-emerald">
+        <div class="container header-flex">
+            <div class="header-main">
+                <h1>Perímetros y Áreas</h1>
+                <p>Sesión 23: Cuantificando el espacio bidimensional</p>
+            </div>
+            <svg width="100" height="100" viewBox="0 0 100 100" class="svg-anim">
+                <rect x="10" y="10" width="80" height="80" fill="none" stroke="#A5D6A7" stroke-width="2" stroke-dasharray="4"/>
+                <path d="M10 10 L90 10 L90 90 L10 90 Z" fill="rgba(46, 125, 50, 0.2)" stroke="#2E7D32" stroke-width="4"/>
+                <text x="40" y="5" fill="#2E7D32" font-size="8">Perímetro</text>
+                <text x="35" y="55" fill="#1B5E20" font-size="12" font-weight="bold">ÁREA</text>
+            </svg>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="secret-area" class="hidden">
+            <div class="teacher-box">
+                <h4>👨‍🏫 Guía Pedagógica (Modo Experto)</h4>
+                <p><strong>Andragogía:</strong> Evite que memoricen fórmulas. Use la técnica de "descomposición": cualquier polígono regular puede dividirse en triángulos. Si saben el área de un triángulo, saben el área de todo.</p>
+                <p><strong>Psicología:</strong> El concepto de "Apotema" genera ansiedad por su nombre. Preséntelo simplemente como la "altura del triángulo interno".</p>
+            </div>
+        </section>
+
+        <section class="card shadow-soft">
+            <h2><span class="step-num">23.1</span> Conceptos de Medida</h2>
+            <div class="definition-grid">
+                <div class="def-item">
+                    <h3>Perímetro ($P$)</h3>
+                    <p>Es la longitud del contorno de la figura. En polígonos regulares: $P = n \cdot L$.</p>
+                </div>
+                <div class="def-item">
+                    <h3>Área ($A$)</h3>
+                    <p>Es la medida de la región interna. Para polígonos regulares: $A = \frac{P \cdot a}{2}$, donde $a$ es la apotema.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2><span class="step-num">23.2</span> Aplicaciones Prácticas</h2>
+            <div class="examples-container">
+                <div class="ex-card">
+                    <strong>Hexágono Industrial</strong>
+                    <p>Lado: 6cm | Apotema: 5.2cm</p>
+                    <p>$P = 6 \times 6 = 36\text{ cm}$</p>
+                    <p>$A = \frac{36 \times 5.2}{2} = 93.6\text{ cm}^2$</p>
+                </div>
+                <div class="ex-card">
+                    <strong>Cuadrado de Seguridad</strong>
+                    <p>Lado: 10m</p>
+                    <p>$P = 40\text{ m}$</p>
+                    <p>$A = 100\text{ m}^2$</p>
+                </div>
+                <div class="ex-card">
+                    <strong>Pentágono de Diseño</strong>
+                    <p>$P = 25\text{ cm}$ | $a = 3.4\text{ cm}$</p>
+                    <p>$A = \frac{25 \times 3.4}{2} = 42.5\text{ cm}^2$</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2><span class="step-num">23.3</span> Laboratorio Creativo</h2>
+            <div class="activity-grid">
+                <div class="activity-box">
+                    <h5>Actividad 1: El Optimizador</h5>
+                    <p>Diseña un corral para mascotas que use exactamente 24m de malla. ¿Qué forma da más área?</p>
+                </div>
+                <div class="activity-box">
+                    <h5>Actividad 2: Descomposición</h5>
+                    <p>Dibuja un octágono y divídelo en 8 triángulos iguales. Calcula el área de uno y multiplica.</p>
+                </div>
+                <div class="activity-box">
+                    <h5>Actividad 3: Realidad Aumentada</h5>
+                    <p>Mide la base de una caja hexagonal y calcula cuánta cartulina se necesitó para su base.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card border-green">
+            <h2><span class="step-num">23.4</span> Entrenamiento de Precisión</h2>
+            <ol class="exercise-list">
+                <li>Calcula el área de un heptágono regular de lado 8cm y apotema 8.3cm.</li>
+                <li>Si un cuadrado tiene un área de $144\text{ cm}^2$, ¿cuánto mide su perímetro?</li>
+                <li>Encuentra la apotema de un pentágono si su área es $30\text{ cm}^2$ y su lado mide $4\text{ cm}$.</li>
+            </ol>
+        </section>
+
+        <section class="quiz-wrapper">
+            <div class="quiz-head">
+                <span class="k-label">KAHOOT STYLE</span>
+                <h2 id="q-title">¿Listo para el desafío?</h2>
+                <p id="q-count">Pregunta 1 de 5</p>
+            </div>
+            <div id="quiz-body">
+                <h3 id="question-text">Presiona una opción para comenzar</h3>
+                <div class="options-grid">
+                    <button class="opt-btn color-1" onclick="checkAnswer(0)">▲ <span id="btn0">Opcion A</span></button>
+                    <button class="opt-btn color-2" onclick="checkAnswer(1)">◆ <span id="btn1">Opcion B</span></button>
+                    <button class="opt-btn color-3" onclick="checkAnswer(2)">● <span id="btn2">Opcion C</span></button>
+                    <button class="opt-btn color-4" onclick="checkAnswer(3)">■ <span id="btn3">Opcion D</span></button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; jmgvptel. Masterclass s-23 PM2. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+/* ESTÉTICA NEO-MINIMALISTA S23 */
+:root {
+    --primary: #2E7D32;
+    --primary-light: #A5D6A7;
+    --dark: #263238;
+    --bg: #F5F7F9;
+    --white: #ffffff;
+    --k-red: #E21B3C;
+    --k-blue: #1368CE;
+    --k-yellow: #D89E00;
+    --k-green: #26890C;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--dark);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+/* ADMIN BAR */
+#top-admin { background: #cfd8dc; padding: 10px 0; font-size: 0.8rem; border-bottom: 2px solid #b0bec5; }
+#top-admin input { border: 1px solid #90a4ae; border-radius: 4px; padding: 3px; width: 80px; }
+.hidden { display: none; }
+
+/* HEADER */
+.master-header {
+    background: linear-gradient(135deg, var(--primary) 0%, #1B5E20 100%);
+    color: var(--white);
+    padding: 80px 0;
+    margin-bottom: -40px;
+}
+.header-flex { display: flex; justify-content: space-between; align-items: center; }
+
+/* CARDS */
+.card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 40px;
+    margin-bottom: 30px;
+    border: 1px solid #e0e0e0;
+}
+.shadow-soft { box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+.border-green { border-left: 6px solid var(--primary); }
+.step-num { color: var(--primary); font-weight: 800; margin-right: 10px; opacity: 0.5; }
+
+/* GRIDS */
+.definition-grid, .examples-container, .activity-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.def-item, .ex-card, .activity-box {
+    padding: 20px;
+    background: #f8fafb;
+    border-radius: 8px;
+}
+
+/* QUIZ AREA */
+.quiz-wrapper {
+    background: #46178F;
+    color: white;
+    padding: 40px;
+    border-radius: 16px;
+    margin: 60px 0;
+    text-align: center;
+}
+.options-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 30px;
+}
+.opt-btn {
+    height: 100px; border: none; border-radius: 8px; color: white;
+    font-size: 1.2rem; font-weight: bold; cursor: pointer; text-align: left; padding-left: 20px;
+}
+.color-1 { background: var(--k-red); }
+.color-2 { background: var(--k-blue); }
+.color-3 { background: var(--k-yellow); }
+.color-4 { background: var(--k-green); }
+
+footer { padding: 50px 0; text-align: center; color: #999; font-size: 0.8rem; }
+
+.svg-anim:hover { transform: scale(1.1) rotate(5deg); transition: 0.5s; }
+/* --- FUNCIONES DE ACCESO DOCENTE --- */
+function revealTeacherContent() {
+    const pass = document.getElementById('pass-teacher').value;
+    if (pass === "1983") {
+        document.getElementById('secret-area').classList.remove('hidden');
+        alert("Acceso concedido. Notas pedagógicas desbloqueadas.");
+    } else {
+        alert("Clave incorrecta.");
+    }
+}
+
+/* --- BANCO DE PREGUNTAS S23 --- */
+const questions = [
+    {
+        q: "La fórmula para el área de un polígono regular es:",
+        o: ["Base x Altura", "(P x a) / 2", "Lado x n", "Lado al cuadrado"],
+        c: 1
+    },
+    {
+        q: "¿Qué representa la letra 'a' en la fórmula del área?",
+        o: ["Altura total", "Ancho", "Apotema", "Ángulo"],
+        c: 2
+    },
+    {
+        q: "Si un hexágono regular tiene lado 5, su perímetro es:",
+        o: ["25", "30", "15", "60"],
+        c: 1
+    },
+    {
+        q: "Un polígono regular de 3 lados es un:",
+        o: ["Cuadrado", "Triángulo Equilátero", "Pentágono", "Círculo"],
+        c: 1
+    },
+    {
+        q: "Suma de los lados de un polígono se llama:",
+        o: ["Área", "Volumen", "Perímetro", "Apotema"],
+        c: 2
+    }
+];
+
+let currentQuestionIndex = 0;
+
+function updateQuizUI() {
+    if (currentQuestionIndex < questions.length) {
+        const q = questions[currentQuestionIndex];
+        document.getElementById('q-count').innerText = `Pregunta ${currentQuestionIndex + 1} de ${questions.length}`;
+        document.getElementById('question-text').innerText = q.q;
+        for (let i = 0; i < 4; i++) {
+            document.getElementById(`btn${i}`).innerText = q.o[i];
+        }
+    } else {
+        document.getElementById('quiz-body').innerHTML = `
+            <div style="padding:40px;">
+                <h2>🏆 ¡MAESTRÍA EN ÁREAS LOGRADA!</h2>
+                <p>Has completado la evaluación de la Sesión 23.</p>
+                <button onclick="location.reload()" style="padding:10px 20px; border-radius:5px; cursor:pointer;">Reiniciar Masterclass</button>
+            </div>
+        `;
+    }
+}
+
+function checkAnswer(index) {
+    const correct = questions[currentQuestionIndex].c;
+    if (index === correct) {
+        alert("¡Correcto! Sigue así.");
+    } else {
+        alert("Oops, recuerda: Área = (Perímetro × apotema) / 2");
+    }
+    currentQuestionIndex++;
+    updateQuizUI();
+}
+
+// Inicialización
+window.onload = updateQuizUI;

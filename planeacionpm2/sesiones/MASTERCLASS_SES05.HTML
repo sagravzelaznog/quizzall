@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S-05 Masterclass: Modelado Algebraico I | PM2</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <script>
+        window.MathJax = {
+            tex: {
+                // Aquí le decimos que reconozca el signo de peso simple como fórmula en línea
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+
+    <div id="teacher-access">
+        <div class="teacher-control">
+            <svg class="icon-key" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path></svg>
+            <input type="password" id="teacher-pass" placeholder="Clave Docente">
+            <button onclick="checkTeacherAccess()">Desbloquear Notas</button>
+        </div>
+        <div id="teacher-notes-content" class="hidden">
+            <h3>👨‍🏫 Notas Pedagógicas - Sesión 5 </h3>
+            <p><strong>Enfoque Crítico:</strong> El objetivo de la Sesión 5 es <strong>exclusivamente</strong> el planteamiento de los modelos y la identificación de variables. Evite la tentación de resolver las ecuaciones hoy; la resolución está programada para la Sesión 6 ("Resolución de los modelos planteados").</p>
+            <ul>
+                <li><strong>Inicio:</strong> Presente "El problema del terreno" de forma visual. Dibuje en el pizarrón y deje que ellos propongan qué datos faltan.</li>
+                <li><strong>Desarrollo:</strong> La "transliteración" es como traducir de español a inglés, pero aquí es de situaciones reales a ecuaciones.</li>
+                <li><strong>Cierre:</strong> Evalúe solo si la estructura lógica del modelo planteado tiene sentido.</li>
+            </ul>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <svg class="main-logo" viewBox="0 0 100 100" fill="none">
+                <rect x="20" y="20" width="60" height="40" stroke="#00ffcc" stroke-width="4" fill="rgba(0,255,204,0.1)"/>
+                <line x1="20" y1="40" x2="80" y2="40" stroke="#00ffcc" stroke-width="2" stroke-dasharray="4"/>
+                <line x1="50" y1="20" x2="50" y2="60" stroke="#00ffcc" stroke-width="2" stroke-dasharray="4"/>
+                <circle cx="50" cy="40" r="4" fill="#ff007f"/>
+                <text x="50" y="80" font-family="sans-serif" font-size="12" fill="#fff" text-anchor="middle">MODELO 3D</text>
+            </svg>
+            <h1>Modelado Algebraico I</h1>
+            <p class="subtitle">Sesión 5 | Módulo I: Del Lenguaje Natural al Algebraico</p>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <section id="definicion" class="card section-fade-in">
+            <h2><span class="icon">🏗️</span> ¿Qué es el Modelado Algebraico?</h2>
+            <div class="definition-wrapper">
+                <p>Imagina que eres un arquitecto o un programador. Antes de construir un edificio o un videojuego, necesitas un "plano" o un "código base". El <strong>Modelado Algebraico</strong> es exactamente eso: es el arte de <em>transliterar</em> (traducir) un problema de la vida real al lenguaje de las matemáticas usando ecuaciones.</p>
+                <p>Hoy no vamos a calcular resultados finales, nuestro único objetivo es <strong>construir el plano perfecto</strong> (la ecuación).</p>
+            </div>
+        </section>
+
+        <section id="actividades" class="card section-fade-in">
+            <h2><span class="icon">🗺️</span> El Mapa de la Sesión</h2>
+            <div class="activities-grid">
+                <div class="activity-box inicio">
+                    <h3>1. Inicio: El Terreno </h3>
+                    <p>Analizaremos visualmente "El problema del terreno". Si solo conocemos el perímetro y una pista sobre sus lados, ¿cómo lo representamos? </p>
+                </div>
+                <div class="activity-box desarrollo">
+                    <h3>2. Desarrollo: Transliteración </h3>
+                    <p>Aprenderemos a identificar las variables (lo que no sabemos) y a traducir los datos reales a una ecuación sólida.</p>
+                </div>
+                <div class="activity-box cierre">
+                    <h3>3. Cierre: Planteamiento </h3>
+                    <p>Reto de escritorio: Construir los modelos matemáticos de 3 situaciones reales sin intentar resolverlos. ¡Puro diseño mental!</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="ejemplos" class="card section-fade-in">
+            <h2><span class="icon">💡</span> 3 Ejemplos de Transliteración</h2>
+            <div class="examples-list">
+                <div class="example-item">
+                    <h4>Ejemplo 1: El Problema del Terreno</h4>
+                    <p><strong>Situación:</strong> Un terreno rectangular tiene un perímetro de 60 metros. Su largo es el doble de su ancho.</p>
+                    <ul>
+                        <li>Variable (Ancho): $x$</li>
+                        <li>Traducción (Largo): $2x$</li>
+                    </ul>
+                    <p class="result-math">Modelo: <span class="accent-c">$x + 2x + x + 2x = 60$</span></p>
+                </div>
+                <div class="example-item">
+                    <h4>Ejemplo 2: Presupuesto Gamer</h4>
+                    <p><strong>Situación:</strong> Compré un control que cuesta 500 pesos y 3 juegos iguales. En total pagué 2000 pesos.</p>
+                    <ul>
+                        <li>Variable (Precio del juego): $y$</li>
+                    </ul>
+                    <p class="result-math">Modelo: <span class="accent-l">$3y + 500 = 2000$</span></p>
+                </div>
+                <div class="example-item">
+                    <h4>Ejemplo 3: Edades Misteriosas</h4>
+                    <p><strong>Situación:</strong> La suma de mi edad y la de mi hermano mayor es 35. Él me lleva 3 años de ventaja.</p>
+                    <ul>
+                        <li>Variable (Mi edad): $m$</li>
+                        <li>Traducción (Edad del hermano): $m + 3$</li>
+                    </ul>
+                    <p class="result-math">Modelo: <span class="accent-e">$m + (m + 3) = 35$</span></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="ejercicios" class="card section-fade-in">
+            <h2><span class="icon">✍️</span> Taller de Arquitectos (Ejercicios)</h2>
+            <p>Lee las siguientes situaciones reales. En tu cuaderno, identifica la variable y plantea el modelo (la ecuación). <strong>¡Recuerda, aún no lo resuelvas!</strong></p>
+            <ol class="exercise-list">
+                <li>En una cafetería, compré 4 donas y un café de 45 pesos. Pagué 125 pesos en total. Modela la ecuación para encontrar el precio de una dona.</li>
+                <li>Un carpintero tiene una tabla de 200 cm. Quiere cortarla en dos pedazos, pero necesita que un pedazo sea 40 cm más largo que el otro.</li>
+                <li>Entre Ana, Beto y Carlos tienen 1500 seguidores. Beto tiene el doble que Ana, y Carlos tiene 100 más que Ana.</li>
+            </ol>
+        </section>
+
+        <section id="quiz" class="card quiz-section section-fade-in">
+            <h2><span class="icon">🚀</span> Simulador de Evaluación</h2>
+            <p>Demuestra tu habilidad para transliterar la realidad al álgebra.</p>
+            
+            <div id="quiz-container">
+                <div class="progress-bar"><div id="progress-fill"></div></div>
+                <div id="question-text">Iniciando simulador...</div>
+                <div id="answers-grid" class="kahoot-style">
+                    <button class="answer-btn k-red" onclick="answerQuestion(0)">
+                        <span class="shape-triangle">▲</span> <span class="ans-content">1</span>
+                    </button>
+                    <button class="answer-btn k-blue" onclick="answerQuestion(1)">
+                        <span class="shape-diamond">◆</span> <span class="ans-content">2</span>
+                    </button>
+                    <button class="answer-btn k-yellow" onclick="answerQuestion(2)">
+                        <span class="shape-circle">●</span> <span class="ans-content">3</span>
+                    </button>
+                    <button class="answer-btn k-green" onclick="answerQuestion(3)">
+                        <span class="shape-square">■</span> <span class="ans-content">4</span>
+                    </button>
+                </div>
+                <div id="result-message" class="hidden"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; jmgvptel. Masterclass s-05 PM2. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+<STYLE>
+/* Variables Globales / Tema "Modelado Matrix/Arquitecto" */
+:root {
+    --bg-color: #0d1117; /* Fondo tipo IDE oscuro */
+    --card-bg: #161b22; 
+    --text-main: #e6edf3;
+    --text-muted: #8b949e;
+    
+    --neon-cyan: #00ffcc; /* Color principal para "Modelado" */
+    --neon-magenta: #ff007f;
+    --neon-purple: #a371f7;
+    --neon-green: #3fb950;
+
+    /* Kahoot Colors */
+    --k-red: #e21b3c;
+    --k-blue: #1368ce;
+    --k-yellow: #d89e00;
+    --k-green: #26890c;
+
+    --font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font-family);
+    line-height: 1.6;
+}
+
+.container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+/* Portal Docente */
+#teacher-access { background: #010409; border-bottom: 2px solid var(--neon-cyan); padding: 8px 0; }
+.teacher-control { display: flex; justify-content: flex-end; gap: 10px; padding: 0 20px; align-items: center; }
+.icon-key { width: 16px; color: var(--neon-cyan); }
+#teacher-pass { background: #0d1117; border: 1px solid #30363d; color: #fff; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem; outline: none; }
+#teacher-pass:focus { border-color: var(--neon-cyan); }
+.teacher-control button { background: var(--neon-cyan); color: #000; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 0.8rem; }
+#teacher-notes-content { background: rgba(0, 255, 204, 0.05); padding: 20px; border-top: 1px dashed var(--neon-cyan); font-size: 0.95rem; margin-top: 5px;}
+#teacher-notes-content h3 { color: var(--neon-cyan); margin-bottom: 10px; }
+#teacher-notes-content ul { margin-left: 20px; margin-top: 10px; color: var(--text-muted); }
+#teacher-notes-content li { margin-bottom: 8px; }
+
+/* Header */
+header { padding: 60px 0 40px; text-align: center; background: radial-gradient(circle at top, rgba(0,255,204,0.1) 0%, transparent 70%); }
+.main-logo { width: 100px; height: 100px; margin-bottom: 15px; filter: drop-shadow(0 0 10px rgba(0,255,204,0.4)); }
+h1 { font-size: 2.8rem; color: var(--text-main); text-shadow: 0 0 10px rgba(255,255,255,0.2); margin-bottom: 5px; }
+.subtitle { color: var(--neon-cyan); font-weight: 600; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 2px; }
+
+/* Cards */
+.card { background-color: var(--card-bg); border-radius: 12px; padding: 30px; margin-bottom: 30px; border: 1px solid #30363d; box-shadow: 0 8px 24px rgba(0,0,0,0.8); }
+h2 { color: var(--neon-cyan); font-size: 1.6rem; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #30363d; padding-bottom: 10px; }
+p { color: var(--text-muted); margin-bottom: 15px; }
+
+/* Grid Actividades */
+.activities-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+.activity-box { background: #0d1117; padding: 20px; border-radius: 8px; border-left: 3px solid #30363d; transition: transform 0.2s; }
+.activity-box:hover { transform: translateY(-3px); }
+.activity-box h3 { font-size: 1.1rem; margin-bottom: 10px; color: #fff; }
+.inicio { border-left-color: var(--neon-cyan); }
+.desarrollo { border-left-color: var(--neon-purple); }
+.cierre { border-left-color: var(--neon-magenta); }
+
+/* Ejemplos */
+.examples-list { display: flex; flex-direction: column; gap: 15px; }
+.example-item { background: #0d1117; padding: 20px; border-radius: 8px; border: 1px solid #30363d; }
+.example-item h4 { color: #fff; margin-bottom: 10px; }
+.example-item ul { margin-left: 20px; color: var(--text-muted); font-size: 0.95rem; margin-bottom: 10px;}
+.result-math { background: rgba(0,255,204,0.1); padding: 10px; border-radius: 6px; display: inline-block; font-size: 1.1rem; border: 1px solid rgba(0,255,204,0.2); margin-top:0;}
+.accent-c { color: var(--neon-cyan); font-weight: bold; }
+.accent-l { color: var(--neon-magenta); font-weight: bold; }
+.accent-e { color: var(--neon-purple); font-weight: bold; }
+
+/* Ejercicios */
+.exercise-list { margin-left: 20px; font-size: 1.05rem; color: #e6edf3; }
+.exercise-list li { margin-bottom: 15px; background: #0d1117; padding: 15px; border-radius: 8px; border-left: 2px solid var(--text-muted); }
+
+/* Quiz */
+.quiz-section { text-align: center; border-top: 4px solid var(--neon-cyan); }
+.progress-bar { width: 100%; height: 6px; background: #0d1117; border-radius: 3px; margin-bottom: 20px; overflow: hidden; }
+#progress-fill { height: 100%; background: var(--neon-cyan); width: 0%; transition: width 0.3s; }
+#question-text { font-size: 1.3rem; font-weight: bold; margin-bottom: 25px; min-height: 50px; color: #fff; }
+.kahoot-style { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.answer-btn { display: flex; align-items: center; color: #fff; border: none; border-radius: 8px; padding: 20px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: transform 0.1s; box-shadow: 0 4px 0 rgba(0,0,0,0.4); text-align: left; }
+.answer-btn:active { transform: translateY(4px); box-shadow: none; }
+.ans-content { margin-left: 15px; width: 100%; text-align: center; }
+[class^="shape-"] { font-size: 1.5rem; opacity: 0.8; }
+.k-red { background-color: var(--k-red); } .k-blue { background-color: var(--k-blue); } .k-yellow { background-color: var(--k-yellow); color: #000; } .k-green { background-color: var(--k-green); }
+
+#result-message { margin-top: 20px; font-size: 1.2rem; font-weight: bold; padding: 15px; border-radius: 8px; }
+.correct { background: rgba(63,185,80,0.1); color: var(--neon-green); border: 1px solid var(--neon-green); }
+.incorrect { background: rgba(226,27,60,0.1); color: #ff7b72; border: 1px solid #ff7b72; }
+
+/* Footer */
+footer { text-align: center; padding: 30px 0; color: #484f58; font-size: 0.85rem; margin-top: 20px; }
+
+.hidden { display: none !important; }
+.section-fade-in { animation: fadeIn 0.8s ease-out; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 600px) { .kahoot-style { grid-template-columns: 1fr; } h1 { font-size: 2rem; } }
+</STYLE>
+
+<script>
+/* =========================================
+   PORTAL DOCENTE - ACCESO 
+   ========================================= */
+function checkTeacherAccess() {
+    const input = document.getElementById("teacher-pass");
+    const content = document.getElementById("teacher-notes-content");
+
+    // Clave obligatoria
+    if (input.value === "1983") {
+        content.classList.remove('hidden');
+        input.value = ""; 
+        input.placeholder = "Modo Maestro Activo";
+        input.style.borderColor = "#00ffcc";
+        input.disabled = true;
+    } else {
+        alert("Clave incorrecta. Solo personal docente.");
+        input.value = "";
+    }
+}
+
+/* =========================================
+   SISTEMA DE QUIZ KAHOOT - SESIÓN 5
+   ========================================= */
+const quizQuestions = [
+    {
+        question: "En esta Sesión 5, ¿cuál es nuestro objetivo principal al Modelar?",
+        answers: ["Encontrar el valor de x", "Plantear la ecuación", "Dibujar figuras gráficas", "Usar la calculadora"],
+        correct: 1 // Solo plantear (transliterar)
+    },
+    {
+        question: "En 'El problema del terreno', si el ancho es \\(x\\) y el largo es el triple, ¿cómo escribimos el largo?",
+        answers: ["\\(x + 3\\)", "\\(3x\\)", "\\(x^3\\)", "\\(3 + x\\)"],
+        correct: 1 // 3x
+    },
+    {
+        question: "¿Qué significa 'transliterar' en el contexto de Matemáticas?",
+        answers: ["Copiar del pizarrón", "Traducir del lenguaje natural al algebraico", "Borrar las letras", "Resolver rápido"],
+        correct: 1
+    },
+    {
+        question: "Elige el modelo correcto para: 'El doble de mi edad actual más 5 años es igual a 25'",
+        answers: ["\\(x + 5 = 25\\)", "\\(2(x + 5) = 25\\)", "\\(2x + 5 = 25\\)", "\\(x^2 + 5 = 25\\)"],
+        correct: 2 // 2x + 5 = 25
+    },
+    {
+        question: "Si compramos 4 donas del mismo precio y pagamos 80 pesos, el modelo es \\(4d = 80\\). ¿Qué representa la letra 'd'?",
+        answers: ["Los 80 pesos", "La cantidad de donas", "La variable (precio de 1 dona)", "El cambio que me dan"],
+        correct: 2
+    }
+];
+
+let currentIndex = 0;
+let score = 0;
+
+function renderQuestion() {
+    const container = document.getElementById('quiz-container');
+    const questionEl = document.getElementById('question-text');
+    const gridEl = document.getElementById('answers-grid');
+    const resultEl = document.getElementById('result-message');
+    const progressFill = document.getElementById('progress-fill');
+
+    resultEl.classList.add('hidden');
+    gridEl.classList.remove('hidden');
+
+    if (currentIndex < quizQuestions.length) {
+        const q = quizQuestions[currentIndex];
+        
+        progressFill.style.width = `${(currentIndex / quizQuestions.length) * 100}%`;
+        questionEl.innerHTML = `Reto ${currentIndex + 1}: ${q.question}`;
+        
+        const buttons = gridEl.getElementsByTagName('button');
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].querySelector('.ans-content').innerHTML = q.answers[i];
+        }
+
+        // Renderizar ecuaciones de MathJax inyectadas
+        if (window.MathJax) {
+            MathJax.typesetPromise([container]).catch((err) => console.log(err.message));
+        }
+
+    } else {
+        // Fin del quiz
+        progressFill.style.width = "100%";
+        questionEl.innerHTML = "¡Arquitectura completada! 🏗️";
+        gridEl.classList.add('hidden');
+        
+        let finalMsg = `Tu precisión en el modelado fue de ${score} sobre ${quizQuestions.length}.<br><br>`;
+        if (score >= 4) {
+            finalMsg += "¡Eres un genio traduciendo la realidad a matemáticas! En la próxima sesión resolveremos estos modelos.";
+        } else {
+            finalMsg += "Sigue practicando la transliteración. Identificar la variable es el paso más importante.";
+        }
+        
+        resultEl.innerHTML = finalMsg;
+        resultEl.className = "correct";
+        resultEl.classList.remove('hidden');
+    }
+}
+
+function answerQuestion(index) {
+    const q = quizQuestions[currentIndex];
+    const gridEl = document.getElementById('answers-grid');
+    const resultEl = document.getElementById('result-message');
+
+    gridEl.classList.add('hidden');
+
+    if (index === q.correct) {
+        score++;
+        resultEl.innerHTML = "¡MODELO CORRECTO! 🎯";
+        resultEl.className = "correct";
+    } else {
+        resultEl.innerHTML = `Error de cálculo. El modelo correcto era:<br><strong>${q.answers[q.correct]}</strong>`;
+        resultEl.className = "incorrect";
+    }
+
+    resultEl.classList.remove('hidden');
+
+    if (window.MathJax) {
+        MathJax.typesetPromise([resultEl]).catch((err) => console.log(err.message));
+    }
+
+    currentIndex++;
+    setTimeout(renderQuestion, 2800);
+}
+
+// Inicializar
+window.onload = renderQuestion;
+</script>

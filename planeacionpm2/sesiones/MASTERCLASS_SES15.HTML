@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masterclass S-15: Aritmética Multibase | PM2</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+
+    <div id="admin-gate">
+        <div class="container">
+            <input type="password" id="pass-1983" placeholder="Access Code...">
+            <button onclick="unlockMasterData()">Unlock Teacher View</button>
+        </div>
+    </div>
+
+    <header class="s15-header">
+        <div class="container">
+            <svg width="80" height="80" viewBox="0 0 100 100">
+                <rect x="10" y="10" width="80" height="80" fill="none" stroke="#39ff14" stroke-width="2"/>
+                <path d="M30 50 H70 M50 30 V70" stroke="#ff6700" stroke-width="4"/>
+                <circle cx="50" cy="50" r="5" fill="#39ff14"/>
+            </svg>
+            <h1>Operaciones en Diferentes Bases</h1>
+            <p>Sesión 15: Suma, Resta y la lógica del Acarreo</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div id="secret-notes" class="locked-content">
+            <h3>📂 Expediente Pedagógico S-15</h3>
+            <p><strong>Psicología:</strong> El alumno sentirá frustración inicial al restar en bases menores. Use la analogía del "cambio de moneda": en base 2, un 'billete' de la izquierda vale dos 'monedas' de la derecha.</p>
+            <p><strong>Andragogía:</strong> Resalte que este es el lenguaje real de los procesadores. La suma binaria es la base de toda la computación moderna.</p>
+        </div>
+
+        <section class="master-card">
+            <h2><span class="neon-text">15.1</span> La Lógica del Acarreo (Carry)</h2>
+            <p>Operar en otras bases sigue las mismas reglas que en el sistema decimal, con una diferencia crítica: el <strong>límite del grupo</strong>. En base $n$, no puedes tener un dígito igual o mayor a $n$. Cuando lo superas, generas un acarreo a la siguiente posición.</p>
+            <div class="formula-display">
+                Suma Binaria: $1_2 + 1_2 = 10_2$ (Cero y llevamos uno)
+            </div>
+        </section>
+
+        <section class="master-card">
+            <h2><span class="neon-text">15.2</span> Laboratorio de Operaciones</h2>
+            <div class="activity-row">
+                <div class="act-box">
+                    <h4>A1: El Ábaco Binario</h4>
+                    <p>Usa tus dedos para contar en binario y realiza sumas simples visualmente.</p>
+                </div>
+                <div class="act-box">
+                    <h4>A2: El Préstamo Octal</h4>
+                    <p>Simula una resta en base 8. Si pides prestado, recibes 8 unidades, no 10.</p>
+                </div>
+                <div class="act-box">
+                    <h4>A3: Criptografía Hex</h4>
+                    <p>Suma valores de colores en hexadecimal para encontrar nuevos tonos.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="content-split">
+            <div class="master-card">
+                <h3>Ejemplos Pro</h3>
+                <div class="example-item">
+                    <strong>1. Suma Binaria:</strong> $110_2 + 11_2 = 1001_2$
+                </div>
+                <div class="example-item">
+                    <strong>2. Resta Base 5:</strong> $21_5 - 4_5$. Pedimos prestado: $(5+1)-4 = 2$. Resultado: $12_5$.
+                </div>
+                <div class="example-item">
+                    <strong>3. Suma Hex:</strong> $A_{16} + 1_{16} = B_{16}$ (10 + 1 = 11).
+                </div>
+            </div>
+            <div class="master-card">
+                <h3>Desafíos de Sesión</h3>
+                <ol class="challenge-list">
+                    <li>Resuelve: $1011_2 + 110_2$</li>
+                    <li>Resuelve: $43_8 - 17_8$</li>
+                    <li>Calcula: $F_{16} + F_{16}$ en hexadecimal.</li>
+                </ol>
+            </div>
+        </div>
+
+        <section class="quiz-arena">
+            <div class="quiz-header-status">
+                <h2>BATTLE QUIZ S-15</h2>
+                <div id="timer">T-Minus: <span id="clock">15</span>s</div>
+            </div>
+            <div id="quiz-app">
+                <p id="q-prompt">¿Listo para el arranque de sistema?</p>
+                <div class="kahoot-layout">
+                    <button class="k-choice r-color" onclick="runLogic(0)">▲ <span id="t0">...</span></button>
+                    <button class="k-choice b-color" onclick="runLogic(1)">◆ <span id="t1">...</span></button>
+                    <button class="k-choice y-color" onclick="runLogic(2)">● <span id="t2">...</span></button>
+                    <button class="k-choice g-color" onclick="runLogic(3)">■ <span id="t3">...</span></button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; jmgvptel. Masterclass s-15 PM2. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+/* DESIGN SYSTEM - MULTI-SESSION READY */
+:root {
+    --core-bg: #000000;
+    --neon-green: #39ff14;
+    --neon-orange: #ff6700;
+    --card-bg: #0a0a0a;
+    --text-ghost: #d1d1d1;
+}
+
+body {
+    background-color: var(--core-bg);
+    color: var(--text-ghost);
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+}
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+/* HEADER */
+.s15-header {
+    text-align: center;
+    padding: 60px 0;
+    background: linear-gradient(to bottom, #001a00, #000);
+    border-bottom: 1px solid var(--neon-green);
+}
+
+.neon-text { color: var(--neon-green); text-shadow: 0 0 10px var(--neon-green); }
+
+/* COMPONENTS */
+.master-card {
+    background: var(--card-bg);
+    border: 1px solid #222;
+    padding: 25px;
+    margin: 25px 0;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+}
+
+.master-card::before {
+    content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--neon-green), transparent);
+}
+
+.formula-display { background: #001100; padding: 15px; border-left: 4px solid var(--neon-orange); font-size: 1.2rem; }
+
+/* LAYOUT */
+.activity-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+.act-box { background: #111; padding: 15px; border: 1px solid #333; }
+.content-split { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+/* TEACHER ACCESS */
+#admin-gate { background: #111; padding: 8px 0; border-bottom: 1px solid #333; }
+#pass-1983 { background: #000; border: 1px solid var(--neon-orange); color: var(--neon-orange); padding: 5px; }
+.locked-content { display: none; border: 1px solid var(--neon-orange); padding: 20px; margin: 20px 0; background: #1a0a00; }
+
+/* QUIZ STYLING */
+.quiz-arena { margin-top: 50px; padding: 40px; border: 2px solid var(--neon-green); border-radius: 10px; }
+.kahoot-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.k-choice {
+    height: 100px; border: none; border-radius: 5px; color: white; font-size: 1.4rem;
+    font-weight: bold; cursor: pointer; transition: 0.2s;
+}
+.k-choice:hover { filter: brightness(1.3); transform: translateY(-3px); }
+.r-color { background: #e21b3c; }
+.b-color { background: #1368ce; }
+.y-color { background: #d89e00; }
+.g-color { background: #26890c; }
+
+footer { text-align: center; padding: 40px; border-top: 1px solid #222; opacity: 0.6; }
+
+@media (max-width: 768px) { .content-split { grid-template-columns: 1fr; } .kahoot-layout { grid-template-columns: 1fr; } }
+/* --- SECURE DATA ACCESS --- */
+function unlockMasterData() {
+    const input = document.getElementById('pass-1983').value;
+    if (input === "1983") {
+        document.getElementById('secret-notes').style.display = "block";
+        alert("System Override: Teacher Mode Engaged.");
+    } else {
+        alert("Invalid Access Key.");
+    }
+}
+
+/* --- ARITMETIC QUIZ LOGIC --- */
+const questions = [
+    {
+        q: "En binario, ¿cuánto es $1_2 + 1_2$?",
+        a: ["2", "11", "10", "1"],
+        correct: 2
+    },
+    {
+        q: "Si en base 5 sumas $4 + 1$, el resultado es:",
+        a: ["5", "10", "41", "0"],
+        correct: 1
+    },
+    {
+        q: "¿Cuál es el 'Carry' (acarreo) en $11_2 + 1_2$?",
+        a: ["No hay acarreo", "Un 1 a la tercera posición", "Un 10", "Un 0"],
+        correct: 1
+    },
+    {
+        q: "En resta octal (Base 8), si pides prestado, ¿cuánto recibes?",
+        a: ["10 unidades", "8 unidades", "1 unidad", "Depende del número"],
+        correct: 1
+    },
+    {
+        q: "¿Qué letra sigue de la 'F' en una suma hexadecimal si hay acarreo?",
+        a: ["G", "0 (con acarreo 1)", "H", "A"],
+        correct: 1
+    }
+];
+
+let stage = 0;
+
+function runLogic(choice) {
+    if (stage < questions.length) {
+        if (choice === questions[stage].correct) {
+            alert("✅ CORE LOGIC STABLE");
+        } else {
+            alert("❌ SYSTEM ERROR: Re-calculate base limit");
+        }
+        stage++;
+        loadStage();
+    }
+}
+
+function loadStage() {
+    if (stage < questions.length) {
+        document.getElementById('q-prompt').innerHTML = questions[stage].q;
+        for (let i = 0; i < 4; i++) {
+            document.getElementById(`t${i}`).innerText = questions[stage].a[i];
+        }
+        // Reiniciar animación MathJax si fuera necesario en entornos dinámicos
+        if(window.MathJax) MathJax.typeset();
+    } else {
+        document.getElementById('quiz-app').innerHTML = "<h2 class='neon-text'>COMPILACIÓN EXITOSA: Eres un Maestro de Bases.</h2>";
+    }
+}
+
+// Inicialización de sistema
+window.onload = loadStage;

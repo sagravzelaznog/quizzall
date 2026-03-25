@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S28: Áreas de Polígonos | PM2</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+
+    <nav class="admin-bar">
+        <div class="container flex-nav">
+            <span>🟢 Módulo de Topografía Académica</span>
+            <div class="auth-zone">
+                <input type="password" id="teacher-key" placeholder="Pass: 1983">
+                <button onclick="unlockTeacherContent()">Acceso Maestro</button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="master-header s28-landscape">
+        <div class="container header-flex">
+            <div class="text-group">
+                <h1>Áreas en el Plano</h1>
+                <p>Sesión 28: Determinantes para el cálculo de polígonos</p>
+            </div>
+            <div class="svg-container">
+                <svg width="120" height="120" viewBox="0 0 100 100">
+                    <polygon points="20,80 50,20 80,80" fill="none" stroke="#C6FF00" stroke-width="2" />
+                    <circle cx="20" cy="80" r="3" fill="#C6FF00" />
+                    <circle cx="50" cy="20" r="3" fill="#C6FF00" />
+                    <circle cx="80" cy="80" r="3" fill="#C6FF00" />
+                    <path d="M40 50 L60 50 M50 40 L50 60" stroke="white" stroke-opacity="0.3" stroke-width="1" />
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="teacher-zone" class="hidden">
+            <div class="note-box">
+                <h4>👨‍🏫 Guía Pedagógica S28</h4>
+                <p><strong>El "Secreto" del Lazo:</strong> Enseñe a los alumnos que el orden de los vértices debe ser **antihorario** para obtener un área positiva directamente.</p>
+                <p><strong>Conexión Psicológica:</strong> Use la analogía de "medir un terreno en Minecraft". A los 15 años, la utilidad práctica de "saber cuánto espacio tengo" resuena más que la fórmula abstracta.</p>
+            </div>
+        </section>
+
+        <section class="info-card">
+            <h2><span class="index">28.1</span> El Método de los Determinantes</h2>
+            <p>Para calcular el área de cualquier polígono cuyos vértices conocemos, utilizamos la fórmula de los determinantes (o fórmula de Gauss). Consiste en listar los vértices y repetir el primero al final.</p>
+            <div class="formula-main">
+                $$Area = \frac{1}{2} | (x_1y_2 + x_2y_3 + ... + x_ny_1) - (y_1x_2 + y_2x_3 + ... + y_nx_1) |$$
+            </div>
+        </section>
+
+        <section class="info-card">
+            <h2><span class="index">28.2</span> Levantamiento de Datos (Ejemplos)</h2>
+            <div class="grid-container">
+                <div class="example-box">
+                    <h5>Triángulo Básico</h5>
+                    <p>Vértices: $(0,0), (4,0), (0,3)$</p>
+                    <p>$\frac{1}{2} |(0 + 12 + 0) - (0 + 0 + 0)|$</p>
+                    <strong>Resultado: $6 u^2$</strong>
+                </div>
+                <div class="example-box">
+                    <h5>Cuadrilátero</h5>
+                    <p>Usa 4 puntos. No olvides repetir el punto 1 al final de la columna para cerrar el área.</p>
+                </div>
+                <div class="example-box">
+                    <h5>El Valor Absoluto</h5>
+                    <p>Si el resultado es negativo, las barras de $| |$ lo vuelven positivo. ¡El área siempre es positiva!</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-card">
+            <h2><span class="index">28.3</span> Trabajo de Campo</h2>
+            <div class="activity-grid">
+                <div class="act-card">
+                    <strong>🏙️ Proyecto Inmobiliario:</strong> Un terreno tiene vértices en $(2, 1), (8, 2), (6, 7)$ y $(1, 5)$. Calcula su superficie total para el plano de ventas.
+                </div>
+                <div class="act-card">
+                    <strong>🚩 Capture the Flag:</strong> Tres bases están en $(-3, 4), (5, 5)$ y $(2, -2)$. ¿Cuánta área protege este equipo?
+                </div>
+                <div class="act-card">
+                    <strong>🛰️ Satelital:</strong> Traza un polígono de 5 lados en tu libreta y usa la fórmula para hallar el área.
+                </div>
+            </div>
+        </section>
+
+        <section class="info-card highlight">
+            <h2><span class="index">28.4</span> Entrenamiento (Ejercicios)</h2>
+            <ul class="task-list">
+                <li>1. Calcula el área del triángulo con vértices $A(-1, 1), B(3, 4)$ y $C(5, -2)$.</li>
+                <li>2. Un parque cuadrado tiene esquinas en $(0,0), (2,2), (0,4)$ y $(-2,2)$. Determina su área.</li>
+                <li>3. Determina el área de la región encerrada por $(1, 1), (4, 1), (4, 4), (1, 4)$.</li>
+            </ul>
+        </section>
+
+        <section class="kahoot-container">
+            <div class="quiz-ui">
+                <div class="q-header">
+                    <h3>KAHOOT CHALLENGE: GEOMETRY MASTER</h3>
+                    <div id="q-progress">Pregunta 1/5</div>
+                </div>
+                <div class="q-body">
+                    <h2 id="q-text">Cargando desafío cartográfico...</h2>
+                </div>
+                <div class="q-footer">
+                    <button class="k-btn c1" onclick="checkQuiz(0)">▲ <span id="opt0"></span></button>
+                    <button class="k-btn c2" onclick="checkQuiz(1)">◆ <span id="opt1"></span></button>
+                    <button class="k-btn c3" onclick="checkQuiz(2)">● <span id="opt2"></span></button>
+                    <button class="k-btn c4" onclick="checkQuiz(3)">■ <span id="opt3"></span></button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; jmgvptel. Masterclass s-28 PM2. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+/* ESTILO LANDSCAPE S28 */
+:root {
+    --emerald: #2E7D32;
+    --slate: #263238;
+    --lime: #C6FF00;
+    --white: #F5F5F5;
+    --k-red: #E21B3C;
+    --k-blue: #1368CE;
+    --k-yellow: #D89E00;
+    --k-green: #26890C;
+}
+
+body {
+    background-color: #ECEFF1;
+    color: var(--slate);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+/* NAV */
+.admin-bar { background: var(--slate); color: #90A4AE; padding: 10px 0; font-size: 0.8rem; }
+.flex-nav { display: flex; justify-content: space-between; align-items: center; }
+#teacher-key { background: #37474F; border: none; color: var(--lime); padding: 5px; border-radius: 4px; }
+.hidden { display: none; }
+
+/* HEADER */
+.master-header {
+    background: linear-gradient(135deg, var(--emerald), var(--slate));
+    color: white;
+    padding: 60px 0;
+    border-bottom: 5px solid var(--lime);
+}
+.header-flex { display: flex; justify-content: space-between; align-items: center; }
+
+/* CARDS */
+.info-card {
+    background: white;
+    padding: 35px;
+    border-radius: 12px;
+    margin: 25px 0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+.index { color: var(--emerald); font-weight: 800; margin-right: 10px; }
+.formula-main {
+    background: #f1f8e9;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--emerald);
+    overflow-x: auto;
+}
+
+.grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+.example-box { border: 1px solid #CFD8DC; padding: 20px; border-radius: 8px; background: #FAFAFA; }
+.highlight { border-left: 6px solid var(--lime); }
+
+/* KAHOOT UI */
+.kahoot-container {
+    background: #46178F;
+    border-radius: 20px;
+    padding: 40px;
+    color: white;
+    margin-bottom: 50px;
+}
+.q-footer { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 30px; }
+.k-btn {
+    height: 80px; border: none; border-radius: 8px; color: white;
+    font-size: 1.1rem; font-weight: bold; cursor: pointer; text-align: left; padding-left: 20px;
+}
+.c1 { background: var(--k-red); } .c2 { background: var(--k-blue); }
+.c3 { background: var(--k-yellow); } .c4 { background: var(--k-green); }
+
+footer { text-align: center; padding: 30px; color: #78909C; font-size: 0.8rem; }
+/* --- CONTROL DE ACCESO --- */
+function unlockTeacherContent() {
+    const key = document.getElementById('teacher-key').value;
+    if (key === "1983") {
+        document.getElementById('teacher-zone').classList.remove('hidden');
+        alert("Acceso autorizado: Cargando bitácora pedagógica.");
+    } else {
+        alert("Clave incorrecta.");
+    }
+}
+
+/* --- LÓGICA DEL QUIZ S28 --- */
+const questionsS28 = [
+    {
+        q: "En el método de determinantes, ¿qué punto se repite al final?",
+        o: ["Ninguno", "El último", "El primero", "El del origen"],
+        c: 2
+    },
+    {
+        q: "¿Qué significan las barras | | en la fórmula del área?",
+        o: ["Raíz cuadrada", "Valor absoluto", "División", "Multiplicación"],
+        c: 1
+    },
+    {
+        q: "Si el determinante da -20, ¿cuál es el área?",
+        o: ["-10", "10", "20", "0"],
+        c: 1
+    },
+    {
+        q: "¿Cuántos vértices se necesitan como mínimo para un polígono?",
+        o: ["2", "3", "4", "1"],
+        c: 1
+    },
+    {
+        q: "El área de un triángulo con base 4 y altura 3 es:",
+        o: ["12", "7", "6", "24"],
+        c: 2
+    }
+];
+
+let currentIdx = 0;
+
+function updateQuiz() {
+    if (currentIdx < questionsS28.length) {
+        const data = questionsS28[currentIdx];
+        document.getElementById('q-text').innerText = data.q;
+        document.getElementById('q-progress').innerText = `Pregunta ${currentIdx + 1}/${questionsS28.length}`;
+        for (let i = 0; i < 4; i++) {
+            document.getElementById(`opt${i}`).innerText = data.o[i];
+        }
+    } else {
+        document.getElementById('q-progress').innerText = "¡COMPLETADO!";
+        document.getElementById('q-text').innerText = "🎉 ¡Has dominado el cálculo de superficies!";
+        document.querySelector('.q-footer').style.display = 'none';
+    }
+}
+
+function checkQuiz(idx) {
+    if (idx === questionsS28[currentIdx].c) {
+        alert("¡Correcto! Terreno medido con éxito.");
+    } else {
+        alert("Error de cálculo. Revisa tus determinantes.");
+    }
+    currentIdx++;
+    updateQuiz();
+}
+
+window.onload = updateQuiz;

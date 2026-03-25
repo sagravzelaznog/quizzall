@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S20: El Código de los Polígonos | PM2</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+
+    <div id="top-access">
+        <div class="container">
+            <span>🔐 Modo Auditoría:</span>
+            <input type="password" id="master-key" placeholder="••••">
+            <button onclick="revealTeacherContent()">Desbloquear Notas</button>
+        </div>
+    </div>
+
+    <header class="master-header s20-minimal">
+        <div class="container header-flex">
+            <div class="title-group">
+                <h1>Ángulos en Polígonos</h1>
+                <p>Sesión 20: La lógica de las formas cerradas</p>
+            </div>
+            <svg class="header-icon" width="80" height="80" viewBox="0 0 100 100">
+                <polygon points="50,10 90,80 10,80" fill="none" stroke="#2E5BFF" stroke-width="4"/>
+                <circle cx="50" cy="50" r="3" fill="#333"/>
+            </svg>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="teacher-section" class="teacher-only hidden">
+            <div class="insight-box">
+                <h4>🧠 Psicología del Aprendizaje S-20</h4>
+                <p><strong>Andragogía:</strong> Evite que memoricen fórmulas. Use la técnica de "triangulación": cualquier polígono es solo un conjunto de triángulos escondidos.</p>
+                <p><strong>Gestalt:</strong> Los alumnos de 14-16 años prefieren ver la "completitud" de la figura. Haga énfasis en que al cerrar el polígono, la energía (ángulos) debe sumar una constante.</p>
+            </div>
+        </section>
+
+        <section class="lesson-card">
+            <h2><span class="step-num">20.1</span> La Regla de Oro</h2>
+            <p>Todo polígono puede dividirse en triángulos. Como sabemos que un triángulo suma $180^\circ$, la suma de los ángulos internos de cualquier polígono de $n$ lados se calcula con:</p>
+            <div class="formula-hero">
+                $$S = (n - 2) \times 180^\circ$$
+            </div>
+            <p class="sub-caption">Donde $n$ es el número de lados del polígono.</p>
+        </section>
+
+        <section class="lesson-card">
+            <h2><span class="step-num">20.2</span> Casos de Estudio</h2>
+            <div class="examples-container">
+                <div class="ex-card">
+                    <strong>Cuadrilátero:</strong> $n=4$ <br>
+                    $(4-2) \times 180 = 360^\circ$
+                </div>
+                <div class="ex-card">
+                    <strong>Pentágono:</strong> $n=5$ <br>
+                    $(5-2) \times 180 = 540^\circ$
+                </div>
+                <div class="ex-card">
+                    <strong>Hexágono:</strong> $n=6$ <br>
+                    $(6-2) \times 180 = 720^\circ$
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-card">
+            <h2><span class="step-num">20.3</span> Workshop Creativo</h2>
+            <div class="grid-activities">
+                <div class="act-box">
+                    <h5>📐 El Detective de Triángulos</h5>
+                    <p>Dibuja un polígono irregular de 7 lados y divídelo en triángulos desde un solo vértice. ¿Cuántos obtuviste?</p>
+                </div>
+                <div class="act-box">
+                    <h5>🏢 Diseño Arquitectónico</h5>
+                    <p>Si diseñas una ventana hexagonal regular, ¿qué apertura exacta debe tener cada ángulo para que encaje?</p>
+                </div>
+                <div class="act-box">
+                    <h5>💻 Simulación Visual</h5>
+                    <p>Usa una cuerda para formar un triángulo. Si añades un nodo (lados), ¿cuánto más debe "abrirse" la suma total?</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-card">
+            <h2><span class="step-num">20.4</span> Entrenamiento de Precisión</h2>
+            <ol class="exercise-list">
+                <li>Calcula la suma interna de un polígono de 12 lados (Dodecágono).</li>
+                <li>Si un polígono regular suma $1080^\circ$, ¿cuántos lados tiene?</li>
+                <li>Determina el valor de un solo ángulo interno en un octágono regular.</li>
+            </ol>
+        </section>
+
+        <section class="kahoot-wrapper">
+            <div class="kahoot-header">
+                <h3>POLYGON CHALLENGE</h3>
+                <span id="quiz-progress">Pregunta 1/5</span>
+            </div>
+            <div id="kahoot-ui">
+                <h4 id="question-text">Preparando el desafío...</h4>
+                <div class="kahoot-options">
+                    <button class="k-btn red" onclick="checkAnswer(0)">▲ <span id="opt0"></span></button>
+                    <button class="k-btn blue" onclick="checkAnswer(1)">◆ <span id="opt1"></span></button>
+                    <button class="k-btn yellow" onclick="checkAnswer(2)">● <span id="opt2"></span></button>
+                    <button class="k-btn green" onclick="checkAnswer(3)">■ <span id="opt3"></span></button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; jmgvptel. Masterclass s-20 PM2. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+/* DISEÑO ARQUITECTURA GEOMÉTRICA */
+:root {
+    --primary: #2E5BFF;
+    --bg: #F5F5F7;
+    --text: #333333;
+    --card: #ffffff;
+    --accent: #E8EDFF;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+/* HEADER */
+.master-header {
+    background: white;
+    padding: 60px 0;
+    border-bottom: 1px solid #ddd;
+}
+.header-flex { display: flex; justify-content: space-between; align-items: center; }
+.step-num { color: var(--primary); font-weight: 800; margin-right: 10px; }
+
+/* CARDS */
+.lesson-card {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 40px;
+    margin: 40px 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.formula-hero {
+    background: var(--accent);
+    color: var(--primary);
+    padding: 30px;
+    border-radius: 8px;
+    font-size: 1.8rem;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.examples-container { display: flex; gap: 20px; flex-wrap: wrap; }
+.ex-card { 
+    flex: 1; background: #fafafa; border: 1px solid #eee; 
+    padding: 20px; border-radius: 8px; text-align: center;
+}
+
+.grid-activities { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+.act-box { border-left: 4px solid var(--primary); padding: 20px; background: #fdfdfd; }
+
+/* TEACHER ACCESS */
+#top-access { background: #333; color: #fff; padding: 10px 0; font-size: 0.8rem; }
+.hidden { display: none; }
+.insight-box { background: #fffbe6; border: 1px solid #ffe58f; padding: 20px; border-radius: 8px; margin-bottom: 20px; }
+
+/* KAHOOT UI */
+.kahoot-wrapper { background: #46178f; color: white; padding: 40px; border-radius: 20px; }
+.kahoot-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+.kahoot-options { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.k-btn {
+    border: none; border-radius: 6px; height: 100px; color: white; font-weight: bold;
+    font-size: 1.2rem; cursor: pointer; text-align: left; padding-left: 30px; transition: transform 0.1s;
+}
+.k-btn:active { transform: scale(0.98); }
+.red { background: #e21b3c; } .blue { background: #1368ce; } .yellow { background: #d89e00; } .green { background: #26890c; }
+
+footer { text-align: center; padding: 40px 0; color: #999; font-size: 0.8rem; }
+/* --- SISTEMA DE CLAVE MAESTRA --- */
+function revealTeacherContent() {
+    const key = document.getElementById('master-key').value;
+    if (key === "1983") {
+        document.getElementById('teacher-section').classList.remove('hidden');
+        alert("Acceso Pedagógico Confirmado.");
+    } else {
+        alert("Clave incorrecta.");
+    }
+}
+
+/* --- LÓGICA DEL QUIZ S-20 --- */
+const sessionData = [
+    {
+        q: "¿Cuál es la suma de los ángulos internos de un triángulo?",
+        o: ["$360^\circ$", "$180^\circ$", "$90^\circ$", "$540^\circ$"],
+        c: 1
+    },
+    {
+        q: "En la fórmula $(n-2) \times 180$, ¿qué representa la $n$?",
+        o: ["Nivel", "Nodos", "Número de lados", "Grados"],
+        c: 2
+    },
+    {
+        q: "¿Cuánto suman los ángulos internos de un hexágono ($n=6$)?",
+        o: ["$720^\circ$", "$540^\circ$", "$1080^\circ$", "$360^\circ$"],
+        c: 0
+    },
+    {
+        q: "Si un polígono tiene 4 lados, la suma es...",
+        o: ["$180^\circ$", "$270^\circ$", "$360^\circ$", "$400^\circ$"],
+        c: 2
+    },
+    {
+        q: "¿Es posible un polígono cuyos ángulos internos sumen $200^\circ$?",
+        o: ["Sí", "No, debe ser múltiplo de 180", "Solo si es irregular", "Depende del tamaño"],
+        c: 1
+    }
+];
+
+let qIndex = 0;
+
+function loadQuestion() {
+    if (qIndex < sessionData.length) {
+        const current = sessionData[qIndex];
+        document.getElementById('quiz-progress').innerText = `Pregunta ${qIndex + 1}/${sessionData.length}`;
+        document.getElementById('question-text').innerHTML = current.q;
+        for (let i = 0; i < 4; i++) {
+            document.getElementById(`opt${i}`).innerText = current.o[i];
+        }
+        if (window.MathJax) MathJax.typeset();
+    } else {
+        document.getElementById('kahoot-ui').innerHTML = "<div style='text-align:center'><h2>💎 ¡MAESTRÍA EN POLÍGONOS!</h2><p>Has completado la Sesión 20 con éxito.</p></div>";
+    }
+}
+
+function checkAnswer(idx) {
+    if (idx === sessionData[qIndex].c) {
+        alert("✨ ¡Correcto! Estás construyendo conocimiento sólido.");
+    } else {
+        alert("🧐 Revisa la fórmula $(n-2) \times 180$.");
+    }
+    qIndex++;
+    loadQuestion();
+}
+
+// Inicialización
+window.onload = loadQuestion;

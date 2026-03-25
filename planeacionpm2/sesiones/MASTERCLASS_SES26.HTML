@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S26: El Centro del Equilibrio | PM2</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+
+    <nav class="top-admin">
+        <div class="container flex-admin">
+            <span>🛠️ Panel de Control Estructural:</span>
+            <div class="auth-box">
+                <input type="password" id="key-input" placeholder="Clave 1983">
+                <button onclick="unlockTeacherData()">Validar</button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="master-header s26-arch">
+        <div class="container header-flex">
+            <div class="title-area">
+                <h1>Punto Medio de un Segmento</h1>
+                <p>Sesión 26: Hallando el centro exacto en el plano</p>
+            </div>
+            <div class="svg-visual">
+                <svg width="120" height="120" viewBox="0 0 100 100">
+                    <line x1="10" y1="90" x2="90" y2="10" stroke="white" stroke-width="3" />
+                    <circle cx="10" cy="90" r="4" fill="#FF6D00" />
+                    <circle cx="90" cy="10" r="4" fill="#FF6D00" />
+                    <circle cx="50" cy="50" r="6" fill="none" stroke="#64FFDA" stroke-width="2" />
+                    <path d="M45 50 L55 50 M50 45 L50 55" stroke="#64FFDA" stroke-width="2" />
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="master-secrets" class="hidden">
+            <div class="teacher-box">
+                <h4>📐 Bitácora del Arquitecto (Maestro)</h4>
+                <p><strong>Estrategia:</strong> Use el concepto de "promedio". Los alumnos ya saben promediar calificaciones; dígales que el punto medio es simplemente el promedio de las $x$ y el promedio de las $y$.</p>
+                <p><strong>Tip Psicológico:</strong> A esta edad, buscan autonomía. Plantee el punto medio como el lugar de encuentro neutral entre dos amigos que viven en puntos opuestos de la ciudad.</p>
+            </div>
+        </section>
+
+        <section class="content-card">
+            <h2><span class="step">26.1</span> El Punto de Equilibrio</h2>
+            <p>El **Punto Medio** ($P_m$) es la ubicación exacta que divide a un segmento en dos partes iguales. Geométricamente, es el centro de gravedad del segmento que une a $P_1(x_1, y_1)$ y $P_2(x_2, y_2)$.</p>
+            <div class="formula-box">
+                $P_m = \left( \frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2} \right)$
+            </div>
+        </section>
+
+        <section class="content-card">
+            <h2><span class="step">26.2</span> Planos de Obra (Ejemplos)</h2>
+            <div class="grid-layout">
+                <div class="example-item">
+                    <h5>Caso A: Enteros</h5>
+                    <p>Puntos: $(2, 4)$ y $(8, 10)$</p>
+                    <p>$x_m = \frac{2+8}{2} = 5$</p>
+                    <p>$y_m = \frac{4+10}{2} = 7$</p>
+                    <strong>$P_m(5, 7)$</strong>
+                </div>
+                <div class="example-item">
+                    <h5>Caso B: Negativos</h5>
+                    <p>Puntos: $(-4, 2)$ y $(2, -6)$</p>
+                    <p>$x_m = \frac{-4+2}{2} = -1$</p>
+                    <p>$y_m = \frac{2-6}{2} = -2$</p>
+                    <strong>$P_m(-1, -2)$</strong>
+                </div>
+                <div class="example-item">
+                    <h5>Caso C: Fracciones</h5>
+                    <p>Puntos: $(1, 3)$ y $(4, 6)$</p>
+                    <p>$x_m = \frac{5}{2} = 2.5$</p>
+                    <p>$y_m = \frac{9}{2} = 4.5$</p>
+                    <strong>$P_m(2.5, 4.5)$</strong>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-card">
+            <h2><span class="step">26.3</span> Talleres de Diseño</h2>
+            <div class="activity-row">
+                <div class="act-card">
+                    <strong>🏙️ Urbanismo:</strong> Si una estación de metro está en $(2, 3)$ y otra en $(12, 15)$, ¿dónde debe quedar el centro de carga intermedio?
+                </div>
+                <div class="act-card">
+                    <strong>🤳 Selfie Spot:</strong> Dos amigos se toman una foto. Si uno está en $(-5, 0)$ y otro en $(5, 10)$, calcula la coordenada donde debe estar la cámara para que ambos queden a la misma distancia.
+                </div>
+                <div class="act-card">
+                    <strong>🔄 Inversa:</strong> Si el punto medio es $(0,0)$ y un extremo es $(4, 4)$, ¿dónde está el otro extremo?
+                </div>
+            </div>
+        </section>
+
+        <section class="content-card border-orange">
+            <h2><span class="step">26.4</span> Control de Calidad (Ejercicios)</h2>
+            <ul class="exercise-list">
+                <li>1. Calcula el $P_m$ del segmento con extremos $A(-3, 8)$ y $B(9, -2)$.</li>
+                <li>2. Determina el centro de un círculo si los extremos de su diámetro son $(-1, -1)$ y $(5, 5)$.</li>
+                <li>3. Encuentra el punto medio entre $M(0, 7)$ y $N(11, 0)$.</li>
+            </ul>
+        </section>
+
+        <section class="quiz-section">
+            <div class="quiz-header">
+                <h3>S26 CHALLENGE: ARCHITECT MODE</h3>
+                <p id="progress-text">Cargando planos...</p>
+            </div>
+            <div id="quiz-body">
+                <h4 id="question-text">---</h4>
+                <div class="kahoot-grid">
+                    <button class="ans-btn t1" onclick="checkAnswer(0)">▲ <span id="opt0"></span></button>
+                    <button class="ans-btn t2" onclick="checkAnswer(1)">◆ <span id="opt1"></span></button>
+                    <button class="ans-btn t3" onclick="checkAnswer(2)">● <span id="opt2"></span></button>
+                    <button class="ans-btn t4" onclick="checkAnswer(3)">■ <span id="opt3"></span></button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; jmgvptel. Masterclass s-26 PM2. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+/* ARQUITECTURA VISUAL S26 */
+:root {
+    --arch-orange: #FF6D00;
+    --concrete: #455A64;
+    --blueprint-bg: #ECEFF1;
+    --white: #ffffff;
+    --k-red: #E21B3C;
+    --k-blue: #1368CE;
+    --k-yellow: #D89E00;
+    --k-green: #26890C;
+}
+
+body {
+    background-color: var(--blueprint-bg);
+    color: #263238;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.container { max-width: 1000px; margin: 0 auto; padding: 0 25px; }
+
+/* ADMIN BAR */
+.top-admin { background: #212121; color: #757575; padding: 8px 0; font-size: 0.75rem; }
+.flex-admin { display: flex; justify-content: space-between; align-items: center; }
+.auth-box input { background: #333; border: none; color: var(--arch-orange); padding: 3px 8px; border-radius: 3px; }
+.hidden { display: none; }
+
+/* HEADER */
+.master-header {
+    background: var(--concrete);
+    color: var(--white);
+    padding: 70px 0;
+    border-bottom: 6px solid var(--arch-orange);
+}
+.header-flex { display: flex; justify-content: space-between; align-items: center; }
+
+/* CARDS */
+.content-card {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 4px;
+    margin: 30px 0;
+    box-shadow: 6px 6px 0px rgba(69, 90, 100, 0.1);
+}
+.step { color: var(--arch-orange); font-weight: 900; margin-right: 10px; }
+.formula-box {
+    background: #263238;
+    color: #64FFDA;
+    padding: 25px;
+    font-size: 1.8rem;
+    text-align: center;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+}
+
+.grid-layout { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+.example-item { border: 1px dashed #B0BEC5; padding: 20px; border-radius: 4px; }
+
+.border-orange { border-top: 5px solid var(--arch-orange); }
+
+/* QUIZ ESTILO KAHOOT */
+.quiz-section {
+    background: #46178F;
+    color: white;
+    padding: 40px;
+    border-radius: 15px;
+    margin-bottom: 60px;
+}
+.kahoot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 30px; }
+.ans-btn {
+    height: 100px; border: none; border-radius: 8px; color: white;
+    font-size: 1.2rem; font-weight: bold; cursor: pointer; text-align: left; padding-left: 25px;
+}
+.t1 { background: var(--k-red); } .t2 { background: var(--k-blue); }
+.t3 { background: var(--k-yellow); } .t4 { background: var(--k-green); }
+
+footer { text-align: center; padding: 40px 0; color: #90A4AE; font-size: 0.8rem; }
+/* --- SISTEMA DE ACCESO S26 --- */
+function unlockTeacherData() {
+    const val = document.getElementById('key-input').value;
+    if (val === "1983") {
+        document.getElementById('master-secrets').classList.remove('hidden');
+        alert("S26: Acceso Concedido. Material pedagógico desbloqueado.");
+    } else {
+        alert("Clave de acceso denegada.");
+    }
+}
+
+/* --- BANCO DE PREGUNTAS S26 --- */
+const quizDataS26 = [
+    {
+        q: "La fórmula del punto medio se basa en:",
+        o: ["La resta de valores", "El promedio de las coordenadas", "El cuadrado de la distancia", "La raíz de los productos"],
+        c: 1
+    },
+    {
+        q: "Punto medio entre (0,0) y (10,0):",
+        o: ["(10, 0)", "(0, 5)", "(5, 5)", "(5, 0)"],
+        c: 3
+    },
+    {
+        q: "¿Qué divide el punto medio al segmento?",
+        o: ["En tres partes", "En partes desiguales", "En dos partes iguales", "No lo divide"],
+        c: 2
+    },
+    {
+        q: "Si x1=2 y x2= -2, ¿cuánto vale xm?",
+        o: ["2", "0", "-2", "4"],
+        c: 1
+    },
+    {
+        q: "El punto medio de (1,1) y (3,3) es:",
+        o: ["(2, 2)", "(4, 4)", "(1, 3)", "(0, 0)"],
+        c: 0
+    }
+];
+
+let currentQ = 0;
+
+function loadQuestion() {
+    if (currentQ < quizDataS26.length) {
+        const data = quizDataS26[currentQ];
+        document.getElementById('progress-text').innerText = `Estructura ${currentQ + 1} de ${quizDataS26.length}`;
+        document.getElementById('question-text').innerText = data.q;
+        for (let i = 0; i < 4; i++) {
+            document.getElementById(`opt${i}`).innerText = data.o[i];
+        }
+    } else {
+        document.getElementById('quiz-body').innerHTML = `
+            <div style="text-align:center; padding: 20px;">
+                <h2 style="color:#64FFDA">🏗️ OBRA TERMINADA</h2>
+                <p>Has dominado el punto medio de la Sesión 26.</p>
+                <button onclick="location.reload()" style="padding:10px 20px; cursor:pointer;">Reiniciar Inspección</button>
+            </div>
+        `;
+    }
+}
+
+function checkAnswer(idx) {
+    if (idx === quizDataS26[currentQ].c) {
+        alert("¡Estructura sólida! Correcto.");
+    } else {
+        alert("Cálculo fallido. Revisa el promedio.");
+    }
+    currentQ++;
+    loadQuestion();
+}
+
+window.onload = loadQuestion;

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S-11 Masterclass: Aplicación de MCD y mcm | PM2</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <script>
+        window.MathJax = {
+            tex: {
+                // Aquí le decimos que reconozca el signo de peso simple como fórmula en línea
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+
+    <div id="teacher-portal">
+        <div class="teacher-header">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            <input type="password" id="teacher-pass" placeholder="Código de Maestro">
+            <button onclick="unlockNotes()">Desencriptar</button>
+        </div>
+        <div id="teacher-notes" class="hidden">
+            <h3>👨‍🏫 Notas Estratégicas - Sesión 11 </h3>
+            <p><strong>Fase Estratégica:</strong> Aplicación de MCD y mcm.</p>
+            <ul>
+                <li><strong>Inicio:</strong> Durante el "Análisis de casos", no les des la respuesta de inmediato. Deja que discutan en parejas si el problema requiere "cortar" (MCD) o "sincronizar" (mcm).</li>
+                <li><strong>Desarrollo:</strong> La meta es la "Resolución de problemas complejos usando MCD y mcm". Fomenta que subrayen las palabras clave en los enunciados (ej. "coincidir", "mayor tamaño").</li>
+                <li><strong>Cierre:</strong> Usa el "Quiz rápido"  interactivo al final de esta página como tu Evaluación Formativa.</li>
+            </ul>
+        </div>
+    </div>
+
+    <header>
+        <div class="container hero">
+            <svg class="main-logo" viewBox="0 0 100 100" fill="none">
+                <circle cx="35" cy="50" r="15" stroke="#00e5ff" stroke-width="4" stroke-dasharray="6 4" fill="rgba(0,229,255,0.1)"/>
+                <path d="M60 50 Q 75 20 90 50" stroke="#ffb700" stroke-width="4" fill="none"/>
+                <path d="M60 50 Q 75 80 90 50" stroke="#ffb700" stroke-width="4" fill="none"/>
+                <circle cx="60" cy="50" r="5" fill="#ffb700"/>
+                <circle cx="90" cy="50" r="5" fill="#ffb700"/>
+            </svg>
+            <h1>Misiones de Aplicación</h1>
+            <p class="subtitle">Sesión 11 | MCD y mcm en el Mundo Real</p>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <section class="card fade-in">
+            <h2><span class="icon">🌍</span> El Mundo no viene con instrucciones</h2>
+            <div class="definition-wrapper">
+                <p>En la vida real, nadie te dice "calcula el mínimo común múltiplo de estos dos números". Te enfrentas a problemas de logística, organización de eventos, diseño de empaques o sincronización de horarios.</p>
+                <p>Hoy pondremos a prueba tu intuición. Tu objetivo es leer la situación, detectar el "código oculto" (las palabras clave) y aplicar la herramienta matemática exacta para resolver el caso.</p>
+            </div>
+        </section>
+
+        <section class="card fade-in">
+            <h2><span class="icon">📋</span> Plan de Operaciones</h2>
+            <div class="activities-grid">
+                <div class="activity-box inicio">
+                    <h3>1. Análisis de Casos</h3>
+                    <p>Inspeccionaremos expedientes (problemas) para aprender a identificar rápidamente si estamos ante una situación de división o de sincronización.</p>
+                </div>
+                <div class="activity-box desarrollo">
+                    <h3>2. Resolución de Problemas Complejos</h3>
+                    <p>Tomaremos los datos en bruto, aplicaremos la descomposición en factores primos y extraeremos soluciones para el mundo real.</p>
+                </div>
+                <div class="activity-box cierre">
+                    <h3>3. Quiz Rápido (Evaluación)</h3>
+                    <p>Evaluación formativa a contrarreloj para poner a prueba tu capacidad de respuesta y agilidad mental.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card fade-in">
+            <h2><span class="icon">🔍</span> 3 Archivos Desclasificados (Ejemplos)</h2>
+            <div class="examples-list">
+                <div class="example-item mcd-theme">
+                    <h4>Archivo 01: Operación "Kits de Rescate"</h4>
+                    <p><strong>El Caso:</strong> Tenemos 45 botellas de agua y 60 latas de atún. Queremos armar la <em>mayor cantidad</em> de kits de supervivencia idénticos sin que sobre nada.</p>
+                    <p><strong>Análisis:</strong> Queremos <em>repartir/dividir</em> en el mayor número posible. ¡Es MCD!</p>
+                    <p class="result-math">MCD(45, 60) = <span class="accent-c">15 kits</span> (Cada kit tendrá 3 aguas y 4 atunes).</p>
+                </div>
+                <div class="example-item mcm-theme">
+                    <h4>Archivo 02: Operación "Alineación Planetaria"</h4>
+                    <p><strong>El Caso:</strong> El cometa A pasa cada 12 años y el cometa B cada 18 años. Si los vimos juntos hoy, ¿en cuántos años <em>volverán a coincidir</em>?</p>
+                    <p><strong>Análisis:</strong> Buscamos un evento en el futuro donde se <em>sincronicen</em>. ¡Es mcm!</p>
+                    <p class="result-math">mcm(12, 18) = <span class="accent-o">36 años</span>.</p>
+                </div>
+                <div class="example-item neutral-theme">
+                    <h4>Archivo 03: Pistas del Escáner</h4>
+                    <p><strong>Truco Hacker:</strong> Si las unidades de respuesta son <em>más grandes</em> que los datos originales (ej. minutos a horas), casi siempre es <strong>mcm</strong>. Si la respuesta debe ser <em>más pequeña</em> que los datos originales (ej. cortar una cuerda larga en pedazos cortos), es <strong>MCD</strong>.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card fade-in">
+            <h2><span class="icon">✍️</span> Centro de Entrenamiento</h2>
+            <p>Abre tu libreta de apuntes. Lee cuidadosamente, decide tu herramienta y resuelve:</p>
+            <ol class="exercise-list">
+                <li>Una alarma suena cada 15 minutos y otra cada 25 minutos. Si sonaron juntas a las 8:00 AM, ¿a qué hora volverán a coincidir?</li>
+                <li>Un carpintero tiene un listón de madera de 120 cm y otro de 160 cm. Quiere cortarlos en trozos iguales que sean lo más largos posible. ¿Cuánto medirá cada trozo?</li>
+                <li>Tres corredores entrenan en una pista. Ana tarda 4 minutos en dar una vuelta, Beto 6 minutos y Carlos 8 minutos. Si salen juntos de la línea de meta, ¿en cuántos minutos se volverán a cruzar los tres al mismo tiempo?</li>
+            </ol>
+        </section>
+
+        <section class="card quiz-section fade-in">
+            <h2><span class="icon">🎮</span> Evaluación Formativa </h2>
+            <p>Simulador activado. Selecciona la opción correcta antes de que se agote tu energía mental.</p>
+            
+            <div id="quiz-container">
+                <div class="progress-bar"><div id="progress-fill"></div></div>
+                <div id="question-text">Iniciando simulador de crisis...</div>
+                <div id="answers-grid" class="kahoot-style">
+                    <button class="k-btn k-red" onclick="checkAnswer(0)">
+                        <span class="shape-triangle">▲</span> <span class="ans-content">Opcion 1</span>
+                    </button>
+                    <button class="k-btn k-blue" onclick="checkAnswer(1)">
+                        <span class="shape-diamond">◆</span> <span class="ans-content">Opcion 2</span>
+                    </button>
+                    <button class="k-btn k-yellow" onclick="checkAnswer(2)">
+                        <span class="shape-circle">●</span> <span class="ans-content">Opcion 3</span>
+                    </button>
+                    <button class="k-btn k-green" onclick="checkAnswer(3)">
+                        <span class="shape-square">■</span> <span class="ans-content">Opcion 4</span>
+                    </button>
+                </div>
+                <div id="result-message" class="hidden"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; jmgvptel. Masterclass s-11 PM2. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+<style>
+/* --- Variables Theme: Tactical Dark / Neón --- */
+:root {
+    --bg-main: #0b0f19; 
+    --card-bg: #131a28; 
+    --text-main: #f1f5f9;
+    --text-muted: #94a3b8;
+    
+    /* Acentos Tácticos */
+    --neon-cyan: #00e5ff;   /* MCD / Lógica */
+    --neon-amber: #ffb700;  /* mcm / Tiempo */
+    --neon-green: #00ff88;  /* Éxito */
+    
+    /* Kahoot Brand Colors */
+    --k-red: #e21b3c;
+    --k-blue: #1368ce;
+    --k-yellow: #d89e00;
+    --k-green: #26890c;
+
+    --font-main: 'Inter', 'Segoe UI', system-ui, sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { background-color: var(--bg-main); color: var(--text-main); font-family: var(--font-main); line-height: 1.6; }
+.container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+/* Animación de entrada */
+.fade-in { animation: fadeIn 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards; opacity: 0; transform: translateY(15px); }
+@keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
+
+/* --- Módulo Docente --- */
+#teacher-portal { background: #000; border-bottom: 2px solid var(--neon-green); padding: 8px 0; }
+.teacher-header { display: flex; justify-content: flex-end; align-items: center; gap: 10px; padding: 0 20px; }
+.teacher-header svg { width: 18px; color: var(--neon-green); }
+#teacher-pass { background: #1e293b; border: 1px solid #334155; color: var(--neon-green); padding: 5px 12px; border-radius: 6px; outline: none; transition: border-color 0.3s; }
+#teacher-pass:focus { border-color: var(--neon-green); }
+.teacher-header button { background: var(--neon-green); color: #000; border: none; padding: 6px 14px; font-weight: bold; cursor: pointer; border-radius: 6px; transition: filter 0.2s; }
+.teacher-header button:hover { filter: brightness(1.2); }
+#teacher-notes { background: rgba(0,255,136,0.05); border-top: 1px dashed var(--neon-green); padding: 20px; margin-top: 10px; font-size: 0.95rem; }
+#teacher-notes h3 { color: var(--neon-green); margin-bottom: 12px; }
+#teacher-notes ul { margin-left: 20px; color: var(--text-muted); }
+#teacher-notes li { margin-bottom: 8px; }
+
+/* --- Encabezado --- */
+header { padding: 60px 0 40px; text-align: center; background: radial-gradient(circle at top, rgba(255,183,0,0.08) 0%, transparent 70%); }
+.main-logo { width: 100px; height: 100px; margin-bottom: 20px; filter: drop-shadow(0 0 12px rgba(255,183,0,0.3)); }
+h1 { font-size: 2.8rem; font-weight: 800; color: #fff; letter-spacing: 0.5px; margin-bottom: 5px; }
+.subtitle { color: var(--neon-amber); text-transform: uppercase; font-size: 0.95rem; letter-spacing: 2px; font-weight: 600; }
+
+/* --- Tarjetas Estructurales --- */
+.card { background-color: var(--card-bg); border-radius: 16px; padding: 35px; margin-bottom: 30px; border: 1px solid rgba(255,255,255,0.03); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+h2 { color: #fff; font-size: 1.7rem; margin-bottom: 25px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid #1e293b; padding-bottom: 12px; }
+.icon { font-size: 1.8rem; }
+
+/* --- Cuadrícula de Actividades --- */
+.activities-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+.activity-box { background: rgba(0,0,0,0.2); padding: 25px; border-radius: 12px; border-top: 4px solid; transition: transform 0.2s ease, background 0.3s; }
+.activity-box:hover { transform: translateY(-4px); background: rgba(0,0,0,0.4); }
+.activity-box h3 { color: #fff; font-size: 1.15rem; margin-bottom: 12px; }
+.inicio { border-color: var(--neon-cyan); }
+.desarrollo { border-color: var(--neon-amber); }
+.cierre { border-color: var(--neon-green); }
+.activity-box p { color: var(--text-muted); font-size: 0.95rem; }
+
+/* --- Ejemplos Visuales --- */
+.examples-list { display: flex; flex-direction: column; gap: 18px; }
+.example-item { padding: 25px; border-radius: 12px; background: #0f172a; border-left: 4px solid #334155; }
+.example-item h4 { margin-bottom: 12px; color: #fff; font-size: 1.15rem; }
+.mcd-theme { border-left-color: var(--neon-cyan); }
+.mcm-theme { border-left-color: var(--neon-amber); }
+.neutral-theme { border-left-color: var(--neon-green); }
+.result-math { padding: 12px 18px; border-radius: 8px; display: inline-block; font-size: 1.1rem; margin-top: 15px; background: rgba(0,0,0,0.4); border: 1px solid #1e293b; }
+.accent-c { color: var(--neon-cyan); font-weight: bold; }
+.accent-o { color: var(--neon-amber); font-weight: bold; }
+
+/* --- Ejercicios --- */
+.exercise-list { margin-left: 20px; margin-top: 20px; color: var(--text-main); font-size: 1.05rem; }
+.exercise-list li { margin-bottom: 18px; background: rgba(255,255,255,0.02); padding: 18px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.05); }
+
+/* --- Quiz Tipo Kahoot --- */
+.quiz-section { text-align: center; border-top: 4px solid var(--neon-amber); }
+.progress-bar { width: 100%; height: 8px; background: #0f172a; border-radius: 4px; margin-bottom: 25px; overflow: hidden; }
+#progress-fill { height: 100%; background: var(--neon-amber); width: 0%; transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+#question-text { font-size: 1.4rem; font-weight: bold; margin-bottom: 30px; min-height: 55px; color: #fff; }
+.kahoot-style { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.k-btn { display: flex; align-items: center; color: #fff; border: none; border-radius: 10px; padding: 22px; font-size: 1.15rem; font-weight: bold; cursor: pointer; box-shadow: 0 5px 0 rgba(0,0,0,0.3); text-align: left; transition: filter 0.2s, transform 0.1s; }
+.k-btn:active { transform: translateY(5px); box-shadow: none; }
+.k-btn:hover { filter: brightness(1.15); }
+.ans-content { margin-left: 18px; width: 100%; text-align: center; }
+[class^="shape-"] { font-size: 1.6rem; opacity: 0.9; }
+
+.k-red { background-color: var(--k-red); }
+.k-blue { background-color: var(--k-blue); }
+.k-yellow { background-color: var(--k-yellow); color: #000; }
+.k-green { background-color: var(--k-green); }
+
+#result-message { margin-top: 25px; font-size: 1.25rem; font-weight: bold; padding: 18px; border-radius: 10px; }
+.correct { background: rgba(0, 255, 136, 0.15); color: var(--neon-green); border: 1px solid var(--neon-green); }
+.incorrect { background: rgba(226, 27, 60, 0.15); color: #ff4d4d; border: 1px solid var(--k-red); }
+
+/* --- Pie de Página --- */
+footer { text-align: center; padding: 35px 0; color: #64748b; font-size: 0.85rem; margin-top: 30px; border-top: 1px solid #1e293b; }
+.hidden { display: none !important; }
+
+@media (max-width: 650px) { .kahoot-style { grid-template-columns: 1fr; } h1 { font-size: 2.2rem; } }
+</style>
+<script>
+/* =========================================
+   MÓDULO DE SEGURIDAD DOCENTE
+   ========================================= */
+function unlockNotes() {
+    const passInput = document.getElementById("teacher-pass");
+    const notesDiv = document.getElementById("teacher-notes");
+
+    // Clave configurada
+    if (passInput.value === "1983") {
+        notesDiv.classList.remove('hidden');
+        passInput.value = ""; 
+        passInput.placeholder = "Modo Estratégico";
+        passInput.style.borderColor = "#00ff88";
+        passInput.disabled = true;
+    } else {
+        alert("Fallo de Autenticación. Clave incorrecta.");
+        passInput.value = "";
+    }
+}
+
+/* =========================================
+   MOTOR DE QUIZ (EVALUACIÓN FORMATIVA)
+   ========================================= */
+// Nota para ecuaciones: Usar doble barra invertida \\( ... \\)
+const quizData = [
+    {
+        question: "Si un problema te pide encontrar cuándo volverán a coincidir dos rutinas diferentes, debes calcular el...",
+        answers: ["MCD", "mcm", "Perímetro", "Interés Simple"],
+        correct: 1
+    },
+    {
+        question: "Tienes 30 chocolates y 40 paletas. Quieres armar el MAYOR número de bolsitas idénticas sin que sobre nada. Usas:",
+        answers: ["mcm", "Suma y división", "MCD", "Restar 10"],
+        correct: 2
+    },
+    {
+        question: "Resuelve rápido: ¿Cuál es el mcm de 5 y 10?",
+        answers: ["5", "10", "50", "15"],
+        correct: 1 // El múltiplo más pequeño que comparten es 10
+    },
+    {
+        question: "Resuelve rápido: ¿Cuál es el MCD de 8 y 12?",
+        answers: ["4", "2", "24", "1"],
+        correct: 0 // El número más grande que divide a ambos es 4
+    },
+    {
+        question: "Un faro gira cada 12 segundos y otro cada 15 segundos. ¿En cuántos segundos se iluminarán al mismo tiempo?",
+        answers: ["3 segundos", "27 segundos", "60 segundos", "180 segundos"],
+        correct: 2 // mcm(12, 15) = 60
+    }
+];
+
+let currentIndex = 0;
+let score = 0;
+
+function loadNextQuestion() {
+    const container = document.getElementById('quiz-container');
+    const questionText = document.getElementById('question-text');
+    const answersGrid = document.getElementById('answers-grid');
+    const resultBox = document.getElementById('result-message');
+    const progressBar = document.getElementById('progress-fill');
+
+    resultBox.classList.add('hidden');
+    answersGrid.classList.remove('hidden');
+
+    if (currentIndex < quizData.length) {
+        const currentQ = quizData[currentIndex];
+        
+        // Progreso visual
+        progressBar.style.width = `${(currentIndex / quizData.length) * 100}%`;
+        questionText.innerHTML = `Misión ${currentIndex + 1}: ${currentQ.question}`;
+        
+        // Cargar respuestas en los botones
+        const buttons = answersGrid.getElementsByTagName('button');
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].querySelector('.ans-content').innerHTML = currentQ.answers[i];
+        }
+
+        // Renderizado dinámico de MathJax
+        if (window.MathJax) {
+            MathJax.typesetPromise([container]).catch((err) => console.log(err.message));
+        }
+
+    } else {
+        // Cierre de evaluación
+        progressBar.style.width = "100%";
+        questionText.innerHTML = "¡Simulación Completada! 🏁";
+        answersGrid.classList.add('hidden');
+        
+        let finalFeedback = `Has completado la misión con ${score} de ${quizData.length} aciertos.<br><br>`;
+        if (score >= 4) {
+            finalFeedback += "¡Excelente análisis! Estás listo para resolver problemas complejos de logística.";
+        } else {
+            finalFeedback += "Buen intento. Recuerda buscar siempre las palabras clave (coincidir vs repartir) antes de operar.";
+        }
+        
+        resultBox.innerHTML = finalFeedback;
+        resultBox.className = "correct";
+        resultBox.classList.remove('hidden');
+    }
+}
+
+function checkAnswer(selectedIndex) {
+    const currentQ = quizData[currentIndex];
+    const answersGrid = document.getElementById('answers-grid');
+    const resultBox = document.getElementById('result-message');
+
+    // Bloquear botones durante el feedback
+    answersGrid.classList.add('hidden');
+
+    if (selectedIndex === currentQ.correct) {
+        score++;
+        resultBox.innerHTML = "¡OPERACIÓN EXITOSA! Respuesta correcta. 🎯";
+        resultBox.className = "correct";
+    } else {
+        resultBox.innerHTML = `ERROR DE CÁLCULO. La maniobra correcta era:<br><strong>${currentQ.answers[currentQ.correct]}</strong>`;
+        resultBox.className = "incorrect";
+    }
+
+    resultBox.classList.remove('hidden');
+
+    // Procesar cualquier ecuación en el feedback
+    if (window.MathJax) {
+        MathJax.typesetPromise([resultBox]).catch((err) => console.log(err.message));
+    }
+
+    currentIndex++;
+    setTimeout(loadNextQuestion, 3200); // Pausa de 3.2s para leer retroalimentación
+}
+
+// Arrancar sistema
+window.onload = loadNextQuestion;
+</script>

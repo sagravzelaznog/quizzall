@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S-03 Masterclass: Sintaxis Algebraica | Pensamiento Matemático II</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <script>
+        window.MathJax = {
+            tex: {
+                // Signo de peso simple para fórmulas en línea
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+
+    <div id="teacher-access">
+        <div class="teacher-control">
+            <svg class="icon-key" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path></svg>
+            <input type="password" id="teacher-pass" placeholder="Clave Docente">
+            <button onclick="checkTeacherAccess()">Desbloquear Notas</button>
+        </div>
+        <div id="teacher-notes-content" class="hidden">
+            <h3>👨‍🏫 Notas Pedagógicas (Exclusivo Docente)</h3>
+            <p><strong>Enfoque:</strong> A esta edad, la sintaxis algebraica se siente como un idioma extranjero. El objetivo psicológico es reducir la ansiedad matemática demostrando que son reglas de "etiquetado".</p>
+            <p><strong>Tip de Actividad 1:</strong> Para la caza de términos, si el grupo está apático, conviértalo en una competencia de velocidad. Use expresiones muy largas en el pizarrón para el inicio.</p>
+            <p><strong>Tip de Actividad 3:</strong> El memorama algebraico impreso (recurso de planeación) debe incluir productos notables básicos. Use el código de colores mostrado en la sección de ejemplos para ayudar a la memoria visual antes de la sesión.</p>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <svg class="main-logo" viewBox="0 0 100 100" fill="none">
+                <circle cx="50" cy="50" r="48" stroke="#00e5ff" stroke-width="4"/>
+                <path d="M30 70 L50 30 L70 70" stroke="#ff007f" stroke-width="6" stroke-linecap="round"/>
+                <path d="M30 30 L70 70 M70 30 L30 70" stroke="#00e5ff" stroke-width="2" opacity="0.5"/>
+            </svg>
+            <h1>Sintaxis Algebraica</h1>
+            <p class="subtitle">Módulo I: El ADN de las Matemáticas</p>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <section id="definicion" class="card section-fade-in">
+            <h2><span class="icon">🔍</span> ¿Qué es la Sintaxis Algebraica?</h2>
+            <div class="definition-wrapper">
+                <p>Imagina que el Álgebra es un idioma. Si no sigues las reglas de ortografía y gramática, nadie te entiende. La <strong>Sintaxis Algebraica</strong> son esas reglas: nos dice cómo escribir correctamente números, letras y signos para que tengan sentido.</p>
+                <p>La unidad básica es el <strong>Término Algebraico</strong>.</p>
+                
+                <div class="svg-diagram">
+                    <svg viewBox="0 0 400 150">
+                        <defs>
+                            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+                                <polygon points="0 0, 10 3.5, 0 7" fill="#94a3b8" />
+                            </marker>
+                        </defs>
+                        <text x="200" y="80" text-anchor="middle" font-size="60" font-weight="bold" fill="white">-3x<tspan dy="-25" font-size="30">2</tspan></text>
+                        
+                        <g fill="#94a3b8" font-size="14">
+                            <text x="100" y="20">Signo</text>
+                            <path d="M100 30 L165 60" stroke="#ff007f" stroke-width="2" marker-end="url(#arrowhead)"/>
+                            
+                            <text x="170" y="130">Coeficiente</text>
+                            <path d="M170 115 L185 85" stroke="#00e5ff" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+                            <text x="230" y="130">Variable (Literal)</text>
+                            <path d="M230 115 L215 85" stroke="#bc13fe" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+                            <text x="300" y="20">Exponentes</text>
+                            <path d="M300 30 L235 55" stroke="#00ff00" stroke-width="2" marker-end="url(#arrowhead)"/>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <section id="actividades" class="card section-fade-in">
+            <h2><span class="icon">🎮</span> Actividades de la Sesión</h2>
+            <div class="activities-grid">
+                <div class="activity-box inicio">
+                    <h3>1. Caza de Términos</h3>
+                    <p>Encuentra las partes de términos ocultos en una expresión larga en el pizarrón.</p>
+                </div>
+                <div class="activity-box desarrollo">
+                    <h3>2. El Reto de la Simplificación</h3>
+                    <p>Usa los Productos Notables para expandir expresiones desarrolladas de forma rápida.</p>
+                </div>
+                <div class="activity-box cierre">
+                    <h3>3. Algebra Memorama </h3>
+                    <p>Cierre de sesión: conecta expresiones equivalentes usando tus tarjetas didácticas.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="ejemplos" class="card section-fade-in">
+            <h2><span class="icon">💡</span> 3 Ejemplos Clave</h2>
+            <div class="examples-list">
+                <div class="example-item">
+                    <h4>Ejemplo 1: Anatomía de un término</h4>
+                    <p>En el término $7ax^3$:</p>
+                    <ul>
+                        <li>Signo: $+$ (aunque no se escribe).</li>
+                        <li>Coeficiente: <span class="accent-c">7</span></li>
+                        <li>Variables: <span class="accent-l">a, x</span></li>
+                        <li>Exponente de x: <span class="accent-e">3</span> (Exponente de a es 1).</li>
+                    </ul>
+                </div>
+                <div class="example-item">
+                    <h4>Ejemplo 2: Simplificación vs Desarrollo</h4>
+                    <p>Expresión Desarrollada: $(x+5)(x+5)$</p>
+                    <p>Expresión Simplificada (Producto Notable): <span class="accent-p">$(x+5)^2 = x^2 + 10x + 25$</span></p>
+                </div>
+                <div class="example-item">
+                    <h4>Ejemplo 3: Términos NO Semejantes</h4>
+                    <p>$4x^2$ y $4x$ <strong>NO</strong> son semejantes. Aunque tienen la misma variable ($x$) y coeficiente ($4$), sus <span class="accent-e">exponentes son diferentes</span>.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="ejercicios" class="card section-fade-in">
+            <h2><span class="icon">✍️</span> ¡Tu Turno! 3 Ejercicios</h2>
+            <p>Intenta resolver estos retos en tu cuaderno antes del Quiz.</p>
+            <ol class="exercise-list">
+                <li>Identifica todos los componentes del término: $-9y^5z$.</li>
+                <li>Determina si $5a^2b$ y $-2a^2b$ son términos semejantes y explica por qué.</li>
+                <li>Desarrolla el siguiente producto notable básico: $(a-3)^2$.</li>
+            </ol>
+        </section>
+
+        <section id="quiz" class="card quiz-section section-fade-in">
+            <h2><span class="icon">🏆</span> Quiz Final - Modo Desafío</h2>
+            <p>Demuestra lo aprendido en 5 preguntas rápidas. ¡Elige el color correcto!</p>
+            
+            <div id="quiz-container">
+                <div id="question-text">Pregunta...</div>
+                <div id="answers-grid" class="kahoot-style">
+                    <button class="answer-btn k-red" onclick="answerQuestion(0)">
+                        <span class="shape-triangle">▲</span> <span class="ans-content">Opcion 1</span>
+                    </button>
+                    <button class="answer-btn k-blue" onclick="answerQuestion(1)">
+                        <span class="shape-diamond">◆</span> <span class="ans-content">Opcion 2</span>
+                    </button>
+                    <button class="answer-btn k-yellow" onclick="answerQuestion(2)">
+                        <span class="shape-circle">●</span> <span class="ans-content">Opcion 3</span>
+                    </button>
+                    <button class="answer-btn k-green" onclick="answerQuestion(3)">
+                        <span class="shape-square">■</span> <span class="ans-content">Opcion 4</span>
+                    </button>
+                </div>
+                <div id="result-message" class="hidden"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; jmgvptel. Masterclass s-03 PM2. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+<STYLE>
+/* Paleta de Colores Profesionales Pro-Gaming / Modo Oscuro */
+:root {
+    --bg-color: #0f172a; /* Azul marino muy oscuro */
+    --card-bg: #1e293b; /* Slate oscuro */
+    --text-main: #f8fafc; /* Blanco roto */
+    --text-muted: #94a3b8; /* Gris azulado */
+    
+    --neon-cyan: #00e5ff;
+    --neon-magenta: #ff007f;
+    --neon-purple: #bc13fe;
+    --neon-green: #00ff00;
+
+    /* Kahoot Style Colors */
+    --k-red: #e21b3c;
+    --k-blue: #1368ce;
+    --k-yellow: #d89e00;
+    --k-green: #26890c;
+
+    --font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Reset básico */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font-family);
+    line-height: 1.6;
+    padding-bottom: 2rem;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Portal Docente */
+#teacher-access {
+    background: #000;
+    padding: 10px 0;
+    border-bottom: 2px solid var(--neon-magenta);
+}
+
+.teacher-control {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    padding: 0 20px;
+}
+
+.icon-key { width: 18px; color: var(--neon-magenta); }
+
+#teacher-pass {
+    background: #222;
+    border: 1px solid #444;
+    color: #fff;
+    padding: 5px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+.teacher-control button {
+    background: var(--neon-magenta);
+    border: none;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+#teacher-notes-content {
+    background: rgba(255, 0, 127, 0.1);
+    padding: 20px;
+    margin-top: 10px;
+    border-top: 1px dashed var(--neon-magenta);
+}
+
+#teacher-notes-content h3 { color: var(--neon-magenta); margin-bottom: 10px; }
+#teacher-notes-content p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 8px; }
+
+/* Header */
+header {
+    text-align: center;
+    padding: 60px 0;
+    background: radial-gradient(circle, rgba(30,41,59,1) 0%, rgba(15,23,42,1) 100%);
+}
+
+.main-logo { width: 80px; height: 80px; margin-bottom: 20px; filter: drop-shadow(0 0 10px var(--neon-cyan)); }
+
+h1 { font-size: 3rem; color: var(--neon-cyan); text-transform: uppercase; letter-spacing: 2px; }
+.subtitle { color: var(--neon-magenta); font-weight: bold; font-size: 1.1rem; }
+
+/* Main Content - Cards */
+.card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+h2 {
+    color: var(--neon-purple);
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.icon { font-size: 2rem; }
+
+p { margin-bottom: 15px; color: var(--text-light); }
+
+/* SVG Diagrama */
+.svg-diagram {
+    background: rgba(0,0,0,0.3);
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.svg-diagram svg { max-width: 100%; height: auto; }
+
+/* Grid de Actividades */
+.activities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.activity-box {
+    background: rgba(0,0,0,0.2);
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid var(--neon-muted);
+}
+
+.activity-box h3 { font-size: 1.1rem; margin-bottom: 10px; }
+.activity-box.inicio { border-color: var(--neon-cyan); color: var(--neon-cyan); }
+.activity-box.desarrollo { border-color: var(--neon-purple); color: var(--neon-purple); }
+.activity-box.cierre { border-color: var(--neon-green); color: var(--neon-green); }
+.activity-box p { color: var(--text-muted); font-size: 0.9rem; }
+
+/* Ejemplos */
+.examples-list { display: flex; flex-direction: column; gap: 15px; }
+.example-item {
+    background: rgba(255,255,255,0.03);
+    padding: 15px;
+    border-radius: 8px;
+}
+.example-item h4 { color: #fff; margin-bottom: 8px; font-weight: 600; }
+.example-item ul { margin-left: 20px; color: var(--text-muted); }
+.accent-c { color: var(--neon-cyan); font-weight: bold; }
+.accent-l { color: var(--neon-purple); font-weight: bold; }
+.accent-e { color: var(--neon-green); font-weight: bold; }
+.accent-p { color: #fff; background: rgba(188, 19, 254, 0.2); padding: 2px 5px; border-radius: 4px;}
+
+/* Ejercicios */
+.exercise-list { margin-left: 25px; color: var(--text-muted); font-size: 1.1rem; }
+.exercise-list li { margin-bottom: 10px; }
+
+/* Quiz Section */
+.quiz-section { text-align: center; border: 2px solid var(--neon-cyan); }
+#question-text { font-size: 1.4rem; font-weight: bold; margin-bottom: 25px; min-height: 60px;}
+
+.kahoot-style {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.answer-btn {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.1s, filter 0.2s;
+    box-shadow: 0 4px 0 rgba(0,0,0,0.3);
+    text-align: left;
+}
+
+.answer-btn:hover { filter: brightness(1.1); }
+.answer-btn:active { transform: translateY(2px); box-shadow: 0 2px 0 rgba(0,0,0,0.3); }
+
+.ans-content { margin-left: 15px; }
+
+/* Kahoot Shapes */
+[class^="shape-"] { font-size: 1.5rem; }
+
+.k-red { background-color: var(--k-red); }
+.k-blue { background-color: var(--k-blue); }
+.k-yellow { background-color: var(--k-yellow); }
+.k-green { background-color: var(--k-green); }
+
+#result-message { margin-top: 20px; font-size: 1.3rem; font-weight: bold; padding: 15px; border-radius: 8px;}
+.correct { background-color: rgba(0, 255, 0, 0.2); color: var(--neon-green); border: 1px solid var(--neon-green); }
+.incorrect { background-color: rgba(226, 27, 60, 0.2); color: #fff; border: 1px solid var(--k-red); }
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 30px 0;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+/* Animaciones simples */
+.hidden { display: none !important; }
+.section-fade-in { animation: fadeIn 1s ease-out; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Responsividad */
+@media (max-width: 768px) {
+    h1 { font-size: 2.2rem; }
+    .kahoot-style { grid-template-columns: 1fr; }
+    .card { padding: 20px; }
+}
+</STYLE>
+<script>
+/* =========================================
+   SISTEMA DE ACCESO DOCENTE (Modular)
+   ========================================= */
+const TEACHER_CONFIG = {
+    // Clave requerida
+    key: "1983",
+    // IDs de los elementos DOM
+    inputID: "teacher-pass",
+    contentID: "teacher-notes-content"
+};
+
+function checkTeacherAccess() {
+    const input = document.getElementById(TEACHER_CONFIG.inputID);
+    const content = document.getElementById(TEACHER_CONFIG.contentID);
+
+    if (input.value === TEACHER_CONFIG.key) {
+        content.classList.remove('hidden');
+        input.value = ""; // Limpiar input
+        // Feedback psicologico positivo
+        input.placeholder = "✔ Acceso Concedido";
+        input.style.borderColor = "#00ff00";
+    } else {
+        alert("Clave incorrecta. Inténtalo de nuevo.");
+        input.value = "";
+    }
+}
+
+/* =========================================
+   LÓGICA DEL QUIZ ESTILO KAHOOT (Escalable)
+   ========================================= */
+
+// Base de datos de preguntas (Preparada para otras sesiones futuras)
+// NOTA: Para fórmulas en el quiz usar doble diagonal inversa: \\( ... \\)
+const quizDatabase = [
+    {
+        question: "¿Cuál es el coeficiente en el término \\(-5x^3\\)?",
+        answers: ["5", "3", "-5", "x"],
+        correct: 2 // Índice de la respuesta correcta (-5)
+    },
+    {
+        question: "Son términos semejantes:",
+        answers: ["\\(2a\\) y \\(3b\\)", "\\(4x^2\\) y \\(x^2\\)", "\\(y\\) y \\(y^2\\)", "\\(7ab\\) y \\(7a\\)"],
+        correct: 1 // (4x^2 y x^2)
+    },
+    {
+        question: "Simplifica el producto notable \\((x+3)^2\\):",
+        answers: ["\\(x^2+9\\)", "\\(x^2-6x+9\\)", "\\(x^2+6x-9\\)", "\\(x^2+6x+9\\)"],
+        correct: 3 // (x^2+6x+9)
+    },
+    {
+        question: "En Álgebra, el exponente 1 generalmente:",
+        answers: ["Se escribe siempre", "No se escribe", "Se escribe como 0", "Se cambia por una letra"],
+        correct: 1 // (No se escribe)
+    },
+    {
+        question: "Al simplificar \\(3x + 5y - x + 2y\\) obtenemos:",
+        answers: ["\\(4x+7y\\)", "\\(2x+7y\\)", "\\(2x+3y\\)", "\\(3x+10y\\)"],
+        correct: 1 // (2x+7y)
+    }
+];
+
+let currentQuestionIndex = 0;
+
+function loadQuestion() {
+    const quizContainer = document.getElementById('quiz-container');
+    const questionText = document.getElementById('question-text');
+    const resultMessage = document.getElementById('result-message');
+    const answersGrid = document.getElementById('answers-grid');
+
+    // Resetear vistas
+    resultMessage.classList.add('hidden');
+    resultMessage.className = ""; // Limpiar clases correct/incorrect
+    answersGrid.classList.remove('hidden'); // Asegurar que se vean botones
+
+    // Comprobar si hay más preguntas
+    if (currentQuestionIndex < quizDatabase.length) {
+        const qData = quizDatabase[currentQuestionIndex];
+        questionText.innerHTML = `Pregunta ${currentQuestionIndex + 1}: ${qData.question}`;
+        
+        const buttons = answersGrid.getElementsByTagName('button');
+        for (let i = 0; i < buttons.length; i++) {
+            // Actualizar contenido de respuesta (manteniendo la figura geométrica)
+            buttons[i].querySelector('.ans-content').innerHTML = qData.answers[i];
+        }
+
+        // ¡Importante! Re-procesar MathJax para las nuevas fórmulas cargadas dinámicamente
+        if (window.MathJax) {
+            MathJax.typesetPromise([quizContainer]).catch((err) => console.log(err.message));
+        }
+
+    } else {
+        // Fin del Quiz
+        questionText.innerHTML = "🎉 ¡Quiz Completado!";
+        answersGrid.classList.add('hidden');
+        resultMessage.innerHTML = "Revisa tus respuestas en el Problemario con tu profesor.";
+        resultMessage.className = "correct"; // Usar estilo verde
+        resultMessage.classList.remove('hidden');
+    }
+}
+
+function answerQuestion(selectedIndex) {
+    const qData = quizDatabase[currentQuestionIndex];
+    const resultMessage = document.getElementById('result-message');
+    const answersGrid = document.getElementById('answers-grid');
+
+    answersGrid.classList.add('hidden'); // Ocultar botones para dar feedback
+
+    if (selectedIndex === qData.correct) {
+        // Psicología: Refuerzo positivo inmediato
+        resultMessage.innerHTML = "¡CORRECTO! ⚡️ +1000 pts (Mentales)";
+        resultMessage.className = "correct";
+    } else {
+        // Psicología: Corrección sin castigo excesivo
+        resultMessage.innerHTML = `Incorrecto. La respuesta era: ${qData.answers[qData.correct]}.`;
+        resultMessage.className = "incorrect";
+    }
+
+    resultMessage.classList.remove('hidden');
+
+    // Procesar MathJax en el mensaje de resultado si hay fórmulas
+    if (window.MathJax) {
+        MathJax.typesetPromise([resultMessage]).catch((err) => console.log(err.message));
+    }
+
+    // Esperar 2.5 segundos y cargar la siguiente pregunta
+    currentQuestionIndex++;
+    setTimeout(loadQuestion, 2500);
+}
+
+// Iniciar el quiz al cargar la página
+window.onload = loadQuestion;
+</script>

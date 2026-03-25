@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S-10 Masterclass: MCD y mcm Conceptuales | PM2</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <script>
+        window.MathJax = {
+            tex: {
+                // Aquí le decimos que reconozca el signo de peso simple como fórmula en línea
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+
+    <div id="teacher-portal">
+        <div class="teacher-header">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            <input type="password" id="teacher-pass" placeholder="Clave Docente">
+            <button onclick="unlockTeacherNotes()">Acceder</button>
+        </div>
+        <div id="teacher-notes" class="hidden">
+            <h3>👨‍🏫 Notas Pedagógicas - Sesión 10</h3>
+            <p><strong>Tema:</strong> P5: MCD y mcm Conceptuales.</p>
+            <ul>
+                <li><strong>Inicio:</strong> Para el problema de "luces parpadeantes" (mcm), pida a dos alumnos que aplaudan a diferentes ritmos (ej. cada 2s y cada 3s) hasta que coincidan. Para las "losetas" (MCD), dibuje un rectángulo en el pizarrón e intente dividirlo en cuadrados.</li>
+                <li><strong>Desarrollo:</strong> Enfatice el significado de las siglas. "Múltiplo" implica que el número crece (hacia el futuro). "Divisor" implica que el número se rompe o achica.</li>
+                <li><strong>Cierre:</strong> Diferenciación. Enseñe a detectar palabras clave en los problemas de aplicación: "coincidir/repetir" = mcm; "cortar/repartir/máximo" = MCD.</li>
+            </ul>
+        </div>
+    </div>
+
+    <header>
+        <div class="container hero">
+            <svg class="main-logo" viewBox="0 0 120 100" fill="none">
+                <rect x="10" y="20" width="40" height="40" stroke="#00e5ff" stroke-width="3" fill="rgba(0,229,255,0.1)"/>
+                <line x1="10" y1="40" x2="50" y2="40" stroke="#00e5ff" stroke-width="2" stroke-dasharray="4 2"/>
+                <line x1="30" y1="20" x2="30" y2="60" stroke="#00e5ff" stroke-width="2" stroke-dasharray="4 2"/>
+                
+                <path d="M60 80 Q 70 40 80 80 T 100 80" stroke="#ff8c00" stroke-width="3" fill="none"/>
+                <path d="M60 80 Q 80 20 100 80" stroke="#ff007f" stroke-width="3" fill="none"/>
+                <circle cx="100" cy="80" r="4" fill="#fff"/>
+            </svg>
+            <h1>MCD vs mcm</h1>
+            <p class="subtitle">Sesión 10 | Hackeando el Espacio y el Tiempo</p>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <section class="card fade-in">
+            <h2><span class="icon">⚖️</span> ¿Cortar o Sincronizar?</h2>
+            <div class="definition-wrapper">
+                <p>El <strong>Máximo Común Divisor (MCD)</strong> es la herramienta matemática para <em>fragmentar el espacio</em>. Busca el "pedazo" o "bloque" más grande posible que pueda dividir a dos o más cantidades de forma exacta sin que sobre nada.</p>
+                <p>El <strong>mínimo común múltiplo (mcm)</strong> es la herramienta para <em>sincronizar el tiempo</em>. Busca el momento más cercano en el futuro donde dos o más eventos o ciclos se van a encontrar o chocar.</p>
+            </div>
+        </section>
+
+        <section class="card fade-in">
+            <h2><span class="icon">🚀</span> Protocolo de la Sesión</h2>
+            <div class="activities-grid">
+                <div class="activity-box inicio">
+                    <h3>1. Luces y Losetas</h3>
+                    <p>Problema detonador: Analizaremos cómo se comportan las luces parpadeantes (tiempo) y cómo cubrir un piso con losetas (espacio).</p>
+                </div>
+                <div class="activity-box desarrollo">
+                    <h3>2. Cálculo Conceptual</h3>
+                    <p>Definiremos conceptualmente el MCD y mcm y aprenderemos la técnica de factorización para calcular ambos.</p>
+                </div>
+                <div class="activity-box cierre">
+                    <h3>3. El Radar de Diferenciación</h3>
+                    <p>Entrenaremos al cerebro para diferenciar rápidamente qué herramienta usar leyendo pistas ocultas en problemas de aplicación.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card fade-in">
+            <h2><span class="icon">💡</span> 3 Ejemplos Visuales</h2>
+            <div class="examples-list">
+                <div class="example-item mcd-style">
+                    <h4>Ejemplo 1: Las Losetas (MCD)</h4>
+                    <p><strong>Reto:</strong> Tengo una pared de 12m y otra de 18m. Quiero decorarlas con los cuadrados más grandes posibles sin cortar ninguno.</p>
+                    <p><strong>Cálculo:</strong> Buscamos los divisores. El mayor número que divide al 12 y al 18 es el 6.</p>
+                    <p class="result-math">MCD(12, 18) = <span class="accent-c">6 metros</span></p>
+                </div>
+                <div class="example-item mcm-style">
+                    <h4>Ejemplo 2: Las Luces Parpadeantes (mcm)</h4>
+                    <p><strong>Reto:</strong> Una luz roja parpadea cada 4 segundos, y una verde cada 6 segundos. ¿Cuándo parpadearán juntas?</p>
+                    <p><strong>Cálculo:</strong> Buscamos los múltiplos (hacia adelante). Los múltiplos de 4 son 8, 12, 16... Los de 6 son 12, 18... ¡El 12 es el primer cruce!</p>
+                    <p class="result-math">mcm(4, 6) = <span class="accent-o">12 segundos</span></p>
+                </div>
+                <div class="example-item neutral-style">
+                    <h4>Ejemplo 3: Palabras Clave</h4>
+                    <p>Si el problema dice: <em>repartir, dividir, cortar, máximo, mayor tamaño</em> ➔ Usa <strong>MCD</strong>.</p>
+                    <p>Si el problema dice: <em>coincidir, repetir, juntar de nuevo, mínimo, próximo encuentro</em> ➔ Usa <strong>mcm</strong>.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card fade-in">
+            <h2><span class="icon">✍️</span> Zona de Entrenamiento</h2>
+            <p>Lee las situaciones, identifica si debes usar MCD o mcm, y resuélvelas en tu cuaderno:</p>
+            <ol class="exercise-list">
+                <li>Un carpintero tiene dos tablas, una de 40 cm y otra de 50 cm. Quiere cortarlas en pedazos iguales y lo más largos posible. ¿De qué tamaño serán los pedazos?</li>
+                <li>El camión de la ruta A pasa cada 15 minutos y el de la ruta B pasa cada 20 minutos. Si acaban de coincidir en la parada, ¿en cuántos minutos volverán a chocar?</li>
+                <li>Tienes 24 manzanas y 36 naranjas. Quieres armar el mayor número de canastas idénticas sin que sobre fruta. ¿Cuántas canastas puedes armar?</li>
+            </ol>
+        </section>
+
+        <section class="card quiz-section fade-in">
+            <h2><span class="icon">🎮</span> Simulador de Diferenciación (Quiz)</h2>
+            <p>Lee la pregunta y presiona el botón correcto a máxima velocidad.</p>
+            
+            <div id="quiz-container">
+                <div class="progress-bar"><div id="progress-fill"></div></div>
+                <div id="question-text">Calibrando sistema...</div>
+                <div id="answers-grid" class="kahoot-style">
+                    <button class="k-btn k-red" onclick="checkAnswer(0)">
+                        <span class="shape-triangle">▲</span> <span class="ans-content">Opcion 1</span>
+                    </button>
+                    <button class="k-btn k-blue" onclick="checkAnswer(1)">
+                        <span class="shape-diamond">◆</span> <span class="ans-content">Opcion 2</span>
+                    </button>
+                    <button class="k-btn k-yellow" onclick="checkAnswer(2)">
+                        <span class="shape-circle">●</span> <span class="ans-content">Opcion 3</span>
+                    </button>
+                    <button class="k-btn k-green" onclick="checkAnswer(3)">
+                        <span class="shape-square">■</span> <span class="ans-content">Opcion 4</span>
+                    </button>
+                </div>
+                <div id="result-message" class="hidden"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; jmgvptel. Masterclass s-10 PM2. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+<style> 
+/* --- Variables Cyber-Geometry Theme --- */
+:root {
+    --bg-main: #0a0e17; 
+    --card-bg: #121824; 
+    --text-main: #e2e8f0;
+    --text-muted: #64748b;
+    
+    /* MCD (Corte, Espacio, División) */
+    --neon-cyan: #00e5ff;   
+    --neon-blue: #3b82f6;
+
+    /* mcm (Tiempo, Ondas, Sincronización) */
+    --neon-orange: #ff8c00;
+    --neon-pink: #ff007f;
+    
+    /* Kahoot Brand Colors */
+    --k-red: #e21b3c;
+    --k-blue: #1368ce;
+    --k-yellow: #d89e00;
+    --k-green: #26890c;
+
+    --font-main: 'Segoe UI', system-ui, sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { background-color: var(--bg-main); color: var(--text-main); font-family: var(--font-main); line-height: 1.6; }
+.container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+/* Animación de entrada */
+.fade-in { animation: fadeIn 0.6s ease-in-out forwards; opacity: 0; transform: translateY(10px); }
+@keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
+
+/* --- Portal Docente --- */
+#teacher-portal { background: #000; border-bottom: 2px solid var(--neon-cyan); padding: 8px 0; }
+.teacher-header { display: flex; justify-content: flex-end; align-items: center; gap: 10px; padding: 0 20px; }
+.teacher-header svg { width: 18px; color: var(--neon-cyan); }
+#teacher-pass { background: #111; border: 1px solid #333; color: var(--neon-cyan); padding: 4px 10px; border-radius: 4px; outline: none; }
+#teacher-pass:focus { border-color: var(--neon-cyan); box-shadow: 0 0 5px rgba(0,229,255,0.3); }
+.teacher-header button { background: var(--neon-cyan); color: #000; border: none; padding: 5px 12px; font-weight: bold; cursor: pointer; border-radius: 4px; }
+#teacher-notes { background: rgba(0,229,255,0.05); border-top: 1px dashed var(--neon-cyan); padding: 20px; margin-top: 10px; font-size: 0.95rem;}
+#teacher-notes h3 { color: var(--neon-cyan); margin-bottom: 10px; }
+#teacher-notes ul { margin-left: 20px; color: var(--text-muted); margin-top: 10px;}
+
+/* --- Header --- */
+header { padding: 50px 0 40px; text-align: center; background: radial-gradient(circle at center, rgba(0,229,255,0.08) 0%, transparent 60%); }
+.main-logo { width: 120px; height: 100px; margin-bottom: 15px; filter: drop-shadow(0 0 10px rgba(0,229,255,0.3)); }
+h1 { font-size: 2.8rem; font-weight: 800; color: #fff; letter-spacing: 1px; }
+.subtitle { color: var(--text-muted); text-transform: uppercase; font-size: 0.9rem; letter-spacing: 3px; margin-top: 5px; }
+
+/* --- Tarjetas (Cards) --- */
+.card { background-color: var(--card-bg); border-radius: 12px; padding: 30px; margin-bottom: 30px; border: 1px solid rgba(255,255,255,0.05); box-shadow: 0 8px 25px rgba(0,0,0,0.6); }
+h2 { color: #fff; font-size: 1.6rem; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #1f2937; padding-bottom: 10px; }
+.icon { font-size: 1.8rem; }
+
+/* --- Secuencia Didáctica --- */
+.activities-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+.activity-box { background: rgba(0,0,0,0.3); padding: 20px; border-radius: 8px; border-top: 3px solid; transition: transform 0.2s; }
+.activity-box:hover { transform: translateY(-3px); }
+.activity-box h3 { color: #fff; font-size: 1.1rem; margin-bottom: 10px; }
+.inicio { border-color: var(--neon-cyan); }
+.desarrollo { border-color: var(--neon-orange); }
+.cierre { border-color: var(--neon-pink); }
+.activity-box p { color: var(--text-muted); font-size: 0.95rem; }
+
+/* --- Ejemplos con Theming Visual --- */
+.examples-list { display: flex; flex-direction: column; gap: 15px; }
+.example-item { padding: 20px; border-radius: 8px; background: rgba(0,0,0,0.3); border-left: 4px solid #333;}
+.example-item h4 { margin-bottom: 8px; color: #fff; font-size: 1.1rem;}
+.mcd-style { border-left-color: var(--neon-cyan); background: linear-gradient(90deg, rgba(0,229,255,0.05) 0%, transparent 100%);}
+.mcm-style { border-left-color: var(--neon-orange); background: linear-gradient(90deg, rgba(255,140,0,0.05) 0%, transparent 100%);}
+.result-math { padding: 10px; border-radius: 6px; display: inline-block; font-size: 1.1rem; margin-top: 10px; background: rgba(0,0,0,0.5);}
+.accent-c { color: var(--neon-cyan); font-weight: bold; }
+.accent-o { color: var(--neon-orange); font-weight: bold; }
+
+/* --- Ejercicios --- */
+.exercise-list { margin-left: 20px; margin-top: 15px; color: var(--text-main); }
+.exercise-list li { margin-bottom: 15px; background: rgba(255,255,255,0.02); padding: 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); }
+
+/* --- Quiz Kahoot Style --- */
+.quiz-section { text-align: center; border-top: 4px solid var(--neon-pink); }
+.progress-bar { width: 100%; height: 6px; background: #000; border-radius: 3px; margin-bottom: 20px; overflow: hidden; }
+#progress-fill { height: 100%; background: var(--neon-pink); width: 0%; transition: width 0.3s; }
+#question-text { font-size: 1.3rem; font-weight: bold; margin-bottom: 25px; min-height: 50px; color: #fff; }
+.kahoot-style { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.k-btn { display: flex; align-items: center; color: #fff; border: none; border-radius: 8px; padding: 20px; font-size: 1.1rem; font-weight: bold; cursor: pointer; box-shadow: 0 4px 0 rgba(0,0,0,0.4); text-align: left; transition: filter 0.2s, transform 0.1s; }
+.k-btn:active { transform: translateY(4px); box-shadow: none; }
+.k-btn:hover { filter: brightness(1.1); }
+.ans-content { margin-left: 15px; width: 100%; text-align: center; }
+[class^="shape-"] { font-size: 1.5rem; opacity: 0.9; }
+
+.k-red { background-color: var(--k-red); }
+.k-blue { background-color: var(--k-blue); }
+.k-yellow { background-color: var(--k-yellow); color: #000; }
+.k-green { background-color: var(--k-green); }
+
+#result-message { margin-top: 20px; font-size: 1.2rem; font-weight: bold; padding: 15px; border-radius: 8px; }
+.correct { background: rgba(38, 137, 12, 0.2); color: #00ff66; border: 1px solid #00ff66; }
+.incorrect { background: rgba(226, 27, 60, 0.2); color: #ff4d4d; border: 1px solid var(--k-red); }
+
+/* --- Footer --- */
+footer { text-align: center; padding: 30px 0; color: #475569; font-size: 0.85rem; margin-top: 20px; border-top: 1px solid #1f2937;}
+.hidden { display: none !important; }
+
+@media (max-width: 600px) { .kahoot-style { grid-template-columns: 1fr; } h1 { font-size: 2rem; } }
+
+</style>
+
+<script>
+/* =========================================
+   PORTAL DOCENTE - SEGURIDAD BÁSICA
+   ========================================= */
+function unlockTeacherNotes() {
+    const input = document.getElementById("teacher-pass");
+    const notesContent = document.getElementById("teacher-notes");
+
+    // Clave solicitada "1983"
+    if (input.value === "1983") {
+        notesContent.classList.remove('hidden');
+        input.value = ""; 
+        input.placeholder = "Sesión Activa";
+        input.style.borderColor = "#00e5ff";
+        input.disabled = true;
+    } else {
+        alert("Acceso Restringido. Clave incorrecta.");
+        input.value = "";
+    }
+}
+
+/* =========================================
+   SISTEMA DE QUIZ KAHOOT - SESIÓN 10
+   ========================================= */
+const quizQuestions = [
+    {
+        question: "¿Qué significan las siglas MCD?",
+        answers: ["Múltiplo Común Dividido", "Máximo Común Divisor", "Mínimo Común Divisor", "Máximo Cuadrado Dividido"],
+        correct: 1
+    },
+    {
+        question: "Si un problema te pide 'dividir una tela en los pedazos más grandes posibles', ¿qué debes usar?",
+        answers: ["mcm", "Una resta", "MCD", "Sumar los valores"],
+        correct: 2
+    },
+    {
+        question: "Si el camión rojo pasa cada 10 min y el azul cada 15 min, ¿qué herramienta matemática predice cuándo chocarán en la parada?",
+        answers: ["MCD", "Mínimo Común Múltiplo (mcm)", "División exacta", "Regla de tres"],
+        correct: 1
+    },
+    {
+        question: "Calcula el mínimo común múltiplo (mcm) de 3 y 4.",
+        answers: ["1", "7", "12", "24"],
+        correct: 2 // El primer múltiplo que comparten es el 12.
+    },
+    {
+        question: "Calcula el Máximo Común Divisor (MCD) de 10 y 20.",
+        answers: ["10", "2", "5", "20"],
+        correct: 0 // El número más grande que divide a ambos exactamente es el 10.
+    }
+];
+
+let currentIndex = 0;
+let score = 0;
+
+function renderQuestion() {
+    const container = document.getElementById('quiz-container');
+    const questionEl = document.getElementById('question-text');
+    const gridEl = document.getElementById('answers-grid');
+    const resultEl = document.getElementById('result-message');
+    const progressFill = document.getElementById('progress-fill');
+
+    resultEl.classList.add('hidden');
+    gridEl.classList.remove('hidden');
+
+    if (currentIndex < quizQuestions.length) {
+        const q = quizQuestions[currentIndex];
+        
+        // Actualizar barra de progreso
+        progressFill.style.width = `${(currentIndex / quizQuestions.length) * 100}%`;
+        questionEl.innerHTML = `Pregunta ${currentIndex + 1}: ${q.question}`;
+        
+        // Llenar botones de respuesta
+        const buttons = gridEl.getElementsByTagName('button');
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].querySelector('.ans-content').innerHTML = q.answers[i];
+        }
+
+        // Re-renderizar MathJax
+        if (window.MathJax) {
+            MathJax.typesetPromise([container]).catch((err) => console.log(err.message));
+        }
+
+    } else {
+        // Fin del quiz
+        progressFill.style.width = "100%";
+        questionEl.innerHTML = "¡Diagnóstico Completo! 🚀";
+        gridEl.classList.add('hidden');
+        
+        let finalMsg = `Aciertos: ${score} de ${quizQuestions.length} correctos.<br><br>`;
+        if (score >= 4) {
+            finalMsg += "¡Dominio Total! Ya sabes perfectamente cuándo fragmentar el espacio (MCD) y cuándo sincronizar el tiempo (mcm).";
+        } else {
+            finalMsg += "Recuerda: Si buscas pedazos usa el Divisor (MCD). Si buscas que se repita o coincida, usa Múltiplos (mcm).";
+        }
+        
+        resultEl.innerHTML = finalMsg;
+        resultEl.className = "correct";
+        resultEl.classList.remove('hidden');
+    }
+}
+
+function checkAnswer(index) {
+    const q = quizQuestions[currentIndex];
+    const gridEl = document.getElementById('answers-grid');
+    const resultEl = document.getElementById('result-message');
+
+    // Ocultar opciones para evitar doble click
+    gridEl.classList.add('hidden');
+
+    if (index === q.correct) {
+        score++;
+        resultEl.innerHTML = "¡CORRECTO! Operación lógica validada. ⚡";
+        resultEl.className = "correct";
+    } else {
+        resultEl.innerHTML = `ERROR DE CÁLCULO. La respuesta correcta era:<br><strong>${q.answers[q.correct]}</strong>`;
+        resultEl.className = "incorrect";
+    }
+
+    resultEl.classList.remove('hidden');
+
+    if (window.MathJax) {
+        MathJax.typesetPromise([resultEl]).catch((err) => console.log(err.message));
+    }
+
+    // Esperar y cargar la siguiente
+    currentIndex++;
+    setTimeout(renderQuestion, 3000);
+}
+
+// Inicializar el quiz
+window.onload = renderQuestion;
+</script>

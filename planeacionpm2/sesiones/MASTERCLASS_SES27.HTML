@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S27: Proporciones Dinámicas | PM2</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+
+    <div id="admin-gate">
+        <div class="container flex-gate">
+            <span>🔐 Terminal de Enlace Pedagógico:</span>
+            <div class="input-group">
+                <input type="password" id="master-key" placeholder="Clave 1983">
+                <button onclick="checkAccess()">Desbloquear Notas</button>
+            </div>
+        </div>
+    </div>
+
+    <header class="master-header s27-kinetic">
+        <div class="container header-content">
+            <div class="hero-text">
+                <h1>División de un Segmento</h1>
+                <p>Sesión 27: Razón dada y posicionamiento preciso</p>
+            </div>
+            <div class="hero-svg">
+                <svg width="120" height="120" viewBox="0 0 100 100">
+                    <line x1="10" y1="80" x2="90" y2="20" stroke="rgba(255,255,255,0.2)" stroke-width="4" />
+                    <circle cx="10" cy="80" r="4" fill="#00E5FF" />
+                    <circle cx="90" cy="20" r="4" fill="#00E5FF" />
+                    <circle cx="34" cy="62" r="5" fill="#7C4DFF" />
+                    <text x="38" y="58" fill="white" font-size="10" font-family="sans-serif">P(r)</text>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="teacher-notes" class="hidden">
+            <div class="master-card">
+                <h4>🧠 Insights de Andragogía y Psicología</h4>
+                <p><strong>El reto cognitivo:</strong> La razón $r$ es un concepto abstracto. Explique que si $r=2$, el punto está al "doble de distancia" del inicio que del final. Es como repartir una pizza: 2 partes para un lado, 1 para el otro.</p>
+                <p><strong>Tip del Experto:</strong> Cuidado con el signo de $r$. Si $r$ es negativa, el punto es "externo" al segmento. Para este nivel (14-16 años), enfóquese primero en razones positivas (puntos internos).</p>
+            </div>
+        </section>
+
+        <section class="lesson-block">
+            <h2><span class="num">27.1</span> ¿Qué es dividir un segmento?</h2>
+            <p>Dividir un segmento en una razón $r$ significa encontrar un punto $P(x, y)$ tal que la relación entre la distancia del inicio al punto y del punto al final sea constante.</p>
+            <div class="formula-container">
+                $$x = \frac{x_1 + r x_2}{1 + r} \quad , \quad y = \frac{y_1 + r y_2}{1 + r}$$
+            </div>
+            <p class="small-info">*Donde $r$ es la razón dada y $r \neq -1$.</p>
+        </section>
+
+        <section class="lesson-block">
+            <h2><span class="num">27.2</span> Modelos de Cálculo (Ejemplos)</h2>
+            <div class="grid-3">
+                <div class="case-card">
+                    <h5>Razón r = 1</h5>
+                    <p>Si $r=1$, el punto es el **punto medio**. Las fórmulas se simplifican al promedio visto en la sesión anterior.</p>
+                </div>
+                <div class="case-card">
+                    <h5>Razón r = 2</h5>
+                    <p>Extremos: $A(0,0), B(6,9)$.</p>
+                    <p>$x = \frac{0 + 2(6)}{1+2} = \mathbf{4}$</p>
+                    <p>$y = \frac{0 + 2(9)}{1+2} = \mathbf{6}$</p>
+                </div>
+                <div class="case-card">
+                    <h5>Razón r = 1/2</h5>
+                    <p>El punto está más cerca del origen ($P_1$). Divide el segmento en 3 partes y toma la primera.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-block">
+            <h2><span class="num">27.3</span> Laboratorio de Aplicación</h2>
+            <div class="activity-box">
+                <div class="act-item">
+                    <strong>🚀 Propulsión:</strong> Un cohete viaja de $(2, 2)$ a $(14, 20)$. Si se le acaba el combustible a una razón $r=3$, ¿en qué coordenadas quedó varado?
+                </div>
+                <div class="act-item">
+                    <strong>🏗️ Ingeniería:</strong> Se debe colocar un soporte en una viga que une $(-5, -2)$ con $(5, 8)$ a una razón de $r=1/4$. Localiza el punto de apoyo.
+                </div>
+                <div class="act-item">
+                    <strong>🎨 Diseño Gráfico:</strong> Divide una línea de degradado de $(0, 10)$ a $(20, 10)$ en 4 partes iguales encontrando los puntos con $r=1/3, r=1, r=3$.
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-block accent-border">
+            <h2><span class="num">27.4</span> Desafíos Estructurales (Ejercicios)</h2>
+            <ol class="exercise-grid">
+                <li>Dados $A(1, 2)$ y $B(5, 10)$, halla $P$ para $r = 3$.</li>
+                <li>Halla las coordenadas del punto que divide al segmento $M(-2, 5)$ y $N(4, -1)$ en la razón $r = 2$.</li>
+                <li>Si un segmento va de $(x_1, y_1)$ al origen y $r=1$, ¿cuál es el punto resultante?</li>
+            </ol>
+        </section>
+
+        <section class="kahoot-wrapper">
+            <div class="quiz-status">
+                <span class="live-tag">LIVE QUIZ S27</span>
+                <h3 id="q-title">Cargando desafío...</h3>
+                <p id="q-count">Pregunta 0 de 5</p>
+            </div>
+            <div id="quiz-options" class="k-grid">
+                <button class="k-option o-red" onclick="validateAns(0)">▲ <span id="opt-0"></span></button>
+                <button class="k-option o-blue" onclick="validateAns(1)">◆ <span id="opt-1"></span></button>
+                <button class="k-option o-yellow" onclick="validateAns(2)">● <span id="opt-2"></span></button>
+                <button class="k-option o-green" onclick="validateAns(3)">■ <span id="opt-3"></span></button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; jmgvptel. Masterclass s-27 PM2. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+/* DISEÑO KINETIC S27 */
+:root {
+    --electric-violet: #7C4DFF;
+    --precision-cyan: #00E5FF;
+    --dark-graphite: #212121;
+    --clean-white: #FAFAFA;
+    --k-red: #E21B3C;
+    --k-blue: #1368CE;
+    --k-yellow: #D89E00;
+    --k-green: #26890C;
+}
+
+body {
+    background-color: #F4F7F6;
+    color: var(--dark-graphite);
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+}
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+/* GATE */
+#admin-gate { background: #000; color: #555; padding: 10px 0; font-size: 0.8rem; }
+.flex-gate { display: flex; justify-content: space-between; align-items: center; }
+#master-key { background: #111; border: 1px solid #333; color: var(--precision-cyan); border-radius: 4px; padding: 5px; }
+.hidden { display: none; }
+
+/* HEADER */
+.master-header {
+    background: var(--dark-graphite);
+    color: white;
+    padding: 60px 0;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 8px solid var(--electric-violet);
+}
+.header-content { display: flex; justify-content: space-between; align-items: center; }
+.num { color: var(--electric-violet); font-weight: bold; margin-right: 15px; }
+
+/* BLOCKS */
+.lesson-block {
+    background: white;
+    padding: 45px;
+    border-radius: 15px;
+    margin: 30px 0;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+}
+.formula-container {
+    background: #f0f0f5;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.8rem;
+    color: var(--electric-violet);
+    border-left: 6px solid var(--precision-cyan);
+}
+
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.case-card { background: #fdfdfd; border: 1px solid #eee; padding: 25px; border-radius: 12px; }
+
+.accent-border { border-right: 8px solid var(--precision-cyan); }
+
+/* KAHOOT STYLE */
+.kahoot-wrapper {
+    background: #46178F;
+    padding: 50px;
+    border-radius: 25px;
+    color: white;
+    margin-bottom: 80px;
+}
+.k-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px; }
+.k-option {
+    height: 110px; border: none; border-radius: 12px; color: white;
+    font-size: 1.3rem; font-weight: 700; cursor: pointer; text-align: left; padding-left: 35px;
+    transition: 0.2s;
+}
+.k-option:active { transform: scale(0.95); }
+.o-red { background: var(--k-red); } .o-blue { background: var(--k-blue); }
+.o-yellow { background: var(--k-yellow); } .o-green { background: var(--k-green); }
+
+footer { background: var(--dark-graphite); color: #666; padding: 50px 0; text-align: center; }
+/* --- CONTROL DE ACCESO --- */
+function checkAccess() {
+    const pin = document.getElementById('master-key').value;
+    if (pin === "1983") {
+        document.getElementById('teacher-notes').classList.remove('hidden');
+        alert("S27: Acceso maestro verificado. Visualizando tips psicológicos.");
+    } else {
+        alert("Clave incorrecta.");
+    }
+}
+
+/* --- LOGICA DEL QUIZ S27 --- */
+const questionsS27 = [
+    {
+        q: "¿Qué sucede si la razón r es igual a 1?",
+        o: ["Punto en el origen", "Punto medio del segmento", "El punto no existe", "Punto en el extremo"],
+        c: 1
+    },
+    {
+        q: "En la fórmula, ¿qué valor NO puede tomar r?",
+        o: ["0", "1", "100", "-1"],
+        c: 3
+    },
+    {
+        q: "Si r = 2, ¿en cuántas partes totales se imagina dividido el segmento?",
+        o: ["2 partes", "3 partes", "1 parte", "4 partes"],
+        c: 1
+    },
+    {
+        q: "Para calcular x, la fórmula correcta usa:",
+        o: ["x1 + r*x2", "x1 - r*x2", "x1 * x2", "r + x1"],
+        c: 0
+    },
+    {
+        q: "Si P está más cerca de P2 que de P1, entonces r es:",
+        o: ["Menor que 1", "Igual a 1", "Mayor que 1", "Cero"],
+        c: 2
+    }
+];
+
+let qIdx = 0;
+
+function renderQuiz() {
+    if (qIdx < questionsS27.length) {
+        const item = questionsS27[qIdx];
+        document.getElementById('q-title').innerText = item.q;
+        document.getElementById('q-count').innerText = `Pregunta ${qIdx + 1} de ${questionsS27.length}`;
+        for (let i = 0; i < 4; i++) {
+            document.getElementById(`opt-${i}`).innerText = item.o[i];
+        }
+    } else {
+        document.getElementById('quiz-options').style.display = 'none';
+        document.getElementById('q-title').innerHTML = "⚡ ¡CERTIFICACIÓN COMPLETA! <br> Has dominado las razones dinámicas.";
+    }
+}
+
+function validateAns(idx) {
+    if (idx === questionsS27[qIdx].c) {
+        alert("¡Excelente precisión!");
+    } else {
+        alert("Cálculo desviado. Revisa la razón.");
+    }
+    qIdx++;
+    renderQuiz();
+}
+
+window.onload = renderQuiz;

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S-04 Masterclass: Factorización y Estructura | PM2</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <script>
+        window.MathJax = {
+            tex: {
+                // Aquí le decimos que reconozca el signo de peso simple como fórmula en línea
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+
+    <div id="teacher-access">
+        <div class="teacher-control">
+            <svg class="icon-key" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path></svg>
+            <input type="password" id="teacher-pass" placeholder="Clave Docente">
+            <button onclick="checkTeacherAccess()">Desbloquear Notas</button>
+        </div>
+        <div id="teacher-notes-content" class="hidden">
+            <h3>👨‍🏫 Notas Pedagógicas - Sesión 4</h3>
+            <p><strong>Secuencia de la clase:</strong></p>
+            <ul>
+                <li><strong>Inicio:</strong> Dinámica "¿Qué tienen en común?" para introducir el factor común de forma intuitiva.</li>
+                <li><strong>Desarrollo:</strong> Explicar la factorización como herramienta de simplificación.</li>
+                <li><strong>Cierre:</strong> Resolución de ejercicios de simplificación enfocados en el Problemario.</li>
+            </ul>
+            <p><strong>Tip Psicológico:</strong> Los alumnos de 15 años suelen frustrarse si no ven la utilidad inmediata. Venda la factorización como "comprimir un archivo zip" o "encontrar el ADN" de la ecuación para hacerla más fácil de manejar.</p>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <svg class="main-logo" viewBox="0 0 100 100" fill="none">
+                <rect x="20" y="20" width="25" height="25" fill="#00e5ff" rx="4" opacity="0.8"/>
+                <rect x="55" y="20" width="25" height="25" fill="#ff007f" rx="4" opacity="0.8"/>
+                <rect x="20" y="55" width="60" height="25" fill="#bc13fe" rx="4" opacity="0.8"/>
+                <path d="M45 32 L55 32 M32 45 L32 55 M68 45 L68 55" stroke="#fff" stroke-width="2" stroke-dasharray="2 2"/>
+            </svg>
+            <h1>Factorización y Estructura</h1>
+            <p class="subtitle">Sesión 4 | Módulo I: Del Lenguaje Natural al Algebraico</p>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <section id="definicion" class="card section-fade-in">
+            <h2><span class="icon">🧩</span> ¿Qué es Factorizar?</h2>
+            <div class="definition-wrapper">
+                <p>Si multiplicar es "armar" un mueble, <strong>factorizar es "desarmarlo"</strong> para ver de qué piezas está hecho. Matemáticamente, es el proceso de transformar una suma o resta algebraica en una <em>multiplicación</em> de piezas más pequeñas llamadas "factores".</p>
+                <p>Es la mejor técnica de "hacker" matemático, utilizada como una poderosa <strong>herramienta de simplificación</strong>.</p>
+            </div>
+        </section>
+
+        <section id="actividades" class="card section-fade-in">
+            <h2><span class="icon">🎮</span> Secuencia de la Misión</h2>
+            <div class="activities-grid">
+                <div class="activity-box inicio">
+                    <h3>1. Inicio: ¿Qué tienen en común?</h3>
+                    <p>Observaremos grupos de objetos o números en la pizarra para entrenar nuestro cerebro a encontrar el "Factor Común".</p>
+                </div>
+                <div class="activity-box desarrollo">
+                    <h3>2. Desarrollo: Ingeniería Inversa</h3>
+                    <p>Aplicaremos la factorización como herramienta de simplificación para reducir expresiones gigantes a bloques pequeños.</p>
+                </div>
+                <div class="activity-box cierre">
+                    <h3>3. Cierre: Resolución de Ejercicios</h3>
+                    <p>Trabajaremos directamente en el <em>Problemario</em> para poner a prueba nuestra capacidad de simplificación.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="ejemplos" class="card section-fade-in">
+            <h2><span class="icon">💡</span> 3 Ejemplos Estructurales</h2>
+            <div class="examples-list">
+                <div class="example-item">
+                    <h4>Ejemplo 1: Extrayendo el Factor Común</h4>
+                    <p>Expresión original: $4x^2 + 2x$</p>
+                    <p>¿Qué comparten? Ambos son divisibles por $2x$.</p>
+                    <p class="result-math">Factorizado: <span class="accent-c">$2x(2x + 1)$</span></p>
+                </div>
+                <div class="example-item">
+                    <h4>Ejemplo 2: Diferencia de Cuadrados</h4>
+                    <p>Expresión original: $x^2 - 25$</p>
+                    <p>Regla: Dos términos restándose que tienen raíz cuadrada exacta.</p>
+                    <p class="result-math">Factorizado: <span class="accent-l">$(x - 5)(x + 5)$</span></p>
+                </div>
+                <div class="example-item">
+                    <h4>Ejemplo 3: Trinomio Cuadrático</h4>
+                    <p>Expresión original: $x^2 + 7x + 10$</p>
+                    <p>Busca dos números que sumados den 7 y multiplicados den 10 (¡El 2 y el 5!).</p>
+                    <p class="result-math">Factorizado: <span class="accent-e">$(x + 2)(x + 5)$</span></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="ejercicios" class="card section-fade-in">
+            <h2><span class="icon">✍️</span> Desafío de Simplificación</h2>
+            <p>Antes de ir a tu <em>Problemario</em>, resuelve estos 3 ejercicios en tu cuaderno:</p>
+            <ol class="exercise-list">
+                <li>Extrae el factor común: $5y^3 - 15y^2$</li>
+                <li>Factoriza la diferencia de cuadrados: $a^2 - 64$</li>
+                <li>Factoriza el trinomio: $m^2 + 6m + 8$</li>
+            </ol>
+        </section>
+
+        <section id="quiz" class="card quiz-section section-fade-in">
+            <h2><span class="icon">🏆</span> Evaluación Rápida</h2>
+            <p>Demuestra tu dominio de la Estructura Algebraica.</p>
+            
+            <div id="quiz-container">
+                <div class="progress-bar"><div id="progress-fill"></div></div>
+                <div id="question-text">Preparando conexión...</div>
+                <div id="answers-grid" class="kahoot-style">
+                    <button class="answer-btn k-red" onclick="answerQuestion(0)">
+                        <span class="shape-triangle">▲</span> <span class="ans-content">1</span>
+                    </button>
+                    <button class="answer-btn k-blue" onclick="answerQuestion(1)">
+                        <span class="shape-diamond">◆</span> <span class="ans-content">2</span>
+                    </button>
+                    <button class="answer-btn k-yellow" onclick="answerQuestion(2)">
+                        <span class="shape-circle">●</span> <span class="ans-content">3</span>
+                    </button>
+                    <button class="answer-btn k-green" onclick="answerQuestion(3)">
+                        <span class="shape-square">■</span> <span class="ans-content">4</span>
+                    </button>
+                </div>
+                <div id="result-message" class="hidden"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; jmgvptel. Masterclass s-04 PM2. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+<STYLE>
+/* Variables Globales Escalables */
+:root {
+    --bg-color: #0b0f19; /* Fondo negro profundo */
+    --card-bg: #151b2b; /* Tarjetas azul oscuro */
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    
+    --neon-cyan: #00e5ff;
+    --neon-magenta: #ff007f;
+    --neon-purple: #bc13fe;
+    --neon-green: #00ff00;
+
+    /* Kahoot Colors */
+    --k-red: #e21b3c;
+    --k-blue: #1368ce;
+    --k-yellow: #d89e00;
+    --k-green: #26890c;
+
+    --font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font-family);
+    line-height: 1.6;
+}
+
+.container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+/* Docente */
+#teacher-access { background: #000; border-bottom: 2px solid var(--neon-cyan); padding: 8px 0; }
+.teacher-control { display: flex; justify-content: flex-end; gap: 10px; padding: 0 20px; }
+.icon-key { width: 16px; color: var(--neon-cyan); }
+#teacher-pass { background: #222; border: 1px solid #444; color: #fff; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem; }
+.teacher-control button { background: var(--neon-cyan); color: #000; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 0.8rem; }
+#teacher-notes-content { background: rgba(0, 229, 255, 0.1); padding: 20px; border-top: 1px dashed var(--neon-cyan); font-size: 0.9rem; }
+#teacher-notes-content h3 { color: var(--neon-cyan); margin-bottom: 10px; }
+#teacher-notes-content li { margin-left: 20px; margin-bottom: 5px; color: var(--text-muted); }
+
+/* Header */
+header { padding: 50px 0; text-align: center; background: radial-gradient(circle at top, rgba(188,19,254,0.15) 0%, transparent 60%); }
+.main-logo { width: 90px; height: 90px; margin-bottom: 15px; filter: drop-shadow(0 0 8px var(--neon-magenta)); }
+h1 { font-size: 2.8rem; color: var(--neon-cyan); letter-spacing: 1px; margin-bottom: 5px; }
+.subtitle { color: var(--neon-purple); font-weight: 600; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 2px; }
+
+/* Cards */
+.card { background-color: var(--card-bg); border-radius: 12px; padding: 30px; margin-bottom: 30px; box-shadow: 0 8px 20px rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.05); }
+h2 { color: var(--neon-magenta); font-size: 1.6rem; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid rgba(255,0,127,0.3); padding-bottom: 10px; }
+p { color: var(--text-muted); margin-bottom: 15px; }
+
+/* Grid Actividades */
+.activities-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+.activity-box { background: rgba(0,0,0,0.4); padding: 20px; border-radius: 8px; border-top: 3px solid #555; }
+.activity-box h3 { font-size: 1.1rem; margin-bottom: 10px; color: #fff; }
+.inicio { border-top-color: var(--neon-cyan); }
+.desarrollo { border-top-color: var(--neon-purple); }
+.cierre { border-top-color: var(--neon-magenta); }
+
+/* Ejemplos */
+.examples-list { display: flex; flex-direction: column; gap: 15px; }
+.example-item { background: rgba(255,255,255,0.03); padding: 20px; border-radius: 8px; border-left: 3px solid #555; }
+.example-item h4 { color: #fff; margin-bottom: 10px; }
+.result-math { background: rgba(0,0,0,0.5); padding: 10px; border-radius: 6px; display: inline-block; margin-top: 10px; font-size: 1.1rem;}
+.accent-c { color: var(--neon-cyan); font-weight: bold; }
+.accent-l { color: var(--neon-magenta); font-weight: bold; }
+.accent-e { color: var(--neon-purple); font-weight: bold; }
+
+/* Ejercicios */
+.exercise-list { margin-left: 20px; font-size: 1.1rem; color: #fff; }
+.exercise-list li { margin-bottom: 15px; background: rgba(0,229,255,0.05); padding: 10px 15px; border-radius: 6px; }
+
+/* Quiz */
+.quiz-section { text-align: center; }
+.progress-bar { width: 100%; height: 6px; background: #000; border-radius: 3px; margin-bottom: 20px; overflow: hidden; }
+#progress-fill { height: 100%; background: var(--neon-magenta); width: 0%; transition: width 0.3s; }
+#question-text { font-size: 1.3rem; font-weight: bold; margin-bottom: 20px; min-height: 50px; color: #fff; }
+.kahoot-style { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.answer-btn { display: flex; align-items: center; color: #fff; border: none; border-radius: 8px; padding: 20px; font-size: 1.2rem; font-weight: bold; cursor: pointer; transition: transform 0.1s; box-shadow: 0 4px 0 rgba(0,0,0,0.3); text-align: left; }
+.answer-btn:active { transform: translateY(4px); box-shadow: none; }
+.ans-content { margin-left: 15px; width: 100%; text-align: center; }
+[class^="shape-"] { font-size: 1.5rem; opacity: 0.8; }
+.k-red { background-color: var(--k-red); } .k-blue { background-color: var(--k-blue); } .k-yellow { background-color: var(--k-yellow); color: #000; } .k-green { background-color: var(--k-green); }
+
+#result-message { margin-top: 20px; font-size: 1.2rem; font-weight: bold; padding: 15px; border-radius: 8px; }
+.correct { background: rgba(0,255,0,0.2); color: var(--neon-green); border: 1px solid var(--neon-green); }
+.incorrect { background: rgba(226,27,60,0.2); color: #fff; border: 1px solid var(--k-red); }
+
+/* Footer */
+footer { text-align: center; padding: 30px 0; color: var(--text-muted); font-size: 0.8rem; border-top: 1px solid #222; margin-top: 40px; }
+
+.hidden { display: none !important; }
+.section-fade-in { animation: fadeIn 0.8s ease-out; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+</STYLE>
+
+<script>
+/* =========================================
+   SISTEMA DEL DOCENTE
+   ========================================= */
+function checkTeacherAccess() {
+    const input = document.getElementById("teacher-pass");
+    const content = document.getElementById("teacher-notes-content");
+
+    // Clave configurada según requerimiento
+    if (input.value === "1983") {
+        content.classList.remove('hidden');
+        input.value = ""; 
+        input.placeholder = "Desbloqueado";
+        input.style.borderColor = "#00e5ff";
+    } else {
+        alert("Acceso Restringido. Clave incorrecta.");
+        input.value = "";
+    }
+}
+
+/* =========================================
+   SISTEMA DE QUIZ (ESTILO KAHOOT)
+   ========================================= */
+// Nota: Las fórmulas matemáticas deben escapar la barra invertida: \\( ... \\)
+const quizQuestions = [
+    {
+        question: "¿Cuál fue la actividad de inicio de esta sesión?",
+        answers: ["Teléfono descompuesto", "¿Qué tienen en común?", "Criba de Eratóstenes", "Tiro parabólico"],
+        correct: 1 // Referencia a la planeación
+    },
+    {
+        question: "La factorización se utiliza principalmente como herramienta de...",
+        answers: ["Complicación", "Adivinanza", "Simplificación", "Suma rápida"],
+        correct: 2 // Referencia a la planeación
+    },
+    {
+        question: "Identifica el factor común en la expresión: \\(6x^2 + 3x\\)",
+        answers: ["\\(2x\\)", "\\(3x\\)", "\\(6x\\)", "\\(x^2\\)"],
+        correct: 1 // 3x
+    },
+    {
+        question: "¿Cuál es la factorización correcta de la diferencia de cuadrados \\(x^2 - 16\\)?",
+        answers: ["\\((x-4)(x+4)\\)", "\\((x-8)(x+2)\\)", "\\((x-16)(x+1)\\)", "\\((x-4)^2\\)"],
+        correct: 0 // (x-4)(x+4)
+    },
+    {
+        question: "Al factorizar un trinomio como \\(x^2 + 5x + 6\\), buscamos dos números que...",
+        answers: ["Restados den 5", "Sumados den 5 y multiplicados 6", "Multiplicados den 5 y sumados 6", "Divididos den 0"],
+        correct: 1 
+    }
+];
+
+let currentIndex = 0;
+let score = 0;
+
+function renderQuestion() {
+    const container = document.getElementById('quiz-container');
+    const questionEl = document.getElementById('question-text');
+    const gridEl = document.getElementById('answers-grid');
+    const resultEl = document.getElementById('result-message');
+    const progressFill = document.getElementById('progress-fill');
+
+    resultEl.classList.add('hidden');
+    gridEl.classList.remove('hidden');
+
+    if (currentIndex < quizQuestions.length) {
+        const q = quizQuestions[currentIndex];
+        
+        // Actualizar barra de progreso
+        progressFill.style.width = `${(currentIndex / quizQuestions.length) * 100}%`;
+        
+        // Cargar pregunta
+        questionEl.innerHTML = `Q${currentIndex + 1}: ${q.question}`;
+        
+        // Cargar respuestas
+        const buttons = gridEl.getElementsByTagName('button');
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].querySelector('.ans-content').innerHTML = q.answers[i];
+        }
+
+        // Repintar MathJax
+        if (window.MathJax) {
+            MathJax.typesetPromise([container]).catch((err) => console.log(err.message));
+        }
+
+    } else {
+        // Fin del quiz
+        progressFill.style.width = "100%";
+        questionEl.innerHTML = "¡Misión Completada! 🚀";
+        gridEl.classList.add('hidden');
+        
+        let finalMsg = `Lograste ${score} aciertos de ${quizQuestions.length}.<br><br>`;
+        finalMsg += "Recuerda resolver los ejercicios de simplificación en tu <strong>Problemario</strong>.";
+        
+        resultEl.innerHTML = finalMsg;
+        resultEl.className = "correct";
+        resultEl.classList.remove('hidden');
+    }
+}
+
+function answerQuestion(index) {
+    const q = quizQuestions[currentIndex];
+    const gridEl = document.getElementById('answers-grid');
+    const resultEl = document.getElementById('result-message');
+
+    gridEl.classList.add('hidden');
+
+    if (index === q.correct) {
+        score++;
+        resultEl.innerHTML = "¡EXCELENTE! Factorización impecable. ⚡";
+        resultEl.className = "correct";
+    } else {
+        resultEl.innerHTML = `Incorrecto. La respuesta correcta era:<br><strong>${q.answers[q.correct]}</strong>`;
+        resultEl.className = "incorrect";
+    }
+
+    resultEl.classList.remove('hidden');
+
+    if (window.MathJax) {
+        MathJax.typesetPromise([resultEl]).catch((err) => console.log(err.message));
+    }
+
+    currentIndex++;
+    setTimeout(renderQuestion, 2500);
+}
+
+// Inicializar al cargar
+window.onload = renderQuestion;
+</script>
+
+@media (max-width: 600px) { .kahoot-style { grid-template-columns: 1fr; } h1 { font-size: 2rem; } }
