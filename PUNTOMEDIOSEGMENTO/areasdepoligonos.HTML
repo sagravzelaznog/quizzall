@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masterclass: Áreas - Analítica vs Sintética | JMGV-PTEL</title>
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+				<script>
+					window.MathJax = {
+									tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }
+					};
+	</script>
+			</head>
+<body>
+
+<nav class="navbar">
+    <div class="container nav-container">
+        <span class="logo">JMGV <span class="highlight">/ Pensamiento Matemático II</span></span>
+        <button class="btn-teacher" id="teacherModeBtn" onclick="unlockTeacherMode()">Modo Maestro 🔒</button>
+    </div>
+</nav>
+
+<header class="hero">
+    <div class="container">
+        <div class="branding">Progresión 11 • Sesión 26</div>
+        <h1>Áreas: Analítica vs Sintética</h1>
+        <p class="subtitle">De las reglas de medir a las matrices de Gauss en el plano euclidiano.</p>
+    </div>
+</header>
+
+<main class="container">
+
+    <section class="card">
+        <h2 class="section-title">1. Definición: Dos Mundos, Un Mismo Resultado</h2>
+        
+        <div class="concept-grid">
+            <div class="concept-box synthetic">
+                <h3>Geometría Sintética (Física)</h3>
+                <p>Es la geometría clásica de Euclides. Calcula áreas usando medidas directas de longitudes (base, altura, apotema) y fórmulas preestablecidas (ej. $A = \frac{b \cdot h}{2}$). Requiere conocer o medir físicamente la figura.</p>
+            </div>
+            <div class="concept-box analytic">
+                <h3>Geometría Analítica (Cartesiana)</h3>
+                <p>Utiliza un sistema de coordenadas. No necesitas medir con regla; solo necesitas conocer las coordenadas $(x, y)$ de los vértices del polígono. Utiliza el poderoso <strong>Método de Gauss</strong> (o Fórmula de la Agujeta).</p>
+            </div>
+        </div>
+
+        <div class="teacher-note hidden">
+            <span class="note-label">👨‍🏫 Nota Pedagógica:</span> Maestro, inicie preguntando cómo calcularían el área de un terreno irregular de 7 lados. Físicamente es casi imposible aplicar "base por altura". Aquí es donde la geometría analítica entra como salvadora usando topografía satelital (coordenadas GPS).
+        </div>
+
+        <div class="formula-section">
+            <h3>El Método de Gauss (Determinantes)</h3>
+            <p>Para cualquier polígono de $n$ vértices ordenados en sentido antihorario $(x_1,y_1), (x_2,y_2), ..., (x_n,y_n)$, el área se define como:</p>
+            <div class="math-display">
+                $$ A = \frac{1}{2} \left| \begin{matrix} x_1 & y_1 \\ x_2 & y_2 \\ \vdots & \vdots \\ x_n & y_n \\ x_1 & y_1 \end{matrix} \right| $$
+            </div>
+            <p><strong>Regla vital:</strong> ¡Siempre se debe repetir el primer vértice al final de la matriz!</p>
+        </div>
+    </section>
+
+    <section class="card">
+        <h2 class="section-title">2. Ejercicio Práctico Demostrativo</h2>
+        <p>Vamos a calcular el área de un triángulo con vértices en <strong>$A(-2, 1)$</strong>, <strong>$B(4, 1)$</strong> y <strong>$C(1, 5)$</strong> usando ambos métodos para observar sus efectos.</p>
+
+        <div class="teacher-note hidden">
+            <span class="note-label">👨‍🏫 Tip Geométrico:</span> Graficar primero este triángulo en el pizarrón ayudará a los alumnos a visualizar que la base $AB$ es paralela al eje $x$, lo que facilita el cálculo sintético para la comparación.
+        </div>
+
+        <div class="steps-grid">
+            <div class="step-card synthetic-border">
+                <h3>Vía Sintética</h3>
+                <ol>
+                    <li>La base $AB$ es horizontal. Su longitud es la distancia de $x=-2$ a $x=4$.<br> $Base = 4 - (-2) = 6$ unidades.</li>
+                    <li>La altura es la distancia vertical desde el vértice $C$ hasta la base $AB$.<br> $y_C = 5$, $y_{AB} = 1$.<br> $Altura = 5 - 1 = 4$ unidades.</li>
+                    <li>Aplicamos fórmula: $A = \frac{b \cdot h}{2}$</li>
+                    <li>$A = \frac{6 \cdot 4}{2} = \frac{24}{2} = \mathbf{12 \, u^2}$</li>
+                </ol>
+            </div>
+
+            <div class="step-card analytic-border">
+                <h3>Vía Analítica (Gauss)</h3>
+                <p>Acomodamos en matriz repitiendo el primero $A(-2,1)$:</p>
+                <div class="math-display">
+                    $$ A = \frac{1}{2} \left| \begin{matrix} -2 & 1 \\ 4 & 1 \\ 1 & 5 \\ -2 & 1 \end{matrix} \right| $$
+                </div>
+                <p>1. Diagonales principales ($\searrow$ se suman):<br> $(-2\cdot1) + (4\cdot5) + (1\cdot1) = -2 + 20 + 1 = 19$</p>
+                <p>2. Diagonales secundarias ($\nearrow$ se restan):<br> $-(1\cdot4) - (1\cdot1) - (5\cdot-2) = -4 - 1 + 10 = 5$</p>
+                <p>3. Área: $A = \frac{1}{2} | 19 + 5 | = \frac{1}{2}(24) = \mathbf{12 \, u^2}$</p>
+            </div>
+        </div>
+        
+        <div class="teacher-note hidden">
+            <span class="note-label">👨‍🏫 Cuidado con Signos:</span> El error más común de los alumnos en Gauss es en las diagonales secundarias. Enséñeles a calcular el producto normal y, AL FINAL, cambiarle el signo a todos los resultados de esas flechas hacia arriba.
+        </div>
+    </section>
+
+    <section class="card quiz-section">
+        <h2 class="section-title quiz-title">3. Quiz de Asimilación (Modo Kahoot)</h2>
+        <div id="quiz-container">
+            <div class="quiz-header">
+                <span id="question-counter">Pregunta 1/10</span>
+            </div>
+            <h3 id="question-text">Cargando pregunta...</h3>
+            
+            <div class="kahoot-grid" id="options-grid">
+                </div>
+        </div>
+
+        <div id="results-container" class="hidden text-center">
+            <h2 class="quiz-title">¡Evaluación Completada!</h2>
+            <div id="score-circle" class="score-circle">0%</div>
+            <p id="feedback-message" class="feedback-msg"></p>
+            <button onclick="location.reload()" class="btn-restart">Intentar de Nuevo</button>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="container">
+        <p>copyright &copy;jmgv-ptel-2026. masterclass sesión 26 PM2. todos los derechos reservados</p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
