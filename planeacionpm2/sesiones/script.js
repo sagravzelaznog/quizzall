@@ -19,6 +19,13 @@
         alert("Acceso denegado. Clave incorrecta.");
     }
 }
+function lockTeacherMode() {
+    const notes = document.getElementById('hidden-notes') || document.getElementById('teacher-notes') || document.getElementById('teacher-zone') || document.getElementById('secret-area');
+    if (notes) {
+        notes.style.display = 'none';
+        alert("Protocolos pedagógicos JMGV-PTEL desactivados.");
+    }
+}
 
 /* ==========================================================================
    2. BASE DE DATOS DE PREGUNTAS (TODAS LAS SESIONES)
