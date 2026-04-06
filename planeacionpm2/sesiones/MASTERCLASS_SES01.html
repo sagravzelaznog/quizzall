@@ -27,15 +27,15 @@
                 </path>
             </svg>
             <input type="password" id="teacher-pass" placeholder="Código de acceso docente">
-            <button onclick="unlockTeacherNotes()">Desbloquear</button>
+            <button onclick="unlockTeacherMode()">Desbloquear</button>
         </div>
-        <div id="teacher-notes" class="hidden">
+        <div id="hidden-notes" class="secret-panel">
             <h3>👨‍🏫 Notas Exclusivas para el Docente</h3>
             <p><strong>Tips de sesión:</strong> Para la dinámica del "Teléfono descompuesto", divide al grupo en filas
                 de 5. Usa frases coloquiales muy largas y observa cómo se distorsionan. El objetivo es que ellos mismos
                 concluyan que el lenguaje natural es ambiguo. Recuerda utilizar la lista de cotejo y el pizarrón como
                 recursos principales para la evaluación formativa de esta sesión.</p>
-            <button onclick="lockTeacherNotes()">Ocultar Notas</button>
+            <button onclick="lockTeacherMode()">Ocultar Notas</button>
         </div>
     </div>
 
