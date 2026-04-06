@@ -8,7 +8,7 @@
    1. SISTEMA DE SEGURIDAD DOCENTE (UNIVERSAL)
    ========================================================================== */
    function unlockTeacherMode() {
-    const pin = document.getElementById('master-pin') || document.getElementById('master-key') || document.getElementById('unlock-key');
+    const pin = document.getElementById('master-pin') || document.getElementById('master-key') || document.getElementById('unlock-key') || document.getElementById('teacher-pass');
     if (pin && pin.value === "1983") {
         const notes = document.getElementById('hidden-notes') || document.getElementById('teacher-notes') || document.getElementById('teacher-zone') || document.getElementById('secret-area');
         if (notes) {
