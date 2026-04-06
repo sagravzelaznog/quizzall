@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masterclass S-15: Aritmética Multibase | PM2</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body class="theme-s15">
+
+    <div id="admin-gate">
+        <div class="container">
+            <input type="password" id="pass-1983" placeholder="Access Code...">
+            <button onclick="unlockMasterData()">Unlock Teacher View</button>
+        </div>
+    </div>
+
+    <header class="s15-header">
+        <div class="container">
+            <svg width="80" height="80" viewBox="0 0 100 100">
+                <rect x="10" y="10" width="80" height="80" fill="none" stroke="#39ff14" stroke-width="2"/>
+                <path d="M30 50 H70 M50 30 V70" stroke="#ff6700" stroke-width="4"/>
+                <circle cx="50" cy="50" r="5" fill="#39ff14"/>
+            </svg>
+            <h1>Operaciones en Diferentes Bases</h1>
+            <p>Sesión 15: Suma, Resta y la lógica del Acarreo</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div id="secret-notes" class="locked-content">
+            <h3>📂 Expediente Pedagógico S-15</h3>
+            <p><strong>Psicología:</strong> El alumno sentirá frustración inicial al restar en bases menores. Use la analogía del "cambio de moneda": en base 2, un 'billete' de la izquierda vale dos 'monedas' de la derecha.</p>
+            <p><strong>Andragogía:</strong> Resalte que este es el lenguaje real de los procesadores. La suma binaria es la base de toda la computación moderna.</p>
+        </div>
+
+        <section class="master-card">
+            <h2><span class="neon-text">15.1</span> La Lógica del Acarreo (Carry)</h2>
+            <p>Operar en otras bases sigue las mismas reglas que en el sistema decimal, con una diferencia crítica: el <strong>límite del grupo</strong>. En base $n$, no puedes tener un dígito igual o mayor a $n$. Cuando lo superas, generas un acarreo a la siguiente posición.</p>
+            <div class="formula-display">
+                Suma Binaria: $1_2 + 1_2 = 10_2$ (Cero y llevamos uno)
+            </div>
+        </section>
+
+        <section class="master-card">
+            <h2><span class="neon-text">15.2</span> Laboratorio de Operaciones</h2>
+            <div class="activity-row">
+                <div class="act-box">
+                    <h4>A1: El Ábaco Binario</h4>
+                    <p>Usa tus dedos para contar en binario y realiza sumas simples visualmente.</p>
+                </div>
+                <div class="act-box">
+                    <h4>A2: El Préstamo Octal</h4>
+                    <p>Simula una resta en base 8. Si pides prestado, recibes 8 unidades, no 10.</p>
+                </div>
+                <div class="act-box">
+                    <h4>A3: Criptografía Hex</h4>
+                    <p>Suma valores de colores en hexadecimal para encontrar nuevos tonos.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="content-split">
+            <div class="master-card">
+                <h3>Ejemplos Pro</h3>
+                <div class="example-item">
+                    <strong>1. Suma Binaria:</strong> $110_2 + 11_2 = 1001_2$
+                </div>
+                <div class="example-item">
+                    <strong>2. Resta Base 5:</strong> $21_5 - 4_5$. Pedimos prestado: $(5+1)-4 = 2$. Resultado: $12_5$.
+                </div>
+                <div class="example-item">
+                    <strong>3. Suma Hex:</strong> $A_{16} + 1_{16} = B_{16}$ (10 + 1 = 11).
+                </div>
+            </div>
+            <div class="master-card">
+                <h3>Desafíos de Sesión</h3>
+                <ol class="challenge-list">
+                    <li>Resuelve: $1011_2 + 110_2$</li>
+                    <li>Resuelve: $43_8 - 17_8$</li>
+                    <li>Calcula: $F_{16} + F_{16}$ en hexadecimal.</li>
+                </ol>
+            </div>
+        </div>
+
+        <section class="kahoot-section">
+            <h2>🎮 Quiz Final: ¡Demuestra tu precisión!</h2>
+            <div id="quiz-container">
+                
+                <div id="question-screen">
+                    <p id="q-tracker" style="font-size: 0.9em; color: gray; font-weight: bold;"></p>
+                    
+                    <h3 id="question-text">Cargando pregunta...</h3>
+                    
+                    <div class="kahoot-grid" id="options-container">
+                        <button class="answer-btn k-red" onclick="checkAns(0)"><span id="opt-0">A</span></button>
+                        <button class="answer-btn k-blue" onclick="checkAns(1)"><span id="opt-1">B</span></button>
+                        <button class="answer-btn k-yellow" onclick="checkAns(2)"><span id="opt-2">C</span></button>
+                        <button class="answer-btn k-green" onclick="checkAns(3)"><span id="opt-3">D</span></button>
+                    </div>
+                </div>
+
+                <div id="result-screen" class="hidden">
+                    <h3 id="final-score"></h3>
+                    <button onclick="resetQuiz()" class="btn-restart">Intentar de nuevo</button>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+    <nav>
+        <a href="MASTERCLASS_SES14.HTML">Anterior Sesión</a>
+        <a href="MASTERCLASS_SES16.HTML">Siguiente Sesión</a>
+        <a href="../planeacionpm2.html">Volver al inicio</a>
+    </nav>
+
+    <footer>
+        <div class="container">
+            <p>&copy; jmgvptel. Masterclass s-15 PM2. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

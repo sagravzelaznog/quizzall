@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S21: Anatomía de los Polígonos | PM2</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body class="theme-s21">
+
+    <div id="auth-header">
+        <div class="container">
+            <span>🔑 Acceso Docente:</span>
+            <input type="password" id="input-key" placeholder="Código...">
+            <button onclick="verifyAccess()">Desbloquear Insights</button>
+        </div>
+    </div>
+
+    <header class="master-header s21-glass">
+        <div class="container header-content">
+            <div class="text-group">
+                <h1>Polígonos: Estructura y Clasificación</h1>
+                <p>Sesión 21: Los pilares de la Geometría Sintética</p>
+            </div>
+            <svg width="100" height="100" viewBox="0 0 100 100">
+                <path d="M50 5 L95 40 L80 95 L20 95 L5 40 Z" fill="none" stroke="#00E5FF" stroke-width="3" />
+                <circle cx="50" cy="5" r="4" fill="#0D47A1" stroke="#00E5FF"/>
+                <circle cx="95" cy="40" r="4" fill="#0D47A1" stroke="#00E5FF"/>
+                <circle cx="80" cy="95" r="4" fill="#0D47A1" stroke="#00E5FF"/>
+                <circle cx="20" cy="95" r="4" fill="#0D47A1" stroke="#00E5FF"/>
+                <circle cx="5" cy="40" r="4" fill="#0D47A1" stroke="#00E5FF"/>
+            </svg>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="teacher-notes" class="hidden-panel">
+            <div class="info-box teacher-border">
+                <h4>🎯 Notas de Ingeniería Pedagógica</h4>
+                <p><strong>Andragogía:</strong> A esta edad, los alumnos cuestionan la utilidad. Conecte los polígonos con el "Low Poly Art" de los videojuegos (como Roblox o Minecraft).</p>
+                <p><strong>Psicología:</strong> El concepto de "convexidad" suele confundir. Use la analogía de "una cueva" (cóncavo) para identificar visualmente cuando un ángulo interno supera los $180^\circ$.</p>
+            </div>
+        </section>
+
+        <section class="main-card">
+            <h2><span class="blue-text">21.1</span> ¿Qué es un Polígono?</h2>
+            <p>Es una figura geométrica plana, cerrada, formada por un número finito de segmentos de recta consecutivos llamados <strong>lados</strong>.</p>
+            <div class="elements-grid">
+                <div class="el-item"><strong>Vértices:</strong> Puntos de unión.</div>
+                <div class="el-item"><strong>Ángulos:</strong> Aberturas internas.</div>
+                <div class="el-item"><strong>Diagonales:</strong> Segmentos entre vértices no adyacentes.</div>
+            </div>
+        </section>
+
+        <section class="main-card">
+            <h2><span class="blue-text">21.2</span> Laboratorio de Formas</h2>
+            <div class="activity-row">
+                <div class="act-card">
+                    <h5>Actividad 1: Caza de Polígonos</h5>
+                    <p>Toma una foto de un objeto en el salón y traza sus bordes. ¿Es un polígono regular o irregular?</p>
+                </div>
+                <div class="act-card">
+                    <h5>Actividad 2: El Desafío Cóncavo</h5>
+                    <p>Dibuja una estrella de 5 puntas. Identifica si es cóncava o convexa basándote en sus ángulos internos.</p>
+                </div>
+                <div class="act-card">
+                    <h5>Actividad 3: Diagonales Master</h5>
+                    <p>Encuentra el número de diagonales de un decágono usando la lógica de conexiones.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="layout-split">
+            <div class="main-card">
+                <h3>Ejemplos Reales</h3>
+                <ul>
+                    <li><strong>Triángulo:</strong> Estructuras de puentes (Rígidos).</li>
+                    <li><strong>Hexágono:</strong> Panales de abejas (Eficiencia de espacio).</li>
+                    <li><strong>Dodecágono:</strong> Monedas de 20 pesos (Diseño funcional).</li>
+                </ul>
+            </div>
+            <div class="main-card">
+                <h3>Ejercicios de Clase</h3>
+                <ol>
+                    <li>Nombra un polígono de 9 lados.</li>
+                    <li>Si todos los lados son iguales pero los ángulos no, ¿es regular?</li>
+                    <li>Dibuja un cuadrilátero cóncavo.</li>
+                </ol>
+            </div>
+        </div>
+
+        <section class="kahoot-section">
+            <h2>🎮 Quiz Final: ¡Demuestra tu precisión!</h2>
+            <div id="quiz-container">
+                
+                <div id="question-screen">
+                    <p id="q-tracker" style="font-size: 0.9em; color: gray; font-weight: bold;"></p>
+                    
+                    <h3 id="question-text">Cargando pregunta...</h3>
+                    
+                    <div class="kahoot-grid" id="options-container">
+                        <button class="answer-btn k-red" onclick="checkAns(0)"><span id="opt-0">A</span></button>
+                        <button class="answer-btn k-blue" onclick="checkAns(1)"><span id="opt-1">B</span></button>
+                        <button class="answer-btn k-yellow" onclick="checkAns(2)"><span id="opt-2">C</span></button>
+                        <button class="answer-btn k-green" onclick="checkAns(3)"><span id="opt-3">D</span></button>
+                    </div>
+                </div>
+
+                <div id="result-screen" class="hidden">
+                    <h3 id="final-score"></h3>
+                    <button onclick="resetQuiz()" class="btn-restart">Intentar de nuevo</button>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+    <nav>
+        <a href="MASTERCLASS_SES20.HTML">Anterior Sesión</a>
+        <a href="MASTERCLASS_SES22.HTML">Siguiente Sesión</a>
+        <a href="../planeacionpm2.html">Volver al inicio</a>
+    </nav>
+
+    <footer>
+        <div class="container">
+            <p>&copy; jmgvptel. Masterclass s-21 PM2. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

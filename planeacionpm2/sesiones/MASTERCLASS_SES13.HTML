@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masterclass S-13: Sistemas de Numeración | PM2</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body class="theme-s13">
+
+    <div id="teacher-auth">
+        <div class="container">
+            <input type="password" id="master-key" placeholder="Unlock Teacher Notes...">
+            <button onclick="unlockContent()">Desbloquear</button>
+        </div>
+    </div>
+
+    <header>
+        <div class="container hero">
+            <svg class="header-icon" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="#2ecc71" stroke-width="2" stroke-dasharray="5,5" />
+                <text x="50" y="55" font-family="monospace" font-size="25" fill="#2ecc71" text-anchor="middle">1010</text>
+                <path d="M20 20 L40 40 M80 20 L60 40" stroke="#e67e22" stroke-width="3"/>
+            </svg>
+            <h1>Sistemas de Numeración</h1>
+            <p>Sesión 13: El valor de la posición vs. la suma de símbolos</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="teacher-notes" class="secret-box hidden">
+            <h3>👨‍🏫 Notas Pedagógicas (Sesión 13)</h3>
+            <p><strong>Andragogía:</strong> Los alumnos a esta edad buscan relevancia. Conecte el sistema binario con sus videojuegos y el sistema sexagesimal (base 60) con su reloj.</p>
+            <p><strong>Tip del Genio:</strong> El punto crítico es entender que en el sistema posicional, el "Cero" no es nada, es un <em>separador de lugar</em>.</p>
+        </section>
+
+        <section class="card">
+            <h2><span class="badge">01</span> Definición de Sistemas</h2>
+            <div class="grid-2">
+                <div>
+                    <p>Un <strong>Sistema de Numeración</strong> es un conjunto de reglas que nos permite representar cantidades. Se dividen en dos grandes familias:</p>
+                    <ul>
+                        <li><strong>No Posicionales:</strong> El valor del símbolo es siempre el mismo (Ej. Romano, Egipcio).</li>
+                        <li><strong>Posicionales:</strong> El valor del símbolo cambia según dónde esté escrito (Ej. Decimal, Binario, Maya).</li>
+                    </ul>
+                </div>
+                <div class="visual-concept">
+                    <svg viewBox="0 0 200 100">
+                        <rect x="10" y="40" width="30" height="30" fill="#2ecc71" rx="5"/>
+                        <rect x="50" y="40" width="30" height="30" fill="#2ecc71" rx="5"/>
+                        <text x="25" y="85" font-size="10" fill="#fff" text-anchor="middle">10²</text>
+                        <text x="65" y="85" font-size="10" fill="#fff" text-anchor="middle">10¹</text>
+                        <path d="M90 55 H120" stroke="#34495e" stroke-width="2" marker-end="url(#arrow)"/>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2><span class="badge">02</span> Secuencia Didáctica</h2>
+            <div class="activities">
+                <div class="act-item">
+                    <strong>Inicio:</strong> El reto del "Uno solo". Escribe 111 en romano y en decimal. ¿Cuál es más grande? ¿Por qué?
+                </div>
+                <div class="act-item">
+                    <strong>Desarrollo:</strong> Taller de conversión. Los alumnos deben "traducir" su edad a sistema Maya (vigesimal posicional).
+                </div>
+                <div class="act-item">
+                    <strong>Cierre:</strong> Debate sobre el futuro. ¿Podríamos usar un sistema base 16 (hexadecimal) para la vida diaria?
+                </div>
+            </div>
+        </section>
+
+        <section class="grid-2">
+            <div class="card">
+                <h3>Ejemplos</h3>
+                <p>1. <strong>Decimal:</strong> En $252$, el primer $2$ vale $200$, el segundo vale $2$.</p>
+                <p>2. <strong>Egipcio:</strong> Tres cuerdas enrolladas valen $300$ sin importar el orden.</p>
+                <p>3. <strong>Binario:</strong> El número $101_2$ representa $1(2^2) + 0(2^1) + 1(2^0) = 5$.</p>
+            </div>
+            <div class="card">
+                <h3>Ejercicios</h3>
+                <ol>
+                    <li>¿Cuál es el valor posicional del 7 en el número $4,721$?</li>
+                    <li>Escribe el número $14$ usando el sistema Romano (No posicional).</li>
+                    <li>Si tenemos base 5, ¿cuánto vale la tercera posición ($5^2$)?</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="kahoot-section">
+            <h2>🎮 Quiz Final: ¡Demuestra tu precisión!</h2>
+            <div id="quiz-container">
+                
+                <div id="question-screen">
+                    <p id="q-tracker" style="font-size: 0.9em; color: gray; font-weight: bold;"></p>
+                    
+                    <h3 id="question-text">Cargando pregunta...</h3>
+                    
+                    <div class="kahoot-grid" id="options-container">
+                        <button class="answer-btn k-red" onclick="checkAns(0)"><span id="opt-0">A</span></button>
+                        <button class="answer-btn k-blue" onclick="checkAns(1)"><span id="opt-1">B</span></button>
+                        <button class="answer-btn k-yellow" onclick="checkAns(2)"><span id="opt-2">C</span></button>
+                        <button class="answer-btn k-green" onclick="checkAns(3)"><span id="opt-3">D</span></button>
+                    </div>
+                </div>
+
+                <div id="result-screen" class="hidden">
+                    <h3 id="final-score"></h3>
+                    <button onclick="resetQuiz()" class="btn-restart">Intentar de nuevo</button>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+    <nav>
+        <a href="MASTERCLASS_SES12.HTML">Anterior Sesión</a>
+        <a href="MASTERCLASS_SES14.HTML">Siguiente Sesión</a>
+        <a href="../planeacionpm2.html">Volver al inicio</a>
+    </nav>
+
+    <footer>
+        <div class="container">
+            <p>&copy; jmgvptel. Masterclass s-13 PM2. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

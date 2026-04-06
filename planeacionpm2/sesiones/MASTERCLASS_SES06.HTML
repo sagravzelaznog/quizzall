@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S-06 Masterclass: Modelado Algebraico II | PM2</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <script>
+        window.MathJax = {
+            tex: {
+                // Aquí le decimos que reconozca el signo de peso simple como fórmula en línea
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+
+    <div id="teacher-access">
+        <div class="teacher-control">
+            <svg class="icon-key" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path></svg>
+            <input type="password" id="teacher-pass" placeholder="Clave Docente">
+            <button onclick="checkTeacherAccess()">Desbloquear Notas</button>
+        </div>
+        <div id="teacher-notes-content" class="hidden">
+            <h3>👨‍🏫 Notas Pedagógicas - Sesión 6</h3>
+            <p><strong>Enfoque de la Sesión:</strong></p>
+            <ul>
+                <li><strong>Inicio (Revisión):</strong> Repasaremos los modelos que dejamos planteados en la Sesión 5.</li>
+                <li><strong>Desarrollo (Resolución):</strong> Se enseñará el despeje de ecuaciones lineales. Fomente el uso de la calculadora como recurso de comprobación.</li>
+                <li><strong>Cierre (Interpretación):</strong> ¡Punto crítico! Resolver que $x=10$ no sirve de nada si el alumno no sabe que significa "10 metros de ancho". La interpretación del resultado en contexto es el verdadero aprendizaje hoy.</li>
+            </ul>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <svg class="main-logo" viewBox="0 0 100 100" fill="none">
+                <circle cx="50" cy="50" r="40" stroke="#ff8c00" stroke-width="3" stroke-dasharray="8 4"/>
+                <path d="M30 50 L45 65 L70 35" stroke="#00e5ff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="40" y="45" width="20" height="10" fill="#ff007f" opacity="0.2"/>
+            </svg>
+            <h1>Modelado Algebraico II</h1>
+            <p class="subtitle">Sesión 6 | De la Ecuación a la Realidad</p>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <section id="definicion" class="card section-fade-in">
+            <h2><span class="icon">🔓</span> ¿Qué es Resolver e Interpretar?</h2>
+            <div class="definition-wrapper">
+                <p>Ayer construimos "la caja fuerte" (nuestra ecuación). Hoy vamos a <strong>hackearla</strong>. Resolver un modelo algebraico lineal significa usar operaciones inversas para descubrir el valor oculto de nuestra variable ($x$).</p>
+                <p>Pero el trabajo no termina ahí. Un número suelto no es una respuesta. <strong>Interpretar</strong> significa reconectar ese número con la realidad: ¿Son 10 pesos? ¿Son 5 años? ¿Son 20 kilómetros?</p>
+            </div>
+        </section>
+
+        <section id="actividades" class="card section-fade-in">
+            <h2><span class="icon">⚙️</span> Fases del Sistema (Actividades)</h2>
+            <div class="activities-grid">
+                <div class="activity-box inicio">
+                    <h3>1. Revisión de Modelos</h3>
+                    <p>Traeremos de vuelta los "planos" (ecuaciones) que diseñamos en la sesión anterior para verificar que su estructura sea perfecta.</p>
+                </div>
+                <div class="activity-box desarrollo">
+                    <h3>2. Resolución Acelerada</h3>
+                    <p>Aplicaremos las reglas del álgebra para despejar la incógnita y encontrar la solución matemática de nuestras ecuaciones lineales.</p>
+                </div>
+                <div class="activity-box cierre">
+                    <h3>3. Interpretación en Contexto</h3>
+                    <p>Traduciremos el resultado frío y numérico al lenguaje natural para responder a la pregunta original del problema.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="ejemplos" class="card section-fade-in">
+            <h2><span class="icon">💡</span> 3 Ejemplos: El Ciclo Completo</h2>
+            <div class="examples-list">
+                <div class="example-item">
+                    <h4>Ejemplo 1: El Terreno (Continuación)</h4>
+                    <p><strong>Modelo:</strong> $x + 2x + x + 2x = 60$</p>
+                    <p><strong>Resolución:</strong> $6x = 60 \rightarrow x = \frac{60}{6} \rightarrow x = 10$</p>
+                    <p class="result-math accent-c"><strong>Interpretación:</strong> El ancho del terreno es de 10 metros, y su largo (el doble) es de 20 metros.</p>
+                </div>
+                <div class="example-item">
+                    <h4>Ejemplo 2: Presupuesto Gamer</h4>
+                    <p><strong>Modelo:</strong> $3y + 500 = 2000$</p>
+                    <p><strong>Resolución:</strong> $3y = 1500 \rightarrow y = \frac{1500}{3} \rightarrow y = 500$</p>
+                    <p class="result-math accent-l"><strong>Interpretación:</strong> Cada uno de los 3 videojuegos que compré me costó exactamente 500 pesos.</p>
+                </div>
+                <div class="example-item">
+                    <h4>Ejemplo 3: Edades Misteriosas</h4>
+                    <p><strong>Modelo:</strong> $m + (m + 3) = 35$</p>
+                    <p><strong>Resolución:</strong> $2m + 3 = 35 \rightarrow 2m = 32 \rightarrow m = 16$</p>
+                    <p class="result-math accent-e"><strong>Interpretación:</strong> Mi edad actual es de 16 años y la de mi hermano mayor es de 19 años.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="ejercicios" class="card section-fade-in">
+            <h2><span class="icon">✍️</span> Zona de Entrenamiento (Calculadora permitida)</h2>
+            <p>Resuelve las siguientes ecuaciones en tu cuaderno y <strong>escribe qué significa el resultado</strong> en el mundo real.</p>
+            <ol class="exercise-list">
+                <li><strong>El problema de las donas:</strong> Resuelve $4d + 45 = 125$. ¿Qué significa el valor de $d$?</li>
+                <li><strong>El problema de la tabla:</strong> Resuelve $x + (x + 40) = 200$. ¿Cuánto mide el pedazo más corto?</li>
+                <li><strong>El reto de los seguidores:</strong> Resuelve $x + 2x + (x + 100) = 1500$. ¿Cuántos seguidores tiene Ana?</li>
+            </ol>
+        </section>
+
+        <section class="kahoot-section">
+            <h2>🎮 Quiz Final: ¡Demuestra tu precisión!</h2>
+            <div id="quiz-container">
+                
+                <div id="question-screen">
+                    <p id="q-tracker" style="font-size: 0.9em; color: gray; font-weight: bold;"></p>
+                    
+                    <h3 id="question-text">Cargando pregunta...</h3>
+                    
+                    <div class="kahoot-grid" id="options-container">
+                        <button class="answer-btn k-red" onclick="checkAns(0)"><span id="opt-0">A</span></button>
+                        <button class="answer-btn k-blue" onclick="checkAns(1)"><span id="opt-1">B</span></button>
+                        <button class="answer-btn k-yellow" onclick="checkAns(2)"><span id="opt-2">C</span></button>
+                        <button class="answer-btn k-green" onclick="checkAns(3)"><span id="opt-3">D</span></button>
+                    </div>
+                </div>
+
+                <div id="result-screen" class="hidden">
+                    <h3 id="final-score"></h3>
+                    <button onclick="resetQuiz()" class="btn-restart">Intentar de nuevo</button>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+    <nav>
+        <a href="MASTERCLASS_SES05.HTML">Anterior Sesión</a>
+        <a href="MASTERCLASS_SES07.HTML">Siguiente Sesión</a>
+        <a href="../planeacionpm2.html">Volver al inicio</a>
+    </nav>
+
+    <footer>
+        <div class="container">
+            <p>&copy; jmgvptel. Masterclass s-06 PM2. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

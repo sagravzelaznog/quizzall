@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S31: Sistemas 2x2 - Intersección Neón | PM2</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        window.MathJax = {
+            tex: {
+                // Aquí le decimos que reconozca el signo de peso simple como fórmula en línea
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+</head>
+
+<body class="theme-s31">
+
+    <nav class="teacher-terminal">
+        <div class="container flex-terminal">
+            <span>🛡️ Consola de Mando Docente:</span>
+            <div class="auth-module">
+                <input type="password" id="master-pin" placeholder="Clave de acceso...">
+                <button onclick="unlockMasterClass()">Autorizar</button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-s31">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <h1>Sistemas 2x2: El Punto de Intersección</h1>
+                <p>Sesión 31: Intersección de caminos y validación gráfica.</p>
+            </div>
+            <div class="hero-svg">
+                <svg width="180" height="180" viewBox="0 0 100 100">
+                    <defs>
+                        <radialGradient id="radarGlow" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="rgba(0, 255, 255, 0.2)" />
+                            <stop offset="100%" stop-color="transparent" />
+                        </radialGradient>
+                    </defs>
+                    <circle cx="50" cy="50" r="45" fill="url(#radarGlow)" stroke="#333" stroke-width="1"
+                        stroke-dasharray="2,2" />
+                    <line x1="10" y1="90" x2="90" y2="10" stroke="#00FFFF" stroke-width="3" stroke-linecap="round"
+                        class="line-glow-cyan" />
+                    <line x1="10" y1="20" x2="90" y2="80" stroke="#FF007F" stroke-width="3" stroke-linecap="round"
+                        class="line-glow-magenta" />
+                    <circle cx="53" cy="46" r="4" fill="#FFFFFF" class="pulse-circle" />
+                    <text x="60" y="44" fill="#FFFFFF" font-family="monospace" font-size="7">P(x, y)</text>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="hidden-pedagogy" class="hidden-module">
+            <div class="teacher-notes-card">
+                <h4>🧠 Insights de Genio Pedagógico S31</h4>
+                <p><strong>Andragogía:</strong> No empiece directamente con métodos algebraicos, que suelen aburrir a
+                    los adolescentes. Abra la sesión proyectando la herramienta <em>Desmos</em>. Muestre dos rectas
+                    cruzándose e indique que el objetivo de toda la clase es hallar las coordenadas de ese "choque".</p>
+                <p><strong>Psicología:</strong> A los 15 años el pensamiento visual es dominante. La "Suma y Resta
+                    (Eliminación)" preséntela como "destruir a una variable para despejar el camino de la otra".</p>
+            </div>
+        </section>
+
+        <section class="lesson-card">
+            <h2><span class="step-badge">31.1</span> ¿Qué es un Sistema 2x2?</h2>
+            <p>Un sistema de ecuaciones lineales 2x2 agrupa <strong>dos ecuaciones</strong> que comparten <strong>dos
+                    variables</strong> (como $x$ e $y$). Resolverlo significa encontrar la coordenada exacta que
+                funciona para ambas reglas al mismo tiempo.</p>
+            <div class="concept-box">
+                <p><strong>Interpretación Geométrica:</strong> Cada ecuación es una línea recta. La solución del sistema
+                    es el <strong>punto de colisión</strong> $(x, y)$ donde las dos trayectorias se cruzan.</p>
+            </div>
+        </section>
+
+        <section class="lesson-card">
+            <h2><span class="step-badge">31.2</span> Arsenal de Resolución (Ejemplos)</h2>
+            <div class="grid-layout">
+                <div class="example-box cyan-border">
+                    <h5>1. Método de Eliminación (Suma/Resta)</h5>
+                    <p>Ideal cuando las variables están alineadas y listas para anularse.</p>
+                    <p>$$x + y = 10$$</p>
+                    <p>$$x - y = 2$$</p>
+                    <p><em>Al sumar hacia abajo:</em> $2x = 12 \rightarrow \mathbf{x = 6}$</p>
+                    <p><em>Sustituyendo $x$:</em> $6 + y = 10 \rightarrow \mathbf{y = 4}$</p>
+                </div>
+                <div class="example-box magenta-border">
+                    <h5>2. Método de Sustitución</h5>
+                    <p>Despejamos una variable y la "inyectamos" en la otra ecuación.</p>
+                    <p>1) $y = 2x$</p>
+                    <p>2) $x + y = 9$</p>
+                    <p><em>Sustituimos $y$:</em> $x + (2x) = 9 \rightarrow 3x = 9 \rightarrow \mathbf{x = 3}$</p>
+                    <p><em>Por lo tanto:</em> $y = 2(3) \rightarrow \mathbf{y = 6}$</p>
+                </div>
+                <div class="example-box white-border">
+                    <h5>3. Validación Gráfica</h5>
+                    <p>Usamos herramientas digitales para graficar las dos ecuaciones. El punto donde las líneas chocan
+                        confirma que nuestros cálculos algebraicos son correctos.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-card">
+            <h2><span class="step-badge">31.3</span> Taller de Intersecciones (Actividades)</h2>
+            <div class="activity-row">
+                <div class="act-card">
+                    <strong>📍 Misión 1: El Radar Manual</strong> <br> Dibuja en papel cuadriculado las rectas $y = 2x$
+                    e $y = -x + 6$. Localiza visualmente la coordenada de intersección antes de hacer cálculos
+                    algebraicos.
+                </div>
+                <div class="act-card">
+                    <strong>⚖️ Misión 2: Táctica Algebraica</strong> <br> Dado el sistema $2x + 3y = 12$ y $x - y = 1$,
+                    decide qué método algebraico es el más rápido (eliminación o sustitución) y resuélvelo.
+                </div>
+                <div class="act-card">
+                    <strong>💻 Misión 3: Uso de Tecnología</strong> <br> Abre la aplicación <em>Desmos</em>, teclea el
+                    sistema de la Misión 2 y selecciona el punto de intersección para lograr tu <strong>validación
+                        gráfica</strong>.
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-card">
+            <h2><span class="step-badge">31.4</span> Simulador de Escenarios (Ejercicios)</h2>
+            <div class="exercise-sheet">
+                <p>Calcula el punto de intersección de los siguientes sistemas usando métodos algebraicos rápidos:</p>
+                <ol>
+                    <li>
+                        <strong>Sistema Alfa:</strong><br>
+                        $3x + y = 11$<br>
+                        $2x - y = 4$
+                    </li>
+                    <li>
+                        <strong>Sistema Beta:</strong><br>
+                        $y = x + 5$<br>
+                        $x + y = 13$
+                    </li>
+                    <li>
+                        <strong>Sistema Gamma:</strong><br>
+                        $2x + 4y = 10$<br>
+                        $2x - y = 0$
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="kahoot-section">
+            <h2>🎮 Quiz Final: ¡Demuestra tu precisión!</h2>
+            <div id="quiz-container">
+                
+                <div id="question-screen">
+                    <p id="q-tracker" style="font-size: 0.9em; color: gray; font-weight: bold;"></p>
+                    
+                    <h3 id="question-text">Cargando pregunta...</h3>
+                    
+                    <div class="kahoot-grid" id="options-container">
+                        <button class="answer-btn k-red" onclick="checkAns(0)"><span id="opt-0">A</span></button>
+                        <button class="answer-btn k-blue" onclick="checkAns(1)"><span id="opt-1">B</span></button>
+                        <button class="answer-btn k-yellow" onclick="checkAns(2)"><span id="opt-2">C</span></button>
+                        <button class="answer-btn k-green" onclick="checkAns(3)"><span id="opt-3">D</span></button>
+                    </div>
+                </div>
+
+                <div id="result-screen" class="hidden">
+                    <h3 id="final-score"></h3>
+                    <button onclick="resetQuiz()" class="btn-restart">Intentar de nuevo</button>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+    <nav>
+        <a href="MASTERCLASS_SES30.HTML">Anterior Sesión</a>
+        <a href="MASTERCLASS_SES32.HTML">Siguiente Sesión</a>
+        <a href="../planeacionpm2.html">Volver al inicio</a>
+    </nav>
+    <footer>
+        <div class="container">
+            <p>&copy; jmgvptel. Masterclass s-31 PM2. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+<script src="script.js"></script> 
+
+</body>
+
+</html>

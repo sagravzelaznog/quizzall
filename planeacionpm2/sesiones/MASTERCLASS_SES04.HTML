@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S-04 Masterclass: Factorización y Estructura | PM2</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <script>
+        window.MathJax = {
+            tex: {
+                // Aquí le decimos que reconozca el signo de peso simple como fórmula en línea
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body class="theme-s4">
+
+    <div id="teacher-access">
+        <div class="teacher-control">
+            <svg class="icon-key" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path></svg>
+            <input type="password" id="teacher-pass" placeholder="Clave Docente">
+            <button onclick="checkTeacherAccess()">Desbloquear Notas</button>
+        </div>
+        <div id="teacher-notes-content" class="hidden">
+            <h3>👨‍🏫 Notas Pedagógicas - Sesión 4</h3>
+            <p><strong>Secuencia de la clase:</strong></p>
+            <ul>
+                <li><strong>Inicio:</strong> Dinámica "¿Qué tienen en común?" para introducir el factor común de forma intuitiva.</li>
+                <li><strong>Desarrollo:</strong> Explicar la factorización como herramienta de simplificación.</li>
+                <li><strong>Cierre:</strong> Resolución de ejercicios de simplificación enfocados en el Problemario.</li>
+            </ul>
+            <p><strong>Tip Psicológico:</strong> Los alumnos de 15 años suelen frustrarse si no ven la utilidad inmediata. Venda la factorización como "comprimir un archivo zip" o "encontrar el ADN" de la ecuación para hacerla más fácil de manejar.</p>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <svg class="main-logo" viewBox="0 0 100 100" fill="none">
+                <rect x="20" y="20" width="25" height="25" fill="#00e5ff" rx="4" opacity="0.8"/>
+                <rect x="55" y="20" width="25" height="25" fill="#ff007f" rx="4" opacity="0.8"/>
+                <rect x="20" y="55" width="60" height="25" fill="#bc13fe" rx="4" opacity="0.8"/>
+                <path d="M45 32 L55 32 M32 45 L32 55 M68 45 L68 55" stroke="#fff" stroke-width="2" stroke-dasharray="2 2"/>
+            </svg>
+            <h1>Factorización y Estructura</h1>
+            <p class="subtitle">Sesión 4 | Módulo I: Del Lenguaje Natural al Algebraico</p>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <section id="definicion" class="card section-fade-in">
+            <h2><span class="icon">🧩</span> ¿Qué es Factorizar?</h2>
+            <div class="definition-wrapper">
+                <p>Si multiplicar es "armar" un mueble, <strong>factorizar es "desarmarlo"</strong> para ver de qué piezas está hecho. Matemáticamente, es el proceso de transformar una suma o resta algebraica en una <em>multiplicación</em> de piezas más pequeñas llamadas "factores".</p>
+                <p>Es la mejor técnica de "hacker" matemático, utilizada como una poderosa <strong>herramienta de simplificación</strong>.</p>
+            </div>
+        </section>
+
+        <section id="actividades" class="card section-fade-in">
+            <h2><span class="icon">🎮</span> Secuencia de la Misión</h2>
+            <div class="activities-grid">
+                <div class="activity-box inicio">
+                    <h3>1. Inicio: ¿Qué tienen en común?</h3>
+                    <p>Observaremos grupos de objetos o números en la pizarra para entrenar nuestro cerebro a encontrar el "Factor Común".</p>
+                </div>
+                <div class="activity-box desarrollo">
+                    <h3>2. Desarrollo: Ingeniería Inversa</h3>
+                    <p>Aplicaremos la factorización como herramienta de simplificación para reducir expresiones gigantes a bloques pequeños.</p>
+                </div>
+                <div class="activity-box cierre">
+                    <h3>3. Cierre: Resolución de Ejercicios</h3>
+                    <p>Trabajaremos directamente en el <em>Problemario</em> para poner a prueba nuestra capacidad de simplificación.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="ejemplos" class="card section-fade-in">
+            <h2><span class="icon">💡</span> 3 Ejemplos Estructurales</h2>
+            <div class="examples-list">
+                <div class="example-item">
+                    <h4>Ejemplo 1: Extrayendo el Factor Común</h4>
+                    <p>Expresión original: $4x^2 + 2x$</p>
+                    <p>¿Qué comparten? Ambos son divisibles por $2x$.</p>
+                    <p class="result-math">Factorizado: <span class="accent-c">$2x(2x + 1)$</span></p>
+                </div>
+                <div class="example-item">
+                    <h4>Ejemplo 2: Diferencia de Cuadrados</h4>
+                    <p>Expresión original: $x^2 - 25$</p>
+                    <p>Regla: Dos términos restándose que tienen raíz cuadrada exacta.</p>
+                    <p class="result-math">Factorizado: <span class="accent-l">$(x - 5)(x + 5)$</span></p>
+                </div>
+                <div class="example-item">
+                    <h4>Ejemplo 3: Trinomio Cuadrático</h4>
+                    <p>Expresión original: $x^2 + 7x + 10$</p>
+                    <p>Busca dos números que sumados den 7 y multiplicados den 10 (¡El 2 y el 5!).</p>
+                    <p class="result-math">Factorizado: <span class="accent-e">$(x + 2)(x + 5)$</span></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="ejercicios" class="card section-fade-in">
+            <h2><span class="icon">✍️</span> Desafío de Simplificación</h2>
+            <p>Antes de ir a tu <em>Problemario</em>, resuelve estos 3 ejercicios en tu cuaderno:</p>
+            <ol class="exercise-list">
+                <li>Extrae el factor común: $5y^3 - 15y^2$</li>
+                <li>Factoriza la diferencia de cuadrados: $a^2 - 64$</li>
+                <li>Factoriza el trinomio: $m^2 + 6m + 8$</li>
+            </ol>
+        </section>
+        <section class="kahoot-section">
+            <h2>🎮 Quiz Final: ¡Demuestra tu precisión!</h2>
+            <div id="quiz-container">
+                
+                <div id="question-screen">
+                    <p id="q-tracker" style="font-size: 0.9em; color: gray; font-weight: bold;"></p>
+                    
+                    <h3 id="question-text">Cargando pregunta...</h3>
+                    
+                    <div class="kahoot-grid" id="options-container">
+                        <button class="answer-btn k-red" onclick="checkAns(0)"><span id="opt-0">A</span></button>
+                        <button class="answer-btn k-blue" onclick="checkAns(1)"><span id="opt-1">B</span></button>
+                        <button class="answer-btn k-yellow" onclick="checkAns(2)"><span id="opt-2">C</span></button>
+                        <button class="answer-btn k-green" onclick="checkAns(3)"><span id="opt-3">D</span></button>
+                    </div>
+                </div>
+
+                <div id="result-screen" class="hidden">
+                    <h3 id="final-score"></h3>
+                    <button onclick="resetQuiz()" class="btn-restart">Intentar de nuevo</button>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+    <nav>
+        <a href="MASTERCLASS_SES03.HTML">Anterior Sesión</a>
+        <a href="MASTERCLASS_SES05.HTML">Siguiente Sesión</a>
+        <a href="../planeacionpm2.html">Volver al inicio</a>
+    </nav>
+
+    <footer>
+        <div class="container">
+            <p>&copy; jmgvptel. Masterclass s-04 PM2. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+

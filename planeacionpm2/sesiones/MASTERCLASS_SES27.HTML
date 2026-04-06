@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S27: Proporciones Dinámicas | PM2</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body class="theme-s27">
+
+    <div id="admin-gate">
+        <div class="container flex-gate">
+            <span>🔐 Terminal de Enlace Pedagógico:</span>
+            <div class="input-group">
+                <input type="password" id="master-key" placeholder="Clave 1983">
+                <button onclick="checkAccess()">Desbloquear Notas</button>
+            </div>
+        </div>
+    </div>
+
+    <header class="master-header s27-kinetic">
+        <div class="container header-content">
+            <div class="hero-text">
+                <h1>División de un Segmento</h1>
+                <p>Sesión 27: Razón dada y posicionamiento preciso</p>
+            </div>
+            <div class="hero-svg">
+                <svg width="120" height="120" viewBox="0 0 100 100">
+                    <line x1="10" y1="80" x2="90" y2="20" stroke="rgba(255,255,255,0.2)" stroke-width="4" />
+                    <circle cx="10" cy="80" r="4" fill="#00E5FF" />
+                    <circle cx="90" cy="20" r="4" fill="#00E5FF" />
+                    <circle cx="34" cy="62" r="5" fill="#7C4DFF" />
+                    <text x="38" y="58" fill="white" font-size="10" font-family="sans-serif">P(r)</text>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="teacher-notes" class="hidden">
+            <div class="master-card">
+                <h4>🧠 Insights de Andragogía y Psicología</h4>
+                <p><strong>El reto cognitivo:</strong> La razón $r$ es un concepto abstracto. Explique que si $r=2$, el punto está al "doble de distancia" del inicio que del final. Es como repartir una pizza: 2 partes para un lado, 1 para el otro.</p>
+                <p><strong>Tip del Experto:</strong> Cuidado con el signo de $r$. Si $r$ es negativa, el punto es "externo" al segmento. Para este nivel (14-16 años), enfóquese primero en razones positivas (puntos internos).</p>
+            </div>
+        </section>
+
+        <section class="lesson-block">
+            <h2><span class="num">27.1</span> ¿Qué es dividir un segmento?</h2>
+            <p>Dividir un segmento en una razón $r$ significa encontrar un punto $P(x, y)$ tal que la relación entre la distancia del inicio al punto y del punto al final sea constante.</p>
+            <div class="formula-container">
+                $$x = \frac{x_1 + r x_2}{1 + r} \quad , \quad y = \frac{y_1 + r y_2}{1 + r}$$
+            </div>
+            <p class="small-info">*Donde $r$ es la razón dada y $r \neq -1$.</p>
+        </section>
+
+        <section class="lesson-block">
+            <h2><span class="num">27.2</span> Modelos de Cálculo (Ejemplos)</h2>
+            <div class="grid-3">
+                <div class="case-card">
+                    <h5>Razón r = 1</h5>
+                    <p>Si $r=1$, el punto es el **punto medio**. Las fórmulas se simplifican al promedio visto en la sesión anterior.</p>
+                </div>
+                <div class="case-card">
+                    <h5>Razón r = 2</h5>
+                    <p>Extremos: $A(0,0), B(6,9)$.</p>
+                    <p>$x = \frac{0 + 2(6)}{1+2} = \mathbf{4}$</p>
+                    <p>$y = \frac{0 + 2(9)}{1+2} = \mathbf{6}$</p>
+                </div>
+                <div class="case-card">
+                    <h5>Razón r = 1/2</h5>
+                    <p>El punto está más cerca del origen ($P_1$). Divide el segmento en 3 partes y toma la primera.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-block">
+            <h2><span class="num">27.3</span> Laboratorio de Aplicación</h2>
+            <div class="activity-box">
+                <div class="act-item">
+                    <strong>🚀 Propulsión:</strong> Un cohete viaja de $(2, 2)$ a $(14, 20)$. Si se le acaba el combustible a una razón $r=3$, ¿en qué coordenadas quedó varado?
+                </div>
+                <div class="act-item">
+                    <strong>🏗️ Ingeniería:</strong> Se debe colocar un soporte en una viga que une $(-5, -2)$ con $(5, 8)$ a una razón de $r=1/4$. Localiza el punto de apoyo.
+                </div>
+                <div class="act-item">
+                    <strong>🎨 Diseño Gráfico:</strong> Divide una línea de degradado de $(0, 10)$ a $(20, 10)$ en 4 partes iguales encontrando los puntos con $r=1/3, r=1, r=3$.
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-block accent-border">
+            <h2><span class="num">27.4</span> Desafíos Estructurales (Ejercicios)</h2>
+            <ol class="exercise-grid">
+                <li>Dados $A(1, 2)$ y $B(5, 10)$, halla $P$ para $r = 3$.</li>
+                <li>Halla las coordenadas del punto que divide al segmento $M(-2, 5)$ y $N(4, -1)$ en la razón $r = 2$.</li>
+                <li>Si un segmento va de $(x_1, y_1)$ al origen y $r=1$, ¿cuál es el punto resultante?</li>
+            </ol>
+        </section>
+
+        <section class="kahoot-section">
+            <h2>🎮 Quiz Final: ¡Demuestra tu precisión!</h2>
+            <div id="quiz-container">
+                
+                <div id="question-screen">
+                    <p id="q-tracker" style="font-size: 0.9em; color: gray; font-weight: bold;"></p>
+                    
+                    <h3 id="question-text">Cargando pregunta...</h3>
+                    
+                    <div class="kahoot-grid" id="options-container">
+                        <button class="answer-btn k-red" onclick="checkAns(0)"><span id="opt-0">A</span></button>
+                        <button class="answer-btn k-blue" onclick="checkAns(1)"><span id="opt-1">B</span></button>
+                        <button class="answer-btn k-yellow" onclick="checkAns(2)"><span id="opt-2">C</span></button>
+                        <button class="answer-btn k-green" onclick="checkAns(3)"><span id="opt-3">D</span></button>
+                    </div>
+                </div>
+
+                <div id="result-screen" class="hidden">
+                    <h3 id="final-score"></h3>
+                    <button onclick="resetQuiz()" class="btn-restart">Intentar de nuevo</button>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+    <nav>
+        <a href="MASTERCLASS_SES26.HTML">Anterior Sesión</a>
+        <a href="MASTERCLASS_SES28.HTML">Siguiente Sesión</a>
+        <a href="../planeacionpm2.html">Volver al inicio</a>
+    </nav>
+    <footer>
+        <div class="container">
+            <p>&copy; jmgvptel. Masterclass s-27 PM2. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

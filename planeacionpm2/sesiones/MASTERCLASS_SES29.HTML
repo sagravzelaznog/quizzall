@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S29: Ecuación Punto-Pendiente | Masterclass</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body class="theme-s29">
+
+    <nav class="top-access">
+        <div class="container flex-row">
+            <span>🚀 Control de Misión Pedagógica</span>
+            <div class="auth-box">
+                <input type="password" id="pass-1983" placeholder="Clave de Maestro">
+                <button onclick="unlockContent()">Desbloquear</button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="master-header s29-theme">
+        <div class="container header-grid">
+            <div class="hero-info">
+                <h1>La Recta: Forma Punto-Pendiente</h1>
+                <p>Sesión 29: Determinando trayectorias con un solo punto y una inclinación.</p>
+            </div>
+            <div class="hero-visual">
+                <svg viewBox="0 0 100 100" class="svg-anim">
+                    <defs>
+                        <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                          <path d="M 0 0 L 10 5 L 0 10 z" fill="#FF6D00" />
+                        </marker>
+                    </defs>
+                    <line x1="10" y1="90" x2="90" y2="10" stroke="#FF6D00" stroke-width="2" marker-end="url(#arrow)" />
+                    <circle cx="30" cy="70" r="4" fill="#1A237E" />
+                    <text x="35" y="75" fill="#1A237E" font-size="6" font-weight="bold">P(x1, y1)</text>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="teacher-notes" class="hidden-section">
+            <div class="card teacher-card">
+                <h4>🍎 Notas del Genio Pedagogo</h4>
+                <p><strong>Psicología del color:</strong> El naranja genera energía y acción; úselo para resaltar que la "Pendiente" es la que da el movimiento a la recta.</p>
+                <p><strong>Tip Andragógico:</strong> No permita que solo memoricen. Haga que vean la fórmula como una transformación de la pendiente $m = \frac{y - y_1}{x - x_1}$. Si entienden que es una razón de cambio despejada, no la olvidarán jamás.</p>
+            </div>
+        </section>
+
+        <section class="session-content">
+            <div class="card">
+                <h2><span class="badge">29.1</span> Definición de la Forma Punto-Pendiente</h2>
+                <p>Esta forma de la ecuación de la recta es la más útil cuando conocemos un punto por donde pasa la recta ($P_1$) y su inclinación (pendiente $m$).</p>
+                <div class="math-hero">
+                    $$y - y_1 = m(x - x_1)$$
+                </div>
+            </div>
+        </section>
+
+        <section class="session-content">
+            <h2><span class="badge">29.2</span> Casos de Estudio (Ejemplos)</h2>
+            <div class="card-grid">
+                <div class="mini-card">
+                    <h5>Inclinación Positiva</h5>
+                    <p>Punto $(2, 3)$, $m = 4$</p>
+                    <p>$y - 3 = 4(x - 2)$</p>
+                    <p><strong>Ecuación:</strong> $y = 4x - 5$</p>
+                </div>
+                <div class="mini-card">
+                    <h5>Inclinación Negativa</h5>
+                    <p>Punto $(-1, 5)$, $m = -2$</p>
+                    <p>$y - 5 = -2(x + 1)$</p>
+                    <p><strong>Ecuación:</strong> $y = -2x + 3$</p>
+                </div>
+                <div class="mini-card">
+                    <h5>Pendiente Fraccionaria</h5>
+                    <p>Punto $(0, 0)$, $m = 1/2$</p>
+                    <p>$y - 0 = \frac{1}{2}(x - 0)$</p>
+                    <p><strong>Ecuación:</strong> $y = \frac{1}{2}x$</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="session-content">
+            <h2><span class="badge">29.3</span> Laboratorio Creativo</h2>
+            <div class="activity-stack">
+                <div class="act-box">
+                    <strong>1. El Radar:</strong> Ubica un punto en el plano cartesiano. Si un barco tiene una pendiente de trayectoria $m = 3/4$, escribe su ruta partiendo de tu punto.
+                </div>
+                <div class="act-box">
+                    <strong>2. Gráfica Mental:</strong> Sin usar papel, imagina hacia dónde apunta una recta si su pendiente es negativa. ¿Qué cuadrantes atraviesa?
+                </div>
+                <div class="act-box">
+                    <strong>3. El Arquitecto:</strong> Diseña una rampa de patinaje que pase por el punto $(5, 2)$ con una inclinación suave de $m = 0.5$.
+                </div>
+            </div>
+        </section>
+
+        <section class="session-content">
+            <div class="card dark-card">
+                <h2><span class="badge">29.4</span> Entrenamiento de Campo</h2>
+                <ul class="exercise-list">
+                    <li>Halla la ecuación de la recta que pasa por $A(4, -1)$ con $m = 2$.</li>
+                    <li>Determina la ecuación si la recta atraviesa el origen y tiene $m = -5$.</li>
+                    <li>Escribe la forma punto-pendiente para $P(-3, -7)$ y $m = 2/3$.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="kahoot-section">
+            <h2>🎮 Quiz Final: ¡Demuestra tu precisión!</h2>
+            <div id="quiz-container">
+                
+                <div id="question-screen">
+                    <p id="q-tracker" style="font-size: 0.9em; color: gray; font-weight: bold;"></p>
+                    
+                    <h3 id="question-text">Cargando pregunta...</h3>
+                    
+                    <div class="kahoot-grid" id="options-container">
+                        <button class="answer-btn k-red" onclick="checkAns(0)"><span id="opt-0">A</span></button>
+                        <button class="answer-btn k-blue" onclick="checkAns(1)"><span id="opt-1">B</span></button>
+                        <button class="answer-btn k-yellow" onclick="checkAns(2)"><span id="opt-2">C</span></button>
+                        <button class="answer-btn k-green" onclick="checkAns(3)"><span id="opt-3">D</span></button>
+                    </div>
+                </div>
+
+                <div id="result-screen" class="hidden">
+                    <h3 id="final-score"></h3>
+                    <button onclick="resetQuiz()" class="btn-restart">Intentar de nuevo</button>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+    <nav>
+        <a href="MASTERCLASS_SES28.HTML">Anterior Sesión</a>
+        <a href="MASTERCLASS_SES30.HTML">Siguiente Sesión</a>
+        <a href="../planeacionpm2.html">Volver al inicio</a>
+    </nav>
+
+    <footer>
+        <div class="container">
+            <p>&copy; jmgvptel. Masterclass s-29 PM2. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

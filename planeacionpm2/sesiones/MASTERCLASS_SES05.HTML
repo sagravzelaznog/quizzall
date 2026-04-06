@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S-05 Masterclass: Modelado Algebraico I | PM2</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <script>
+        window.MathJax = {
+            tex: {
+                // Aquí le decimos que reconozca el signo de peso simple como fórmula en línea
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body class="theme-s5">
+
+    <div id="teacher-access">
+        <div class="teacher-control">
+            <svg class="icon-key" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path></svg>
+            <input type="password" id="teacher-pass" placeholder="Clave Docente">
+            <button onclick="checkTeacherAccess()">Desbloquear Notas</button>
+        </div>
+        <div id="teacher-notes-content" class="hidden">
+            <h3>👨‍🏫 Notas Pedagógicas - Sesión 5 </h3>
+            <p><strong>Enfoque Crítico:</strong> El objetivo de la Sesión 5 es <strong>exclusivamente</strong> el planteamiento de los modelos y la identificación de variables. Evite la tentación de resolver las ecuaciones hoy; la resolución está programada para la Sesión 6 ("Resolución de los modelos planteados").</p>
+            <ul>
+                <li><strong>Inicio:</strong> Presente "El problema del terreno" de forma visual. Dibuje en el pizarrón y deje que ellos propongan qué datos faltan.</li>
+                <li><strong>Desarrollo:</strong> La "transliteración" es como traducir de español a inglés, pero aquí es de situaciones reales a ecuaciones.</li>
+                <li><strong>Cierre:</strong> Evalúe solo si la estructura lógica del modelo planteado tiene sentido.</li>
+            </ul>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <svg class="main-logo" viewBox="0 0 100 100" fill="none">
+                <rect x="20" y="20" width="60" height="40" stroke="#00ffcc" stroke-width="4" fill="rgba(0,255,204,0.1)"/>
+                <line x1="20" y1="40" x2="80" y2="40" stroke="#00ffcc" stroke-width="2" stroke-dasharray="4"/>
+                <line x1="50" y1="20" x2="50" y2="60" stroke="#00ffcc" stroke-width="2" stroke-dasharray="4"/>
+                <circle cx="50" cy="40" r="4" fill="#ff007f"/>
+                <text x="50" y="80" font-family="sans-serif" font-size="12" fill="#fff" text-anchor="middle">MODELO 3D</text>
+            </svg>
+            <h1>Modelado Algebraico I</h1>
+            <p class="subtitle">Sesión 5 | Módulo I: Del Lenguaje Natural al Algebraico</p>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <section id="definicion" class="card section-fade-in">
+            <h2><span class="icon">🏗️</span> ¿Qué es el Modelado Algebraico?</h2>
+            <div class="definition-wrapper">
+                <p>Imagina que eres un arquitecto o un programador. Antes de construir un edificio o un videojuego, necesitas un "plano" o un "código base". El <strong>Modelado Algebraico</strong> es exactamente eso: es el arte de <em>transliterar</em> (traducir) un problema de la vida real al lenguaje de las matemáticas usando ecuaciones.</p>
+                <p>Hoy no vamos a calcular resultados finales, nuestro único objetivo es <strong>construir el plano perfecto</strong> (la ecuación).</p>
+            </div>
+        </section>
+
+        <section id="actividades" class="card section-fade-in">
+            <h2><span class="icon">🗺️</span> El Mapa de la Sesión</h2>
+            <div class="activities-grid">
+                <div class="activity-box inicio">
+                    <h3>1. Inicio: El Terreno </h3>
+                    <p>Analizaremos visualmente "El problema del terreno". Si solo conocemos el perímetro y una pista sobre sus lados, ¿cómo lo representamos? </p>
+                </div>
+                <div class="activity-box desarrollo">
+                    <h3>2. Desarrollo: Transliteración </h3>
+                    <p>Aprenderemos a identificar las variables (lo que no sabemos) y a traducir los datos reales a una ecuación sólida.</p>
+                </div>
+                <div class="activity-box cierre">
+                    <h3>3. Cierre: Planteamiento </h3>
+                    <p>Reto de escritorio: Construir los modelos matemáticos de 3 situaciones reales sin intentar resolverlos. ¡Puro diseño mental!</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="ejemplos" class="card section-fade-in">
+            <h2><span class="icon">💡</span> 3 Ejemplos de Transliteración</h2>
+            <div class="examples-list">
+                <div class="example-item">
+                    <h4>Ejemplo 1: El Problema del Terreno</h4>
+                    <p><strong>Situación:</strong> Un terreno rectangular tiene un perímetro de 60 metros. Su largo es el doble de su ancho.</p>
+                    <ul>
+                        <li>Variable (Ancho): $x$</li>
+                        <li>Traducción (Largo): $2x$</li>
+                    </ul>
+                    <p class="result-math">Modelo: <span class="accent-c">$x + 2x + x + 2x = 60$</span></p>
+                </div>
+                <div class="example-item">
+                    <h4>Ejemplo 2: Presupuesto Gamer</h4>
+                    <p><strong>Situación:</strong> Compré un control que cuesta 500 pesos y 3 juegos iguales. En total pagué 2000 pesos.</p>
+                    <ul>
+                        <li>Variable (Precio del juego): $y$</li>
+                    </ul>
+                    <p class="result-math">Modelo: <span class="accent-l">$3y + 500 = 2000$</span></p>
+                </div>
+                <div class="example-item">
+                    <h4>Ejemplo 3: Edades Misteriosas</h4>
+                    <p><strong>Situación:</strong> La suma de mi edad y la de mi hermano mayor es 35. Él me lleva 3 años de ventaja.</p>
+                    <ul>
+                        <li>Variable (Mi edad): $m$</li>
+                        <li>Traducción (Edad del hermano): $m + 3$</li>
+                    </ul>
+                    <p class="result-math">Modelo: <span class="accent-e">$m + (m + 3) = 35$</span></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="ejercicios" class="card section-fade-in">
+            <h2><span class="icon">✍️</span> Taller de Arquitectos (Ejercicios)</h2>
+            <p>Lee las siguientes situaciones reales. En tu cuaderno, identifica la variable y plantea el modelo (la ecuación). <strong>¡Recuerda, aún no lo resuelvas!</strong></p>
+            <ol class="exercise-list">
+                <li>En una cafetería, compré 4 donas y un café de 45 pesos. Pagué 125 pesos en total. Modela la ecuación para encontrar el precio de una dona.</li>
+                <li>Un carpintero tiene una tabla de 200 cm. Quiere cortarla en dos pedazos, pero necesita que un pedazo sea 40 cm más largo que el otro.</li>
+                <li>Entre Ana, Beto y Carlos tienen 1500 seguidores. Beto tiene el doble que Ana, y Carlos tiene 100 más que Ana.</li>
+            </ol>
+        </section>
+
+        <section class="kahoot-section">
+            <h2>🎮 Quiz Final: ¡Demuestra tu precisión!</h2>
+            <div id="quiz-container">
+                
+                <div id="question-screen">
+                    <p id="q-tracker" style="font-size: 0.9em; color: gray; font-weight: bold;"></p>
+                    
+                    <h3 id="question-text">Cargando pregunta...</h3>
+                    
+                    <div class="kahoot-grid" id="options-container">
+                        <button class="answer-btn k-red" onclick="checkAns(0)"><span id="opt-0">A</span></button>
+                        <button class="answer-btn k-blue" onclick="checkAns(1)"><span id="opt-1">B</span></button>
+                        <button class="answer-btn k-yellow" onclick="checkAns(2)"><span id="opt-2">C</span></button>
+                        <button class="answer-btn k-green" onclick="checkAns(3)"><span id="opt-3">D</span></button>
+                    </div>
+                </div>
+
+                <div id="result-screen" class="hidden">
+                    <h3 id="final-score"></h3>
+                    <button onclick="resetQuiz()" class="btn-restart">Intentar de nuevo</button>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+    <nav>
+        <a href="MASTERCLASS_SES04.HTML">Anterior Sesión</a>
+        <a href="MASTERCLASS_SES06.HTML">Siguiente Sesión</a>
+        <a href="../planeacionpm2.html">Volver al inicio</a>
+    </nav>
+    <footer>
+        <div class="container">
+            <p>&copy; jmgvptel. Masterclass s-05 PM2. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

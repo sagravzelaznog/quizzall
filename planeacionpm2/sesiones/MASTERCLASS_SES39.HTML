@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S39: Escape Room Matemático | Repaso General PM2</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <script>
+        window.MathJax = {
+            tex: {
+                // Aquí le decimos que reconozca el signo de peso simple como fórmula en línea
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+</head>
+<body class="theme-s39">
+
+    <nav class="teacher-auth-bar">
+        <div class="container flex-auth">
+            <span>🔐 Panel del Game Master (Docente):</span>
+            <div class="auth-inputs">
+                <input type="password" id="master-pin" placeholder="Clave 1983...">
+                <button onclick="unlockTeacherMode()">Desbloquear Códigos</button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-s39">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <h1>Escape Room: Repaso General</h1>
+                <p>Sesión 39: El desafío final. Resuelve los acertijos del semestre para escapar de la sala antes de que el tiempo se agote.</p>
+            </div>
+            <div class="hero-svg">
+                <svg width="180" height="180" viewBox="0 0 100 100">
+                    <defs>
+                        <radialGradient id="neonGlow" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="rgba(0, 255, 65, 0.4)" />
+                            <stop offset="100%" stop-color="transparent" />
+                        </radialGradient>
+                    </defs>
+                    <circle cx="50" cy="50" r="45" fill="none" stroke="#00F0FF" stroke-width="2" stroke-dasharray="4,4" class="spin-slow"/>
+                    <circle cx="50" cy="50" r="35" fill="url(#neonGlow)" stroke="#00FF41" stroke-width="3"/>
+                    <rect x="40" y="40" width="20" height="25" fill="#121212" stroke="#00F0FF" stroke-width="2" rx="2"/>
+                    <circle cx="50" cy="52" r="3" fill="#00FF41" class="pulse-lock"/>
+                    <path d="M 45 40 A 5 5 0 0 1 55 40" fill="none" stroke="#00F0FF" stroke-width="2"/>
+                    <text x="50" y="80" fill="#00F0FF" font-size="10" font-weight="bold" font-family="monospace" text-anchor="middle">LOCKED</text>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="hidden-notes" class="secret-module">
+            <div class="teacher-card">
+                <h4>🧠 Insights Psicopedagógicos: Dinámica Escape Room (S39)</h4>
+                <p><strong>Andragogía Lúdica:</strong> Un "Repaso General" suele ser la clase más aburrida y con mayor ausentismo. Convertirlo en un <em>Escape Room</em> detona la competitividad sana y la adrenalina. Divida al grupo en equipos ("Escuadrones de Hackers"). Cada ejercicio resuelto les da un dígito para abrir un candado real o virtual.</p>
+                <p><strong>Psicología de Cierre:</strong> Esta sesión sirve para afianzar la confianza antes del examen final (S40). Asegúrese de que los retos integren álgebra, geometría y programación lineal. Si se traban, no les dé la respuesta; ofrezca "pistas" a cambio de una penalización de tiempo.</p>
+            </div>
+        </section>
+
+        <section class="lesson-card border-cyan">
+            <h2><span class="badge">39.1</span> ¿Qué es el Escape Room Matemático?</h2>
+            <p>Es una simulación donde tus conocimientos adquiridos durante todo el semestre son la única llave para salir. Atrás quedaron los ejercicios aislados; aquí, el álgebra, la geometría y la optimización se entrelazan para descifrar códigos de seguridad.</p>
+            <div class="concept-box">
+                <p><strong>Reglas de Supervivencia:</strong></p>
+                <ul>
+                    <li><strong>Trabajo en Red:</strong> Ningún hacker escapa solo. Comunícate con tu equipo.</li>
+                    <li><strong>Precisión Analítica:</strong> Un signo negativo ignorado cambiará toda la contraseña final.</li>
+                    <li><strong>Tiempo Límite:</strong> Tienes hasta el final de la sesión para descifrar los 3 candados de los módulos anteriores.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="lesson-card">
+            <h2><span class="badge">39.2</span> Los Archivos Desclasificados (Ejemplos-Pista)</h2>
+            <div class="examples-grid">
+                <div class="ex-item">
+                    <h5>🔐 Pista 1: El Código Algebraico</h5>
+                    <p><strong>Recuerda:</strong> Para encontrar el cruce de dos trayectorias (Sistemas 2x2), puedes usar la eliminación. Si $x + y = 10$ y $x - y = 2$, la suma te da $2x = 12$. <em>La coordenada $x$ suele ser el primer dígito del candado.</em></p>
+                </div>
+                <div class="ex-item">
+                    <h5>🔐 Pista 2: La Bóveda de Gauss</h5>
+                    <p><strong>Recuerda:</strong> El área de un polígono se obtiene con determinantes. Si te piden el área de un triángulo con vértices $(0,0), (4,0), (0,3)$, no olvides multiplicar la matriz final por $\frac{1}{2}$. <em>(Área = 6). Este será tu segundo dígito.</em></p>
+                </div>
+                <div class="ex-item">
+                    <h5>🔐 Pista 3: La Contraseña Óptima</h5>
+                    <p><strong>Recuerda:</strong> El Teorema Fundamental de la Programación Lineal dicta que la máxima ganancia $Z$ siempre está en un <strong>vértice</strong>. Evalúa todas las esquinas; la respuesta mayor es tu llave final.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-card">
+            <h2><span class="badge">39.3</span> Las Salas de Confinamiento (Actividades)</h2>
+            <div class="activity-list">
+                <div class="act-card">
+                    <strong>🚪 Sala 1: El Laberinto de los Intereses:</strong> Calcula cuánto dinero se acumulará en una cuenta si inviertes $\$1000$ a un interés compuesto del $10\%$ anual durante 2 años. (El resultado te dará el código del pasillo norte).
+                </div>
+                <div class="act-card">
+                    <strong>🚪 Sala 2: Láseres Geométricos:</strong> Un láser de seguridad dispara desde $A(-3, 4)$ hasta $B(5, -2)$. Calcula el punto medio exacto para colocar un espejo que desvíe el rayo.
+                </div>
+                <div class="act-card">
+                    <strong>🚪 Sala 3: El Servidor de Optimización:</strong> Dada la región factible con vértices en $(0,0), (0,5)$ y $(4,2)$. Encuentra el valor máximo de la función de hackeo $Z = 10x + 20y$.
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-card border-green">
+            <h2><span class="badge">39.4</span> Simulador de Códigos (Ejercicios Rápidos)</h2>
+            <div class="exercise-box">
+                <ol>
+                    <li>Halla la distancia exacta entre las terminales $P(0, 0)$ y $Q(3, 4)$. (Teorema de Pitágoras).</li>
+                    <li>Plantea y resuelve por sustitución: Un firewall requiere 2 contraseñas ($x, y$) que sumen 15, y cuya diferencia sea 1.</li>
+                    <li>Convierte la frase de lenguaje natural al algebraico: "El doble de la velocidad, disminuida en cinco unidades, es igual a la aceleración máxima ($A$)".</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="kahoot-section">
+            <h2>🎮 Quiz Final: ¡Demuestra tu precisión!</h2>
+            <div id="quiz-container">
+                
+                <div id="question-screen">
+                    <p id="q-tracker" style="font-size: 0.9em; color: gray; font-weight: bold;"></p>
+                    
+                    <h3 id="question-text">Cargando pregunta...</h3>
+                    
+                    <div class="kahoot-grid" id="options-container">
+                        <button class="answer-btn k-red" onclick="checkAns(0)"><span id="opt-0">A</span></button>
+                        <button class="answer-btn k-blue" onclick="checkAns(1)"><span id="opt-1">B</span></button>
+                        <button class="answer-btn k-yellow" onclick="checkAns(2)"><span id="opt-2">C</span></button>
+                        <button class="answer-btn k-green" onclick="checkAns(3)"><span id="opt-3">D</span></button>
+                    </div>
+                </div>
+
+                <div id="result-screen" class="hidden">
+                    <h3 id="final-score"></h3>
+                    <button onclick="resetQuiz()" class="btn-restart">Intentar de nuevo</button>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+    <nav>
+        <a href="MASTERCLASS_SES38.HTML">Anterior Sesión</a>
+        <a href="MASTERCLASS_SES40.HTML">Siguiente Sesión</a>
+        <a href="../planeacionpm2.html">Volver al inicio</a>
+    </nav>
+    <footer>
+        <div class="container">
+            <p>&copy; jmgvptel. Masterclass s-39 PM2. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

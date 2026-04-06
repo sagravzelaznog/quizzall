@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S33: Anomalías en el Sistema | PM2</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <script>
+        window.MathJax = {
+            tex: {
+                // Aquí le decimos que reconozca el signo de peso simple como fórmula en línea
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+			</head>
+<body class="theme-s33">
+
+    <nav class="teacher-auth-bar">
+        <div class="container flex-auth">
+            <span>⚠️ Acceso Restringido: Red de Administrador</span>
+            <div class="auth-inputs">
+                <input type="password" id="master-pin" placeholder="Clave">
+                <button onclick="unlockTeacherMode()">Desencriptar</button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-s33">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <h1>Análisis de Soluciones</h1>
+                <p>Sesión 33: Paralelas, coincidentes y el significado de "Sin Solución".</p>
+            </div>
+            <div class="hero-svg">
+                <svg width="160" height="160" viewBox="0 0 100 100">
+                    <defs>
+                        <filter id="glow">
+                            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                            <feMerge>
+                                <feMergeNode in="coloredBlur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
+                    </defs>
+                    <line x1="10" y1="30" x2="90" y2="10" stroke="#00F0FF" stroke-width="3" filter="url(#glow)"/>
+                    <line x1="10" y1="50" x2="90" y2="30" stroke="#B026FF" stroke-width="3" filter="url(#glow)"/>
+                    
+                    <line x1="10" y1="90" x2="90" y2="70" stroke="#FFB300" stroke-width="2" />
+                    <line x1="30" y1="60" x2="70" y2="100" stroke="#FFB300" stroke-width="2" />
+                    <circle cx="50" cy="80" r="3" fill="#FFF" filter="url(#glow)"/>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="hidden-notes" class="secret-module">
+            <div class="teacher-card">
+                <h4>🧠 Protocolo Pedagógico (Sesión 33)</h4>
+                <p><strong>Andragogía & Debate:</strong> El objetivo de esta sesión es el "Significado Real". Provoque el debate preguntando: <em>"¿Qué pasa en la vida real si Juan cobra $100 la hora más $50 de viáticos, y Pedro cobra $100 la hora más $80 de viáticos? ¿Cuándo cobrarán lo mismo?"</em>. La respuesta es NUNCA. Las gráficas serán paralelas.</p>
+                <p><strong>Psicología del "Glitch":</strong> A los adolescentes les frustra resolver un sistema y obtener "0 = 5". En lugar de llamarlo "error", llámelo "Paradoja" o "Glitch en la Matrix". Es una prueba matemática de que las condiciones dadas son imposibles de cumplir simultáneamente.</p>
+            </div>
+        </section>
+
+        <section class="lesson-card border-purple">
+            <h2><span class="badge">33.1</span> Los Tres Destinos del Multiverso</h2>
+            <p>Al resolver un sistema de ecuaciones 2x2, no siempre encontraremos un punto de intersección mágico $(x,y)$. En realidad, la geometría nos dicta que existen tres destinos posibles para dos rectas en el plano:</p>
+            <div class="split-concepts">
+                <div class="concept-box">
+                    <h3 style="color: #00F0FF;">1. Solución Única</h3>
+                    <p>Las rectas tienen diferente inclinación (pendiente) y chocan en <strong>un solo punto</strong>. (Rectas Secantes).</p>
+                </div>
+                <div class="concept-box">
+                    <h3 style="color: #FFB300;">2. Sin Solución (Paradoja)</h3>
+                    <p>Tienen la misma inclinación pero no se tocan nunca. Matemáticamente generan absurdos como $0 = 4$. (Rectas Paralelas).</p>
+                </div>
+                <div class="concept-box">
+                    <h3 style="color: #B026FF;">3. Soluciones Infinitas</h3>
+                    <p>Son exactamente la misma recta disfrazada (múltiplos). Al chocar en todos sus puntos, cualquier valor es válido. (Rectas Coincidentes).</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-card">
+            <h2><span class="badge">33.2</span> Casos Clínicos (Ejemplos)</h2>
+            <div class="examples-grid">
+                <div class="ex-item">
+                    <h5>Caso Alfa: El Glitch (Sin Solución)</h5>
+                    <p>$x + y = 5$</p>
+                    <p>$x + y = 10$</p>
+                    <p><em>Análisis:</em> Es imposible que dos números sumen 5 y al mismo tiempo sumen 10. Son rectas <strong>paralelas</strong>. Si intentas resolverlo por resta, obtendrás $0 = -5$ (Absurdo).</p>
+                </div>
+                <div class="ex-item">
+                    <h5>Caso Beta: El Clon (Infinitas Soluciones)</h5>
+                    <p>$2x + 3y = 6$</p>
+                    <p>$4x + 6y = 12$</p>
+                    <p><em>Análisis:</em> La segunda ecuación es el doble de la primera. Son la <strong>misma recta (coincidentes)</strong>. Si intentas resolverlo, obtendrás la identidad $0 = 0$.</p>
+                </div>
+                <div class="ex-item">
+                    <h5>Caso Gamma: Intersección (Solución Única)</h5>
+                    <p>$y = 2x + 1$</p>
+                    <p>$y = -x + 4$</p>
+                    <p><em>Análisis:</em> Tienen diferente pendiente ($2$ vs $-1$). Chocarán inevitablemente. El sistema tiene una única solución válida.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-card border-cyan">
+            <h2><span class="badge">33.3</span> Debate y Análisis Visual (Actividades)</h2>
+            <div class="activity-list">
+                <div class="act-card">
+                    <strong>👁️ 1. El Radar Geométrico:</strong> Entra a <em><a href="https://www.desmos.com/calculator?lang=es">Desmos</a></em>. Grafica $y = 3x - 2$ e $y = 3x + 5$. ¿Qué observas? ¿Tienen solución? ¿Por qué la pendiente ($m=3$) determina esto?
+                </div>
+                <div class="act-card">
+                    <strong>🗣️ 2. El Debate de los Negocios:</strong> Dos compañías de internet ofrecen: Plan A ($200 fijos + $10/GB) y Plan B ($250 fijos + $10/GB). Debate: ¿Existe algún mes donde cobren exactamente lo mismo? 
+                </div>
+                <div class="act-card">
+                    <strong>🕵️ 3. El Detective de Sistemas:</strong> Sin resolver algebraicamente, mira el sistema: $x-y=4$ y $3x-3y=12$. ¿Qué tipo de solución tiene? (Pista: Analiza las proporciones).
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-card">
+            <h2><span class="badge">33.4</span> Campo de Pruebas (Ejercicios)</h2>
+            <div class="exercise-box">
+                <ol>
+                    <li>Determina el tipo de solución del sistema: <br> $5x - 2y = 10$ <br> $10x - 4y = 20$</li>
+                    <li>Intenta resolver por el método de eliminación el sistema: <br> $y = 4x + 1$ <br> $y = 4x - 7$<br>¿Qué conclusión obtienes del resultado numérico?</li>
+                    <li>Escribe un sistema de ecuaciones inventado por ti que tenga <strong>Infinitas Soluciones</strong>.</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="kahoot-section">
+            <h2>🎮 Quiz Final: ¡Demuestra tu precisión!</h2>
+            <div id="quiz-container">
+                
+                <div id="question-screen">
+                    <p id="q-tracker" style="font-size: 0.9em; color: gray; font-weight: bold;"></p>
+                    
+                    <h3 id="question-text">Cargando pregunta...</h3>
+                    
+                    <div class="kahoot-grid" id="options-container">
+                        <button class="answer-btn k-red" onclick="checkAns(0)"><span id="opt-0">A</span></button>
+                        <button class="answer-btn k-blue" onclick="checkAns(1)"><span id="opt-1">B</span></button>
+                        <button class="answer-btn k-yellow" onclick="checkAns(2)"><span id="opt-2">C</span></button>
+                        <button class="answer-btn k-green" onclick="checkAns(3)"><span id="opt-3">D</span></button>
+                    </div>
+                </div>
+
+                <div id="result-screen" class="hidden">
+                    <h3 id="final-score"></h3>
+                    <button onclick="resetQuiz()" class="btn-restart">Intentar de nuevo</button>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+    <nav>
+        <a href="MASTERCLASS_SES32.HTML">Anterior Sesión</a>
+        <a href="MASTERCLASS_SES34.HTML">Siguiente Sesión</a>
+        <a href="../planeacionpm2.html">Volver al inicio</a>
+    </nav>
+    <footer>
+        <div class="container">
+            <p>&copy; jmgvptel. Masterclass s-33 PM2. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

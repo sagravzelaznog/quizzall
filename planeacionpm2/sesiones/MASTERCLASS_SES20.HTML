@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S20: El Código de los Polígonos | PM2</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body class="theme-s20">
+
+    <div id="top-access">
+        <div class="container">
+            <span>🔐 Modo Auditoría:</span>
+            <input type="password" id="master-key" placeholder="••••">
+            <button onclick="revealTeacherContent()">Desbloquear Notas</button>
+        </div>
+    </div>
+
+    <header class="master-header s20-minimal">
+        <div class="container header-flex">
+            <div class="title-group">
+                <h1>Ángulos en Polígonos</h1>
+                <p>Sesión 20: La lógica de las formas cerradas</p>
+            </div>
+            <svg class="header-icon" width="80" height="80" viewBox="0 0 100 100">
+                <polygon points="50,10 90,80 10,80" fill="none" stroke="#2E5BFF" stroke-width="4"/>
+                <circle cx="50" cy="50" r="3" fill="#333"/>
+            </svg>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="teacher-section" class="teacher-only hidden">
+            <div class="insight-box">
+                <h4>🧠 Psicología del Aprendizaje S-20</h4>
+                <p><strong>Andragogía:</strong> Evite que memoricen fórmulas. Use la técnica de "triangulación": cualquier polígono es solo un conjunto de triángulos escondidos.</p>
+                <p><strong>Gestalt:</strong> Los alumnos de 14-16 años prefieren ver la "completitud" de la figura. Haga énfasis en que al cerrar el polígono, la energía (ángulos) debe sumar una constante.</p>
+            </div>
+        </section>
+
+        <section class="lesson-card">
+            <h2><span class="step-num">20.1</span> La Regla de Oro</h2>
+            <p>Todo polígono puede dividirse en triángulos. Como sabemos que un triángulo suma $180^\circ$, la suma de los ángulos internos de cualquier polígono de $n$ lados se calcula con:</p>
+            <div class="formula-hero">
+                $$S = (n - 2) \times 180^\circ$$
+            </div>
+            <p class="sub-caption">Donde $n$ es el número de lados del polígono.</p>
+        </section>
+
+        <section class="lesson-card">
+            <h2><span class="step-num">20.2</span> Casos de Estudio</h2>
+            <div class="examples-container">
+                <div class="ex-card">
+                    <strong>Cuadrilátero:</strong> $n=4$ <br>
+                    $(4-2) \times 180 = 360^\circ$
+                </div>
+                <div class="ex-card">
+                    <strong>Pentágono:</strong> $n=5$ <br>
+                    $(5-2) \times 180 = 540^\circ$
+                </div>
+                <div class="ex-card">
+                    <strong>Hexágono:</strong> $n=6$ <br>
+                    $(6-2) \times 180 = 720^\circ$
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-card">
+            <h2><span class="step-num">20.3</span> Workshop Creativo</h2>
+            <div class="grid-activities">
+                <div class="act-box">
+                    <h5>📐 El Detective de Triángulos</h5>
+                    <p>Dibuja un polígono irregular de 7 lados y divídelo en triángulos desde un solo vértice. ¿Cuántos obtuviste?</p>
+                </div>
+                <div class="act-box">
+                    <h5>🏢 Diseño Arquitectónico</h5>
+                    <p>Si diseñas una ventana hexagonal regular, ¿qué apertura exacta debe tener cada ángulo para que encaje?</p>
+                </div>
+                <div class="act-box">
+                    <h5>💻 Simulación Visual</h5>
+                    <p>Usa una cuerda para formar un triángulo. Si añades un nodo (lados), ¿cuánto más debe "abrirse" la suma total?</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-card">
+            <h2><span class="step-num">20.4</span> Entrenamiento de Precisión</h2>
+            <ol class="exercise-list">
+                <li>Calcula la suma interna de un polígono de 12 lados (Dodecágono).</li>
+                <li>Si un polígono regular suma $1080^\circ$, ¿cuántos lados tiene?</li>
+                <li>Determina el valor de un solo ángulo interno en un octágono regular.</li>
+            </ol>
+        </section>
+
+        <section class="kahoot-section">
+            <h2>🎮 Quiz Final: ¡Demuestra tu precisión!</h2>
+            <div id="quiz-container">
+                
+                <div id="question-screen">
+                    <p id="q-tracker" style="font-size: 0.9em; color: gray; font-weight: bold;"></p>
+                    
+                    <h3 id="question-text">Cargando pregunta...</h3>
+                    
+                    <div class="kahoot-grid" id="options-container">
+                        <button class="answer-btn k-red" onclick="checkAns(0)"><span id="opt-0">A</span></button>
+                        <button class="answer-btn k-blue" onclick="checkAns(1)"><span id="opt-1">B</span></button>
+                        <button class="answer-btn k-yellow" onclick="checkAns(2)"><span id="opt-2">C</span></button>
+                        <button class="answer-btn k-green" onclick="checkAns(3)"><span id="opt-3">D</span></button>
+                    </div>
+                </div>
+
+                <div id="result-screen" class="hidden">
+                    <h3 id="final-score"></h3>
+                    <button onclick="resetQuiz()" class="btn-restart">Intentar de nuevo</button>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+    <nav>
+        <a href="MASTERCLASS_SES19.HTML">Anterior Sesión</a>
+        <a href="MASTERCLASS_SES21.HTML">Siguiente Sesión</a>
+        <a href="../planeacionpm2.html">Volver al inicio</a>
+    </nav>
+
+    <footer>
+        <div class="container">
+            <p>&copy; jmgvptel. Masterclass s-20 PM2. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

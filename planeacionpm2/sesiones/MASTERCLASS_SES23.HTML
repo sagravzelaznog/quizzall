@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S23: Geometría de Superficies | PM2</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body class="theme-s23">
+
+    <div id="top-admin">
+        <div class="container">
+            <span>🛡️ Área Restringida:</span>
+            <input type="password" id="pass-teacher" placeholder="Clave 1983">
+            <button onclick="revealTeacherContent()">Desbloquear</button>
+        </div>
+    </div>
+
+    <header class="master-header s23-emerald">
+        <div class="container header-flex">
+            <div class="header-main">
+                <h1>Perímetros y Áreas</h1>
+                <p>Sesión 23: Cuantificando el espacio bidimensional</p>
+            </div>
+            <svg width="100" height="100" viewBox="0 0 100 100" class="svg-anim">
+                <rect x="10" y="10" width="80" height="80" fill="none" stroke="#A5D6A7" stroke-width="2" stroke-dasharray="4"/>
+                <path d="M10 10 L90 10 L90 90 L10 90 Z" fill="rgba(46, 125, 50, 0.2)" stroke="#2E7D32" stroke-width="4"/>
+                <text x="40" y="5" fill="#2E7D32" font-size="8">Perímetro</text>
+                <text x="35" y="55" fill="#1B5E20" font-size="12" font-weight="bold">ÁREA</text>
+            </svg>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="secret-area" class="hidden">
+            <div class="teacher-box">
+                <h4>👨‍🏫 Guía Pedagógica (Modo Experto)</h4>
+                <p><strong>Andragogía:</strong> Evite que memoricen fórmulas. Use la técnica de "descomposición": cualquier polígono regular puede dividirse en triángulos. Si saben el área de un triángulo, saben el área de todo.</p>
+                <p><strong>Psicología:</strong> El concepto de "Apotema" genera ansiedad por su nombre. Preséntelo simplemente como la "altura del triángulo interno".</p>
+            </div>
+        </section>
+
+        <section class="card shadow-soft">
+            <h2><span class="step-num">23.1</span> Conceptos de Medida</h2>
+            <div class="definition-grid">
+                <div class="def-item">
+                    <h3>Perímetro ($P$)</h3>
+                    <p>Es la longitud del contorno de la figura. En polígonos regulares: $P = n \cdot L$.</p>
+                </div>
+                <div class="def-item">
+                    <h3>Área ($A$)</h3>
+                    <p>Es la medida de la región interna. Para polígonos regulares: $A = \frac{P \cdot a}{2}$, donde $a$ es la apotema.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2><span class="step-num">23.2</span> Aplicaciones Prácticas</h2>
+            <div class="examples-container">
+                <div class="ex-card">
+                    <strong>Hexágono Industrial</strong>
+                    <p>Lado: 6cm | Apotema: 5.2cm</p>
+                    <p>$P = 6 \times 6 = 36\text{ cm}$</p>
+                    <p>$A = \frac{36 \times 5.2}{2} = 93.6\text{ cm}^2$</p>
+                </div>
+                <div class="ex-card">
+                    <strong>Cuadrado de Seguridad</strong>
+                    <p>Lado: 10m</p>
+                    <p>$P = 40\text{ m}$</p>
+                    <p>$A = 100\text{ m}^2$</p>
+                </div>
+                <div class="ex-card">
+                    <strong>Pentágono de Diseño</strong>
+                    <p>$P = 25\text{ cm}$ | $a = 3.4\text{ cm}$</p>
+                    <p>$A = \frac{25 \times 3.4}{2} = 42.5\text{ cm}^2$</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2><span class="step-num">23.3</span> Laboratorio Creativo</h2>
+            <div class="activity-grid">
+                <div class="activity-box">
+                    <h5>Actividad 1: El Optimizador</h5>
+                    <p>Diseña un corral para mascotas que use exactamente 24m de malla. ¿Qué forma da más área?</p>
+                </div>
+                <div class="activity-box">
+                    <h5>Actividad 2: Descomposición</h5>
+                    <p>Dibuja un octágono y divídelo en 8 triángulos iguales. Calcula el área de uno y multiplica.</p>
+                </div>
+                <div class="activity-box">
+                    <h5>Actividad 3: Realidad Aumentada</h5>
+                    <p>Mide la base de una caja hexagonal y calcula cuánta cartulina se necesitó para su base.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card border-green">
+            <h2><span class="step-num">23.4</span> Entrenamiento de Precisión</h2>
+            <ol class="exercise-list">
+                <li>Calcula el área de un heptágono regular de lado 8cm y apotema 8.3cm.</li>
+                <li>Si un cuadrado tiene un área de $144\text{ cm}^2$, ¿cuánto mide su perímetro?</li>
+                <li>Encuentra la apotema de un pentágono si su área es $30\text{ cm}^2$ y su lado mide $4\text{ cm}$.</li>
+            </ol>
+        </section>
+
+        <section class="kahoot-section">
+            <h2>🎮 Quiz Final: ¡Demuestra tu precisión!</h2>
+            <div id="quiz-container">
+                
+                <div id="question-screen">
+                    <p id="q-tracker" style="font-size: 0.9em; color: gray; font-weight: bold;"></p>
+                    
+                    <h3 id="question-text">Cargando pregunta...</h3>
+                    
+                    <div class="kahoot-grid" id="options-container">
+                        <button class="answer-btn k-red" onclick="checkAns(0)"><span id="opt-0">A</span></button>
+                        <button class="answer-btn k-blue" onclick="checkAns(1)"><span id="opt-1">B</span></button>
+                        <button class="answer-btn k-yellow" onclick="checkAns(2)"><span id="opt-2">C</span></button>
+                        <button class="answer-btn k-green" onclick="checkAns(3)"><span id="opt-3">D</span></button>
+                    </div>
+                </div>
+
+                <div id="result-screen" class="hidden">
+                    <h3 id="final-score"></h3>
+                    <button onclick="resetQuiz()" class="btn-restart">Intentar de nuevo</button>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+    <nav>
+        <a href="MASTERCLASS_SES22.HTML">Anterior Sesión</a>
+        <a href="MASTERCLASS_SES24.HTML">Siguiente Sesión</a>
+        <a href="../planeacionpm2.html">Volver al inicio</a>
+    </nav>
+
+    <footer>
+        <div class="container">
+            <p>&copy; jmgvptel. Masterclass s-23 PM2. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

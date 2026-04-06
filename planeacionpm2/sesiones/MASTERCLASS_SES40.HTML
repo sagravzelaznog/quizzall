@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S40: Evaluación Final y Cierre | PM2</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <script>
+        window.MathJax = {
+            tex: {
+                // Aquí le decimos que reconozca el signo de peso simple como fórmula en línea
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+</head>
+<body class="theme-s40">
+
+    <nav class="teacher-auth-bar">
+        <div class="container flex-auth">
+            <span>🎓 Consola de Evaluación Docente:</span>
+            <div class="auth-inputs">
+                <input type="password" id="master-pin" placeholder="Clave de acceso...">
+                <button onclick="unlockTeacherMode()">Desbloquear Rúbricas</button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-s40">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <h1>Evaluación Final y Cierre</h1>
+                <p>Sesión 40: El dominio del Pensamiento Matemático. Entrega de portafolios y autoevaluación.</p>
+            </div>
+            <div class="hero-svg">
+                <svg width="180" height="180" viewBox="0 0 100 100">
+                    <defs>
+                        <radialGradient id="goldGlow" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="rgba(255, 215, 0, 0.6)" />
+                            <stop offset="100%" stop-color="transparent" />
+                        </radialGradient>
+                    </defs>
+                    <circle cx="50" cy="50" r="45" fill="url(#goldGlow)"/>
+                    <polygon points="50,15 61,35 85,38 68,55 72,75 50,65 28,75 32,55 15,38 39,35" fill="#FFD700" stroke="#FFF" stroke-width="2" class="star-spin"/>
+                    <path d="M 35 85 L 65 85 L 55 95 L 45 95 Z" fill="#FFD700"/>
+                    <line x1="50" y1="75" x2="50" y2="85" stroke="#FFD700" stroke-width="4"/>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="hidden-notes" class="secret-module">
+            <div class="teacher-card">
+                <h4>🧠 Insights de Genio Pedagógico (Sesión 40)</h4>
+                <p><strong>Andragogía del Cierre:</strong> La evaluación sumativa genera estrés. Redúzcalo enfocándose en la "Defensa del Portafolio". A los 15 años, el alumno valora más que se reconozca su esfuerzo progresivo que un número en un examen. Hágales sentir que hoy "se gradúan" en la resolución lógica de problemas.</p>
+                <p><strong>Psicología de la Autoevaluación:</strong> Incluya una pregunta clave en su reflexión: <em>"¿Qué problema cotidiano ahora puedes resolver que hace 6 meses te parecía imposible?"</em>. Esto consolida el perfil de egreso y el propósito de la Nueva Escuela Mexicana (NEM).</p>
+            </div>
+        </section>
+
+        <section class="lesson-card border-gold">
+            <h2><span class="badge">40.1</span> El Perfil de Egreso Matemático</h2>
+            <p>La <strong>Evaluación Final</strong> no es el fin del aprendizaje, sino una pausa para observar el camino recorrido. Durante este semestre transitaste desde la simple aritmética hasta convertirte en un arquitecto de soluciones a través de la modelación matemática.</p>
+            <div class="concept-box">
+                <p><strong>Los 3 Pilares Alcanzados:</strong></p>
+                <ul>
+                    <li><strong>Lenguaje y Finanzas:</strong> Capacidad de traducir la realidad a ecuaciones y planear el futuro económico.</li>
+                    <li><strong>Geometría Analítica:</strong> Dominio del espacio, las distancias y las áreas en el plano cartesiano.</li>
+                    <li><strong>Optimización (PL):</strong> Habilidad para maximizar recursos y tomar decisiones estratégicas fundamentadas en vértices matemáticos.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="lesson-card">
+            <h2><span class="badge">40.2</span> Casos de Evolución (Reflexiones)</h2>
+            <div class="examples-grid">
+                <div class="ex-item">
+                    <h5>📈 Evolución 1: Del Texto al Modelo</h5>
+                    <p>Antes veías "Un problema de edades". Hoy ves un <strong>Sistema de Ecuaciones 2x2</strong> donde $x$ e $y$ son herramientas para encontrar la verdad absoluta sin ambigüedades.</p>
+                </div>
+                <div class="ex-item">
+                    <h5>📐 Evolución 2: Del Dibujo a la Matriz</h5>
+                    <p>Antes calculabas áreas contando cuadritos. Hoy utilizas la <strong>Fórmula de Gauss (Determinantes)</strong> para medir terrenos exactos con solo conocer sus coordenadas de GPS.</p>
+                </div>
+                <div class="ex-item">
+                    <h5>💼 Evolución 3: El Estratega Financiero</h5>
+                    <p>Antes gastabas sin límite. Hoy sabes que tus recursos conforman una <strong>Región Factible</strong>, y que el éxito de un proyecto está en encontrar el vértice que maximice la función $Z$.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-card">
+            <h2><span class="badge">40.3</span> Protocolo de Cierre (Actividades)</h2>
+            <div class="activity-list">
+                <div class="act-card">
+                    <strong>📁 1. Defensa del Portafolio:</strong> Organiza todos los trabajos, gráficas en hojas milimétricas y proyectos (como tu modelo de negocio) realizados durante el semestre. Preséntalos como evidencia de tu evolución.
+                </div>
+                <div class="act-card">
+                    <strong>📝 2. Autoevaluación Crítica:</strong> Responde con honestidad: ¿En qué progresión (1 al 14) demostraste mayor habilidad? ¿Cuál representó el mayor reto y cómo lo superaste?
+                </div>
+                <div class="act-card">
+                    <strong>🔮 3. Visión de Futuro:</strong> Redacta un párrafo sobre cómo aplicarás el "Pensamiento Matemático" en tu vida diaria o en tu futura carrera profesional.
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-card border-purple">
+            <h2><span class="badge">40.4</span> Última Prueba de Sistemas (Ejercicios)</h2>
+            <div class="exercise-box">
+                <ol>
+                    <li><strong>Álgebra:</strong> Si un portafolio requiere 2 horas de revisión y una exposición 1 hora, y el profesor tiene 10 horas totales, modela la desigualdad lineal que representa esta restricción.</li>
+                    <li><strong>Geometría Analítica:</strong> Demuestra que comprendiste el cálculo de distancias encontrando la separación exacta entre tu esfuerzo inicial en $P(0,0)$ y tu meta actual en $Q(6,8)$.</li>
+                    <li><strong>Optimización:</strong> Dada la función de calificación $C = 6x + 4y$, ¿qué vértice te otorga la calificación máxima: $(10, 5)$ o $(5, 15)$?</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="kahoot-section">
+            <h2>🎮 Quiz Final: ¡Demuestra tu precisión!</h2>
+            <div id="quiz-container">
+                
+                <div id="question-screen">
+                    <p id="q-tracker" style="font-size: 0.9em; color: gray; font-weight: bold;"></p>
+                    
+                    <h3 id="question-text">Cargando pregunta...</h3>
+                    
+                    <div class="kahoot-grid" id="options-container">
+                        <button class="answer-btn k-red" onclick="checkAns(0)"><span id="opt-0">A</span></button>
+                        <button class="answer-btn k-blue" onclick="checkAns(1)"><span id="opt-1">B</span></button>
+                        <button class="answer-btn k-yellow" onclick="checkAns(2)"><span id="opt-2">C</span></button>
+                        <button class="answer-btn k-green" onclick="checkAns(3)"><span id="opt-3">D</span></button>
+                    </div>
+                </div>
+
+                <div id="result-screen" class="hidden">
+                    <h3 id="final-score"></h3>
+                    <button onclick="resetQuiz()" class="btn-restart">Intentar de nuevo</button>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+    <nav>
+        <a href="MASTERCLASS_SES39.HTML">Anterior Sesión</a>
+        <a href="../planeacionpm2.html">Volver al inicio</a>
+    </nav>
+
+    <footer>
+        <div class="container">
+            <p>&copy; jmgvptel. Masterclass s-40 PM2. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

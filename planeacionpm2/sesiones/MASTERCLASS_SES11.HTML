@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S-11 Masterclass: Aplicación de MCD y mcm | PM2</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <script>
+        window.MathJax = {
+            tex: {
+                // Aquí le decimos que reconozca el signo de peso simple como fórmula en línea
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body class="theme-s11">
+
+    <div id="teacher-portal">
+        <div class="teacher-header">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            <input type="password" id="teacher-pass" placeholder="Código de Maestro">
+            <button onclick="unlockNotes()">Desencriptar</button>
+        </div>
+        <div id="teacher-notes" class="hidden">
+            <h3>👨‍🏫 Notas Estratégicas - Sesión 11 </h3>
+            <p><strong>Fase Estratégica:</strong> Aplicación de MCD y mcm.</p>
+            <ul>
+                <li><strong>Inicio:</strong> Durante el "Análisis de casos", no les des la respuesta de inmediato. Deja que discutan en parejas si el problema requiere "cortar" (MCD) o "sincronizar" (mcm).</li>
+                <li><strong>Desarrollo:</strong> La meta es la "Resolución de problemas complejos usando MCD y mcm". Fomenta que subrayen las palabras clave en los enunciados (ej. "coincidir", "mayor tamaño").</li>
+                <li><strong>Cierre:</strong> Usa el "Quiz rápido"  interactivo al final de esta página como tu Evaluación Formativa.</li>
+            </ul>
+        </div>
+    </div>
+
+    <header>
+        <div class="container hero">
+            <svg class="main-logo" viewBox="0 0 100 100" fill="none">
+                <circle cx="35" cy="50" r="15" stroke="#00e5ff" stroke-width="4" stroke-dasharray="6 4" fill="rgba(0,229,255,0.1)"/>
+                <path d="M60 50 Q 75 20 90 50" stroke="#ffb700" stroke-width="4" fill="none"/>
+                <path d="M60 50 Q 75 80 90 50" stroke="#ffb700" stroke-width="4" fill="none"/>
+                <circle cx="60" cy="50" r="5" fill="#ffb700"/>
+                <circle cx="90" cy="50" r="5" fill="#ffb700"/>
+            </svg>
+            <h1>Misiones de Aplicación</h1>
+            <p class="subtitle">Sesión 11 | MCD y mcm en el Mundo Real</p>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <section class="card fade-in">
+            <h2><span class="icon">🌍</span> El Mundo no viene con instrucciones</h2>
+            <div class="definition-wrapper">
+                <p>En la vida real, nadie te dice "calcula el mínimo común múltiplo de estos dos números". Te enfrentas a problemas de logística, organización de eventos, diseño de empaques o sincronización de horarios.</p>
+                <p>Hoy pondremos a prueba tu intuición. Tu objetivo es leer la situación, detectar el "código oculto" (las palabras clave) y aplicar la herramienta matemática exacta para resolver el caso.</p>
+            </div>
+        </section>
+
+        <section class="card fade-in">
+            <h2><span class="icon">📋</span> Plan de Operaciones</h2>
+            <div class="activities-grid">
+                <div class="activity-box inicio">
+                    <h3>1. Análisis de Casos</h3>
+                    <p>Inspeccionaremos expedientes (problemas) para aprender a identificar rápidamente si estamos ante una situación de división o de sincronización.</p>
+                </div>
+                <div class="activity-box desarrollo">
+                    <h3>2. Resolución de Problemas Complejos</h3>
+                    <p>Tomaremos los datos en bruto, aplicaremos la descomposición en factores primos y extraeremos soluciones para el mundo real.</p>
+                </div>
+                <div class="activity-box cierre">
+                    <h3>3. Quiz Rápido (Evaluación)</h3>
+                    <p>Evaluación formativa a contrarreloj para poner a prueba tu capacidad de respuesta y agilidad mental.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card fade-in">
+            <h2><span class="icon">🔍</span> 3 Archivos Desclasificados (Ejemplos)</h2>
+            <div class="examples-list">
+                <div class="example-item mcd-theme">
+                    <h4>Archivo 01: Operación "Kits de Rescate"</h4>
+                    <p><strong>El Caso:</strong> Tenemos 45 botellas de agua y 60 latas de atún. Queremos armar la <em>mayor cantidad</em> de kits de supervivencia idénticos sin que sobre nada.</p>
+                    <p><strong>Análisis:</strong> Queremos <em>repartir/dividir</em> en el mayor número posible. ¡Es MCD!</p>
+                    <p class="result-math">MCD(45, 60) = <span class="accent-c">15 kits</span> (Cada kit tendrá 3 aguas y 4 atunes).</p>
+                </div>
+                <div class="example-item mcm-theme">
+                    <h4>Archivo 02: Operación "Alineación Planetaria"</h4>
+                    <p><strong>El Caso:</strong> El cometa A pasa cada 12 años y el cometa B cada 18 años. Si los vimos juntos hoy, ¿en cuántos años <em>volverán a coincidir</em>?</p>
+                    <p><strong>Análisis:</strong> Buscamos un evento en el futuro donde se <em>sincronicen</em>. ¡Es mcm!</p>
+                    <p class="result-math">mcm(12, 18) = <span class="accent-o">36 años</span>.</p>
+                </div>
+                <div class="example-item neutral-theme">
+                    <h4>Archivo 03: Pistas del Escáner</h4>
+                    <p><strong>Truco Hacker:</strong> Si las unidades de respuesta son <em>más grandes</em> que los datos originales (ej. minutos a horas), casi siempre es <strong>mcm</strong>. Si la respuesta debe ser <em>más pequeña</em> que los datos originales (ej. cortar una cuerda larga en pedazos cortos), es <strong>MCD</strong>.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card fade-in">
+            <h2><span class="icon">✍️</span> Centro de Entrenamiento</h2>
+            <p>Abre tu libreta de apuntes. Lee cuidadosamente, decide tu herramienta y resuelve:</p>
+            <ol class="exercise-list">
+                <li>Una alarma suena cada 15 minutos y otra cada 25 minutos. Si sonaron juntas a las 8:00 AM, ¿a qué hora volverán a coincidir?</li>
+                <li>Un carpintero tiene un listón de madera de 120 cm y otro de 160 cm. Quiere cortarlos en trozos iguales que sean lo más largos posible. ¿Cuánto medirá cada trozo?</li>
+                <li>Tres corredores entrenan en una pista. Ana tarda 4 minutos en dar una vuelta, Beto 6 minutos y Carlos 8 minutos. Si salen juntos de la línea de meta, ¿en cuántos minutos se volverán a cruzar los tres al mismo tiempo?</li>
+            </ol>
+        </section>
+
+        <section class="kahoot-section">
+            <h2>🎮 Quiz Final: ¡Demuestra tu precisión!</h2>
+            <div id="quiz-container">
+                
+                <div id="question-screen">
+                    <p id="q-tracker" style="font-size: 0.9em; color: gray; font-weight: bold;"></p>
+                    
+                    <h3 id="question-text">Cargando pregunta...</h3>
+                    
+                    <div class="kahoot-grid" id="options-container">
+                        <button class="answer-btn k-red" onclick="checkAns(0)"><span id="opt-0">A</span></button>
+                        <button class="answer-btn k-blue" onclick="checkAns(1)"><span id="opt-1">B</span></button>
+                        <button class="answer-btn k-yellow" onclick="checkAns(2)"><span id="opt-2">C</span></button>
+                        <button class="answer-btn k-green" onclick="checkAns(3)"><span id="opt-3">D</span></button>
+                    </div>
+                </div>
+
+                <div id="result-screen" class="hidden">
+                    <h3 id="final-score"></h3>
+                    <button onclick="resetQuiz()" class="btn-restart">Intentar de nuevo</button>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+    <nav>
+        <a href="MASTERCLASS_SES10.HTML">Anterior Sesión</a>
+        <a href="MASTERCLASS_SES12.HTML">Siguiente Sesión</a>
+        <a href="../planeacionpm2.html">Volver al inicio</a>
+    </nav>
+
+    <footer>
+        <div class="container">
+            <p>&copy; jmgvptel. Masterclass s-11 PM2. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

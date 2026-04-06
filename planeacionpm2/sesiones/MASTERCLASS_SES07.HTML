@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masterclass S07: Taller de Modelación | PM2</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <script>
+        window.MathJax = {
+            tex: {
+                // Aquí le decimos que reconozca el signo de peso simple como fórmula en línea
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body class="theme-s7">
+
+    <div id="teacher-portal" class="teacher-locked">
+        <div class="teacher-header" onclick="toggleTeacherNotes()">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-5.633-5.633A9.956 9.956 0 0112 2c5.523 0 10 4.477 10 10s-4.477 10-10 10a9.956 9.956 0 01-7.778-3.732m5.633-5.633l5.633 5.633m0-5.633L12 11"/></svg>
+            <span>Notas para el Maestro (Requiere Clave)</span>
+        </div>
+        <div class="teacher-content" id="teacher-content">
+            <div id="password-area">
+                <input type="password" id="teacher-pass" placeholder="Introduce la clave '1983'">
+                <button onclick="unlockNotes()">Desbloquear</button>
+            </div>
+            <div id="notes-area" class="hidden">
+                <h4>👨‍🏫 Tips Pedagógicos y Psicológicos (Sesión 7)</h4>
+                <ul>
+                    <li><strong>Psicología del Adolescente:</strong> A esta edad, odian sentir que pierden el tiempo. Enfatiza que modelar es como tener "superpoderes de predicción" para ganar dinero, organizar eventos o entender redes sociales.</li>
+                    <li><strong>El Reto (Inicio):</strong> No les des las respuestas. Deja que se frustren un poco en equipos buscando las variables. La frustración controlada genera curiosidad.</li>
+                    <li><strong>Taller (Desarrollo):</strong> Monitorea los equipos. Si un equipo se traba, haz preguntas guía, no resuelvas el problema. Ejemplo: "¿Qué dato cambia y cuál se mantiene fijo?".</li>
+                    <li><strong>Exposición (Cierre):</strong> Fomenta la coevaluación constructiva. Que se enfoquen en la lógica del modelo, no solo en el resultado.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container hero">
+            <svg class="icon-hero" viewBox="0 0 100 100" fill="none">
+                <circle cx="50" cy="50" r="48" stroke="#00e5ff" stroke-width="4"/>
+                <path d="M30 50 L50 30 L70 50 L50 70 Z" stroke="#ff007f" stroke-width="4" fill="rgba(255,0,127,0.1)"/>
+                <path d="M50 30 L50 70 M30 50 L70 50" stroke="#00e5ff" stroke-width="2" stroke-dasharray="4 4"/>
+            </svg>
+            <h1>Taller de Modelación</h1>
+            <p class="subtitle">Ingenieros de la Realidad | Pensamiento Matemático II</p>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <section class="card progress-section">
+            <h2><span class="step-num">1</span>¿Qué vamos a armar hoy?</h2>
+            <div class="def-container">
+                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#bc13fe" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a2 2 0 0 1 2.83 0l1 1a2 2 0 0 1 0 2.83L17.7 17.7a1 1 0 0 1-1.4 0l-1.6-1.6a1 1 0 0 1 0-1.4l6.3-6.3"/><path d="M4 20h16"/><path d="M5 11l-3 3 3 3"/><path d="M9 11l-3 3 3 3"/><path d="M13 11l-3 3 3 3"/></svg>
+                <p>En las sesiones anteriores aprendimos a traducir. Hoy vamos a <strong>construir</strong>. Un <strong>Modelo Matemático</strong> es un plano arquitectónico de una situación real. Usamos ecuaciones para predecir qué pasará si cambiamos las cosas.</p>
+            </div>
+        </section>
+
+        <section class="card sd-inicio">
+            <h2><span class="tag inicio">Inicio</span> Fase 1: El Reto en Equipos</h2>
+            <p>Junten sus mentes. Analicen la siguiente situación visual sin usar números todavía.</p>
+            
+            <div class="visual-challenge">
+                <svg viewBox="0 0 300 150" class="svg-anim">
+                    <rect x="10" y="10" width="280" height="130" rx="10" fill="#1a1a2e" stroke="#00e5ff" stroke-width="3"/>
+                    <text x="150" y="80" fill="white" text-anchor="middle" font-size="14">¿Área Máxima?</text>
+                    <line x1="10" y1="140" x2="290" y2="140" stroke="#ff007f" stroke-width="4" stroke-dasharray="5 5"/>
+                    <text x="150" y="130" fill="#ff007f" text-anchor="middle" font-size="10">Malla fija: 100m</text>
+                </svg>
+                <div class="prompt">
+                    <p><strong>Situación:</strong> Quieres cercar el jardín rectangular más grande posible para tu perro, pero solo tienes 100 metros de malla y un lado ya es una pared.</p>
+                    <ul>
+                        <li>¿Cuáles son las cosas que *pueden cambiar* (variables)?</li>
+                        <li>¿Qué es lo que *no cambia* (constante)?</li>
+                        <li>¿Qué queremos *maximizar*?</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="card sd-desarrollo">
+            <h2><span class="tag desarrollo">Desarrollo</span> Fase 2: Ingenieria Social y Escolar</h2>
+            
+            <h3>💡 3 Ejemplos de Planos Algebraicos (Modelos)</h3>
+            <div class="examples-grid">
+                <div class="ex-box">
+                    <h4>1. Plan de Datos</h4>
+                    <p>Costo fijo \$100 + \$2 por GB extra.</p>
+                    <span class="math">$C = 2g + 100$</span>
+                </div>
+                <div class="ex-box">
+                    <h4>2. Negocio de Snacks</h4>
+                    <p>Inversión inicial \$500. Ganancia de \$15 por bolsa vendida.</p>
+                    <span class="math">$G = 15b - 500$</span>
+                </div>
+                <div class="ex-box">
+                    <h4>3. El Grado de café</h4>
+                    <p>Temperatura baja 3°C por minuto. Inicia en 90°C.</p>
+                    <span class="math">$T = 90 - 3m$</span>
+                </div>
+            </div>
+
+            <h3 class="space-top">✍️ 3 Ejercicios Rápidos de Calentamiento</h3>
+            <p>Plantea el modelo (la ecuación) para estas situaciones en tu cuaderno:</p>
+            <ol class="exercise-list">
+                <li>Un taxi cobra \$20 por "banderazo" y \$8 por kilómetro recorrido.</li>
+                <li>Tienes un cupón de \$50 de descuento en una tienda online, pero el envío cuesta \$40. Vas a comprar "n" productos iguales.</li>
+                <li>Estás llenando una alberca de 1000 litros. Ya tiene 200 litros y la manguera mete 50 litros por hora.</li>
+            </ol>
+        </section>
+
+        <section class="card activities">
+            <h2>🚀 Fase 3: Taller Colaborativo (Actividades)</h2>
+            <p>Elijan una misión y resuélvanla en equipo usando la <strong>Rúbrica de Modelación</strong>.</p>
+            
+            <div class="activities-container">
+                <div class="act-card">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#bc13fe" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    <h4>Misión 1: Contexto Escolar</h4>
+                    <p>Organizar la kermesse. La renta del inflable cuesta \$1200. Planean vender boletos a \$50. ¿Cuántos boletos *mínimo* necesitan vender para no perder dinero? Modela la utilidad.</p>
+                </div>
+                <div class="act-card">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#00e5ff" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                    <h4>Misión 2: Contexto Social</h4>
+                    <p>Eres Influencer. Una marca te ofrece \$500 fijos por video más \$0.10 por cada "Like". Una segunda marca te ofrece \$200 fijos pero \$0.25 por "Like". Modela ambas ofertas. ¿Con cuántos "Likes" pagan lo mismo? ¿Cuál conviene más?</p>
+                </div>
+                <div class="act-card highlight">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#ff007f" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+                    <h4>Misión Pro: Optimización</h4>
+                    <p>Vuelvan al problema de inicio (el jardín cercado). Si el ancho es "$x$", expresen el largo en términos de malla. Modelen el Área. Intenten adivinar qué valor de "$x$" da el Área más grande.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card sd-cierre">
+            <h2><span class="tag cierre">Cierre</span> Fase 4: Pit Stop y Exposición</h2>
+            <p>Un representante de cada equipo sube al pizarrón (o presenta su pantalla) para explicar su plano.</p>
+            <div class="pit-stop">
+                <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 22L20 20"/><path d="M20 16a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg>
+                <p>Evalúen usando la rúbrica: ¿Definieron bien las variables? ¿La ecuación representa fielmente la realidad? ¿Interpretaron el resultado numérico correctamente en la situación real?</p>
+            </div>
+        </section>
+
+        <section class="kahoot-section">
+            <h2>🎮 Quiz Final: ¡Demuestra tu precisión!</h2>
+            <div id="quiz-container">
+                
+                <div id="question-screen">
+                    <p id="q-tracker" style="font-size: 0.9em; color: gray; font-weight: bold;"></p>
+                    
+                    <h3 id="question-text">Cargando pregunta...</h3>
+                    
+                    <div class="kahoot-grid" id="options-container">
+                        <button class="answer-btn k-red" onclick="checkAns(0)"><span id="opt-0">A</span></button>
+                        <button class="answer-btn k-blue" onclick="checkAns(1)"><span id="opt-1">B</span></button>
+                        <button class="answer-btn k-yellow" onclick="checkAns(2)"><span id="opt-2">C</span></button>
+                        <button class="answer-btn k-green" onclick="checkAns(3)"><span id="opt-3">D</span></button>
+                    </div>
+                </div>
+
+                <div id="result-screen" class="hidden">
+                    <h3 id="final-score"></h3>
+                    <button onclick="resetQuiz()" class="btn-restart">Intentar de nuevo</button>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+    <nav>
+        <a href="MASTERCLASS_SES06.HTML">Anterior Sesión</a>
+        <a href="MASTERCLASS_SES08.HTML">Siguiente Sesión</a>
+        <a href="../planeacionpm2.html">Volver al inicio</a>
+    </nav>
+    <footer>
+        <div class="container">
+            <p>&copy; jmgvptel. Masterclass s-07 PM2. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

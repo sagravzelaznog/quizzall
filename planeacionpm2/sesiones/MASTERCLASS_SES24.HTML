@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S24: Navegación en el Plano | PM2</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body class="theme-s24">
+
+    <nav class="admin-access">
+        <div class="container">
+            <span>🔑 Acceso Docente:</span>
+            <input type="password" id="master-key" placeholder="Clave">
+            <button onclick="checkMasterKey()">Desbloquear</button>
+        </div>
+    </nav>
+
+    <header class="master-header s24-navigation">
+        <div class="container header-content">
+            <div class="text-group">
+                <h1>Geometría Analítica: El Plano</h1>
+                <p>Sesión 24: Ubicación, distancia y coordenadas</p>
+            </div>
+            <svg width="120" height="120" viewBox="0 0 100 100">
+                <defs>
+                    <radialGradient id="grad1" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%" style="stop-color:#00E5FF;stop-opacity:0.3" />
+                        <stop offset="100%" style="stop-color:#0D47A1;stop-opacity:0" />
+                    </radialGradient>
+                </defs>
+                <circle cx="50" cy="50" r="45" fill="url(#grad1)" stroke="#00E5FF" stroke-width="0.5" />
+                <line x1="50" y1="5" x2="50" y2="95" stroke="#00E5FF" stroke-width="2" />
+                <line x1="5" y1="50" x2="95" y2="50" stroke="#00E5FF" stroke-width="2" />
+                <circle cx="70" cy="30" r="3" fill="#FF5252" />
+                <text x="75" y="28" fill="white" font-size="6">$P(x, y)$</text>
+            </svg>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="teacher-notes" class="hidden">
+            <div class="alert-card">
+                <h4>🎯 Estrategia Psicopedagógica S-24</h4>
+                <p><strong>Andragogía:</strong> Conecta las coordenadas con el desarrollo de videojuegos (posicionamiento de objetos en pantalla). Esto elimina la abstracción aburrida.</p>
+                <p><strong>Tip:</strong> Muchos alumnos confunden el orden $(x, y)$. Use la analogía del elevador: primero caminas hacia él ($x$), luego subes o bajas ($y$).</p>
+            </div>
+        </section>
+
+        <section class="session-card shadow">
+            <h2><span class="num">24.1</span> El Sistema de Coordenadas</h2>
+            <p>La Geometría Analítica une el álgebra con la geometría mediante el **Plano Cartesiano**. Cada punto es una dirección única definida por un par ordenado:</p>
+            <div class="formula-highlight">
+                $P = (x, y)$
+            </div>
+            <p>Donde $x$ es la abscisa (horizontal) y $y$ es la ordenada (vertical).</p>
+        </section>
+
+        <section class="session-card">
+            <h2><span class="num">24.2</span> Lectura de Radar (Ejemplos)</h2>
+            <div class="grid-3">
+                <div class="mini-card">
+                    <strong>Punto A (3, 2)</strong><br>
+                    Cuadrante I: 3 unidades derecha, 2 arriba.
+                </div>
+                <div class="mini-card">
+                    <strong>Punto B (-4, 5)</strong><br>
+                    Cuadrante II: 4 unidades izquierda, 5 arriba.
+                </div>
+                <div class="mini-card">
+                    <strong>Punto C (0, -3)</strong><br>
+                    Sobre el eje Y negativo.
+                </div>
+            </div>
+        </section>
+
+        <section class="session-card">
+            <h2><span class="num">24.3</span> Misiones de Campo</h2>
+            <div class="list-activities">
+                <div class="activity-item">
+                    <h5>🕹️ Map Maker</h5>
+                    <p>Dibuja un plano cartesiano y ubica los puntos para formar la letra inicial de tu nombre.</p>
+                </div>
+                <div class="activity-item">
+                    <h5>📡 GPS Humano</h5>
+                    <p>Si el origen $(0,0)$ es la puerta del salón, ¿cuáles serían tus coordenadas actuales en pasos?</p>
+                </div>
+                <div class="activity-item">
+                    <h5>🔎 Error de Sistema</h5>
+                    <p>Explica qué sucede si intercambiamos $(2, 5)$ por $(5, 2)$. ¿Es el mismo lugar?</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="session-card border-blue">
+            <h2><span class="num">24.4</span> Práctica de Navegación</h2>
+            <div class="exercises">
+                <p>1. Ubica el punto $M(-5, -2)$ e indica en qué cuadrante se encuentra.</p>
+                <p>2. Encuentra la distancia del origen al punto $(3, 4)$ usando Pitágoras: $d = \sqrt{x^2 + y^2}$.</p>
+                <p>3. Determina el punto medio entre $A(2, 2)$ y $B(6, 2)$.</p>
+            </div>
+        </section>
+
+        <section class="kahoot-section">
+            <h2>🎮 Quiz Final: ¡Demuestra tu precisión!</h2>
+            <div id="quiz-container">
+                
+                <div id="question-screen">
+                    <p id="q-tracker" style="font-size: 0.9em; color: gray; font-weight: bold;"></p>
+                    
+                    <h3 id="question-text">Cargando pregunta...</h3>
+                    
+                    <div class="kahoot-grid" id="options-container">
+                        <button class="answer-btn k-red" onclick="checkAns(0)"><span id="opt-0">A</span></button>
+                        <button class="answer-btn k-blue" onclick="checkAns(1)"><span id="opt-1">B</span></button>
+                        <button class="answer-btn k-yellow" onclick="checkAns(2)"><span id="opt-2">C</span></button>
+                        <button class="answer-btn k-green" onclick="checkAns(3)"><span id="opt-3">D</span></button>
+                    </div>
+                </div>
+
+                <div id="result-screen" class="hidden">
+                    <h3 id="final-score"></h3>
+                    <button onclick="resetQuiz()" class="btn-restart">Intentar de nuevo</button>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+    <nav>
+        <a href="MASTERCLASS_SES23.HTML">Anterior Sesión</a>
+        <a href="MASTERCLASS_SES25.HTML">Siguiente Sesión</a>
+        <a href="../planeacionpm2.html">Volver al inicio</a>
+    </nav>
+
+    <footer>
+        <div class="container">
+            <p>&copy; jmgvptel. Masterclass s-24 PM2. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

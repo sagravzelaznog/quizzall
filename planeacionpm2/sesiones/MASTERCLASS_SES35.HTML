@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S35: El Estratega Maestro (Programación Lineal) | PM2</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <script>
+        window.MathJax = {
+            tex: {
+                // Aquí le decimos que reconozca el signo de peso simple como fórmula en línea
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body class="theme-s35">
+
+    <nav class="teacher-auth">
+        <div class="container flex-nav">
+            <span>💼 Sala de Juntas (Acceso Docente):</span>
+            <div class="auth-controls">
+                <input type="password" id="master-pin" placeholder="Clave 1983...">
+                <button onclick="unlockTeacherMode()">Ingresar</button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-s35">
+        <div class="container hero-layout">
+            <div class="hero-content">
+                <h1>Introducción a Programación Lineal</h1>
+                <p>Sesión 35: Maximizar ganancias y el Teorema Fundamental.</p>
+            </div>
+            <div class="hero-visual">
+                <svg width="180" height="180" viewBox="0 0 100 100">
+                    <defs>
+                        <linearGradient id="profitGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="rgba(0, 200, 83, 0.2)" />
+                            <stop offset="100%" stop-color="rgba(0, 200, 83, 0.8)" />
+                        </linearGradient>
+                    </defs>
+                    <line x1="10" y1="90" x2="90" y2="90" stroke="#FFF" stroke-width="2" />
+                    <line x1="10" y1="90" x2="10" y2="10" stroke="#FFF" stroke-width="2" />
+                    <polygon points="10,90 70,90 50,30 10,50" fill="url(#profitGrad)" stroke="#00C853" stroke-width="2"/>
+                    <circle cx="10" cy="90" r="2" fill="#FFD600"/>
+                    <circle cx="70" cy="90" r="2" fill="#FFD600"/>
+                    <circle cx="10" cy="50" r="2" fill="#FFD600"/>
+                    <circle cx="50" cy="30" r="4" fill="#FFD600" class="pulse-gold"/>
+                    <text x="55" y="25" fill="#FFD600" font-size="8" font-weight="bold">Z MAX</text>
+                    <line x1="20" y1="60" x2="80" y2="0" stroke="#FFD600" stroke-width="1.5" stroke-dasharray="3,2" />
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="hidden-notes" class="secret-panel">
+            <div class="teacher-card">
+                <h4>🧠 Estrategia de la Junta Directiva (Andragogía)</h4>
+                <p><strong>El Gancho:</strong> Los adolescentes aman la idea de ganar dinero o hackear un sistema para obtener ventaja. Presente la <em>Programación Lineal</em> (PL) como el algoritmo secreto que usan Amazon o Apple para "Maximizar ganancias" con recursos limitados.</p>
+                <p><strong>El Concepto Clave:</strong> Haga mucho énfasis en el <em>Teorema Fundamental</em>. Es mágico para ellos saber que no tienen que revisar millones de puntos dentro del área sombreada (la región factible de la sesión pasada), ¡sino que la respuesta perfecta <strong>siempre</strong> se esconde en una esquina (vértice)! Use el "Caso de estudio" propuesto en la planeación para aterrizar los conceptos.</p>
+            </div>
+        </section>
+
+        <section class="module-card">
+            <h2><span class="badge">35.1</span> El Modelo de Negocio (Definición)</h2>
+            <p>La <strong>Programación Lineal (PL)</strong> es una técnica matemática utilizada para encontrar el mejor resultado posible (como la ganancia máxima o el costo mínimo) dadas unas reglas estrictas. Tiene dos componentes principales:</p>
+            <div class="grid-2">
+                <div class="concept-box green-box">
+                    <h3>La Función Objetivo ($Z$)</h3>
+                    <p>Es la meta del negocio. Es la ecuación que queremos "Maximizar" (ganancias) o "Minimizar" (costos).</p>
+                    <p class="formula">$$Z = ax + by$$</p>
+                </div>
+                <div class="concept-box gold-box">
+                    <h3>Las Restricciones</h3>
+                    <p>Son los límites del mundo real (dinero, tiempo, materiales). Se escriben como desigualdades (ej. $\le$ o $\ge$).</p>
+                </div>
+            </div>
+            <div class="alert-box">
+                <strong>⚡ TEOREMA FUNDAMENTAL (El truco del millón):</strong> ¡La solución óptima (la máxima ganancia) siempre se encuentra en uno de los <strong>vértices (esquinas)</strong> de la región factible! 
+            </div>
+        </section>
+
+        <section class="module-card">
+            <h2><span class="badge">35.2</span> Casos de Estudio Reales </h2>
+            <div class="examples-grid">
+                <div class="ex-item">
+                    <h5>Caso 1: Planteamiento de la Función Objetivo </h5>
+                    <p>Una fábrica gana $\$50$ por cada silla ($x$) y $\$80$ por cada mesa ($y$).</p>
+                    <p><strong>Meta:</strong> Maximizar ganancias ($Z$).</p>
+                    <p class="formula-small">$$Z = 50x + 80y$$</p>
+                </div>
+                <div class="ex-item">
+                    <h5>Caso 2: Las Restricciones </h5>
+                    <p>Para hacer esos muebles, solo hay 40 horas de trabajo disponibles. Una silla toma 2h y una mesa 4h.</p>
+                    <p><strong>Límite:</strong></p>
+                    <p class="formula-small">$$2x + 4y \le 40$$</p>
+                </div>
+                <div class="ex-item">
+                    <h5>Caso 3: Usando el Teorema </h5>
+                    <p>Si la gráfica nos da 3 esquinas: $A(0,0), B(0,10), C(20,0)$. Probamos en $Z = 50x + 80y$:</p>
+                    <p>En $B(0,10): Z = 50(0) + 80(10) = 800$.</p>
+                    <p>En $C(20,0): Z = 50(20) + 80(0) = 1000$. <br><strong>¡C es la mejor opción!</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="module-card">
+            <h2><span class="badge">35.3</span> Simulador de CEO (Actividades)</h2>
+            <div class="activity-list">
+                <div class="act-card">
+                    <strong>🏢 1. Define tu Imperio:</strong> Vendes dos tipos de tenis. Los modelo "Alpha" ($x$) te dejan $\$200$ de ganancia y los "Beta" ($y$) te dejan $\$350$. Escribe tu <strong>Función Objetivo</strong>.
+                </div>
+                <div class="act-card">
+                    <strong>⏳ 2. Control de Recursos:</strong> En tu taller solo tienes 100 m² de cuero sintético. Los tenis Alpha usan 1 m² y los Beta usan 2 m². Escribe la <strong>Restricción</strong> matemática de tu taller.
+                </div>
+                <div class="act-card">
+                    <strong>🎯 3. El Cazador de Vértices:</strong> Tienes un mapa de producción con los vértices $(0,0), (10, 50)$ y $(40, 20)$. Tu función de ganancia es $Z = 10x + 15y$. Evalúa los tres puntos y declara al ganador.
+                </div>
+            </div>
+        </section>
+
+        <section class="module-card border-gold">
+            <h2><span class="badge">35.4</span> Entrenamiento Ejecutivo (Ejercicios)</h2>
+            <div class="exercise-box">
+                <ol>
+                    <li>Una panadería obtiene $\$5$ de ganancia por cada pastel de chocolate ($x$) y $\$3$ por cada pastel de vainilla ($y$). Escribe la Función Objetivo ($Z$).</li>
+                    <li>La panadería solo tiene 30 kg de harina diarios. El pastel de chocolate requiere 2 kg y el de vainilla 1 kg. Plantea esta restricción.</li>
+                    <li>Dada la función $Z = 20x + 30y$ y los vértices $V_1(0, 10), V_2(5, 8)$ y $V_3(12, 0)$. Aplica el Teorema Fundamental  y determina qué vértice maximiza la ganancia.</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="kahoot-section">
+            <h2>🎮 Quiz Final: ¡Demuestra tu precisión!</h2>
+            <div id="quiz-container">
+                
+                <div id="question-screen">
+                    <p id="q-tracker" style="font-size: 0.9em; color: gray; font-weight: bold;"></p>
+                    
+                    <h3 id="question-text">Cargando pregunta...</h3>
+                    
+                    <div class="kahoot-grid" id="options-container">
+                        <button class="answer-btn k-red" onclick="checkAns(0)"><span id="opt-0">A</span></button>
+                        <button class="answer-btn k-blue" onclick="checkAns(1)"><span id="opt-1">B</span></button>
+                        <button class="answer-btn k-yellow" onclick="checkAns(2)"><span id="opt-2">C</span></button>
+                        <button class="answer-btn k-green" onclick="checkAns(3)"><span id="opt-3">D</span></button>
+                    </div>
+                </div>
+
+                <div id="result-screen" class="hidden">
+                    <h3 id="final-score"></h3>
+                    <button onclick="resetQuiz()" class="btn-restart">Intentar de nuevo</button>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+    <nav>
+        <a href="MASTERCLASS_SES34.HTML">Anterior Sesión</a>
+        <a href="MASTERCLASS_SES36.HTML">Siguiente Sesión</a>
+        <a href="../planeacionpm2.html">Volver al inicio</a>
+    </nav>
+    <footer>
+        <div class="container">
+            <p>&copy; jmgvptel. Masterclass s-35 PM2. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

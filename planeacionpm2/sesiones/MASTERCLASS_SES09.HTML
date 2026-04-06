@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S-09 Masterclass: Propiedades de los Enteros | PM2</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <script>
+        window.MathJax = {
+            tex: {
+                // Aquí le decimos que reconozca el signo de peso simple como fórmula en línea
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body class="theme-s9">
+
+    <div id="teacher-access">
+        <div class="teacher-control">
+            <svg class="icon-key" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path></svg>
+            <input type="password" id="teacher-pass" placeholder="Clave Docente">
+            <button onclick="checkTeacherAccess()">Desbloquear Notas</button>
+        </div>
+        <div id="teacher-notes-content" class="hidden">
+            <h3>👨‍🏫 Notas Pedagógicas - Sesión 9 </h3>
+            <p><strong>Enfoque de la Sesión:</strong></p>
+            <ul>
+                <li><strong>Inicio:</strong> Al trabajar con "Patrones numéricos" , escriba en el pizarrón  secuencias simples (ej. 2, 4, 8, 16...) y pregunte qué sigue. El objetivo es que noten que los números tienen una estructura predecible.</li>
+                <li><strong>Desarrollo:</strong> El "Teorema fundamental de la aritmética"  suena intimidante. Tradúzcalo como "Todo número entero tiene una huella dactilar única hecha de números primos".</li>
+                <li><strong>Cierre:</strong> Para la "Descomposición en factores primos", use el método del árbol. Es muy visual y reduce la ansiedad matemática.</li>
+            </ul>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <svg class="main-logo" viewBox="0 0 100 100" fill="none">
+                <path d="M30 20 Q 50 50 70 80 M70 20 Q 50 50 30 80" stroke="#00e5ff" stroke-width="4" stroke-linecap="round"/>
+                <line x1="38" y1="32" x2="62" y2="32" stroke="#bc13fe" stroke-width="3"/>
+                <line x1="45" y1="50" x2="55" y2="50" stroke="#00ff00" stroke-width="3"/>
+                <line x1="38" y1="68" x2="62" y2="68" stroke="#bc13fe" stroke-width="3"/>
+                <circle cx="50" cy="50" r="5" fill="#fff"/>
+            </svg>
+            <h1>Propiedades de los Enteros</h1>
+            <p class="subtitle">Sesión 9 | Secuenciando el ADN Matemático</p>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <section id="definicion" class="card section-fade-in">
+            <h2><span class="icon">🧬</span> ¿Qué es el Teorema Fundamental?</h2>
+            <div class="definition-wrapper">
+                <p>En biología, todos los seres vivos estamos hechos de células con un ADN único. En matemáticas, ocurre algo increíble: <strong>El Teorema Fundamental de la Aritmética</strong>  dicta que cualquier número entero (mayor que 1) es un número primo, o se puede crear multiplicando números primos.</p>
+                <p>A esta "receta" única de números primos se le llama <strong>Descomposición en factores primos</strong>. ¡No existen dos números con el mismo código genético!</p>
+            </div>
+        </section>
+
+        <section id="actividades" class="card section-fade-in">
+            <h2><span class="icon">🔬</span> Fases del Laboratorio (Actividades)</h2>
+            <div class="activities-grid">
+                <div class="activity-box inicio">
+                    <h3>1. Patrones Numéricos </h3>
+                    <p>Detectives en acción: Analizaremos secuencias en el pizarrón para descubrir cómo los números crecen siguiendo reglas secretas.</p>
+                </div>
+                <div class="activity-box desarrollo">
+                    <h3>2. El Teorema Fundamental </h3>
+                    <p>Comprenderemos la ley universal de los números enteros: los primos son los "bloques de lego" indestructibles del universo matemático.</p>
+                </div>
+                <div class="activity-box cierre">
+                    <h3>3. Descomposición en Factores Primos </h3>
+                    <p>Aprenderemos a usar el "Árbol de Factores" para destrozar números compuestos y encontrar su ADN primo oculto.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="ejemplos" class="card section-fade-in">
+            <h2><span class="icon">💡</span> 3 Ejemplos de Secuenciación</h2>
+            <div class="examples-list">
+                <div class="example-item">
+                    <h4>Ejemplo 1: El código del 12</h4>
+                    <p>Vamos a dividir el 12 usando solo números primos (2, 3, 5, 7...):</p>
+                    <ul>
+                        <li>$12 \div 2 = 6$</li>
+                        <li>$6 \div 2 = 3$</li>
+                        <li>$3 \div 3 = 1$</li>
+                    </ul>
+                    <p class="result-math">ADN del 12: <span class="accent-c">$2 \times 2 \times 3$</span> o <span class="accent-c">$2^2 \times 3$</span></p>
+                </div>
+                <div class="example-item">
+                    <h4>Ejemplo 2: El código del 30</h4>
+                    <p>Buscamos qué primos multiplicados nos dan 30:</p>
+                    <p class="result-math">ADN del 30: <span class="accent-l">$2 \times 3 \times 5$</span></p>
+                </div>
+                <div class="example-item">
+                    <h4>Ejemplo 3: El código del 60</h4>
+                    <p>Si notas, 60 es el doble de 30. Solo agregamos un "2" a la receta anterior:</p>
+                    <p class="result-math">ADN del 60: <span class="accent-e">$2 \times 2 \times 3 \times 5$</span> o <span class="accent-e">$2^2 \times 3 \times 5$</span></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="ejercicios" class="card section-fade-in">
+            <h2><span class="icon">✍️</span> Extracción de ADN (Ejercicios)</h2>
+            <p>En tu cuaderno, utiliza el método del árbol o divisiones sucesivas para encontrar la <strong>descomposición en factores primos</strong>  de los siguientes números:</p>
+            <ol class="exercise-list">
+                <li>Extrae el ADN del número <strong>28</strong>.</li>
+                <li>Encuentra los factores primos del número <strong>45</strong>.</li>
+                <li>Reto mayor: Descompón el número <strong>100</strong>. (Recuerda usar potencias al final).</li>
+            </ol>
+        </section>
+
+        <section class="kahoot-section">
+            <h2>🎮 Quiz Final: ¡Demuestra tu precisión!</h2>
+            <div id="quiz-container">
+                
+                <div id="question-screen">
+                    <p id="q-tracker" style="font-size: 0.9em; color: gray; font-weight: bold;"></p>
+                    
+                    <h3 id="question-text">Cargando pregunta...</h3>
+                    
+                    <div class="kahoot-grid" id="options-container">
+                        <button class="answer-btn k-red" onclick="checkAns(0)"><span id="opt-0">A</span></button>
+                        <button class="answer-btn k-blue" onclick="checkAns(1)"><span id="opt-1">B</span></button>
+                        <button class="answer-btn k-yellow" onclick="checkAns(2)"><span id="opt-2">C</span></button>
+                        <button class="answer-btn k-green" onclick="checkAns(3)"><span id="opt-3">D</span></button>
+                    </div>
+                </div>
+
+                <div id="result-screen" class="hidden">
+                    <h3 id="final-score"></h3>
+                    <button onclick="resetQuiz()" class="btn-restart">Intentar de nuevo</button>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+    <nav>
+        <a href="MASTERCLASS_SES08.HTML">Anterior Sesión</a>
+        <a href="MASTERCLASS_SES10.HTML">Siguiente Sesión</a>
+        <a href="../planeacionpm2.html">Volver al inicio</a>
+    </nav>
+
+    <footer>
+        <div class="container">
+            <p>&copy; jmgvptel. Masterclass s-09 PM2. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masterclass S-16: Multiplicación Multibase | PM2</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body class="theme-s16">
+
+    <div id="auth-layer">
+        <div class="container">
+            <label>Acceso Docente:</label>
+            <input type="password" id="gate-key" placeholder="clave">
+            <button onclick="revealSecretPanel()">Validar</button>
+        </div>
+    </div>
+
+    <header class="hero-s16">
+        <div class="container">
+            <svg class="gold-icon" viewBox="0 0 100 100" width="80">
+                <path d="M20 20 L80 80 M80 20 L20 80" stroke="#f1c40f" stroke-width="5" stroke-linecap="round"/>
+                <circle cx="50" cy="50" r="10" fill="#0b0e14" stroke="#f1c40f" stroke-width="2"/>
+            </svg>
+            <h1>Multiplicación en Otras Bases</h1>
+            <p>Sesión 16: Escalando el Algoritmo de Producto</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="master-panel" class="hidden">
+            <div class="teacher-note">
+                <h4>👨‍🏫 Guía Pedagógica S-16</h4>
+                <p><strong>Andragogía:</strong> El reto aquí es la "tabla de multiplicar" interna. En base 2 es fácil ($1 \times 1 = 1$), pero en base 5, $4 \times 4 = 31_5$. Pida a los alumnos que construyan una pequeña tabla de la base antes de operar.</p>
+                <p><strong>Tip Psicológico:</strong> Refuerce que el error no es matemático, sino de costumbre decimal. Recompensar la detección del "acarreo fantasma".</p>
+            </div>
+        </section>
+
+        <section class="content-card">
+            <h2><span class="gold-text">16.1</span> El Algoritmo del Producto</h2>
+            <p>Multiplicar en base $n$ requiere seguir el mismo orden que en decimal, pero cuidando que cada vez que el producto parcial iguale o supere la base, debemos convertir ese valor a la base destino para conocer el <strong>dígito resultante</strong> y el <strong>acarreo</strong>.</p>
+            <div class="math-box">
+                Fórmula de posición: $d_i \times d_j = (Acarreo) \cdot n + Residuo$
+            </div>
+        </section>
+
+        <section class="content-card">
+            <h2><span class="gold-text">16.2</span> Actividades de Inmersión</h2>
+            <div class="activity-flex">
+                <div class="act-card">
+                    <h5>A1: Tablas Prohibidas</h5>
+                    <p>Crea la tabla de multiplicar de la Base 4 (del 0 al 3) antes de resolver problemas.</p>
+                </div>
+                <div class="act-card">
+                    <h5>A2: Binario Veloz</h5>
+                    <p>Multiplica por $10_2$, $100_2$ y nota cómo el número solo "desplaza" ceros, igual que en decimal.</p>
+                </div>
+                <div class="act-card">
+                    <h5>A3: El Mercado Hex</h5>
+                    <p>Calcula el costo de 3 artículos que valen $A_{16}$ cada uno.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="split-layout">
+            <div class="content-card">
+                <h3>Ejemplos de Éxito</h3>
+                <p><strong>1. Binario:</strong> $11_2 \times 10_2 = 110_2$ (Desplazamiento).</p>
+                <p><strong>2. Base 5:</strong> $12_5 \times 3_5$.<br> 
+                   $3 \times 2 = 6 \rightarrow 11_5$ (Pongo 1, llevo 1).<br>
+                   $3 \times 1 + 1 = 4$. Resultado: $41_5$.</p>
+                <p><strong>3. Base 8:</strong> $7_8 \times 2_8 = 16_8$ (Porque $14_{10} = 1 \times 8 + 6$).</p>
+            </div>
+            <div class="content-card">
+                <h3>Entrenamiento</h3>
+                <ul class="task-list">
+                    <li>Multiplica $101_2 \times 11_2$</li>
+                    <li>Resuelve $23_4 \times 2_4$</li>
+                    <li>Calcula $B_{16} \times 2_{16}$</li>
+                </ul>
+            </div>
+        </div>
+        <section class="kahoot-section">
+            <h2>🎮 Quiz Final: ¡Demuestra tu precisión!</h2>
+            <div id="quiz-container">
+                
+                <div id="question-screen">
+                    <p id="q-tracker" style="font-size: 0.9em; color: gray; font-weight: bold;"></p>
+                    
+                    <h3 id="question-text">Cargando pregunta...</h3>
+                    
+                    <div class="kahoot-grid" id="options-container">
+                        <button class="answer-btn k-red" onclick="checkAns(0)"><span id="opt-0">A</span></button>
+                        <button class="answer-btn k-blue" onclick="checkAns(1)"><span id="opt-1">B</span></button>
+                        <button class="answer-btn k-yellow" onclick="checkAns(2)"><span id="opt-2">C</span></button>
+                        <button class="answer-btn k-green" onclick="checkAns(3)"><span id="opt-3">D</span></button>
+                    </div>
+                </div>
+
+                <div id="result-screen" class="hidden">
+                    <h3 id="final-score"></h3>
+                    <button onclick="resetQuiz()" class="btn-restart">Intentar de nuevo</button>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+    <nav>
+        <a href="MASTERCLASS_SES15.HTML">Anterior Sesión</a>
+        <a href="MASTERCLASS_SES17.HTML">Siguiente Sesión</a>
+        <a href="../planeacionpm2.html">Volver al inicio</a>
+    </nav>
+
+    <footer>
+        <div class="container">
+            <p>&copy; jmgvptel. Masterclass s-16 PM2. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

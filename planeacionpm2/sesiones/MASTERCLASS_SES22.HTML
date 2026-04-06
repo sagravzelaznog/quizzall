@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S22: Ingeniería de Polígonos | PM2</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body class="theme-s22">
+
+    <nav id="admin-bar">
+        <div class="container">
+            <span>🛠 Panel del Instructor:</span>
+            <input type="password" id="key-check" placeholder="Clave">
+            <button onclick="unlockContent()">Acceder</button>
+        </div>
+    </nav>
+
+    <header class="master-header s22-industrial">
+        <div class="container header-grid">
+            <div class="header-text">
+                <h1>Diagonales y Ángulos Totales</h1>
+                <p>Sesión 22: El cálculo estructural del plano</p>
+            </div>
+            <svg class="svg-hero" viewBox="0 0 100 100" width="120">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="#FF6D00" stroke-width="0.5" stroke-dasharray="2"/>
+                <polygon points="50,5 95,35 80,90 20,90 5,35" fill="none" stroke="#FF6D00" stroke-width="3"/>
+                <line x1="50" y1="5" x2="80" y2="90" stroke="#FF6D00" stroke-width="1" opacity="0.5"/>
+                <line x1="50" y1="5" x2="20" y2="90" stroke="#FF6D00" stroke-width="1" opacity="0.5"/>
+            </svg>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="teacher-vault" class="hidden">
+            <div class="teacher-card">
+                <h4>🧠 Tip Psicopedagógico S-22</h4>
+                <p><strong>Andragogía:</strong> Los jóvenes a esta edad necesitan autonomía. Permítales descubrir la fórmula de las diagonales mediante el dibujo antes de dárselas formalmente.</p>
+                <p><strong>Dato Maestro:</strong> No olvide mencionar que la suma de los ángulos EXTERNOS de cualquier polígono convexo siempre es $360^\circ$, sin importar el número de lados. Es un "momento de asombro" garantizado.</p>
+            </div>
+        </section>
+
+        <section class="content-block">
+            <h2><span class="accent">22.1</span> El ADN del Polígono</h2>
+            <p>Para construir o programar figuras complejas, necesitamos dominar dos fórmulas fundamentales:</p>
+            <div class="formula-box">
+                <div class="formula-item">
+                    <small>Diagonales desde un vértice</small>
+                    <p>$d = n - 3$</p>
+                </div>
+                <div class="formula-item">
+                    <small>Total de diagonales</small>
+                    <p>$D = \frac{n(n - 3)}{2}$</p>
+                </div>
+                <div class="formula-item">
+                    <small>Ángulo Exterior</small>
+                    <p>$\hat{e} = \frac{360^\circ}{n}$</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-block">
+            <h2><span class="accent">22.2</span> Casos Aplicados</h2>
+            <div class="example-grid">
+                <div class="ex-box">
+                    <strong>Octágono ($n=8$)</strong><br>
+                    Diagonales: $\frac{8(8-3)}{2} = 20$
+                </div>
+                <div class="ex-box">
+                    <strong>Pentágono ($n=5$)</strong><br>
+                    Ángulo Ext: $\frac{360}{5} = 72^\circ$
+                </div>
+                <div class="ex-box">
+                    <strong>Dodecágono ($n=12$)</strong><br>
+                    Diagonales vértice: $12-3 = 9$
+                </div>
+            </div>
+        </section>
+
+        <section class="content-block">
+            <h2><span class="accent">22.3</span> Desafíos Pro</h2>
+            <div class="activity-list">
+                <div class="act-item">
+                    <h5>🛠 Trazado de Redes</h5>
+                    <p>Dibuja un hexágono y traza todas sus diagonales. ¿Qué figura se forma en el centro?</p>
+                </div>
+                <div class="act-item">
+                    <h5>📐 Ingeniería de Giro</h5>
+                    <p>Si un robot gira $45^\circ$ en cada esquina para cerrar un polígono regular, ¿qué figura está dibujando?</p>
+                </div>
+                <div class="act-item">
+                    <h5>🏗 Análisis de Estructuras</h5>
+                    <p>Explica por qué un polígono de 3 lados (triángulo) no tiene diagonales usando la fórmula.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-block">
+            <h2><span class="accent">22.4</span> Práctica de Campo</h2>
+            <div class="exercise-sheet">
+                <p>1. ¿Cuántas diagonales totales tiene un Icoságono ($n=20$)?</p>
+                <p>2. Si un ángulo exterior mide $40^\circ$, ¿cuántos lados tiene el polígono?</p>
+                <p>3. Determina la suma de los ángulos internos de un polígono que tiene 54 diagonales totales.</p>
+            </div>
+        </section>
+
+        <section class="kahoot-section">
+            <h2>🎮 Quiz Final: ¡Demuestra tu precisión!</h2>
+            <div id="quiz-container">
+                
+                <div id="question-screen">
+                    <p id="q-tracker" style="font-size: 0.9em; color: gray; font-weight: bold;"></p>
+                    
+                    <h3 id="question-text">Cargando pregunta...</h3>
+                    
+                    <div class="kahoot-grid" id="options-container">
+                        <button class="answer-btn k-red" onclick="checkAns(0)"><span id="opt-0">A</span></button>
+                        <button class="answer-btn k-blue" onclick="checkAns(1)"><span id="opt-1">B</span></button>
+                        <button class="answer-btn k-yellow" onclick="checkAns(2)"><span id="opt-2">C</span></button>
+                        <button class="answer-btn k-green" onclick="checkAns(3)"><span id="opt-3">D</span></button>
+                    </div>
+                </div>
+
+                <div id="result-screen" class="hidden">
+                    <h3 id="final-score"></h3>
+                    <button onclick="resetQuiz()" class="btn-restart">Intentar de nuevo</button>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+    <nav>
+        <a href="MASTERCLASS_SES21.HTML">Anterior Sesión</a>
+        <a href="MASTERCLASS_SES23.HTML">Siguiente Sesión</a>
+        <a href="../planeacionpm2.html">Volver al inicio</a>
+    </nav>
+
+    <footer>
+        <div class="container">
+            <p>&copy; jmgvptel. Masterclass s-22 PM2. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

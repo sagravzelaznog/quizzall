@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S30: Pendiente-Ordenada | PM2</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body class="theme-s30">
+
+    <nav class="admin-layer">
+        <div class="container flex-header">
+            <span>💻 Módulo de Configuración Maestro</span>
+            <div class="auth-group">
+                <input type="password" id="unlock-key" placeholder="Pass: 1983">
+                <button onclick="verifyAccess()">Acceder</button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="master-header s30-neon">
+        <div class="container header-content">
+            <div class="hero-text">
+                <h1>Forma Pendiente-Ordenada</h1>
+                <p>Sesión 30: El origen del movimiento y la dirección del flujo.</p>
+            </div>
+            <div class="hero-graphic">
+                <svg width="150" height="150" viewBox="0 0 100 100">
+                    <line x1="10" y1="50" x2="90" y2="50" stroke="#555" stroke-width="1" />
+                    <line x1="50" y1="10" x2="50" y2="90" stroke="#555" stroke-width="1" />
+                    <line x1="20" y1="80" x2="80" y2="20" stroke="#39FF14" stroke-width="3" />
+                    <circle cx="50" cy="50" r="4" fill="#FF007F" />
+                    <text x="55" y="45" fill="white" font-size="8">b</text>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="teacher-notes" class="hidden">
+            <div class="card teacher-info">
+                <h4>🧠 Psicología del Aprendizaje S30</h4>
+                <p><strong>El Ancla Visual:</strong> Enfoque el aprendizaje en el parámetro $b$. Los alumnos de esta edad suelen perderse en el plano; enséñeles que $b$ es el "punto de partida" sobre el eje $y$.</p>
+                <p><strong>Tip de Andragogía:</strong> Use la analogía de una suscripción: $b$ es el pago inicial (costo fijo) y $m$ es la mensualidad (costo variable).</p>
+            </div>
+        </section>
+
+        <section class="lesson-section">
+            <h2><span class="step-num">30.1</span> Definición</h2>
+            <div class="card">
+                <p>La forma **pendiente-ordenada al origen** es la manera más sencilla de graficar una recta. Nos dice exactamente dónde cruza el eje $Y$ y qué tan rápido sube o baja.</p>
+                <div class="formula-box">
+                    $$y = mx + b$$
+                </div>
+                <ul>
+                    <li><strong>$m$:</strong> Pendiente (inclinación).</li>
+                    <li><strong>$b$:</strong> Ordenada al origen (punto de corte en el eje $y$).</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="lesson-section">
+            <h2><span class="step-num">30.2</span> Casos de Aplicación (Ejemplos)</h2>
+            <div class="grid-layout">
+                <div class="card mini">
+                    <h5>Caso A: Directo</h5>
+                    <p>Recta con $m=2$ y $b=-3$.</p>
+                    <p class="res">$$y = 2x - 3$$</p>
+                </div>
+                <div class="card mini">
+                    <h5>Caso B: Horizontal</h5>
+                    <p>Si la pendiente es $m=0$.</p>
+                    <p class="res">$$y = b$$</p>
+                    <small>Ejemplo: $y = 5$</small>
+                </div>
+                <div class="card mini">
+                    <h5>Caso C: Descendente</h5>
+                    <p>Si $m = -1/2$ y pasa por $(0, 4)$.</p>
+                    <p class="res">$$y = -\frac{1}{2}x + 4$$</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-section">
+            <h2><span class="step-num">30.3</span> Laboratorio Visual</h2>
+            <div class="activity-row">
+                <div class="act-card">
+                    <strong>🕹️ Gamer Logic:</strong> Un personaje de videojuego empieza en la altura $y=10$ y baja 2 unidades de altura por cada segundo ($x$). Escribe su ecuación.
+                </div>
+                <div class="act-card">
+                    <strong>📡 Signal Strength:</strong> Traza en tu mente una recta que corta en $b=5$ y tiene pendiente $m=1$. ¿Pasa por el cuadrante IV?
+                </div>
+                <div class="act-card">
+                    <strong>📱 App Design:</strong> Define la ecuación de una línea de diseño que cruza el centro de la pantalla $(0,0)$ con una inclinación de 45 grados.
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-section">
+            <h2><span class="step-num">30.4</span> Desafíos de Estructura (Ejercicios)</h2>
+            <div class="card accent">
+                <ol class="exercise-list">
+                    <li>Identifica $m$ y $b$ en la ecuación: $y = -5x + 12$.</li>
+                    <li>Escribe la ecuación de la recta que cruza el eje $y$ en $-1$ y tiene una pendiente de $3$.</li>
+                    <li>Transforma la ecuación $2x - y + 4 = 0$ a la forma $y = mx + b$.</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="kahoot-section">
+            <h2>🎮 Quiz Final: ¡Demuestra tu precisión!</h2>
+            <div id="quiz-container">
+                
+                <div id="question-screen">
+                    <p id="q-tracker" style="font-size: 0.9em; color: gray; font-weight: bold;"></p>
+                    
+                    <h3 id="question-text">Cargando pregunta...</h3>
+                    
+                    <div class="kahoot-grid" id="options-container">
+                        <button class="answer-btn k-red" onclick="checkAns(0)"><span id="opt-0">A</span></button>
+                        <button class="answer-btn k-blue" onclick="checkAns(1)"><span id="opt-1">B</span></button>
+                        <button class="answer-btn k-yellow" onclick="checkAns(2)"><span id="opt-2">C</span></button>
+                        <button class="answer-btn k-green" onclick="checkAns(3)"><span id="opt-3">D</span></button>
+                    </div>
+                </div>
+
+                <div id="result-screen" class="hidden">
+                    <h3 id="final-score"></h3>
+                    <button onclick="resetQuiz()" class="btn-restart">Intentar de nuevo</button>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+    <nav>
+        <a href="MASTERCLASS_SES29.HTML">Anterior Sesión</a>
+        <a href="MASTERCLASS_SES31.HTML">Siguiente Sesión</a>
+        <a href="../planeacionpm2.html">Volver al inicio</a>
+    </nav>
+
+    <footer>
+        <div class="container">
+            <p>&copy; jmgvptel. Masterclass s-30 PM2. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,937 @@
+/* ==========================================================================
+   MASTERSTYLES.CSS - SISTEMA UNIFICADO PM2 (SESIONES 1 a 40)
+   Arquitectura modular con soporte multinivel para temas.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. VARIABLES GLOBALES (TEMA BASE / FALLBACK)
+   -------------------------------------------------------------------------- */
+:root {
+	--bg-body: #F4F7F6;
+	--bg-panel: #FFFFFF;
+	--text-main: #333333;
+	--text-muted: #666666;
+
+	--primary: #2E5BFF;
+	--secondary: #455A64;
+	--accent: #00E5FF;
+	--border-color: #E0E0E0;
+
+	/* Kahoot Brand Colors (Inmutables) */
+	--k-red: #E21B3C;
+	--k-blue: #1368CE;
+	--k-yellow: #D89E00;
+	--k-green: #26890C;
+
+	--shadow-base: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* --------------------------------------------------------------------------
+   1. DICCIONARIO DE TEMAS INICIALES (S1-S19)
+   -------------------------------------------------------------------------- */
+/* Tema S1: Foundation Light */
+body.theme-s1 {
+	--bg-body: #FFFFFF;
+	--bg-panel: #F8F9FA;
+	--primary: #0056B3;
+	--secondary: #6C757D;
+	--accent: #17A2B8;
+	--text-main: #212529;
+	--border-color: #DEE2E6;
+}
+
+/* Tema S2: Foundation Dark */
+body.theme-s2 {
+	--bg-body: #121212;
+	--bg-panel: #1E1E1E;
+	--primary: #BB86FC;
+	--secondary: #03DAC6;
+	--accent: #CF6679;
+	--text-main: #E1E1E1;
+	--border-color: #333333;
+}
+
+/* Tema S3: Blueprint Draft */
+body.theme-s3 {
+	--bg-body: #0A369D;
+	--bg-panel: #1142B4;
+	--primary: #FFFFFF;
+	--secondary: #8DA9E7;
+	--accent: #4FC3F7;
+	--text-main: #E3F2FD;
+	--border-color: #4A7AFA;
+}
+
+/* Tema S4: Wireframe Green */
+body.theme-s4 {
+	--bg-body: #000000;
+	--bg-panel: #0A0A0A;
+	--primary: #00FF00;
+	--secondary: #003300;
+	--accent: #39FF14;
+	--text-main: #00FF00;
+	--border-color: #004400;
+	font-family: 'Courier New', monospace;
+}
+
+/* Tema S5: Prototype Orange */
+body.theme-s5 {
+	--bg-body: #FFF3E0;
+	--bg-panel: #FFFFFF;
+	--primary: #E65100;
+	--secondary: #FF9800;
+	--accent: #FFD180;
+	--text-main: #3E2723;
+	--border-color: #FFCC80;
+}
+
+/* Tema S6: System Default */
+body.theme-s6 {
+	--bg-body: #F3F4F6;
+	--bg-panel: #FFFFFF;
+	--primary: #2563EB;
+	--secondary: #4B5563;
+	--accent: #3B82F6;
+	--text-main: #1F2937;
+	--border-color: #E5E7EB;
+}
+
+/* Tema S7: Solar Flare */
+body.theme-s7 {
+	--bg-body: #1F0000;
+	--bg-panel: #2A0800;
+	--primary: #FF3D00;
+	--secondary: #FF9100;
+	--accent: #FFEA00;
+	--text-main: #FFEBEE;
+	--border-color: #5D1000;
+}
+
+/* Tema S8: Lunar Module */
+body.theme-s8 {
+	--bg-body: #E0E0E0;
+	--bg-panel: #EEEEEE;
+	--primary: #424242;
+	--secondary: #757575;
+	--accent: #9E9E9E;
+	--text-main: #212121;
+	--border-color: #BDBDBD;
+}
+
+/* Tema S9: Cyber Genesis */
+body.theme-s9 {
+	--bg-body: #050014;
+	--bg-panel: #0D002B;
+	--primary: #D500F9;
+	--secondary: #651FFF;
+	--accent: #00E5FF;
+	--text-main: #F3E5F5;
+	--border-color: #311B92;
+}
+
+/* Tema S10: Core Protocol */
+body.theme-s10 {
+	--bg-body: #0D1B2A;
+	--bg-panel: #1B263B;
+	--primary: #415A77;
+	--secondary: #778DA9;
+	--accent: #E0E1DD;
+	--text-main: #E0E1DD;
+	--border-color: #415A77;
+	font-family: 'JetBrains Mono', monospace;
+}
+
+/* Tema S11: Aqua Data */
+body.theme-s11 {
+	--bg-body: #001524;
+	--bg-panel: #00223E;
+	--primary: #1D976C;
+	--secondary: #93F9B9;
+	--accent: #1CA691;
+	--text-main: #E0F2F1;
+	--border-color: #004D40;
+}
+
+/* Tema S12: Crimson Code */
+body.theme-s12 {
+	--bg-body: #1A0505;
+	--bg-panel: #2B0A0A;
+	--primary: #FF1744;
+	--secondary: #D50000;
+	--accent: #FF8A80;
+	--text-main: #FFEBEE;
+	--border-color: #5C0000;
+}
+
+/* Tema S13: Neon Dawn */
+body.theme-s13 {
+	--bg-body: #10002B;
+	--bg-panel: #240046;
+	--primary: #E0AAFF;
+	--secondary: #C77DFF;
+	--accent: #5A189A;
+	--text-main: #F8F9FA;
+	--border-color: #3C096C;
+}
+
+/* Tema S14: Quantum Shift */
+body.theme-s14 {
+	--bg-body: #0B090A;
+	--bg-panel: #161A1D;
+	--primary: #E5383B;
+	--secondary: #BA1826;
+	--accent: #A4161A;
+	--text-main: #F5F3F4;
+	--border-color: #660708;
+}
+
+/* Tema S15: Echo Base */
+body.theme-s15 {
+	--bg-body: #E8F1F2;
+	--bg-panel: #FFFFFF;
+	--primary: #13293D;
+	--secondary: #006494;
+	--accent: #247BA0;
+	--text-main: #1B98E0;
+	--border-color: #D1E8E2;
+}
+
+/* Tema S16: Void Walker */
+body.theme-s16 {
+	--bg-body: #000000;
+	--bg-panel: #121212;
+	--primary: #FFFFFF;
+	--secondary: #AAAAAA;
+	--accent: #555555;
+	--text-main: #EEEEEE;
+	--border-color: #333333;
+}
+
+/* Tema S17: Solar Cell */
+body.theme-s17 {
+	--bg-body: #000814;
+	--bg-panel: #001D3D;
+	--primary: #FFC300;
+	--secondary: #FFD60A;
+	--accent: #003566;
+	--text-main: #FFFFFF;
+	--border-color: #003566;
+}
+
+/* Tema S18: Bio-Synth */
+body.theme-s18 {
+	--bg-body: #091F0C;
+	--bg-panel: #123516;
+	--primary: #4ADE80;
+	--secondary: #22C55E;
+	--accent: #166534;
+	--text-main: #F0FDF4;
+	--border-color: #14532D;
+}
+
+/* Tema S19: Techno-Organic */
+body.theme-s19 {
+	--bg-body: #2B2D42;
+	--bg-panel: #8D99AE;
+	--primary: #EF233C;
+	--secondary: #D90429;
+	--accent: #EDF2F4;
+	--text-main: #EDF2F4;
+	--border-color: #8D99AE;
+}
+
+/* --------------------------------------------------------------------------
+   2. DICCIONARIO DE TEMAS (MODIFICADORES DE SESIÓN)
+   -------------------------------------------------------------------------- */
+/* Tema S20: Arquitectura Origami */
+body.theme-s20 {
+	--bg-body: #F5F5F7;
+	--primary: #2E5BFF;
+	--secondary: #333;
+	--accent: #E8EDFF;
+}
+
+/* Tema S21: Arquitectura de Cristal */
+body.theme-s21 {
+	--bg-body: #F0F4F8;
+	--primary: #0D47A1;
+	--accent: #00E5FF;
+	--bg-panel: #ffffff;
+}
+
+/* Tema S22: Cyber-Industrial */
+body.theme-s22 {
+	--bg-body: #FAFAFA;
+	--primary: #FF6D00;
+	--secondary: #212121;
+	--text-main: #212121;
+	font-family: 'JetBrains Mono', monospace;
+}
+
+/* Tema S23: Neo-Minimalista Constructivista */
+body.theme-s23 {
+	--bg-body: #F5F7F9;
+	--primary: #2E7D32;
+	--secondary: #1B5E20;
+	--accent: #A5D6A7;
+}
+
+/* Tema S24: Navigator Blue */
+body.theme-s24 {
+	--bg-body: #ECEFF1;
+	--primary: #0D47A1;
+	--secondary: #263238;
+	--accent: #00E5FF;
+}
+
+/* Tema S25: Deep Ocean Explorer */
+body.theme-s25 {
+	--bg-body: #F0F4F8;
+	--bg-panel: #FFFFFF;
+	--primary: #1A237E;
+	--secondary: #0D47A1;
+	--accent: #64FFDA;
+}
+
+/* Tema S26: Urban Architect / Topógrafo */
+body.theme-s26 {
+	--bg-body: #0D1117;
+	--bg-panel: #161B22;
+	--primary: #00E5FF;
+	--secondary: #161B22;
+	--accent: #FF007F;
+	--text-main: #C9D1D9;
+	--border-color: #30363D;
+}
+
+/* Tema S27: Cyber-City Builder */
+body.theme-s27 {
+	--bg-body: #0D1117;
+	--bg-panel: #161B22;
+	--primary: #8A2BE2;
+	--secondary: #24143a;
+	--accent: #00E676;
+	--text-main: #C9D1D9;
+	--border-color: #30363D;
+}
+
+/* Tema S28: Landscape Geometry */
+body.theme-s28 {
+	--bg-body: #ECEFF1;
+	--bg-panel: #FFFFFF;
+	--primary: #2E7D32;
+	--secondary: #263238;
+	--accent: #C6FF00;
+}
+
+/* Tema S29: Vector Drive */
+body.theme-s29 {
+	--bg-body: #F8F9FA;
+	--bg-panel: #FFFFFF;
+	--primary: #FF6D00;
+	--secondary: #1A237E;
+	--accent: #C6FF00;
+}
+
+/* Tema S30: Neon Circuit */
+body.theme-s30 {
+	--bg-body: #f0f2f5;
+	--bg-panel: #FFFFFF;
+	--primary: #FF007F;
+	--secondary: #050505;
+	--accent: #39FF14;
+}
+
+/* Tema S31: Cyberpunk Intercept */
+body.theme-s31 {
+	--bg-body: #0B0C10;
+	--bg-panel: #1F2833;
+	--primary: #FF007F;
+	--secondary: #0B0C10;
+	--accent: #00FFFF;
+	--text-main: #C5C6C7;
+	--border-color: #333;
+}
+
+/* Tema S32: Alquimia Matemática */
+body.theme-s32 {
+	--bg-body: #0F172A;
+	--bg-panel: #1E293B;
+	--primary: #3B82F6;
+	--secondary: #0F172A;
+	--accent: #10B981;
+	--text-main: #E2E8F0;
+	--border-color: #334155;
+}
+
+/* Tema S33: Matrix Hacker */
+body.theme-s33 {
+	--bg-body: #0D0E15;
+	--bg-panel: #1A1C29;
+	--primary: #B026FF;
+	--secondary: #0D0E15;
+	--accent: #00F0FF;
+	--text-main: #E2E8F0;
+	--border-color: #2D3748;
+}
+
+/* Tema S34: Tactical Cyber-Zone */
+body.theme-s34 {
+	--bg-body: #0B0E14;
+	--bg-panel: #151A22;
+	--primary: #00E5FF;
+	--secondary: #0B0E14;
+	--accent: #39FF14;
+	--text-main: #E2E8F0;
+	--border-color: #2A3441;
+}
+
+/* Tema S35: Corporate Tycoon */
+body.theme-s35 {
+	--bg-body: #0A1128;
+	--bg-panel: #111A3A;
+	--primary: #FFD600;
+	--secondary: #0A1128;
+	--accent: #00C853;
+	--text-main: #CFD8DC;
+	--border-color: #1C284D;
+}
+
+/* Tema S36: Urban Blueprint */
+body.theme-s36 {
+	--bg-body: #05121E;
+	--bg-panel: #0A2540;
+	--primary: #00E5FF;
+	--secondary: #0A2540;
+	--accent: #FFD700;
+	--text-main: #94A3B8;
+	--border-color: #1E293B;
+}
+
+/* Tema S37: Neon Startup */
+body.theme-s37 {
+	--bg-body: #0A0A12;
+	--bg-panel: #151522;
+	--primary: #8A2BE2;
+	--secondary: #1a1a2e;
+	--accent: #00E676;
+	--text-main: #CFD8DC;
+	--border-color: #29293D;
+}
+
+/* Tema S38: Innovation Summit */
+body.theme-s38 {
+	--bg-body: #0A192F;
+	--bg-panel: #112240;
+	--primary: #00E5FF;
+	--secondary: #112240;
+	--accent: #FFD700;
+	--text-main: #8892B0;
+	--border-color: #233554;
+}
+
+/* Tema S39: Escape Room */
+body.theme-s39 {
+	--bg-body: #0A0A0A;
+	--bg-panel: #121212;
+	--primary: #00F0FF;
+	--secondary: #111;
+	--accent: #00FF41;
+	--text-main: #B3B3B3;
+	--border-color: #222;
+}
+
+/* Tema S40: Royal Victory (Final) */
+body.theme-s40 {
+	--bg-body: #0D0914;
+	--bg-panel: #151020;
+	--primary: #FFD700;
+	--secondary: #2A1B38;
+	--accent: #9C27B0;
+	--text-main: #E1BEE7;
+	--border-color: #2A1B38;
+}
+
+/* --------------------------------------------------------------------------
+   3. ESTILOS BASE Y TIPOGRAFÍA
+   -------------------------------------------------------------------------- */
+body {
+	background-color: var(--bg-body);
+	color: var(--text-main);
+	font-family: 'Segoe UI', 'Inter', Tahoma, sans-serif;
+	margin: 0;
+	line-height: 1.6;
+	transition: background-color 0.3s, color 0.3s;
+}
+img {	
+	max-width: 50%;
+	height: auto;
+}
+svg {
+	max-width: 5%;
+	height: auto;
+}
+.container {
+	max-width: 1050px;
+	margin: 0 auto;
+	padding: 0 20px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	color: var(--primary);
+	margin-top: 0;
+}
+
+
+
+/* Headers always light on dark backgrounds */
+
+/* --------------------------------------------------------------------------
+   4. NAVEGACIÓN Y PANEL DOCENTE (UNIFICADO)
+   -------------------------------------------------------------------------- */
+.teacher-auth,
+.teacher-auth-bar,
+.top-access,
+.admin-layer,
+.teacher-terminal,
+#top-admin {
+	background: var(--bg-panel);
+	padding: 12px 0;
+	border-bottom: 2px solid var(--primary);
+	font-size: 0.85rem;
+	font-family: monospace;
+}
+
+.flex-nav,
+.flex-auth,
+.flex-header,
+.flex-terminal {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: var(--primary);
+}
+
+.auth-controls input,
+.auth-inputs input,
+.auth-box input,
+.auth-module input {
+	background: var(--bg-body);
+	border: 1px solid var(--accent);
+	color: var(--primary);
+	padding: 6px;
+	border-radius: 4px;
+	outline: none;
+}
+
+.auth-controls button,
+.auth-inputs button,
+.auth-box button,
+.auth-module button {
+	background: var(--primary);
+	color: var(--text-main);
+	border: none;
+	padding: 6px 15px;
+	cursor: pointer;
+	font-weight: bold;
+	border-radius: 4px;
+	transition: 0.3s;
+}
+
+.auth-controls button:hover {
+	filter: brightness(1.2);
+	transform: scale(1.05);
+}
+
+/* Notas Secretas */
+.secret-panel,
+.hidden-module,
+.secret-module,
+.hidden-section,
+.hidden {
+	display: none;
+	margin-top: 20px;
+	animation: fadeIn 0.5s;
+}
+
+.teacher-card {
+	background: var(--bg-panel);
+	border-left: 5px solid var(--accent);
+	padding: 25px;
+	border-radius: 0 8px 8px 0;
+	border: 1px solid var(--border-color);
+}
+
+/* --------------------------------------------------------------------------
+   5. HEADER / HERO (UNIFICADO)
+   -------------------------------------------------------------------------- */
+header[class*="hero-"],
+header.master-header {
+	background: radial-gradient(circle at top right, var(--secondary), var(--bg-body));
+	background-color: var(--secondary);
+	padding: 70px 0;
+	border-bottom: 4px solid var(--primary);
+	position: relative;
+	overflow: hidden;
+}
+
+.hero-layout,
+.hero-grid,
+.header-content,
+.header-flex {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 20px;
+}
+
+.hero-text h1,
+.hero-content h1,
+.text-group h1 {
+	font-size: 2.8rem;
+	margin-bottom: 10px;
+	text-shadow: 0 0 15px var(--primary);
+}
+
+.hero-text p,
+.text-group p {
+	color: var(--text-main);
+	font-size: 1.1rem;
+}
+
+/* --------------------------------------------------------------------------
+   6. TARJETAS DE CONTENIDO (CARDS)
+   -------------------------------------------------------------------------- */
+.lesson-card,
+.module-card,
+.session-block,
+.content-card,
+.card,
+.info-card {
+	background: var(--bg-panel);
+	border: 1px solid var(--border-color);
+	padding: 40px;
+	border-radius: 12px;
+	margin: 35px 0;
+	box-shadow: var(--shadow-base);
+}
+
+.badge,
+.step-num,
+.step-badge,
+.num,
+.index {
+	background: var(--primary);
+	color: var(--text-main);
+	padding: 5px 15px;
+	border-radius: 20px;
+	font-weight: 800;
+	margin-right: 15px;
+	display: inline-block;
+}
+
+/* Bordes Decorativos */
+.border-cyan,
+.border-blue {
+	border-top: 5px solid var(--primary);
+}
+
+.border-green,
+.border-gold,
+.border-yellow {
+	border-top: 5px solid var(--accent);
+}
+
+/* Cajas de Conceptos y Fórmulas */
+.concept-box,
+.formula-box,
+.math-hero,
+.formula-main {
+	padding: 25px;
+	border-radius: 8px;
+	background: var(--bg-panel);
+	border-left: 4px solid var(--accent);
+	margin-top: 20px;
+	color: var(--text-main);
+}
+
+body[class*="theme-s20"],
+body[class*="theme-s24"],
+body[class*="theme-s28"] .concept-box {
+	background: var(--bg-panel);
+	/* Para temas claros */
+}
+
+/* --------------------------------------------------------------------------
+   7. SISTEMA DE GRIDS (EJEMPLOS Y ACTIVIDADES)
+   -------------------------------------------------------------------------- */
+.grid-2,
+.layout-split,
+.split-concepts {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 20px;
+}
+
+.examples-grid,
+.grid-3,
+.card-grid,
+.grid-layout,
+.grid-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	gap: 20px;
+	margin-top: 25px;
+}
+
+.ex-item,
+.mini-card,
+.example-box,
+.ex-card,
+.data-card,
+.example-item {
+	background: var(--bg-body);
+	border: 1px solid var(--border-color);
+	padding: 25px;
+	border-radius: 8px;
+	transition: transform 0.3s, border-color 0.3s;
+}
+
+.ex-item:hover,
+.mini-card:hover {
+	border-color: var(--primary);
+	transform: translateY(-5px);
+}
+
+/* Listas de Actividades */
+.activity-list,
+.activity-row,
+.grid-activities {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	margin-top: 25px;
+}
+
+.act-card,
+.act-box,
+.activity-item,
+.activity-box {
+	background: var(--bg-panel);
+	border: 1px dashed var(--primary);
+	padding: 20px;
+	border-radius: 8px;
+}
+
+.exercise-box,
+.exercise-sheet,
+.task-list,
+.check-list {
+	background: var(--bg-body);
+	padding: 25px 40px;
+	border-radius: 8px;
+	margin-top: 25px;
+	border-left: 3px solid var(--text-main);
+}
+
+/* --------------------------------------------------------------------------
+   8. KAHOOT QUIZ UI (SISTEMA DE EVALUACIÓN ESTANDARIZADO)
+   -------------------------------------------------------------------------- */
+
+.kahoot-zone,
+.kahoot-wrapper,
+.quiz-area,
+.quiz-container,
+.kahoot-module,
+.quiz-section,
+.kahoot-section{
+	background: var(--bg-panel);
+	/* Morado clásico de Kahoot */
+	padding: 45px;
+	border-radius: 15px;
+	color: var(--text-main);
+	margin-bottom: 80px;
+	box-shadow: 0 15px 35px var(--primary);
+	border: 2px solid var(--primary);
+}
+
+.k-header,
+.kahoot-header,
+.quiz-header,
+.quiz-nav,
+.q-header {
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 2px solid var(--primary);
+	padding-bottom: 15px;
+	margin-bottom: 30px;
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+
+.k-options,
+.kahoot-grid,
+.quiz-grid,
+.button-grid,
+.options-grid {
+	display:grid;
+
+	grid-template-columns: 1fr 1fr;
+	gap: 15px;
+	margin-top: 25px;
+}
+
+.k-btn,
+.btn-k,
+.k-option,
+.opt-btn,
+.ans-btn {
+	height: 100px;
+	border: none;
+	border-radius: 8px;
+	color: var(--text-main);
+	font-size: 1.25rem;
+	font-weight: bold;
+	cursor: pointer;
+	text-align: left;
+	padding-left: 20px;
+	transition: 0.2s;
+	box-shadow: 0 5px 0 var(--primary);
+}
+
+.k-btn:active,
+.btn-k:active,
+.ans-btn:active {
+	transform: translateY(5px);
+	box-shadow: none;
+}
+
+.k-btn:hover,
+.btn-k:hover {
+	filter: brightness(1.15);
+}
+
+/* Colores de Botones Estandarizados */
+.btn-red,
+.k-red,
+.c-red,
+.r-col,
+.c1,
+.t1,
+.red,
+.p1 {
+	background: var(--k-red);
+	color: white;
+}
+
+.btn-blue,
+.k-blue,
+.c-blue,
+.b-col,
+.c2,
+.t2,
+.blue,
+.p2 {
+	background: var(--k-blue);
+	color: white;
+}
+
+.btn-yellow,
+.k-yellow,
+.c-yellow,
+.y-col,
+.c3,
+.t3,
+.yellow,
+.p3 {
+	background: var(--k-yellow);
+	color: white;
+}
+
+.btn-green,
+.k-green,
+.c-green,
+.g-col,
+.c4,
+.t4,
+.green,
+.p4 {
+	background: var(--k-green);
+	color: white;
+}
+.quiz-section { text-align: center; }
+.progress-bar { width: 100%; height: 6px; background: #000; border-radius: 3px; margin-bottom: 20px; overflow: hidden; }
+#progress-fill { height: 100%; background: var(--neon-magenta); width: 0%; transition: width 0.3s; }
+#question-text { font-size: 1.3rem; font-weight: bold; margin-bottom: 20px; min-height: 50px; }
+.kahoot-style { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.answer-btn { display: flex; align-items: center; color: #fff; border: none; border-radius: 8px; padding: 20px; font-size: 1.2rem; font-weight: bold; cursor: pointer; transition: transform 0.1s; box-shadow: 0 4px 0 rgba(0,0,0,0.3); text-align: left; }
+.answer-btn:active { transform: translateY(4px); box-shadow: none; }
+.ans-content { margin-left: 15px; width: 100%; text-align: center; }
+[class^="shape-"] { font-size: 1.5rem; opacity: 0.8; }
+.k-red { background-color: var(--k-red); } .k-blue { background-color: var(--k-blue); } .k-yellow { background-color: var(--k-yellow); color: #000; } .k-green { background-color: var(--k-green); }
+
+#result-message { margin-top: 20px; font-size: 1.2rem; font-weight: bold; padding: 15px; border-radius: 8px; }
+.correct { background: rgba(0,255,0,0.2); color: var(--neon-green); border: 1px solid var(--neon-green); }
+.incorrect { background: rgba(226,27,60,0.2); color: #fff; border: 1px solid var(--k-red); }
+
+
+/* --------------------------------------------------------------------------
+   9. FOOTER Y ANIMACIONES
+   -------------------------------------------------------------------------- */
+footer {
+	background: var(--bg-body);
+	color: var(--text-muted);
+	padding: 40px 0;
+	text-align: center;
+	font-size: 0.85rem;
+	border-top: 1px solid var(--border-color);
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(-10px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes pulseOpt {
+	0% {
+		filter: drop-shadow(0 0 2px var(--accent));
+	}
+
+	100% {
+		filter: drop-shadow(0 0 15px var(--accent));
+	}
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+
+	.k-options,
+	.kahoot-grid,
+	.quiz-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.hero-layout,
+	.hero-grid {
+		justify-content: center;
+		text-align: center;
+	}
+
+	.flex-nav,
+	.flex-auth {
+		flex-direction: column;
+		gap: 10px;
+	}
+}

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S36: Resolución de Problemas PL | PM2</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <script>
+        window.MathJax = {
+            tex: {
+                // Aquí le decimos que reconozca el signo de peso simple como fórmula en línea
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+</head>
+<body class="theme-s36">
+
+    <nav class="teacher-auth">
+        <div class="container flex-nav">
+            <span>🏗️ Consola del Arquitecto Jefe (Docente):</span>
+            <div class="auth-controls">
+                <input type="password" id="master-pin" placeholder="Clave">
+                <button onclick="unlockTeacherMode()">Desbloquear Planos</button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-s36">
+        <div class="container hero-layout">
+            <div class="hero-content">
+                <h1>Resolución de Problemas PL</h1>
+                <p>Sesión 36: Método gráfico, evaluación de vértices y la toma de decisiones estratégicas.</p>
+            </div>
+            <div class="hero-visual">
+                <svg width="180" height="180" viewBox="0 0 100 100">
+                    <defs>
+                        <pattern id="blueprint-grid" width="10" height="10" patternUnits="userSpaceOnUse">
+                            <path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(0, 229, 255, 0.15)" stroke-width="0.5"/>
+                        </pattern>
+                    </defs>
+                    <rect width="100" height="100" fill="url(#blueprint-grid)" />
+                    <line x1="10" y1="90" x2="90" y2="90" stroke="#FFF" stroke-width="2" />
+                    <line x1="10" y1="90" x2="10" y2="10" stroke="#FFF" stroke-width="2" />
+                    <polygon points="10,90 80,90 50,40 10,60" fill="rgba(0, 229, 255, 0.2)" stroke="#00E5FF" stroke-width="2"/>
+                    <circle cx="10" cy="90" r="3" fill="#FFF"/>
+                    <circle cx="80" cy="90" r="3" fill="#FFF"/>
+                    <circle cx="10" cy="60" r="3" fill="#FFF"/>
+                    <circle cx="50" cy="40" r="5" fill="#FFD700" class="pulse-optimum"/>
+                    <text x="58" y="38" fill="#FFD700" font-size="8" font-weight="bold">Z MAX</text>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="hidden-notes" class="secret-panel">
+            <div class="teacher-card">
+                <h4>🧠 Insights Psicopedagógicos (Sesión 36)</h4>
+                <p><strong>Andragogía:</strong> Esta sesión aterriza todo el aprendizaje del semestre. La "Evaluación de vértices en la función objetivo"  no debe ser un simple cálculo mecánico. Enfóquese en la "Determinación del óptimo" y, sobre todo, en la "Toma de decisiones". Pregunte siempre a los alumnos: <em>"¿Qué significa este número en el mundo real? ¿Construimos más casas tipo A o tipo B?"</em>.</p>
+                <p><strong>Uso de Recursos:</strong> Fomente el uso estricto de las "Hojas milimétricas". A los 15 años, el trabajo manual con escuadras y precisión milimétrica ayuda a consolidar el concepto de intersección geométrica antes de pasar al algoritmo final.</p>
+            </div>
+        </section>
+
+        
+        <section class="module-card">
+            <h2><span class="badge">36.1</span> El Método Gráfico: Evaluación de Vértices</h2>
+            <p>La resolución de problemas de Programación Lineal (PL) mediante el <strong>método gráfico</strong>  es la técnica que nos permite visualizar todas las opciones posibles (la región factible) y encontrar matemáticamente la mejor decisión (el óptimo).</p>
+            <div class="grid-2">
+                <div class="concept-box cyan-box">
+                    <h3>El Proceso Analítico</h3>
+                    <ol>
+                        <li>Graficar todas las restricciones en hojas milimétricas.</li>
+                        <li>Identificar la zona donde se cruzan todas las sombras (Región Factible).</li>
+                        <li>Encontrar las coordenadas exactas de las esquinas (Vértices).</li>
+                    </ol>
+                </div>
+                <div class="concept-box yellow-box">
+                    <h3>La Toma de Decisiones</h3>
+                    <p>Una vez que tenemos los vértices, realizamos la <strong>evaluación de vértices en la función objetivo</strong>. El punto que arroje el valor más alto (si buscamos ganancias) o más bajo (si buscamos costos) representa la determinación del óptimo.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="module-card">
+            <h2><span class="badge">36.2</span> Casos Prácticos (Ejemplos)</h2>
+            <div class="examples-grid">
+                <div class="ex-item">
+                    <h5>Paso 1: Identificación de Vértices</h5>
+                    <p>En un proyecto residencial en el Fraccionamiento Nazas, limitamos el espacio y el presupuesto. La gráfica resultante tiene 3 esquinas válidas:</p>
+                    <p>$V_1(0, 0)$</p>
+                    <p>$V_2(0, 50)$</p>
+                    <p>$V_3(40, 20)$</p>
+                    <p>Estos son los únicos escenarios que someteremos a prueba.</p>
+                </div>
+                <div class="ex-item">
+                    <h5>Paso 2: Evaluación en $Z$</h5>
+                    <p>Nuestra función de ganancias es $Z = 120x + 80y$ (en miles de pesos).</p>
+                    <p>Evaluamos $V_2(0, 50):$ <br>$Z = 120(0) + 80(50) = 4000$.</p>
+                    <p>Evaluamos $V_3(40, 20):$ <br>$Z = 120(40) + 80(20)$ <br>$ Z = 4800 + 1600$ <br>$ Z = 6400.$</p>
+                </div>
+                <div class="ex-item">
+                    <h5>Paso 3: Determinación del Óptimo</h5>
+                    <p>Tras la evaluación, concluimos que $6400 > 4000$. La <strong>toma de decisiones</strong>  es clara: El escenario óptimo es construir 40 unidades del tipo $x$ y 20 del tipo $y$ para maximizar la utilidad.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="module-card">
+            <h2><span class="badge">36.3</span> Laboratorio de Proyectos (Actividades)</h2>
+            <div class="activity-list">
+                <div class="act-card">
+                    <strong>📐 1. Trazado de Precisión:</strong> Utilizando hojas milimétricas, grafica las desigualdades $x + y \le 10$ y $x \ge 2$. Colorea la región factible e identifica visualmente sus vértices.
+                </div>
+                <div class="act-card">
+                    <strong>🧮 2. Auditoría de Función:</strong> Dada la función de costos $C = 15x + 25y$ y los vértices $(2, 8), (6, 4)$ y $(10, 0)$. Realiza la evaluación de vértices  y determina el óptimo para minimizar el costo.
+                </div>
+                <div class="act-card">
+                    <strong>💼 3. Junta Directiva:</strong> Forma equipos de 3. Un equipo expone un vértice con ganancia de $\$8500$ pero que gasta toda la electricidad disponible, y otro expone un vértice de $\$8200$ que ahorra energía. Realicen una toma de decisiones  argumentando su postura.
+                </div>
+            </div>
+        </section>
+
+        <section class="module-card border-yellow">
+            <h2><span class="badge">36.4</span> Simulador de Optimización (Ejercicios)</h2>
+            <div class="exercise-box">
+                <ol>
+                    <li>Maximiza la función $Z = 300x + 500y$ sujeta a la región factible con vértices en $A(0, 0), B(0, 15), C(10, 10)$ y $D(12, 0)$.</li>
+                    <li>Minimiza la función $Z = 40x + 20y$ dados los vértices $P(0, 20), Q(5, 5)$ y $R(15, 0)$. ¿Cuál es el valor mínimo de $Z$?</li>
+                    <li>Un fabricante evalúa su gráfica y encuentra el vértice óptimo en $x=15, y=0$. Redacta la <em>toma de decisiones</em>  para la empresa: ¿Qué significa este resultado para su línea de producción de productos $y$?</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="kahoot-section">
+            <h2>🎮 Quiz Final: ¡Demuestra tu precisión!</h2>
+            <div id="quiz-container">
+                
+                <div id="question-screen">
+                    <p id="q-tracker" style="font-size: 0.9em; color: gray; font-weight: bold;"></p>
+                    
+                    <h3 id="question-text">Cargando pregunta...</h3>
+                    
+                    <div class="kahoot-grid" id="options-container">
+                        <button class="answer-btn k-red" onclick="checkAns(0)"><span id="opt-0">A</span></button>
+                        <button class="answer-btn k-blue" onclick="checkAns(1)"><span id="opt-1">B</span></button>
+                        <button class="answer-btn k-yellow" onclick="checkAns(2)"><span id="opt-2">C</span></button>
+                        <button class="answer-btn k-green" onclick="checkAns(3)"><span id="opt-3">D</span></button>
+                    </div>
+                </div>
+
+                <div id="result-screen" class="hidden">
+                    <h3 id="final-score"></h3>
+                    <button onclick="resetQuiz()" class="btn-restart">Intentar de nuevo</button>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+    <nav>
+        <a href="MASTERCLASS_SES35.HTML">Anterior Sesión</a>
+        <a href="MASTERCLASS_SES37.HTML">Siguiente Sesión</a>
+        <a href="../planeacionpm2.html">Volver al inicio</a>
+    </nav>
+    <footer>
+        <div class="container">
+            <p>&copy; jmgvptel. Masterclass s-36 PM2. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+     <script src="script.js"></script>
+
+</html>

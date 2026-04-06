@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S18: El Dominio de los Ángulos | PM2</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body class="theme-s18">
+
+    <div id="admin-bar">
+        <div class="container">
+            <span>🔐 Panel Instructor:</span>
+            <input type="password" id="unlock-key" placeholder="Passphrase...">
+            <button onclick="checkAuth()">Acceder</button>
+        </div>
+    </div>
+
+    <header class="master-header s18-theme">
+        <div class="container">
+            <svg class="header-svg" width="80" height="80" viewBox="0 0 100 100">
+                <path d="M10 90 L90 90 M10 90 L70 20" stroke="#39FF14" stroke-width="4" fill="none"/>
+                <path d="M30 90 A 20 20 0 0 0 25 75" stroke="#00D4FF" stroke-width="3" fill="none"/>
+                <text x="35" y="80" fill="#00D4FF" font-size="10">α</text>
+            </svg>
+            <h1>Medición y Clasificación de Ángulos</h1>
+            <p>Sesión 18: La Apertura del Espacio</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="teacher-notes" class="hidden">
+            <div class="note-box">
+                <h4>👨‍🏫 Tips de Genio Pedagógico</h4>
+                <p><strong>Andragogía:</strong> No use transportadores físicos de inmediato. Pida que estimen el ángulo "a ojo" primero para desarrollar la percepción espacial.</p>
+                <p><strong>Psicología:</strong> El ángulo es una relación de rotación. Si un alumno no entiende, pídale que imagine que es la apertura de una puerta.</p>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2><span class="neon-text">18.1</span> ¿Qué es un Ángulo?</h2>
+            <p>Es la abertura formada por dos semirrectas (lados) que tienen un mismo punto de origen llamado <strong>vértice</strong>. Su unidad de medida estándar es el grado sexagesimal ($^\circ$).</p>
+            <div class="formula-display">
+                Ángulo $(\alpha) = \text{Rotación entre semirrectas } \vec{A} \text{ y } \vec{B}$
+            </div>
+        </section>
+
+        <section class="card">
+            <h2><span class="neon-text">18.2</span> Laboratorio de Ángulos</h2>
+            <div class="grid-3">
+                <div class="item">
+                    <h5>Act 1: Reloj Humano</h5>
+                    <p>Calcula qué ángulo forman las manecillas del reloj a las 3:00, 6:00 y 10:00.</p>
+                </div>
+                <div class="item">
+                    <h5>Act 2: Origami Geométrico</h5>
+                    <p>Dobla una hoja para obtener ángulos de $45^\circ$ y $22.5^\circ$ sin usar reglas.</p>
+                </div>
+                <div class="item">
+                    <h5>Act 3: Skater Angle</h5>
+                    <p>Investiga qué significa un giro de $360^\circ$ vs $540^\circ$ en deportes extremos.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="flex-layout">
+            <div class="card half">
+                <h3>Ejemplos de Clasificación</h3>
+                <ul>
+                    <li><strong>Agudo:</strong> $0^\circ < \alpha < 90^\circ$ (Como una rebanada de pizza).</li>
+                    <li><strong>Obtuso:</strong> $90^\circ < \alpha < 180^\circ$ (Un abanico abierto).</li>
+                    <li><strong>Llano:</strong> Exactamente $180^\circ$ (Una línea recta).</li>
+                </ul>
+            </div>
+            <div class="card half">
+                <h3>Ejercicios de Práctica</h3>
+                <ol>
+                    <li>Clasifica un ángulo de $91^\circ$.</li>
+                    <li>Si $\alpha = 35^\circ$, ¿cuánto le falta para ser un ángulo recto?</li>
+                    <li>Dibuja dos ángulos suplementarios donde uno sea el doble del otro.</li>
+                </ol>
+            </div>
+        </div>
+
+        <section class="kahoot-section">
+            <h2>🎮 Quiz Final: ¡Demuestra tu precisión!</h2>
+            <div id="quiz-container">
+                
+                <div id="question-screen">
+                    <p id="q-tracker" style="font-size: 0.9em; color: gray; font-weight: bold;"></p>
+                    
+                    <h3 id="question-text">Cargando pregunta...</h3>
+                    
+                    <div class="kahoot-grid" id="options-container">
+                        <button class="answer-btn k-red" onclick="checkAns(0)"><span id="opt-0">A</span></button>
+                        <button class="answer-btn k-blue" onclick="checkAns(1)"><span id="opt-1">B</span></button>
+                        <button class="answer-btn k-yellow" onclick="checkAns(2)"><span id="opt-2">C</span></button>
+                        <button class="answer-btn k-green" onclick="checkAns(3)"><span id="opt-3">D</span></button>
+                    </div>
+                </div>
+
+                <div id="result-screen" class="hidden">
+                    <h3 id="final-score"></h3>
+                    <button onclick="resetQuiz()" class="btn-restart">Intentar de nuevo</button>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+    <nav>
+        <a href="MASTERCLASS_SES17.HTML">Anterior Sesión</a>
+        <a href="MASTERCLASS_SES19.HTML">Siguiente Sesión</a>
+        <a href="../planeacionpm2.html">Volver al inicio</a>
+    </nav>
+
+    <footer>
+        <div class="container">
+            <p>&copy; jmgvptel. Masterclass s-18 PM2. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

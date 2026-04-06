@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S34: Zonas Factibles | PM2</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <script>
+        window.MathJax = {
+            tex: {
+                // Aquí le decimos que reconozca el signo de peso simple como fórmula en línea
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+</head>
+<body class="theme-s34">
+
+    <nav class="teacher-auth">
+        <div class="container nav-flex">
+            <span>🛡️ Terminal del Administrador:</span>
+            <div class="auth-box">
+                <input type="password" id="master-pwd" placeholder="Clave">
+                <button onclick="unlockMaster()">Autorizar</button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-s34">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <h1>Desigualdades Lineales</h1>
+                <p>Sesión 34: Presupuestos limitados y el mapeo de regiones factibles.</p>
+            </div>
+            <div class="hero-visual">
+                <svg width="180" height="180" viewBox="0 0 100 100">
+                    <defs>
+                        <pattern id="hatch" width="4" height="4" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse">
+                            <line x1="0" y1="0" x2="0" y2="4" stroke="#39FF14" stroke-width="1" opacity="0.5"/>
+                        </pattern>
+                    </defs>
+                    <line x1="10" y1="90" x2="90" y2="90" stroke="#FFF" stroke-width="2" />
+                    <line x1="10" y1="90" x2="10" y2="10" stroke="#FFF" stroke-width="2" />
+                    <polygon points="10,90 70,90 10,30" fill="url(#hatch)" />
+                    <line x1="10" y1="30" x2="80" y2="100" stroke="#00E5FF" stroke-width="3" />
+                    <text x="30" y="70" fill="#39FF14" font-size="8" font-family="monospace">ZONA FACTIBLE</text>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="hidden-notes" class="secret-panel">
+            <div class="teacher-card">
+                <h4>🧠 Insights Psicopedagógicos (S34)</h4>
+                <p><strong>Andragogía:</strong> Inicie con la idea de "Presupuestos limitados". Pregunte: "Si tienes 500 pesos para la fiesta y las pizzas cuestan 100 y los refrescos 50, ¿puedes comprar 6 pizzas y 4 refrescos?". El cálculo instintivo de los alumnos de que "no alcanza" es exactamente la base de $100x + 50y \le 500$.</p>
+                <p><strong>El Sombreado:</strong> Convierta el uso de "colores y reglas"  en un escaneo de zona segura. El punto de prueba $(0,0)$ es el "radar". Si $(0,0)$ cumple la regla, toda la zona de $(0,0)$ se ilumina (sombrea).</p>
+            </div>
+        </section>
+
+        <section class="module-card">
+            <h2><span class="badge">34.1</span> El Límite del Territorio</h2>
+            <p>Una <strong>Desigualdad Lineal</strong> es como una ecuación, pero en lugar del signo igual $(=)$, utiliza signos de desigualdad: menor que $(<)$, mayor que $(>)$, menor o igual que $(\le)$ o mayor o igual que $(\ge)$.</p>
+            <div class="concept-box green-glow">
+                <p><strong>Geometría de Zonas:</strong> Mientras una ecuación lineal dibuja una simple línea recta, una desigualdad lineal <strong>sombrea toda una región en el plano</strong>. La línea actúa como la frontera, y el sombreado representa todas las combinaciones infinitas que son válidas (la región factible).</p>
+            </div>
+        </section>
+
+        <section class="module-card">
+            <h2><span class="badge">34.2</span> Análisis de Fronteras (Ejemplos)</h2>
+            <div class="examples-grid">
+                <div class="ex-item">
+                    <h5>Ejemplo 1: El Presupuesto</h5>
+                    <p>Tienes $\$200$. Los tacos ($x$) cuestan $\$20$ y los jugos ($y$) $\$15$.</p>
+                    <p class="formula">$20x + 15y \le 200$</p>
+                    <p>Todo lo que esté por <strong>debajo</strong> de la línea fronteriza es un escenario donde te alcanza el dinero.</p>
+                </div>
+                <div class="ex-item">
+                    <h5>Ejemplo 2: Frontera Sólida vs Rota</h5>
+                    <p>Si usamos $\le$ o $\ge$, la línea de la frontera se dibuja <strong>sólida</strong> (incluye el límite). Si usamos $<$ o $>$, la línea es <strong>punteada</strong> (el límite es un campo de fuerza que no se puede tocar).</p>
+                </div>
+                <div class="ex-item">
+                    <h5>Ejemplo 3: El Radar (Punto de Prueba)</h5>
+                    <p>Para graficar $y > x + 2$, dibujas la recta punteada. Tomas el punto $(0,0)$. ¿$0 > 0 + 2$? Falso ($0$ no es mayor que $2$). Por tanto, sombreamos el lado <strong>contrario</strong> a $(0,0)$.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="module-card border-blue">
+            <h2><span class="badge">34.3</span> Misiones de Sombreado (Actividades)</h2>
+            <div class="activity-list">
+                <div class="act-card">
+                    <strong>🎮 1. Loadout de Supervivencia:</strong> Tienes un límite de peso de 50 kg en tu mochila. Los botiquines pesan 2 kg y las municiones 5 kg. Escribe la desigualdad que modela esto y grafica el área válida usando colores.
+                </div>
+                <div class="act-card">
+                    <strong>📏 2. El Muro Punteado:</strong> Traza la recta $y = 3x - 1$ con una regla. Luego, asumiendo la desigualdad $y < 3x - 1$, realiza el sombreado de la región  correcta utilizando lápices de colores.
+                </div>
+                <div class="act-card">
+                    <strong>🕵️ 3. Ingeniería Inversa:</strong> Observa la gráfica generada por el profesor en el pizarrón. Identifica si la línea es sólida o punteada, elige un punto de la zona sombreada y construye tú la desigualdad.
+                </div>
+            </div>
+        </section>
+
+        <section class="module-card">
+            <h2><span class="badge">34.4</span> Simulador de Casos (Ejercicios)</h2>
+            <div class="exercise-box">
+                <p>Grafica en tu cuaderno las siguientes desigualdades lineales y aplica el sombreado correcto de las regiones factibles:</p>
+                <ol>
+                    <li>$y \le -2x + 4$ (Sugerencia: Usa el origen como punto de prueba).</li>
+                    <li>$3x - 2y > 6$ (Cuidado al despejar la "y" cuando hay signos negativos).</li>
+                    <li>Plantea y grafica: Un cine vende entradas regulares a $\$50$ ($x$) y VIP a $\$100$ ($y$). Necesitan ganar al menos $\$5000$ diarios para no quebrar.</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="kahoot-section">
+            <h2>🎮 Quiz Final: ¡Demuestra tu precisión!</h2>
+            <div id="quiz-container">
+                
+                <div id="question-screen">
+                    <p id="q-tracker" style="font-size: 0.9em; color: gray; font-weight: bold;"></p>
+                    
+                    <h3 id="question-text">Cargando pregunta...</h3>
+                    
+                    <div class="kahoot-grid" id="options-container">
+                        <button class="answer-btn k-red" onclick="checkAns(0)"><span id="opt-0">A</span></button>
+                        <button class="answer-btn k-blue" onclick="checkAns(1)"><span id="opt-1">B</span></button>
+                        <button class="answer-btn k-yellow" onclick="checkAns(2)"><span id="opt-2">C</span></button>
+                        <button class="answer-btn k-green" onclick="checkAns(3)"><span id="opt-3">D</span></button>
+                    </div>
+                </div>
+
+                <div id="result-screen" class="hidden">
+                    <h3 id="final-score"></h3>
+                    <button onclick="resetQuiz()" class="btn-restart">Intentar de nuevo</button>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+    <nav>
+        <a href="MASTERCLASS_SES33.HTML">Anterior Sesión</a>
+        <a href="MASTERCLASS_SES35.HTML">Siguiente Sesión</a>
+        <a href="../planeacionpm2.html">Volver al inicio</a>
+    </nav>
+
+    <footer>
+        <div class="container">
+            <p>&copy; jmgvptel. Masterclass s-34 PM2. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

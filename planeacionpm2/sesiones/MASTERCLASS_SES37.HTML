@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S37: Proyecto de Optimización | PM2</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <script>
+        window.MathJax = {
+            tex: {
+                // Aquí le decimos que reconozca el signo de peso simple como fórmula en línea
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+
+</head>
+<body class="theme-s37">
+
+    <nav class="teacher-auth-bar">
+        <div class="container flex-auth">
+            <span>🚀 Consola del Inversor Ángel (Docente):</span>
+            <div class="auth-inputs">
+                <input type="password" id="master-pin" placeholder="Clave 1983...">
+                <button onclick="unlockTeacherMode()">Acceder</button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-s37">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <h1>Proyecto de Optimización</h1>
+                <p>Sesión 37: Planteamiento de un negocio escolar y maximización de utilidad.</p>
+            </div>
+            <div class="hero-svg">
+                <svg width="180" height="180" viewBox="0 0 100 100">
+                    <defs>
+                        <linearGradient id="growthGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="rgba(0, 230, 118, 0.1)" />
+                            <stop offset="100%" stop-color="rgba(0, 230, 118, 0.8)" />
+                        </linearGradient>
+                    </defs>
+                    <rect x="10" y="50" width="15" height="40" fill="#2962FF" rx="2"/>
+                    <rect x="35" y="35" width="15" height="55" fill="#8A2BE2" rx="2"/>
+                    <rect x="60" y="15" width="15" height="75" fill="url(#growthGrad)" rx="2"/>
+                    <polyline points="17,50 42,35 67,15 90,5" fill="none" stroke="#00E676" stroke-width="3" class="trend-line"/>
+                    <circle cx="90" cy="5" r="4" fill="#FFFFFF" class="pulse-dot"/>
+                    <line x1="5" y1="90" x2="95" y2="90" stroke="#FFFFFF" stroke-width="2"/>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="hidden-notes" class="secret-module">
+            <div class="teacher-card">
+                <h4>🧠 Insights de Genio Pedagógico (Sesión 37)</h4>
+                <p><strong>Andragogía Emprendedora:</strong> Los adolescentes se motivan enormemente cuando perciben que el conocimiento genera valor real (dinero). Permita que el "negocio escolar" sea algo que les apasione. La rúbrica de proyecto  debe premiar tanto el rigor matemático como la viabilidad del negocio.</p>
+                <p><strong>El Informe de Estrategia:</strong> Como indica la secuencia didáctica, el cierre es un "Informe de estrategia". Exija que no solo entreguen gráficas, sino que redacten un párrafo como si hablaran con un inversionista: <em>"Para maximizar las utilidades a \$X, debemos producir Y cantidad del producto A..."</em>.</p>
+            </div>
+        </section>
+
+        <section class="lesson-card">
+            <h2><span class="badge">37.1</span> ¿Qué es un Proyecto de Optimización?</h2>
+            <p>Es la aplicación en el mundo real de la programación lineal. Consiste en diseñar un modelo matemático para un negocio que nos indique exactamente cuántos productos fabricar o vender para <strong>maximizar la utilidad</strong> (ganancia) utilizando eficientemente nuestros recursos limitados (dinero, tiempo, materiales).</p>
+            <div class="concept-box">
+                <p><strong>La Anatomía de una Startup Matemática:</strong></p>
+                <ul>
+                    <li><strong>Las Variables ($x, y$):</strong> Los productos que vas a vender.</li>
+                    <li><strong>La Función Objetivo ($Z$):</strong> El dinero que quieres ganar.</li>
+                    <li><strong>Las Restricciones:</strong> Tu realidad (no tienes dinero ni tiempo infinito).</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="lesson-card">
+            <h2><span class="badge">37.2</span> Modelos de Negocio Escolar (Ejemplos)</h2>
+            <div class="examples-grid">
+                <div class="ex-item">
+                    <h5>🛠️ Negocio 1: Estudio de Corte Láser</h5>
+                    <p>Fabricas llaveros ($x$) y lámparas de MDF ($y$). Un llavero te da \$15 de ganancia y una lámpara \$50. Tu máquina láser solo puede operar 20 horas a la semana. Tienes que modelar $Z = 15x + 50y$ sujeto a las horas máquina y el MDF disponible.</p>
+                </div>
+                <div class="ex-item">
+                    <h5>🍪 Negocio 2: Repostería Escolar</h5>
+                    <p>Vendes brownies ($x$) y galletas ($y$). Los brownies dejan \$10 de ganancia y las galletas \$5. La restricción principal es el presupuesto para ingredientes (harina, chocolate) y la capacidad del horno de tu casa.</p>
+                </div>
+                <div class="ex-item">
+                    <h5>🎮 Negocio 3: Torneo de eSports</h5>
+                    <p>Organizas un torneo de Smash Bros ($x$) y FIFA ($y$). Cobras inscripciones diferentes. Tus restricciones son el número máximo de consolas disponibles, el tiempo de recreo y el aforo del salón.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-card border-green">
+            <h2><span class="badge">37.3</span> Incubadora de Proyectos (Actividades)</h2>
+            <div class="activity-list">
+                <div class="act-card">
+                    <strong>💡 1. El Pitch del Negocio:</strong> Reúnete en equipo y definan un "negocio escolar"  realista. Decidan cuáles serán sus dos productos principales ($x$ e $y$) y cuánto esperan ganar por cada uno (Función Objetivo).
+                </div>
+                <div class="act-card">
+                    <strong>🚧 2. Auditoría de Recursos:</strong> Identifiquen al menos 2 limitantes reales de su negocio (ej. capital inicial de \$500, máximo de 10 horas libres a la semana). Traduzcan estas limitantes a desigualdades matemáticas (Restricciones).
+                </div>
+                <div class="act-card">
+                    <strong>📊 3. El Informe de Estrategia:</strong> Grafiquen su modelo (pueden usar herramientas digitales), encuentren el vértice óptimo y redacten el "Informe de estrategia"  detallando la ruta para maximizar la utilidad.
+                </div>
+            </div>
+        </section>
+
+        <section class="lesson-card">
+            <h2><span class="badge">37.4</span> Simulador Financiero (Ejercicios)</h2>
+            <div class="exercise-box">
+                <ol>
+                    <li>Un estudiante diseña páginas web ($x$) y repara computadoras ($y$). Gana \$800 por web y \$300 por reparación. Escribe la función objetivo $Z$.</li>
+                    <li>Siguiendo el caso anterior, hacer una web toma 10 horas y una reparación 2 horas. El estudiante solo tiene 20 horas libres a la semana. Escribe la restricción de tiempo.</li>
+                    <li>Dado el sistema de tu negocio de corte láser, si el vértice óptimo arroja $x = 100$ y $y = 5$, ¿cuál es tu decisión final como CEO si la lámpara ($y$) es tu producto favorito de fabricar? (Argumenta tu respuesta basándote en datos, no en emociones).</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="kahoot-section">
+            <h2>🎮 Quiz Final: ¡Demuestra tu precisión!</h2>
+            <div id="quiz-container">
+                
+                <div id="question-screen">
+                    <p id="q-tracker" style="font-size: 0.9em; color: gray; font-weight: bold;"></p>
+                    
+                    <h3 id="question-text">Cargando pregunta...</h3>
+                    
+                    <div class="kahoot-grid" id="options-container">
+                        <button class="answer-btn k-red" onclick="checkAns(0)"><span id="opt-0">A</span></button>
+                        <button class="answer-btn k-blue" onclick="checkAns(1)"><span id="opt-1">B</span></button>
+                        <button class="answer-btn k-yellow" onclick="checkAns(2)"><span id="opt-2">C</span></button>
+                        <button class="answer-btn k-green" onclick="checkAns(3)"><span id="opt-3">D</span></button>
+                    </div>
+                </div>
+
+                <div id="result-screen" class="hidden">
+                    <h3 id="final-score"></h3>
+                    <button onclick="resetQuiz()" class="btn-restart">Intentar de nuevo</button>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+    <nav>
+        <a href="MASTERCLASS_SES36.HTML">Anterior Sesión</a>
+        <a href="MASTERCLASS_SES38.HTML">Siguiente Sesión</a>
+        <a href="../planeacionpm2.html">Volver al inicio</a>
+    </nav>
+    <footer>
+        <div class="container">
+            <p>&copy; jmgvptel. Masterclass s-37 PM2. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

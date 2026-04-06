@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S-03 Masterclass: Sintaxis Algebraica | Pensamiento Matemático II</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <script>
+        window.MathJax = {
+            tex: {
+                // Signo de peso simple para fórmulas en línea
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body class="theme-s3">
+
+    <div id="teacher-access">
+        <div class="teacher-control">
+            <svg class="icon-key" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path></svg>
+            <input type="password" id="teacher-pass" placeholder="Clave Docente">
+            <button onclick="checkTeacherAccess()">Desbloquear Notas</button>
+        </div>
+        <div id="teacher-notes-content" class="hidden">
+            <h3>👨‍🏫 Notas Pedagógicas (Exclusivo Docente)</h3>
+            <p><strong>Enfoque:</strong> A esta edad, la sintaxis algebraica se siente como un idioma extranjero. El objetivo psicológico es reducir la ansiedad matemática demostrando que son reglas de "etiquetado".</p>
+            <p><strong>Tip de Actividad 1:</strong> Para la caza de términos, si el grupo está apático, conviértalo en una competencia de velocidad. Use expresiones muy largas en el pizarrón para el inicio.</p>
+            <p><strong>Tip de Actividad 3:</strong> El memorama algebraico impreso (recurso de planeación) debe incluir productos notables básicos. Use el código de colores mostrado en la sección de ejemplos para ayudar a la memoria visual antes de la sesión.</p>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <svg class="main-logo" width="100" height="100" viewBox="0 0 100 100" fill="none">
+                <circle cx="50" cy="50" r="48" stroke="#00e5ff" stroke-width="4"/>
+                <path d="M30 70 L50 30 L70 70" stroke="#ff007f" stroke-width="6" stroke-linecap="round"/>
+                <path d="M30 30 L70 70 M70 30 L30 70" stroke="#00e5ff" stroke-width="2" opacity="0.5"/>
+            </svg>
+            <h1>Sintaxis Algebraica</h1>
+            <p class="subtitle">Módulo I: El ADN de las Matemáticas</p>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <section id="definicion" class="card section-fade-in">
+            <h2><span class="icon">🔍</span> ¿Qué es la Sintaxis Algebraica?</h2>
+            <div class="definition-wrapper">
+                <p>Imagina que el Álgebra es un idioma. Si no sigues las reglas de ortografía y gramática, nadie te entiende. La <strong>Sintaxis Algebraica</strong> son esas reglas: nos dice cómo escribir correctamente números, letras y signos para que tengan sentido.</p>
+                <p>La unidad básica es el <strong>Término Algebraico</strong>.</p>
+                
+                <div class="svg-diagram">
+                    <svg viewBox="0 0 400 150">
+                        <defs>
+                            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+                                <polygon points="0 0, 10 3.5, 0 7" fill="#94a3b8" />
+                            </marker>
+                        </defs>
+                        <text x="200" y="80" text-anchor="middle" font-size="60" font-weight="bold" fill="white">-3x<tspan dy="-25" font-size="30">2</tspan></text>
+                        
+                        <g fill="#94a3b8" font-size="14">
+                            <text x="100" y="20">Signo</text>
+                            <path d="M100 20 L140 50" stroke="#ff007f" stroke-width="2" marker-end="url(#arrowhead)"/>
+                            
+                            <text x="170" y="150">Coeficiente</text>
+                            <path d="M175 135 L185 100" stroke="#00e5ff" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+                            <text x="230" y="130">Variable (Literal)</text>
+                            <path d="M230 115 L225 100" stroke="#bc13fe" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+                            <text x="300" y="20">Exponentes</text>
+                            <path d="M300 30 L275 35" stroke="#00ff00" stroke-width="2" marker-end="url(#arrowhead)"/>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <section id="actividades" class="card section-fade-in">
+            <h2><span class="icon">🎮</span> Actividades de la Sesión</h2>
+            <div class="activities-grid">
+                <div class="activity-box inicio">
+                    <h3>1. Caza de Términos</h3>
+                    <p>Encuentra las partes de términos ocultos en una expresión larga en el pizarrón.</p>
+                </div>
+                <div class="activity-box desarrollo">
+                    <h3>2. El Reto de la Simplificación</h3>
+                    <p>Usa los Productos Notables para expandir expresiones desarrolladas de forma rápida.</p>
+                </div>
+                <div class="activity-box cierre">
+                    <h3>3. Algebra Memorama </h3>
+                    <p>Cierre de sesión: conecta expresiones equivalentes usando tus tarjetas didácticas.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="ejemplos" class="card section-fade-in">
+            <h2><span class="icon">💡</span> 3 Ejemplos Clave</h2>
+            <div class="examples-list">
+                <div class="example-item">
+                    <h4>Ejemplo 1: Anatomía de un término</h4>
+                    <p>En el término $7ax^3$:</p>
+                    <ul>
+                        <li>Signo: $+$ (aunque no se escribe).</li>
+                        <li>Coeficiente: <span class="accent-c">7</span></li>
+                        <li>Variables: <span class="accent-l">a, x</span></li>
+                        <li>Exponente de x: <span class="accent-e">3</span> (Exponente de a es 1).</li>
+                    </ul>
+                </div>
+                <div class="example-item">
+                    <h4>Ejemplo 2: Simplificación vs Desarrollo</h4>
+                    <p>Expresión Desarrollada: $(x+5)(x+5)$</p>
+                    <p>Expresión Simplificada (Producto Notable): <span class="accent-p">$(x+5)^2 = x^2 + 10x + 25$</span></p>
+                </div>
+                <div class="example-item">
+                    <h4>Ejemplo 3: Términos NO Semejantes</h4>
+                    <p>$4x^2$ y $4x$ <strong>NO</strong> son semejantes. Aunque tienen la misma variable ($x$) y coeficiente ($4$), sus <span class="accent-e">exponentes son diferentes</span>.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="ejercicios" class="card section-fade-in">
+            <h2><span class="icon">✍️</span> ¡Tu Turno! 3 Ejercicios</h2>
+            <p>Intenta resolver estos retos en tu cuaderno antes del Quiz.</p>
+            <ol class="exercise-list">
+                <li>Identifica todos los componentes del término: $-9y^5z$.</li>
+                <li>Determina si $5a^2b$ y $-2a^2b$ son términos semejantes y explica por qué.</li>
+                <li>Desarrolla el siguiente producto notable básico: $(a-3)^2$.</li>
+            </ol>
+        </section>
+
+        <section class="kahoot-section">
+            <h2>🎮 Quiz Final: ¡Demuestra tu precisión!</h2>
+            <div id="quiz-container">
+                
+                <div id="question-screen">
+                    <p id="q-tracker" style="font-size: 0.9em; color: gray; font-weight: bold;"></p>
+                    
+                    <h3 id="question-text">Cargando pregunta...</h3>
+                    
+                    <div class="kahoot-grid" id="options-container">
+                        <button class="answer-btn k-red" onclick="checkAns(0)"><span id="opt-0">A</span></button>
+                        <button class="answer-btn k-blue" onclick="checkAns(1)"><span id="opt-1">B</span></button>
+                        <button class="answer-btn k-yellow" onclick="checkAns(2)"><span id="opt-2">C</span></button>
+                        <button class="answer-btn k-green" onclick="checkAns(3)"><span id="opt-3">D</span></button>
+                    </div>
+                </div>
+
+                <div id="result-screen" class="hidden">
+                    <h3 id="final-score"></h3>
+                    <button onclick="resetQuiz()" class="btn-restart">Intentar de nuevo</button>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+<nav>
+    <a href="MASTERCLASS_SES02.HTML">Anterior Sesión</a>
+    <a href="MASTERCLASS_SES04.HTML">Siguiente Sesión</a>
+    <a href="../planeacionpm2.html">Volver al inicio</a>
+</nav>
+    <footer>
+        <div class="container">
+            <p>&copy; jmgvptel. Masterclass s-03 PM2. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S19: El Código de las Paralelas | PM2</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body class="theme-s19">
+
+    <div id="auth-layer">
+        <div class="container">
+            <span>🗃️ Archivos Reservados:</span>
+            <input type="password" id="pass-1983" placeholder="Clave de acceso...">
+            <button onclick="unlockContent()">Desencriptar</button>
+        </div>
+    </div>
+
+    <header class="master-header s19-industrial">
+        <div class="container flex-header">
+            <div class="header-text">
+                <h1>Ángulos entre Paralelas</h1>
+                <p>Sesión 19: Relaciones y Teoremas de la Secante</p>
+            </div>
+            <svg width="120" height="120" viewBox="0 0 100 100">
+                <line x1="10" y1="30" x2="90" y2="30" stroke="#ff9100" stroke-width="4"/>
+                <line x1="10" y1="70" x2="90" y2="70" stroke="#ff9100" stroke-width="4"/>
+                <line x1="30" y1="10" x2="70" y2="90" stroke="#eceff1" stroke-width="3"/>
+                <circle cx="40" cy="30" r="3" fill="#00e5ff"/>
+                <circle cx="60" cy="70" r="3" fill="#00e5ff"/>
+            </svg>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="hidden-master-info" class="hidden-panel">
+            <div class="teacher-card">
+                <h4>🎯 Estrategia Andragógica S-19</h4>
+                <p><strong>Psicología de la Gestalt:</strong> El alumno tiende a ver las paralelas como un "todo". Use colores diferentes para marcar los ángulos que son iguales (Alternos internos) para romper esa unidad y fomentar el análisis individual.</p>
+                <p><strong>Tip:</strong> Muestre una foto de una vía de tren cruzada por un camino para aterrizar el concepto.</p>
+            </div>
+        </section>
+
+        <section class="content-card">
+            <h2><span class="accent">19.1</span> El Escenario Geométrico</h2>
+            <p>Cuando una recta **secante** corta a dos rectas **paralelas**, se forman 8 ángulos con propiedades matemáticas únicas que nos permiten calcular medidas sin usar transportador.</p>
+            <div class="concepts-box">
+                <div class="concept"><strong>Correspondientes:</strong> Están del mismo lado de la secante y en la misma posición.</div>
+                <div class="concept"><strong>Alternos Internos:</strong> Están entre las paralelas, en lados opuestos de la secante.</div>
+                <div class="concept"><strong>Opuestos por el Vértice:</strong> Comparten vértice y son iguales.</div>
+            </div>
+        </section>
+
+        <section class="content-card">
+            <h2><span class="accent">19.2</span> Workshop: Conexiones Vitales</h2>
+            <div class="activity-grid">
+                <div class="act-item">
+                    <h5>Actividad 1</h5>
+                    <p>Identifica en el plano de una ciudad (tipo NY) calles paralelas y una diagonal. Marca los ángulos alternos.</p>
+                </div>
+                <div class="act-item">
+                    <h5>Actividad 2</h5>
+                    <p>Usa cinta adhesiva en el piso para crear el esquema. Camina sobre los ángulos que sumen $180^\circ$.</p>
+                </div>
+                <div class="act-item">
+                    <h5>Actividad 3</h5>
+                    <p>Demuestra con papel recortado que los ángulos alternos internos encajan perfectamente uno sobre otro.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="split-view">
+            <div class="content-card">
+                <h3>Casos de Estudio (Ejemplos)</h3>
+                <p>1. Si el ángulo superior izquierdo mide $120^\circ$, su **correspondiente** también mide $120^\circ$.</p>
+                <p>2. Dos ángulos **suplementarios** en este sistema siempre sumarán $180^\circ$.</p>
+                <p>3. Los ángulos **alternos externos** son congruentes (iguales).</p>
+            </div>
+            <div class="content-card">
+                <h3>Entrenamiento (Ejercicios)</h3>
+                <div class="math-box">
+                    1. Si $\angle a = 2x + 10$ y $\angle b$ es su alterno interno, ¿cuál es la ecuación? <br>
+                    2. Encuentra $x$ si un ángulo mide $50^\circ$ y su suplementario es $3x - 10$.<br>
+                    3. ¿Cuántos pares de ángulos iguales hay en total?
+                </div>
+            </div>
+        </div>
+
+        <section class="kahoot-section">
+            <h2>🎮 Quiz Final: ¡Demuestra tu precisión!</h2>
+            <div id="quiz-container">
+                
+                <div id="question-screen">
+                    <p id="q-tracker" style="font-size: 0.9em; color: gray; font-weight: bold;"></p>
+                    
+                    <h3 id="question-text">Cargando pregunta...</h3>
+                    
+                    <div class="kahoot-grid" id="options-container">
+                        <button class="answer-btn k-red" onclick="checkAns(0)"><span id="opt-0">A</span></button>
+                        <button class="answer-btn k-blue" onclick="checkAns(1)"><span id="opt-1">B</span></button>
+                        <button class="answer-btn k-yellow" onclick="checkAns(2)"><span id="opt-2">C</span></button>
+                        <button class="answer-btn k-green" onclick="checkAns(3)"><span id="opt-3">D</span></button>
+                    </div>
+                </div>
+
+                <div id="result-screen" class="hidden">
+                    <h3 id="final-score"></h3>
+                    <button onclick="resetQuiz()" class="btn-restart">Intentar de nuevo</button>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+    <nav>
+        <a href="MASTERCLASS_SES18.HTML">Anterior Sesión</a>
+        <a href="MASTERCLASS_SES20.HTML">Siguiente Sesión</a>
+        <a href="../planeacionpm2.html">Volver al inicio</a>
+    </nav>
+
+    <footer>
+        <div class="container">
+            <p>&copy; jmgvptel. Masterclass s-19 PM2. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

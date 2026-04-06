@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S28: Áreas de Polígonos | PM2</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body class="theme-s28">
+
+    <nav class="admin-bar">
+        <div class="container flex-nav">
+            <span>🟢 Módulo de Topografía Académica</span>
+            <div class="auth-zone">
+                <input type="password" id="teacher-key" placeholder="Pass: 1983">
+                <button onclick="unlockTeacherContent()">Acceso Maestro</button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="master-header s28-landscape">
+        <div class="container header-flex">
+            <div class="text-group">
+                <h1>Áreas en el Plano</h1>
+                <p>Sesión 28: Determinantes para el cálculo de polígonos</p>
+            </div>
+            <div class="svg-container">
+                <svg width="120" height="120" viewBox="0 0 100 100">
+                    <polygon points="20,80 50,20 80,80" fill="none" stroke="#C6FF00" stroke-width="2" />
+                    <circle cx="20" cy="80" r="3" fill="#C6FF00" />
+                    <circle cx="50" cy="20" r="3" fill="#C6FF00" />
+                    <circle cx="80" cy="80" r="3" fill="#C6FF00" />
+                    <path d="M40 50 L60 50 M50 40 L50 60" stroke="white" stroke-opacity="0.3" stroke-width="1" />
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="teacher-zone" class="hidden">
+            <div class="note-box">
+                <h4>👨‍🏫 Guía Pedagógica S28</h4>
+                <p><strong>El "Secreto" del Lazo:</strong> Enseñe a los alumnos que el orden de los vértices debe ser **antihorario** para obtener un área positiva directamente.</p>
+                <p><strong>Conexión Psicológica:</strong> Use la analogía de "medir un terreno en Minecraft". A los 15 años, la utilidad práctica de "saber cuánto espacio tengo" resuena más que la fórmula abstracta.</p>
+            </div>
+        </section>
+
+        <section class="info-card">
+            <h2><span class="index">28.1</span> El Método de los Determinantes</h2>
+            <p>Para calcular el área de cualquier polígono cuyos vértices conocemos, utilizamos la fórmula de los determinantes (o fórmula de Gauss). Consiste en listar los vértices y repetir el primero al final.</p>
+            <div class="formula-main">
+                $$Area = \frac{1}{2} | (x_1y_2 + x_2y_3 + ... + x_ny_1) - (y_1x_2 + y_2x_3 + ... + y_nx_1) |$$
+            </div>
+        </section>
+
+        <section class="info-card">
+            <h2><span class="index">28.2</span> Levantamiento de Datos (Ejemplos)</h2>
+            <div class="grid-container">
+                <div class="example-box">
+                    <h5>Triángulo Básico</h5>
+                    <p>Vértices: $(0,0), (4,0), (0,3)$</p>
+                    <p>$\frac{1}{2} |(0 + 12 + 0) - (0 + 0 + 0)|$</p>
+                    <strong>Resultado: $6 u^2$</strong>
+                </div>
+                <div class="example-box">
+                    <h5>Cuadrilátero</h5>
+                    <p>Usa 4 puntos. No olvides repetir el punto 1 al final de la columna para cerrar el área.</p>
+                </div>
+                <div class="example-box">
+                    <h5>El Valor Absoluto</h5>
+                    <p>Si el resultado es negativo, las barras de $| |$ lo vuelven positivo. ¡El área siempre es positiva!</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-card">
+            <h2><span class="index">28.3</span> Trabajo de Campo</h2>
+            <div class="activity-grid">
+                <div class="act-card">
+                    <strong>🏙️ Proyecto Inmobiliario:</strong> Un terreno tiene vértices en $(2, 1), (8, 2), (6, 7)$ y $(1, 5)$. Calcula su superficie total para el plano de ventas.
+                </div>
+                <div class="act-card">
+                    <strong>🚩 Capture the Flag:</strong> Tres bases están en $(-3, 4), (5, 5)$ y $(2, -2)$. ¿Cuánta área protege este equipo?
+                </div>
+                <div class="act-card">
+                    <strong>🛰️ Satelital:</strong> Traza un polígono de 5 lados en tu libreta y usa la fórmula para hallar el área.
+                </div>
+            </div>
+        </section>
+
+        <section class="info-card highlight">
+            <h2><span class="index">28.4</span> Entrenamiento (Ejercicios)</h2>
+            <ul class="task-list">
+                <li>1. Calcula el área del triángulo con vértices $A(-1, 1), B(3, 4)$ y $C(5, -2)$.</li>
+                <li>2. Un parque cuadrado tiene esquinas en $(0,0), (2,2), (0,4)$ y $(-2,2)$. Determina su área.</li>
+                <li>3. Determina el área de la región encerrada por $(1, 1), (4, 1), (4, 4), (1, 4)$.</li>
+            </ul>
+        </section>
+
+        <section class="kahoot-section">
+            <h2>🎮 Quiz Final: ¡Demuestra tu precisión!</h2>
+            <div id="quiz-container">
+                
+                <div id="question-screen">
+                    <p id="q-tracker" style="font-size: 0.9em; color: gray; font-weight: bold;"></p>
+                    
+                    <h3 id="question-text">Cargando pregunta...</h3>
+                    
+                    <div class="kahoot-grid" id="options-container">
+                        <button class="answer-btn k-red" onclick="checkAns(0)"><span id="opt-0">A</span></button>
+                        <button class="answer-btn k-blue" onclick="checkAns(1)"><span id="opt-1">B</span></button>
+                        <button class="answer-btn k-yellow" onclick="checkAns(2)"><span id="opt-2">C</span></button>
+                        <button class="answer-btn k-green" onclick="checkAns(3)"><span id="opt-3">D</span></button>
+                    </div>
+                </div>
+
+                <div id="result-screen" class="hidden">
+                    <h3 id="final-score"></h3>
+                    <button onclick="resetQuiz()" class="btn-restart">Intentar de nuevo</button>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+    <nav>
+        <a href="MASTERCLASS_SES27.HTML">Anterior Sesión</a>
+        <a href="MASTERCLASS_SES29.HTML">Siguiente Sesión</a>
+        <a href="../planeacionpm2.html">Volver al inicio</a>
+    </nav>
+
+    <footer>
+        <div class="container">
+            <p>&copy; jmgvptel. Masterclass s-28 PM2. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

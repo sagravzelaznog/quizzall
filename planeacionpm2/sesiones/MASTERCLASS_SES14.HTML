@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masterclass S-14: Cambio de Base | PM2</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+
+    <nav id="teacher-control">
+        <div class="container">
+            <span>🔐 Panel Docente:</span>
+            <input type="password" id="unlock-key" placeholder="Passphrase...">
+            <button onclick="checkAccess()">Revelar Tips</button>
+        </div>
+    </nav>
+
+    <header class="hero-s14">
+        <div class="container">
+            <svg class="float-svg" width="100" height="100" viewBox="0 0 100 100">
+                <path d="M10 50 Q 50 10 90 50 T 10 50" fill="none" stroke="#00e5ff" stroke-width="2" />
+                <circle cx="50" cy="50" r="10" fill="#ff00ff" />
+            </svg>
+            <h1>Conversión entre Bases</h1>
+            <p>Sesión 14: Algoritmos de traducción numérica</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <aside id="master-notes" class="hidden-panel">
+            <h4>💡 Tips para la Sesión 14</h4>
+            <p><strong>Andragogía:</strong> Evite que memoricen el método. Use la analogía de "empaquetar". Base 10 empaqueta de 10 en 10; Base 2 empaqueta de 2 en 2.</p>
+            <p><strong>Error Común:</strong> Los alumnos suelen olvidar que en base 16, después del 9 siguen letras (A-F). Recuérdeles que $A=10$.</p>
+        </aside>
+
+        <section class="session-card">
+            <h2><span class="step-num">14.1</span> El Proceso de Conversión</h2>
+            <p>Cambiar de base consiste en redistribuir una cantidad en grupos de diferente tamaño. 
+               Para pasar de <strong>Base 10 a Base $n$</strong> usamos divisiones sucesivas. 
+               Para pasar de <strong>Base $n$ a Base 10</strong> usamos potencias.</p>
+            <div class="formula-box">
+                $$N = d_n \cdot b^n + \dots + d_1 \cdot b^1 + d_0 \cdot b^0$$
+            </div>
+        </section>
+
+        <section class="session-card">
+            <h2><span class="step-num">14.2</span> Actividades en Clase</h2>
+            <div class="activity-grid">
+                <div class="activity-card">
+                    <h5>A1: El código Binario</h5>
+                    <p>Traduce tu número de lista a binario usando solo tarjetas de "encendido/apagado".</p>
+                </div>
+                <div class="activity-card">
+                    <h5>A2: El Reloj Sumerio</h5>
+                    <p>Convierte minutos totales en horas y minutos (base 60) para entender el residuo.</p>
+                </div>
+                <div class="activity-card">
+                    <h5>A3: Mensajes Ocultos</h5>
+                    <p>Usa hexadecimal para representar colores RGB básicos.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="dual-section">
+            <div class="session-card">
+                <h3>Ejemplos</h3>
+                <ul class="clean-list">
+                    <li><strong>E1:</strong> $13_{10}$ a binario: $13/2 = 6(R1) \rightarrow 6/2 = 3(R0) \rightarrow 3/2 = 1(R1) \rightarrow 1/2 = 0(R1)$. Resultado: $1101_2$.</li>
+                    <li><strong>E2:</strong> $101_2$ a decimal: $1(2^2) + 0(2^1) + 1(2^0) = 4+0+1 = 5_{10}$.</li>
+                    <li><strong>E3:</strong> $12_8$ a decimal: $1(8^1) + 2(8^0) = 10_{10}$.</li>
+                </ul>
+            </div>
+            <div class="session-card">
+                <h3>Ejercicios</h3>
+                <div class="exercise-item">1. Convierte $25_{10}$ a base 3.</div>
+                <div class="exercise-item">2. ¿Qué número decimal es $1111_2$?</div>
+                <div class="exercise-item">3. Expresa $100_{10}$ en base 16 (Hex).</div>
+            </div>
+        </section>
+
+        <section class="kahoot-section">
+            <h2>🎮 Quiz Final: ¡Demuestra tu precisión!</h2>
+            <div id="quiz-container">
+                
+                <div id="question-screen">
+                    <p id="q-tracker" style="font-size: 0.9em; color: gray; font-weight: bold;"></p>
+                    
+                    <h3 id="question-text">Cargando pregunta...</h3>
+                    
+                    <div class="kahoot-grid" id="options-container">
+                        <button class="answer-btn k-red" onclick="checkAns(0)"><span id="opt-0">A</span></button>
+                        <button class="answer-btn k-blue" onclick="checkAns(1)"><span id="opt-1">B</span></button>
+                        <button class="answer-btn k-yellow" onclick="checkAns(2)"><span id="opt-2">C</span></button>
+                        <button class="answer-btn k-green" onclick="checkAns(3)"><span id="opt-3">D</span></button>
+                    </div>
+                </div>
+
+                <div id="result-screen" class="hidden">
+                    <h3 id="final-score"></h3>
+                    <button onclick="resetQuiz()" class="btn-restart">Intentar de nuevo</button>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+    <nav>
+        <a href="MASTERCLASS_SES13.HTML">Anterior Sesión</a>
+        <a href="MASTERCLASS_SES15.HTML">Siguiente Sesión</a>
+        <a href="../planeacionpm2.html">Volver al inicio</a>
+    </nav>
+
+    <footer>
+        <div class="container">
+            <p>&copy; jmgvptel. Masterclass s-14 PM2. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S-08 Masterclass: Enteros y Divisibilidad | PM2</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <script>
+        window.MathJax = {
+            tex: {
+                // Aquí le decimos que reconozca el signo de peso simple como fórmula en línea
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body class="theme-s8">
+
+    <div id="teacher-portal">
+        <div class="teacher-header">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            <input type="password" id="teacher-pass" placeholder="Clave Docente">
+            <button onclick="unlockTeacherNotes()">Acceder</button>
+        </div>
+        <div id="teacher-notes" class="hidden">
+            <h3>👨‍🏫 Notas Pedagógicas - Sesión 8</h3>
+            <p><strong>Tema:</strong> P4: Enteros y Divisibilidad.</p>
+            <ul>
+                <li><strong>Inicio:</strong> Para la "Criba de Eratóstenes", imprima una cuadrícula del 1 al 100. Pida a los alumnos que tachen múltiplos. Visualizar el "filtrado" es clave.</li>
+                <li><strong>Desarrollo:</strong> Al enseñar "Conceptos de divisibilidad, números primos y compuestos", relacione los números primos con candados irrompibles en la criptografía digital.</li>
+                <li><strong>Cierre:</strong> "Juego de factores". Puede utilizar el "Applet interactivo"  sugerido en su planeación para gamificar la búsqueda de factores en el proyector.</li>
+            </ul>
+        </div>
+    </div>
+
+    <header>
+        <div class="container hero">
+            <svg class="main-logo" viewBox="0 0 100 100" fill="none">
+                <rect x="20" y="20" width="60" height="60" rx="8" stroke="#00ffcc" stroke-width="3" fill="rgba(0, 255, 204, 0.05)"/>
+                <path d="M30 40 L45 50 L30 60" stroke="#00ffcc" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <line x1="50" y1="60" x2="70" y2="60" stroke="#00ffcc" stroke-width="4" stroke-linecap="round"/>
+                <circle cx="80" cy="20" r="5" fill="#ff007f"/>
+            </svg>
+            <h1>Enteros y Divisibilidad</h1>
+            <p class="subtitle">Sesión 8 | El ADN de la Criptografía Matemática</p>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <section class="card fade-in">
+            <h2><span class="icon">🧬</span> ¿Qué son los Números Primos?</h2>
+            <div class="definition-wrapper">
+                <p>En el mundo digital, tu información está protegida por contraseñas. En matemáticas, la máxima protección son los <strong>Números Primos</strong>. Un número entero es primo si es un "átomo matemático": <em>solo se puede dividir de manera exacta entre el 1 y entre sí mismo</em>.</p>
+                <p>Si un número tiene más divisores, se llama <strong>Compuesto</strong> (porque está "compuesto" por la multiplicación de primos más pequeños).</p>
+            </div>
+        </section>
+
+        <section class="card fade-in">
+            <h2><span class="icon">⚙️</span> Secuencia de Hackeo (Actividades)</h2>
+            <div class="activities-grid">
+                <div class="activity-box inicio">
+                    <h3>1. La Criba de Eratóstenes</h3>
+                    <p>Usaremos un antiguo algoritmo griego para "filtrar" los números del 1 al 100 y descubrir visualmente cuáles son los primos ocultos.</p>
+                </div>
+                <div class="activity-box desarrollo">
+                    <h3>2. Divisibilidad y Clasificación</h3>
+                    <p>Aplicaremos atajos mentales (criterios de divisibilidad) para clasificar rápidamente grandes cifras como primos o compuestos.</p>
+                </div>
+                <div class="activity-box cierre">
+                    <h3>3. Juego de Factores</h3>
+                    <p>Competencia de velocidad interactiva. ¿Quién puede desarmar un número compuesto en sus factores más rápido?</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card fade-in">
+            <h2><span class="icon">💡</span> 3 Ejemplos Críticos</h2>
+            <div class="examples-list">
+                <div class="example-item">
+                    <h4>Ejemplo 1: El Primo Solitario</h4>
+                    <p>El número <strong>7</strong>. Intenta dividirlo exactamente entre 2, 3, 4, 5 o 6... no se puede. Solo se divide entre $1$ y $7$. ¡Es primo!</p>
+                </div>
+                <div class="example-item">
+                    <h4>Ejemplo 2: El Compuesto Engañoso</h4>
+                    <p>El número <strong>51</strong>. Parece primo, pero si sumas sus dígitos ($5+1=6$), sabes que es divisible entre 3. Sus factores son: $1, 3, 17, 51$. ¡Es compuesto!</p>
+                </div>
+                <div class="example-item">
+                    <h4>Ejemplo 3: El Atajo (Criterio del 5)</h4>
+                    <p>Cualquier número que termine en $0$ o en $5$ (como 3,495 o 10,000) será automáticamente divisible entre $5$. ¡No pierdas tiempo intentando adivinar si es primo!</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card fade-in">
+            <h2><span class="icon">✍️</span> Terminal de Ejercicios</h2>
+            <p>Abre tu cuaderno como si fuera una terminal de comandos y resuelve:</p>
+            <ol class="exercise-list">
+                <li>Clasifica los siguientes números como Primos o Compuestos: $13, 22, 29, 33$.</li>
+                <li>Encuentra y enlista <strong>todos</strong> los factores del número $24$.</li>
+                <li>Usa el criterio de divisibilidad del 3 (sumar sus dígitos) para comprobar si el número $8,241$ es divisible entre 3.</li>
+            </ol>
+        </section>
+
+        <section class="kahoot-section">
+            <h2>🎮 Quiz Final: ¡Demuestra tu precisión!</h2>
+            <div id="quiz-container">
+                
+                <div id="question-screen">
+                    <p id="q-tracker" style="font-size: 0.9em; color: gray; font-weight: bold;"></p>
+                    
+                    <h3 id="question-text">Cargando pregunta...</h3>
+                    
+                    <div class="kahoot-grid" id="options-container">
+                        <button class="answer-btn k-red" onclick="checkAns(0)"><span id="opt-0">A</span></button>
+                        <button class="answer-btn k-blue" onclick="checkAns(1)"><span id="opt-1">B</span></button>
+                        <button class="answer-btn k-yellow" onclick="checkAns(2)"><span id="opt-2">C</span></button>
+                        <button class="answer-btn k-green" onclick="checkAns(3)"><span id="opt-3">D</span></button>
+                    </div>
+                </div>
+
+                <div id="result-screen" class="hidden">
+                    <h3 id="final-score"></h3>
+                    <button onclick="resetQuiz()" class="btn-restart">Intentar de nuevo</button>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+    <nav>
+        <a href="MASTERCLASS_SES07.HTML">Anterior Sesión</a>
+        <a href="MASTERCLASS_SES09.HTML">Siguiente Sesión</a>
+        <a href="../planeacionpm2.html">Volver al inicio</a>
+    </nav>
+
+    <footer>
+        <div class="container">
+            <p>&copy; jmgvptel. Masterclass s-08 PM2. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

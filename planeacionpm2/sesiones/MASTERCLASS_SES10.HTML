@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S-10 Masterclass: MCD y mcm Conceptuales | PM2</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <script>
+        window.MathJax = {
+            tex: {
+                // Aquí le decimos que reconozca el signo de peso simple como fórmula en línea
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body class="theme-s10">
+
+    <div id="teacher-portal">
+        <div class="teacher-header">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            <input type="password" id="teacher-pass" placeholder="Clave Docente">
+            <button onclick="unlockTeacherNotes()">Acceder</button>
+        </div>
+        <div id="teacher-notes" class="hidden">
+            <h3>👨‍🏫 Notas Pedagógicas - Sesión 10</h3>
+            <p><strong>Tema:</strong> P5: MCD y mcm Conceptuales.</p>
+            <ul>
+                <li><strong>Inicio:</strong> Para el problema de "luces parpadeantes" (mcm), pida a dos alumnos que aplaudan a diferentes ritmos (ej. cada 2s y cada 3s) hasta que coincidan. Para las "losetas" (MCD), dibuje un rectángulo en el pizarrón e intente dividirlo en cuadrados.</li>
+                <li><strong>Desarrollo:</strong> Enfatice el significado de las siglas. "Múltiplo" implica que el número crece (hacia el futuro). "Divisor" implica que el número se rompe o achica.</li>
+                <li><strong>Cierre:</strong> Diferenciación. Enseñe a detectar palabras clave en los problemas de aplicación: "coincidir/repetir" = mcm; "cortar/repartir/máximo" = MCD.</li>
+            </ul>
+        </div>
+    </div>
+
+    <header>
+        <div class="container hero">
+            <svg class="main-logo" viewBox="0 0 120 100" fill="none">
+                <rect x="10" y="20" width="40" height="40" stroke="#00e5ff" stroke-width="3" fill="rgba(0,229,255,0.1)"/>
+                <line x1="10" y1="40" x2="50" y2="40" stroke="#00e5ff" stroke-width="2" stroke-dasharray="4 2"/>
+                <line x1="30" y1="20" x2="30" y2="60" stroke="#00e5ff" stroke-width="2" stroke-dasharray="4 2"/>
+                
+                <path d="M60 80 Q 70 40 80 80 T 100 80" stroke="#ff8c00" stroke-width="3" fill="none"/>
+                <path d="M60 80 Q 80 20 100 80" stroke="#ff007f" stroke-width="3" fill="none"/>
+                <circle cx="100" cy="80" r="4" fill="#fff"/>
+            </svg>
+            <h1>MCD vs mcm</h1>
+            <p class="subtitle">Sesión 10 | Hackeando el Espacio y el Tiempo</p>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <section class="card fade-in">
+            <h2><span class="icon">⚖️</span> ¿Cortar o Sincronizar?</h2>
+            <div class="definition-wrapper">
+                <p>El <strong>Máximo Común Divisor (MCD)</strong> es la herramienta matemática para <em>fragmentar el espacio</em>. Busca el "pedazo" o "bloque" más grande posible que pueda dividir a dos o más cantidades de forma exacta sin que sobre nada.</p>
+                <p>El <strong>mínimo común múltiplo (mcm)</strong> es la herramienta para <em>sincronizar el tiempo</em>. Busca el momento más cercano en el futuro donde dos o más eventos o ciclos se van a encontrar o chocar.</p>
+            </div>
+        </section>
+
+        <section class="card fade-in">
+            <h2><span class="icon">🚀</span> Protocolo de la Sesión</h2>
+            <div class="activities-grid">
+                <div class="activity-box inicio">
+                    <h3>1. Luces y Losetas</h3>
+                    <p>Problema detonador: Analizaremos cómo se comportan las luces parpadeantes (tiempo) y cómo cubrir un piso con losetas (espacio).</p>
+                </div>
+                <div class="activity-box desarrollo">
+                    <h3>2. Cálculo Conceptual</h3>
+                    <p>Definiremos conceptualmente el MCD y mcm y aprenderemos la técnica de factorización para calcular ambos.</p>
+                </div>
+                <div class="activity-box cierre">
+                    <h3>3. El Radar de Diferenciación</h3>
+                    <p>Entrenaremos al cerebro para diferenciar rápidamente qué herramienta usar leyendo pistas ocultas en problemas de aplicación.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card fade-in">
+            <h2><span class="icon">💡</span> 3 Ejemplos Visuales</h2>
+            <div class="examples-list">
+                <div class="example-item mcd-style">
+                    <h4>Ejemplo 1: Las Losetas (MCD)</h4>
+                    <p><strong>Reto:</strong> Tengo una pared de 12m y otra de 18m. Quiero decorarlas con los cuadrados más grandes posibles sin cortar ninguno.</p>
+                    <p><strong>Cálculo:</strong> Buscamos los divisores. El mayor número que divide al 12 y al 18 es el 6.</p>
+                    <p class="result-math">MCD(12, 18) = <span class="accent-c">6 metros</span></p>
+                </div>
+                <div class="example-item mcm-style">
+                    <h4>Ejemplo 2: Las Luces Parpadeantes (mcm)</h4>
+                    <p><strong>Reto:</strong> Una luz roja parpadea cada 4 segundos, y una verde cada 6 segundos. ¿Cuándo parpadearán juntas?</p>
+                    <p><strong>Cálculo:</strong> Buscamos los múltiplos (hacia adelante). Los múltiplos de 4 son 8, 12, 16... Los de 6 son 12, 18... ¡El 12 es el primer cruce!</p>
+                    <p class="result-math">mcm(4, 6) = <span class="accent-o">12 segundos</span></p>
+                </div>
+                <div class="example-item neutral-style">
+                    <h4>Ejemplo 3: Palabras Clave</h4>
+                    <p>Si el problema dice: <em>repartir, dividir, cortar, máximo, mayor tamaño</em> ➔ Usa <strong>MCD</strong>.</p>
+                    <p>Si el problema dice: <em>coincidir, repetir, juntar de nuevo, mínimo, próximo encuentro</em> ➔ Usa <strong>mcm</strong>.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card fade-in">
+            <h2><span class="icon">✍️</span> Zona de Entrenamiento</h2>
+            <p>Lee las situaciones, identifica si debes usar MCD o mcm, y resuélvelas en tu cuaderno:</p>
+            <ol class="exercise-list">
+                <li>Un carpintero tiene dos tablas, una de 40 cm y otra de 50 cm. Quiere cortarlas en pedazos iguales y lo más largos posible. ¿De qué tamaño serán los pedazos?</li>
+                <li>El camión de la ruta A pasa cada 15 minutos y el de la ruta B pasa cada 20 minutos. Si acaban de coincidir en la parada, ¿en cuántos minutos volverán a chocar?</li>
+                <li>Tienes 24 manzanas y 36 naranjas. Quieres armar el mayor número de canastas idénticas sin que sobre fruta. ¿Cuántas canastas puedes armar?</li>
+            </ol>
+        </section>
+
+        <section class="kahoot-section">
+            <h2>🎮 Quiz Final: ¡Demuestra tu precisión!</h2>
+            <div id="quiz-container">
+                
+                <div id="question-screen">
+                    <p id="q-tracker" style="font-size: 0.9em; color: gray; font-weight: bold;"></p>
+                    
+                    <h3 id="question-text">Cargando pregunta...</h3>
+                    
+                    <div class="kahoot-grid" id="options-container">
+                        <button class="answer-btn k-red" onclick="checkAns(0)"><span id="opt-0">A</span></button>
+                        <button class="answer-btn k-blue" onclick="checkAns(1)"><span id="opt-1">B</span></button>
+                        <button class="answer-btn k-yellow" onclick="checkAns(2)"><span id="opt-2">C</span></button>
+                        <button class="answer-btn k-green" onclick="checkAns(3)"><span id="opt-3">D</span></button>
+                    </div>
+                </div>
+
+                <div id="result-screen" class="hidden">
+                    <h3 id="final-score"></h3>
+                    <button onclick="resetQuiz()" class="btn-restart">Intentar de nuevo</button>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+    <nav>
+        <a href="MASTERCLASS_SES09.HTML">Anterior Sesión</a>
+        <a href="MASTERCLASS_SES11.HTML">Siguiente Sesión</a>
+        <a href="../planeacionpm2.html">Volver al inicio</a>
+    </nav>
+
+    <footer>
+        <div class="container">
+            <p>&copy; jmgvptel. Masterclass s-10 PM2. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

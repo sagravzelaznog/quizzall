@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masterclass S-17: Los Ladrillos del Universo | PM2</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body class="theme-s17">
+
+    <nav id="top-access">
+        <div class="container">
+            <span>🛠️ Modo Instructor:</span>
+            <input type="password" id="master-key" placeholder="Clave...">
+            <button onclick="unlockTeacherData()">Desbloquear</button>
+        </div>
+    </nav>
+
+    <header class="hero-s17">
+        <div class="container">
+            <svg class="geo-svg" width="100" height="100" viewBox="0 0 100 100">
+                <circle cx="20" cy="80" r="3" fill="#00e5ff" />
+                <line x1="20" y1="80" x2="80" y2="20" stroke="#00e5ff" stroke-width="2" />
+                <rect x="40" y="30" width="40" height="40" fill="none" stroke="#f1c40f" stroke-width="1" transform="rotate(15 60 50)"/>
+            </svg>
+            <h1>Geometría Euclidiana</h1>
+            <p>Sesión 17: Punto, Recta y Plano - Los Entes Primitivos</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <aside id="teacher-tips" class="hidden-notes">
+            <h4>📓 Notas del Pedagogo (S-17)</h4>
+            <p><strong>Psicología:</strong> A esta edad, los alumnos luchan con lo abstracto. El punto "no tiene dimensión", pero lo dibujamos. Explique que el dibujo es solo una representación, no el ente real.</p>
+            <p><strong>Andragogía:</strong> Conecte el plano con las pantallas de sus móviles (coordenadas píxel) para dar relevancia tecnológica.</p>
+        </aside>
+
+        <section class="info-card">
+            <h2><span class="highlight">17.1</span> Conceptos Primitivos</h2>
+            <p>En geometría, existen tres conceptos que no se pueden definir con otros más simples, solo se pueden describir por su intuición:</p>
+            <div class="def-grid">
+                <div class="def-item">
+                    <strong>El Punto:</strong> Sin dimensión. Indica posición. Se nombra con mayúsculas ($A, B, P$).
+                </div>
+                <div class="def-item">
+                    <strong>La Recta:</strong> Una dimensión (longitud). Infinita en ambos sentidos.
+                </div>
+                <div class="def-item">
+                    <strong>El Plano:</strong> Dos dimensiones. Superficie infinita sin grosor.
+                </div>
+            </div>
+        </section>
+
+        <section class="info-card">
+            <h2><span class="highlight">17.2</span> Desafíos de Diseño</h2>
+            <div class="activity-container">
+                <div class="act-step">
+                    <h5>A1: Caza de Entes</h5>
+                    <p>Identifica en el salón 3 objetos que representen un punto, una recta y un plano.</p>
+                </div>
+                <div class="act-step">
+                    <h5>A2: Postulados Visuales</h5>
+                    <p>Dibuja dos puntos. ¿Cuántas rectas diferentes pueden pasar por ambos al mismo tiempo?</p>
+                </div>
+                <div class="act-step">
+                    <h5>A3: Intersecciones</h5>
+                    <p>Si dos planos se cortan, ¿qué figura geométrica se forma en su unión?</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="layout-dual">
+            <article class="info-card">
+                <h3>Ejemplos Prácticos</h3>
+                <ul>
+                    <li><strong>E1:</strong> La punta de un lápiz sobre el papel es la idea de un <strong>punto</strong>.</li>
+                    <li><strong>E2:</strong> Un hilo tenso extendido infinitamente representa una <strong>recta</strong>.</li>
+                    <li><strong>E3:</strong> La superficie de una mesa de cristal perfectamente lisa es un modelo de <strong>plano</strong>.</li>
+                </ul>
+            </article>
+            <article class="info-card">
+                <h3>Ejercicios de Clase</h3>
+                <div class="exercise-box">
+                    1. Nombra la recta que pasa por los puntos $P$ y $Q$. <br>
+                    2. ¿Cuántos puntos se necesitan para definir un plano único?<br>
+                    3. Describe la diferencia entre un segmento y una semirrecta.
+                </div>
+            </article>
+        </div>
+
+        <section class="kahoot-section">
+            <h2>🎮 Quiz Final: ¡Demuestra tu precisión!</h2>
+            <div id="quiz-container">
+                
+                <div id="question-screen">
+                    <p id="q-tracker" style="font-size: 0.9em; color: gray; font-weight: bold;"></p>
+                    
+                    <h3 id="question-text">Cargando pregunta...</h3>
+                    
+                    <div class="kahoot-grid" id="options-container">
+                        <button class="answer-btn k-red" onclick="checkAns(0)"><span id="opt-0">A</span></button>
+                        <button class="answer-btn k-blue" onclick="checkAns(1)"><span id="opt-1">B</span></button>
+                        <button class="answer-btn k-yellow" onclick="checkAns(2)"><span id="opt-2">C</span></button>
+                        <button class="answer-btn k-green" onclick="checkAns(3)"><span id="opt-3">D</span></button>
+                    </div>
+                </div>
+
+                <div id="result-screen" class="hidden">
+                    <h3 id="final-score"></h3>
+                    <button onclick="resetQuiz()" class="btn-restart">Intentar de nuevo</button>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+    <nav>
+        <a href="MASTERCLASS_SES16.HTML">Anterior Sesión</a>
+        <a href="MASTERCLASS_SES18.HTML">Siguiente Sesión</a>
+        <a href="../planeacionpm2.html">Volver al inicio</a>
+    </nav>
+
+    <footer>
+        <div class="container">
+            <p>&copy; jmgvptel. Masterclass s-17 PM2. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

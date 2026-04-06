@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S32: Alquimia Matemática | PM2</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <script>
+        window.MathJax = {
+            tex: {
+                // Aquí le decimos que reconozca el signo de peso simple como fórmula en línea
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+</head>
+<body class="theme-s32">
+
+    <nav class="teacher-auth">
+        <div class="container flex-nav">
+            <span>🧪 Control de Laboratorio (Docente):</span>
+            <div class="auth-controls">
+                <input type="password" id="master-pin" placeholder="Clave 1983">
+                <button onclick="unlockTeacherMode()">Desencriptar</button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-s32">
+        <div class="container hero-layout">
+            <div class="hero-text">
+                <h1>Sistemas 2x2: Problemas de Contexto</h1>
+                <p>Sesión 32: Mezclas químicas, negocios y traducción algebraica del mundo real.</p>
+            </div>
+            <div class="hero-visual">
+                <svg width="150" height="150" viewBox="0 0 100 100">
+                    <path d="M 40 10 L 60 10 L 60 30 L 80 80 A 10 10 0 0 1 70 95 L 30 95 A 10 10 0 0 1 20 80 L 40 30 Z" fill="rgba(16, 185, 129, 0.1)" stroke="#10B981" stroke-width="3"/>
+                    <path d="M 25 70 L 75 70 L 70 90 L 30 90 Z" fill="#10B981" opacity="0.6"/>
+                    <circle cx="40" cy="80" r="3" fill="#FFF" class="bubble"/>
+                    <circle cx="55" cy="75" r="4" fill="#FFF" class="bubble" style="animation-delay: 0.5s;"/>
+                    <circle cx="48" cy="85" r="2" fill="#FFF" class="bubble" style="animation-delay: 1s;"/>
+                    <text x="38" y="55" fill="#10B981" font-size="10" font-weight="bold" font-family="monospace">x + y</text>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="hidden-notes" class="secret-panel">
+            <div class="teacher-card">
+                <h4>🧠 Insights Psicopedagógicos (Sesión 32)</h4>
+                <p><strong>Andragogía (Problemas de Mezclas):</strong> Estos son históricamente los problemas más difíciles para los alumnos. <strong>El truco de oro:</strong> Enséñeles a hacer una tabla con tres columnas: <em>Cantidad, Concentración (%) y Total de Soluto</em>. La primera ecuación siempre es "Cantidad 1 + Cantidad 2 = Total". La segunda es "Soluto 1 + Soluto 2 = Soluto Total".</p>
+                <p><strong>Psicología:</strong> Cambie la palabra "Problema" por "Misión" o "Análisis de Caso". A los 15 años, un "problema de matemáticas" bloquea la mente, pero un "análisis de caso químico/financiero" activa la resolución lógica.</p>
+            </div>
+        </section>
+
+        <section class="module-card border-green">
+            <h2><span class="badge">32.1</span> El Arte de la Traducción</h2>
+            <p>Resolver sistemas de ecuaciones en el papel es fácil. El verdadero reto del mundo real es <strong>traducir</strong> una situación cotidiana (texto) al lenguaje matemático (álgebra).</p>
+            <div class="concept-box">
+                <p>Para modelar un problema de contexto con un sistema 2x2, sigue la regla de las 3 variables invisibles:</p>
+                <ol>
+                    <li><strong>Define quién es quién:</strong> ¿Qué es $x$? ¿Qué es $y$? (Ej. $x$ = boletos de adulto, $y$ = boletos de niño).</li>
+                    <li><strong>La Ecuación de Cantidad:</strong> Casi siempre suma los objetos totales (Ej. $x + y = 100$).</li>
+                    <li><strong>La Ecuación de Valor/Concentración:</strong> Multiplica cada variable por su valor, costo o porcentaje (Ej. $50x + 20y = 3500$).</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="module-card">
+            <h2><span class="badge">32.2</span> Casos de Estudio (Ejemplos)</h2>
+            <div class="examples-grid">
+                <div class="ex-item">
+                    <h5>🧪 Caso 1: Mezclas Químicas</h5>
+                    <p><em>Un científico necesita 100 Litros de ácido al 30%. Solo tiene ácido al 10% y al 50%. ¿Cuánto debe mezclar de cada uno?</em></p>
+                    <p>$\rightarrow$ Sea $x$ = Litros al 10%, $y$ = Litros al 50%.</p>
+                    <p><strong>Eq 1 (Cantidad):</strong> $x + y = 100$</p>
+                    <p><strong>Eq 2 (Concentración):</strong> $0.10x + 0.50y = 0.30(100)$</p>
+                    <p class="highlight-text">Resolviendo: $x = 50 L, y = 50 L$</p>
+                </div>
+                <div class="ex-item">
+                    <h5>💼 Caso 2: Finanzas Básicas</h5>
+                    <p><em>En un cine se vendieron 200 boletos. El de adulto cuesta $5 y el de niño $3. Se recaudaron $800.</em></p>
+                    <p>$\rightarrow$ $x$ = Adultos, $y$ = Niños.</p>
+                    <p><strong>Eq 1:</strong> $x + y = 200$</p>
+                    <p><strong>Eq 2:</strong> $5x + 3y = 800$</p>
+                    <p class="highlight-text">Resolviendo: $x = 100, y = 100$</p>
+                </div>
+                <div class="ex-item">
+                    <h5>🕰️ Caso 3: Edades</h5>
+                    <p><em>La edad de Ana ($x$) es el doble de la de Beto ($y$). Juntos suman 30 años.</em></p>
+                    <p><strong>Eq 1:</strong> $x = 2y$</p>
+                    <p><strong>Eq 2:</strong> $x + y = 30$</p>
+                    <p class="highlight-text">Resolviendo: Ana 20, Beto 10.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="module-card">
+            <h2><span class="badge">32.3</span> Laboratorio Práctico (Actividades)</h2>
+            <div class="activity-list">
+                <div class="act-card">
+                    <strong>🧪 1. El Mezclador (Mental):</strong> Tienes jugo de naranja al 20% y al 100% (puro). Solo plantea las ecuaciones para obtener 5 litros al 50%. No lo resuelvas, solo arma el modelo.
+                </div>
+                <div class="act-card">
+                    <strong>🍔 2. El Cajero del Comedor:</strong> Ve a la cafetería de tu escuela. Inventa un problema usando el costo de 2 alimentos (Ej. Tortas y Refrescos) basándote en la compra total de tus amigos.
+                </div>
+                <div class="act-card">
+                    <strong>🗣️ 3. Teléfono Algebraico:</strong> Un alumno escribe un sistema (Ej. $x+y=10, 2x+y=14$). El compañero debe inventar una historia de la vida real que encaje perfectamente con esa ecuación.
+                </div>
+            </div>
+        </section>
+
+        <section class="module-card border-yellow">
+            <h2><span class="badge">32.4</span> Misiones de Resolución (Ejercicios)</h2>
+            <div class="exercise-box">
+                <ol>
+                    <li>En una granja hay gallinas ($x$) y cerdos ($y$). En total hay 40 cabezas y 110 patas. Plantea el sistema y descubre cuántos animales hay de cada tipo.</li>
+                    <li>Un perfumista quiere 30 ml de perfume con 15% de esencia. Tiene mezclas al 10% y al 20%. ¿Cuántos ml de cada una debe usar?</li>
+                    <li>La suma de dos números es 45 y su diferencia es 11. Encuentra ambos números.</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="kahoot-section">
+            <h2>🎮 Quiz Final: ¡Demuestra tu precisión!</h2>
+            <div id="quiz-container">
+                
+                <div id="question-screen">
+                    <p id="q-tracker" style="font-size: 0.9em; color: gray; font-weight: bold;"></p>
+                    
+                    <h3 id="question-text">Cargando pregunta...</h3>
+                    
+                    <div class="kahoot-grid" id="options-container">
+                        <button class="answer-btn k-red" onclick="checkAns(0)"><span id="opt-0">A</span></button>
+                        <button class="answer-btn k-blue" onclick="checkAns(1)"><span id="opt-1">B</span></button>
+                        <button class="answer-btn k-yellow" onclick="checkAns(2)"><span id="opt-2">C</span></button>
+                        <button class="answer-btn k-green" onclick="checkAns(3)"><span id="opt-3">D</span></button>
+                    </div>
+                </div>
+
+                <div id="result-screen" class="hidden">
+                    <h3 id="final-score"></h3>
+                    <button onclick="resetQuiz()" class="btn-restart">Intentar de nuevo</button>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+    <nav>
+        <a href="MASTERCLASS_SES31.HTML">Anterior Sesión</a>
+        <a href="MASTERCLASS_SES33.HTML">Siguiente Sesión</a>
+        <a href="../planeacionpm2.html">Volver al inicio</a>
+    </nav>
+    <footer>
+        <div class="container">
+            <p>&copy; jmgvptel. Masterclass s-32 PM2. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+ <script src="script.js"></script>
+
+</body>
+</html>
