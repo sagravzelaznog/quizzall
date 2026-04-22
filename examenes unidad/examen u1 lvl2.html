@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen de Álgebra: Expresiones y Factorización</title>
+    <style>
+        /* Variables de color estilo Kahoot, optimizadas para lectura */
+        :root {
+            --primary-bg: #f2f2f2;
+            --header-bg: #46178f;
+            --text-main: #333333;
+            --text-light: #ffffff;
+            --q-bg: #ffffff;
+            --border-color: #cccccc;
+            --opt-a: #e21b3c;
+            --opt-b: #1368ce;
+            --opt-c: #d89e00;
+            --opt-d: #26890c;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--primary-bg);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: var(--header-bg);
+            color: var(--text-light);
+            padding: 30px 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .student-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .info-group {
+            flex: 1;
+            min-width: 200px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-group label {
+            font-weight: bold;
+            font-size: 1.1rem;
+            white-space: nowrap;
+        }
+
+        .info-group input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid var(--text-light);
+            color: var(--text-light);
+            font-size: 1.1rem;
+            padding: 5px;
+            outline: none;
+        }
+
+        .question-card {
+            background-color: var(--q-bg);
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border-left: 6px solid var(--header-bg);
+        }
+
+        .question-text {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .option-label {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-radius: 8px;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: transform 0.2s, filter 0.2s;
+        }
+
+        .option-label:hover {
+            filter: brightness(1.1);
+            transform: translateY(-2px);
+        }
+
+        .option-label input[type="radio"] {
+            margin-right: 15px;
+            transform: scale(1.5);
+            cursor: pointer;
+        }
+
+        .opt-0 { background-color: var(--opt-a); }
+        .opt-1 { background-color: var(--opt-b); }
+        .opt-2 { background-color: var(--opt-c); }
+        .opt-3 { background-color: var(--opt-d); }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            background-color: var(--header-bg);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 30px;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #331069;
+        }
+
+        #result-container {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #d4edda;
+            color: #155724;
+            border-radius: 8px;
+            font-size: 1.5rem;
+            text-align: center;
+            font-weight: bold;
+            display: none;
+        }
+
+        .footer-text {
+            text-align: center;
+            margin-top: 40px;
+            color: #666;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        /* Configuración de impresión */
+        @media print {
+            @page { size: letter; margin: 2cm; }
+            body { background-color: white; color: black; }
+            .container { width: 100%; max-width: none; padding: 0; }
+            header { background-color: white !important; color: black !important; box-shadow: none; border-bottom: 2px solid black; border-radius: 0; padding: 10px 0 20px 0; margin-bottom: 20px; }
+            .student-info { background: none; padding: 0; }
+            .info-group input { border-bottom: 1px solid black; color: black; }
+            .question-card { box-shadow: none; border: 1px solid #ccc; border-left: none; padding: 15px; margin-bottom: 15px; page-break-inside: avoid; break-inside: avoid; }
+            .options-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+            .option-label { background-color: white !important; color: black !important; border: 1px solid #000; padding: 8px 10px; }
+            .submit-btn, #result-container { display: none !important; }
+            .footer-text { position: fixed; bottom: 0; width: 100%; border-top: 1px solid #ccc; padding-top: 5px; }
+        }
+
+        @media (max-width: 600px) {
+            .options-grid { grid-template-columns: 1fr; }
+            .info-group { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Examen de Álgebra: Expresiones y Factorización</h1>
+        <div class="student-info">
+            <div class="info-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" autocomplete="off">
+            </div>
+            <div class="info-group">
+                <label for="semestre">Semestre/Grupo:</label>
+                <input type="text" id="semestre" name="semestre" autocomplete="off">
+            </div>
+            <div class="info-group">
+                <label for="fecha">Fecha:</label>
+                <input type="text" id="fecha" name="fecha" autocomplete="off">
+            </div>
+        </div>
+    </header>
+
+    <form id="quiz-form">
+        <div id="questions-container"></div>
+        <button type="button" class="submit-btn" onclick="calificarExamen()">Calificar Examen</button>
+        <div id="result-container"></div>
+    </form>
+    
+    <div class="footer-text">
+        &copy; 2026-JMGV-PTEL Programa de PENSAMIENTO MATEMÁTICO II. Todos los derechos reservados.
+    </div>
+</div>
+
+<script>
+    // Base de datos de preguntas (Se aumentó la dificultad en las preguntas 7, 8, 10 y 14)
+    const quizData = [
+        { question: "1. ¿Cuáles son los cuatro elementos fundamentales que componen un término algebraico?", options: ["Signo, coeficiente, literal y exponente", "Suma, resta, multiplicación y división", "Numerador, denominador, fracción y decimal", "Monomio, binomio, trinomio y polinomio"], correct: 0 },
+        { question: "2. ¿Cuál de las siguientes expresiones algebraicas corresponde a un monomio?", options: ["x + y", "-5a<sup>2</sup>b<sup>3</sup>", "a<sup>2</sup> - b<sup>2</sup>", "x + 2y + 3z"], correct: 1 },
+        { question: "3. Selecciona la expresión que representa correctamente un binomio:", options: ["4x<sup>3</sup>", "3x<sup>2</sup> - 5x + 2", "7m - 4n", "x + y + z + w"], correct: 2 },
+        { question: "4. Identifica el trinomio entre las siguientes opciones:", options: ["x<sup>2</sup> - 9", "2x + 5y - 3z", "8x<sup>4</sup>y", "a + b - c + d"], correct: 1 },
+        { question: "5. En álgebra, ¿cómo se define formalmente a un polinomio?", options: ["Una expresión de un solo término", "Una expresión algebraica que consta de más de un término", "El resultado de multiplicar dos variables", "Una ecuación con una sola incógnita"], correct: 1 },
+        { question: "6. ¿Cuál es el resultado correcto al desarrollar el binomio al cuadrado (x + 5)<sup>2</sup>?", options: ["x<sup>2</sup> + 25", "x<sup>2</sup> + 5x + 25", "x<sup>2</sup> + 10x + 25", "2x + 10"], correct: 2 },
+        // DIFICULTAD AUMENTADA
+        { question: "7. Al desarrollar el binomio al cubo (2m - 3n)<sup>3</sup>, ¿qué expresión se obtiene?", options: ["8m<sup>3</sup> - 27n<sup>3</sup>", "8m<sup>3</sup> - 36m<sup>2</sup>n + 54mn<sup>2</sup> - 27n<sup>3</sup>", "8m<sup>3</sup> - 18m<sup>2</sup>n + 18mn<sup>2</sup> - 27n<sup>3</sup>", "6m<sup>3</sup> - 9n<sup>3</sup>"], correct: 1 },
+        // DIFICULTAD AUMENTADA
+        { question: "8. El resultado de multiplicar los binomios conjugados (5x<sup>2</sup> + 4y<sup>3</sup>)(5x<sup>2</sup> - 4y<sup>3</sup>) es:", options: ["25x<sup>4</sup> - 16y<sup>6</sup>", "25x<sup>2</sup> - 16y<sup>3</sup>", "25x<sup>4</sup> - 40x<sup>2</sup>y<sup>3</sup> - 16y<sup>6</sup>", "10x<sup>4</sup> - 8y<sup>6</sup>"], correct: 0 },
+        { question: "9. Desarrolla el producto de binomios con término común (x + 3)(x + 4):", options: ["x<sup>2</sup> + 12", "x<sup>2</sup> + 7x + 12", "x<sup>2</sup> + x + 12", "2x + 7"], correct: 1 },
+        // DIFICULTAD AUMENTADA
+        { question: "10. Factoriza correctamente la siguiente diferencia de cuadrados: 49a<sup>2</sup> - 64b<sup>4</sup>", options: ["(7a - 8b<sup>2</sup>)(7a - 8b<sup>2</sup>)", "(49a + 64b<sup>2</sup>)(a - b<sup>2</sup>)", "(7a + 8b<sup>2</sup>)(7a - 8b<sup>2</sup>)", "(7a - 32b<sup>2</sup>)(7a + 2b<sup>2</sup>)"], correct: 2 },
+        { question: "11. Factoriza el siguiente trinomio de la forma x<sup>2</sup> + bx + c: x<sup>2</sup> + 8x + 15", options: ["(x + 3)(x + 5)", "(x + 8)(x + 15)", "(x - 3)(x - 5)", "(x + 1)(x + 15)"], correct: 0 },
+        { question: "12. En el término -8x<sup>3</sup>y, ¿cuál es el coeficiente numérico?", options: ["3", "x e y", "-8", "8"], correct: 2 },
+        { question: "13. ¿Qué producto notable da como resultado una diferencia de cuadrados como x<sup>2</sup> - 25?", options: ["Binomio al cuadrado", "Binomios conjugados", "Binomios con término común", "Binomio al cubo"], correct: 1 },
+        // DIFICULTAD AUMENTADA
+        { question: "14. ¿Cuál es la factorización correcta del trinomio cuadrado perfecto 36x<sup>2</sup> - 60xy + 25y<sup>2</sup>?", options: ["(6x - 5y)(6x + 5y)", "(6x + 5y)<sup>2</sup>", "(6x - 5y)<sup>2</sup>", "(36x - 25y)<sup>2</sup>"], correct: 2 },
+        { question: "15. El producto de (2x + 1)(2x + 3) da como resultado:", options: ["4x<sup>2</sup> + 8x + 3", "4x<sup>2</sup> + 3", "4x<sup>2</sup> + 4x + 3", "2x<sup>2</sup> + 8x + 3"], correct: 0 }
+    ];
+
+    // FUNCIÓN DE ALEATORIEDAD: Mezclar las opciones de cada pregunta
+    quizData.forEach((q) => {
+        // Guardamos las opciones originales con un indicador de cuál es la correcta
+        let optionsWithIndex = q.options.map((opt, index) => {
+            return { text: opt, isCorrect: (index === q.correct) };
+        });
+
+        // Algoritmo Fisher-Yates para barajar el array de opciones
+        for (let i = optionsWithIndex.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [optionsWithIndex[i], optionsWithIndex[j]] = [optionsWithIndex[j], optionsWithIndex[i]];
+        }
+
+        // Actualizamos las opciones y el índice correcto en quizData
+        q.options = optionsWithIndex.map(opt => opt.text);
+        q.correct = optionsWithIndex.findIndex(opt => opt.isCorrect);
+    });
+
+    const container = document.getElementById('questions-container');
+
+    // Renderizar preguntas
+    quizData.forEach((q, index) => {
+        const card = document.createElement('div');
+        card.className = 'question-card';
+        
+        let optionsHTML = '';
+        q.options.forEach((opt, i) => {
+            optionsHTML += `
+                <label class="option-label opt-${i}">
+                    <input type="radio" name="q${index}" value="${i}">
+                    <span>${opt}</span>
+                </label>
+            `;
+        });
+
+        card.innerHTML = `
+            <div class="question-text">${q.question}</div>
+            <div class="options-grid">
+                ${optionsHTML}
+            </div>
+        `;
+        container.appendChild(card);
+    });
+
+    // Lógica de calificación
+    function calificarExamen() {
+        let score = 0;
+        let allAnswered = true;
+
+        quizData.forEach((q, index) => {
+            const selected = document.querySelector(`input[name="q${index}"]:checked`);
+            if (selected) {
+                if (parseInt(selected.value) === q.correct) {
+                    score++;
+                }
+            } else {
+                allAnswered = false;
+            }
+        });
+
+        const resultDiv = document.getElementById('result-container');
+        resultDiv.style.display = 'block';
+
+        if (!allAnswered) {
+            resultDiv.style.backgroundColor = '#fff3cd';
+            resultDiv.style.color = '#856404';
+            resultDiv.innerHTML = 'Por favor, responde todas las preguntas antes de calificar.';
+            return;
+        }
+
+        const percentage = Math.round((score / quizData.length) * 100);
+        resultDiv.style.backgroundColor = score >= 9 ? '#d4edda' : '#f8d7da';
+        resultDiv.style.color = score >= 9 ? '#155724' : '#721c24';
+        resultDiv.innerHTML = `Tu calificación es: ${score} de 15 (${percentage}%)`;
+    }
+</script>
+
+</body>
+</html>

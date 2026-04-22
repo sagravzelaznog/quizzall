@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen de Álgebra - Pensamiento Matemático III</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* =========================================
+           VARIABLES Y ESTILOS GLOBALES (PANTALLA)
+           ========================================= */
+        :root {
+            --kahoot-red: #e21b3c;
+            --kahoot-blue: #1368ce;
+            --kahoot-yellow: #d89e00;
+            --kahoot-green: #26890c;
+            --bg-light: #f2f2f2;
+            --text-dark: #333;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            background-color: #ffffff;
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            margin: 0;
+            font-weight: 800;
+            color: #333;
+        }
+
+        .subtitle {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+            font-weight: 700;
+        }
+
+        main {
+            width: 90%;
+            max-width: 900px;
+        }
+
+        /* =========================================
+           TARJETAS DE PREGUNTAS
+           ========================================= */
+        .question-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .question-title {
+            font-size: 1.2em;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        @media (max-width: 600px) {
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .option-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            color: white;
+            font-weight: 700;
+            text-align: center;
+            transition: transform 0.2s, opacity 0.2s;
+            position: relative;
+        }
+
+        .option-label:hover {
+            transform: scale(1.02);
+            opacity: 0.9;
+        }
+
+        .option-label input[type="radio"] {
+            display: none; /* Ocultamos el radio button en pantalla */
+        }
+
+        /* Colores estilo Kahoot */
+        .opt-a { background-color: var(--kahoot-red); }
+        .opt-b { background-color: var(--kahoot-blue); }
+        .opt-c { background-color: var(--kahoot-yellow); }
+        .opt-d { background-color: var(--kahoot-green); }
+
+        /* Estado seleccionado */
+        .option-label input[type="radio"]:checked + .option-text::before {
+            content: '✓ ';
+        }
+        .option-label:has(input[type="radio"]:checked) {
+            box-shadow: inset 0 0 0 5px rgba(0,0,0,0.3);
+        }
+
+        /* =========================================
+           BOTONES Y FOOTER
+           ========================================= */
+        .btn-submit {
+            display: block;
+            width: 100%;
+            padding: 20px;
+            font-size: 1.5em;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-bottom: 40px;
+            transition: background 0.3s;
+        }
+
+        .btn-submit:hover {
+            background-color: #555;
+        }
+
+        #result {
+            font-size: 1.5em;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.85em;
+            color: #777;
+            width: 100%;
+        }
+
+        /* =========================================
+           ESTILOS DE IMPRESIÓN (PDF Y PAPEL)
+           ========================================= */
+        @media print {
+            @page {
+                size: letter;
+                margin: 2cm;
+            }
+
+            body {
+                background-color: white;
+                color: black;
+            }
+
+            header {
+                box-shadow: none;
+                border-bottom: 2px solid #000;
+                margin-bottom: 20px;
+                padding: 0 0 10px 0;
+            }
+
+            .btn-submit, #result, .no-print {
+                display: none !important;
+            }
+
+            .question-card {
+                box-shadow: none;
+                border: none;
+                padding: 10px 0;
+                margin-bottom: 15px;
+                /* Evitar que la pregunta se corte a la mitad de la página */
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+
+            .options-grid {
+                display: block; /* Quitar grid para lista vertical clásica */
+            }
+
+            .option-label {
+                background: transparent !important;
+                color: black !important;
+                padding: 5px 0;
+                justify-content: flex-start;
+                font-weight: 400;
+                transform: none !important;
+                box-shadow: none !important;
+            }
+
+            .option-label input[type="radio"] {
+                display: inline-block; /* Mostrar bolitas para examen impreso */
+                margin-right: 10px;
+                appearance: auto;
+                -webkit-appearance: radio;
+            }
+
+            .option-label input[type="radio"]:checked + .option-text::before {
+                content: ''; /* Quitar la palomita en impresión */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Evaluación de Álgebra</h1>
+        <div class="subtitle">Diseñado por José Manuel González Vargas | Pedagogo, Andragogo y Genio Matemático</div>
+        <p class="no-print" style="margin-top:10px; font-size: 0.9em; color:#666;">
+            <em>Instrucciones: Selecciona la respuesta correcta. Presiona Ctrl+P (o Cmd+P) para imprimir este examen.</em>
+        </p>
+    </header>
+
+    <main>
+        <form id="quizForm">
+            <div class="question-card">
+                <div class="question-title">1. ¿Cuáles son los elementos esenciales que componen un término algebraico?</div>
+                <div class="options-grid">
+                    <label class="option-label opt-a"><input type="radio" name="q1" value="0"> <span class="option-text">Base, altura, índice y raíz</span></label>
+                    <label class="option-label opt-b"><input type="radio" name="q1" value="1"> <span class="option-text">Signo, coeficiente, literal (base) y exponente</span></label>
+                    <label class="option-label opt-c"><input type="radio" name="q1" value="0"> <span class="option-text">Variable, constante y fracción</span></label>
+                    <label class="option-label opt-d"><input type="radio" name="q1" value="0"> <span class="option-text">Suma, resta, multiplicación y división</span></label>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">2. ¿Cuál de las siguientes expresiones representa un monomio?</div>
+                <div class="options-grid">
+                    <label class="option-label opt-a"><input type="radio" name="q2" value="1"> <span class="option-text">-7x<sup>3</sup>y<sup>2</sup></span></label>
+                    <label class="option-label opt-b"><input type="radio" name="q2" value="0"> <span class="option-text">3x + 2</span></label>
+                    <label class="option-label opt-c"><input type="radio" name="q2" value="0"> <span class="option-text">a<sup>2</sup> - b<sup>2</sup></span></label>
+                    <label class="option-label opt-d"><input type="radio" name="q2" value="0"> <span class="option-text">x + y + z</span></label>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">3. Identifica el binomio entre las siguientes opciones:</div>
+                <div class="options-grid">
+                    <label class="option-label opt-a"><input type="radio" name="q3" value="0"> <span class="option-text">5m<sup>4</sup></span></label>
+                    <label class="option-label opt-b"><input type="radio" name="q3" value="0"> <span class="option-text">x<sup>2</sup> - 5x + 6</span></label>
+                    <label class="option-label opt-c"><input type="radio" name="q3" value="1"> <span class="option-text">4a<sup>2</sup> - 9b</span></label>
+                    <label class="option-label opt-d"><input type="radio" name="q3" value="0"> <span class="option-text">2x + 3y - 5z</span></label>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">4. ¿Qué expresión matemática corresponde a un trinomio?</div>
+                <div class="options-grid">
+                    <label class="option-label opt-a"><input type="radio" name="q4" value="0"> <span class="option-text">xyz</span></label>
+                    <label class="option-label opt-b"><input type="radio" name="q4" value="1"> <span class="option-text">m<sup>2</sup> + 2mn + n<sup>2</sup></span></label>
+                    <label class="option-label opt-c"><input type="radio" name="q4" value="0"> <span class="option-text">8x<sup>3</sup> - 27</span></label>
+                    <label class="option-label opt-d"><input type="radio" name="q4" value="0"> <span class="option-text">x<sup>4</sup> + x<sup>3</sup> + x<sup>2</sup> + x</span></label>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">5. Todo término o conjunto de términos unidos por sumas o restas es un polinomio. Elige la opción que muestra un polinomio de cuatro términos:</div>
+                <div class="options-grid">
+                    <label class="option-label opt-a"><input type="radio" name="q5" value="0"> <span class="option-text">3x<sup>2</sup> - 5x + 1</span></label>
+                    <label class="option-label opt-b"><input type="radio" name="q5" value="0"> <span class="option-text">-12a<sup>3</sup>b<sup>4</sup>c</span></label>
+                    <label class="option-label opt-c"><input type="radio" name="q5" value="1"> <span class="option-text">x<sup>3</sup> - 3x<sup>2</sup> + 3x - 1</span></label>
+                    <label class="option-label opt-d"><input type="radio" name="q5" value="0"> <span class="option-text">x<sup>2</sup> - y<sup>2</sup></span></label>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">6. Productos Notables: ¿Cuál es el desarrollo correcto del binomio al cuadrado (x + 5)<sup>2</sup>?</div>
+                <div class="options-grid">
+                    <label class="option-label opt-a"><input type="radio" name="q6" value="0"> <span class="option-text">x<sup>2</sup> + 25</span></label>
+                    <label class="option-label opt-b"><input type="radio" name="q6" value="1"> <span class="option-text">x<sup>2</sup> + 10x + 25</span></label>
+                    <label class="option-label opt-c"><input type="radio" name="q6" value="0"> <span class="option-text">x<sup>2</sup> + 5x + 25</span></label>
+                    <label class="option-label opt-d"><input type="radio" name="q6" value="0"> <span class="option-text">x<sup>2</sup> - 10x + 25</span></label>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">7. Desarrolla el siguiente binomio al cuadrado: (2m - 3)<sup>2</sup></div>
+                <div class="options-grid">
+                    <label class="option-label opt-a"><input type="radio" name="q7" value="0"> <span class="option-text">4m<sup>2</sup> - 9</span></label>
+                    <label class="option-label opt-b"><input type="radio" name="q7" value="0"> <span class="option-text">4m<sup>2</sup> + 12m - 9</span></label>
+                    <label class="option-label opt-c"><input type="radio" name="q7" value="0"> <span class="option-text">2m<sup>2</sup> - 6m + 9</span></label>
+                    <label class="option-label opt-d"><input type="radio" name="q7" value="1"> <span class="option-text">4m<sup>2</sup> - 12m + 9</span></label>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">8. Productos Notables: ¿Cuál es la expansión geométrica y algebraica de (x + 2)<sup>3</sup>?</div>
+                <div class="options-grid">
+                    <label class="option-label opt-a"><input type="radio" name="q8" value="1"> <span class="option-text">x<sup>3</sup> + 6x<sup>2</sup> + 12x + 8</span></label>
+                    <label class="option-label opt-b"><input type="radio" name="q8" value="0"> <span class="option-text">x<sup>3</sup> + 8</span></label>
+                    <label class="option-label opt-c"><input type="radio" name="q8" value="0"> <span class="option-text">x<sup>3</sup> + 2x<sup>2</sup> + 4x + 8</span></label>
+                    <label class="option-label opt-d"><input type="radio" name="q8" value="0"> <span class="option-text">x<sup>3</sup> + 3x<sup>2</sup> + 6x + 8</span></label>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">9. El producto de dos binomios conjugados da como resultado una diferencia de cuadrados. Resuelve: (y + 7)(y - 7)</div>
+                <div class="options-grid">
+                    <label class="option-label opt-a"><input type="radio" name="q9" value="0"> <span class="option-text">y<sup>2</sup> + 49</span></label>
+                    <label class="option-label opt-b"><input type="radio" name="q9" value="0"> <span class="option-text">y<sup>2</sup> - 14y + 49</span></label>
+                    <label class="option-label opt-c"><input type="radio" name="q9" value="1"> <span class="option-text">y<sup>2</sup> - 49</span></label>
+                    <label class="option-label opt-d"><input type="radio" name="q9" value="0"> <span class="option-text">y<sup>2</sup> - 14</span></label>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">10. ¿Cuál es el resultado de la operación (3x - 4y)(3x + 4y)?</div>
+                <div class="options-grid">
+                    <label class="option-label opt-a"><input type="radio" name="q10" value="0"> <span class="option-text">9x<sup>2</sup> + 16y<sup>2</sup></span></label>
+                    <label class="option-label opt-b"><input type="radio" name="q10" value="1"> <span class="option-text">9x<sup>2</sup> - 16y<sup>2</sup></span></label>
+                    <label class="option-label opt-c"><input type="radio" name="q10" value="0"> <span class="option-text">6x<sup>2</sup> - 8y<sup>2</sup></span></label>
+                    <label class="option-label opt-d"><input type="radio" name="q10" value="0"> <span class="option-text">9x<sup>2</sup> - 24xy - 16y<sup>2</sup></span></label>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">11. Productos Notables: Desarrolla los binomios con término común (x + 4)(x - 2)</div>
+                <div class="options-grid">
+                    <label class="option-label opt-a"><input type="radio" name="q11" value="0"> <span class="option-text">x<sup>2</sup> - 2x - 8</span></label>
+                    <label class="option-label opt-b"><input type="radio" name="q11" value="1"> <span class="option-text">x<sup>2</sup> + 2x - 8</span></label>
+                    <label class="option-label opt-c"><input type="radio" name="q11" value="0"> <span class="option-text">x<sup>2</sup> + 6x - 8</span></label>
+                    <label class="option-label opt-d"><input type="radio" name="q11" value="0"> <span class="option-text">x<sup>2</sup> - 8</span></label>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">12. Factorización: ¿Cuál es la factorización correcta de la diferencia de cuadrados m<sup>2</sup> - 25?</div>
+                <div class="options-grid">
+                    <label class="option-label opt-a"><input type="radio" name="q12" value="1"> <span class="option-text">(m + 5)(m - 5)</span></label>
+                    <label class="option-label opt-b"><input type="radio" name="q12" value="0"> <span class="option-text">(m - 5)<sup>2</sup></span></label>
+                    <label class="option-label opt-c"><input type="radio" name="q12" value="0"> <span class="option-text">(m - 25)(m + 1)</span></label>
+                    <label class="option-label opt-d"><input type="radio" name="q12" value="0"> <span class="option-text">m(m - 25)</span></label>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">13. Factoriza la siguiente expresión algebraica: 16x<sup>2</sup> - 9</div>
+                <div class="options-grid">
+                    <label class="option-label opt-a"><input type="radio" name="q13" value="0"> <span class="option-text">(8x + 3)(8x - 3)</span></label>
+                    <label class="option-label opt-b"><input type="radio" name="q13" value="0"> <span class="option-text">(4x - 3)<sup>2</sup></span></label>
+                    <label class="option-label opt-c"><input type="radio" name="q13" value="1"> <span class="option-text">(4x + 3)(4x - 3)</span></label>
+                    <label class="option-label opt-d"><input type="radio" name="q13" value="0"> <span class="option-text">(16x - 9)(x + 1)</span></label>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">14. Factoriza el siguiente trinomio de la forma x<sup>2</sup> + bx + c: x<sup>2</sup> + 7x + 12</div>
+                <div class="options-grid">
+                    <label class="option-label opt-a"><input type="radio" name="q14" value="0"> <span class="option-text">(x + 6)(x + 2)</span></label>
+                    <label class="option-label opt-b"><input type="radio" name="q14" value="0"> <span class="option-text">(x - 3)(x - 4)</span></label>
+                    <label class="option-label opt-c"><input type="radio" name="q14" value="1"> <span class="option-text">(x + 3)(x + 4)</span></label>
+                    <label class="option-label opt-d"><input type="radio" name="q14" value="0"> <span class="option-text">(x + 12)(x + 1)</span></label>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-title">15. Factoriza el Trinomio Cuadrado Perfecto: x<sup>2</sup> - 10x + 25</div>
+                <div class="options-grid">
+                    <label class="option-label opt-a"><input type="radio" name="q15" value="0"> <span class="option-text">(x + 5)(x - 5)</span></label>
+                    <label class="option-label opt-b"><input type="radio" name="q15" value="1"> <span class="option-text">(x - 5)<sup>2</sup></span></label>
+                    <label class="option-label opt-c"><input type="radio" name="q15" value="0"> <span class="option-text">(x + 5)<sup>2</sup></span></label>
+                    <label class="option-label opt-d"><input type="radio" name="q15" value="0"> <span class="option-text">(x - 10)(x - 2.5)</span></label>
+                </div>
+            </div>
+
+            <button type="button" class="btn-submit" onclick="calculateScore()">Revisar Respuestas</button>
+            <div id="result"></div>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2026-JMGV-PTEL Programa de PENSAMIENTO MATEMÁTICO III. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        function calculateScore() {
+            let score = 0;
+            const totalQuestions = 15;
+            const form = document.getElementById('quizForm');
+            const resultDiv = document.getElementById('result');
+
+            // Iterar sobre las 15 preguntas
+            for (let i = 1; i <= totalQuestions; i++) {
+                const radios = form.elements['q' + i];
+                let answered = false;
+                
+                // Buscar la opción seleccionada
+                for (let j = 0; j < radios.length; j++) {
+                    if (radios[j].checked) {
+                        answered = true;
+                        if (radios[j].value === "1") {
+                            score++;
+                        }
+                        break;
+                    }
+                }
+            }
+
+            // Cálculo de calificación en escala de 10
+            let finalGrade = (score / totalQuestions) * 10;
+            
+            resultDiv.style.display = 'block';
+            
+            if (score === totalQuestions) {
+                resultDiv.style.backgroundColor = '#d4edda';
+                resultDiv.style.color = '#155724';
+                resultDiv.innerHTML = `¡Genio Matemático! Calificación: ${finalGrade.toFixed(1)}/10 (${score} de ${totalQuestions} correctas)`;
+            } else if (score >= 9) {
+                resultDiv.style.backgroundColor = '#fff3cd';
+                resultDiv.style.color = '#856404';
+                resultDiv.innerHTML = `¡Buen trabajo! Calificación: ${finalGrade.toFixed(1)}/10 (${score} de ${totalQuestions} correctas)`;
+            } else {
+                resultDiv.style.backgroundColor = '#f8d7da';
+                resultDiv.style.color = '#721c24';
+                resultDiv.innerHTML = `Hay áreas de oportunidad. Calificación: ${finalGrade.toFixed(1)}/10 (${score} de ${totalQuestions} correctas). ¡Sigue practicando!`;
+            }
+            
+            // Auto scroll hacia el resultado
+            resultDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
