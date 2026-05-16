@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>S37: Proyecto de Optimización | PM2</title>
     <link rel="stylesheet" href="style.css">
-    
+
     <script>
         window.MathJax = {
             tex: {
@@ -18,6 +19,7 @@
 
 
 </head>
+
 <body class="theme-s37">
 
     <nav class="teacher-auth-bar">
@@ -44,12 +46,13 @@
                             <stop offset="100%" stop-color="rgba(0, 230, 118, 0.8)" />
                         </linearGradient>
                     </defs>
-                    <rect x="10" y="50" width="15" height="40" fill="#2962FF" rx="2"/>
-                    <rect x="35" y="35" width="15" height="55" fill="#8A2BE2" rx="2"/>
-                    <rect x="60" y="15" width="15" height="75" fill="url(#growthGrad)" rx="2"/>
-                    <polyline points="17,50 42,35 67,15 90,5" fill="none" stroke="#00E676" stroke-width="3" class="trend-line"/>
-                    <circle cx="90" cy="5" r="4" fill="#FFFFFF" class="pulse-dot"/>
-                    <line x1="5" y1="90" x2="95" y2="90" stroke="#FFFFFF" stroke-width="2"/>
+                    <rect x="10" y="50" width="15" height="40" fill="#2962FF" rx="2" />
+                    <rect x="35" y="35" width="15" height="55" fill="#8A2BE2" rx="2" />
+                    <rect x="60" y="15" width="15" height="75" fill="url(#growthGrad)" rx="2" />
+                    <polyline points="17,50 42,35 67,15 90,5" fill="none" stroke="#00E676" stroke-width="3"
+                        class="trend-line" />
+                    <circle cx="90" cy="5" r="4" fill="#FFFFFF" class="pulse-dot" />
+                    <line x1="5" y1="90" x2="95" y2="90" stroke="#FFFFFF" stroke-width="2" />
                 </svg>
             </div>
         </div>
@@ -59,14 +62,23 @@
         <section id="hidden-notes" class="secret-module">
             <div class="teacher-card">
                 <h4>🧠 Insights de Genio Pedagógico (Sesión 37)</h4>
-                <p><strong>Andragogía Emprendedora:</strong> Los adolescentes se motivan enormemente cuando perciben que el conocimiento genera valor real (dinero). Permita que el "negocio escolar" sea algo que les apasione. La rúbrica de proyecto  debe premiar tanto el rigor matemático como la viabilidad del negocio.</p>
-                <p><strong>El Informe de Estrategia:</strong> Como indica la secuencia didáctica, el cierre es un "Informe de estrategia". Exija que no solo entreguen gráficas, sino que redacten un párrafo como si hablaran con un inversionista: <em>"Para maximizar las utilidades a \$X, debemos producir Y cantidad del producto A..."</em>.</p>
+                <p><strong>Andragogía Emprendedora:</strong> Los adolescentes se motivan enormemente cuando perciben que
+                    el conocimiento genera valor real (dinero). Permita que el "negocio escolar" sea algo que les
+                    apasione. La rúbrica de proyecto debe premiar tanto el rigor matemático como la viabilidad del
+                    negocio. </p>
+                <p><strong>El Informe de Estrategia:</strong> Como indica la secuencia didáctica, el cierre es un
+                    "Informe de estrategia". Exija que no solo entreguen gráficas, sino que redacten un párrafo como si
+                    hablaran con un inversionista: <em>"Para maximizar las utilidades a \$X, debemos producir Y cantidad
+                        del producto A..."</em>.</p>
             </div>
         </section>
 
         <section class="lesson-card">
             <h2><span class="badge">37.1</span> ¿Qué es un Proyecto de Optimización?</h2>
-            <p>Es la aplicación en el mundo real de la programación lineal. Consiste en diseñar un modelo matemático para un negocio que nos indique exactamente cuántos productos fabricar o vender para <strong>maximizar la utilidad</strong> (ganancia) utilizando eficientemente nuestros recursos limitados (dinero, tiempo, materiales).</p>
+            <p>Es la aplicación en el mundo real de la programación lineal. Consiste en diseñar un modelo matemático
+                para un negocio que nos indique exactamente cuántos productos fabricar o vender para <strong>maximizar
+                    la utilidad</strong> (ganancia) utilizando eficientemente nuestros recursos limitados (dinero,
+                tiempo, materiales).</p>
             <div class="concept-box">
                 <p><strong>La Anatomía de una Startup Matemática:</strong></p>
                 <ul>
@@ -82,15 +94,23 @@
             <div class="examples-grid">
                 <div class="ex-item">
                     <h5>🛠️ Negocio 1: Estudio de Corte Láser</h5>
-                    <p>Fabricas llaveros ($x$) y lámparas de MDF ($y$). Un llavero te da \$15 de ganancia y una lámpara \$50. Tu máquina láser solo puede operar 20 horas a la semana. Tienes que modelar $Z = 15x + 50y$ sujeto a las horas máquina y el MDF disponible.</p>
+                    <p>Fabricas llaveros ($x$) y lámparas de MDF ($y$). Un llavero te da \$15 de ganancia y una lámpara
+                        \$50. el llavero consume 1 hora y la lámpara 3 horas. Tu máquina láser solo puede operar 20 horas a la semana. Tienes que modelar $Z = 15x +
+                        50y$ sujeto a las horas máquina y el MDF disponible ademas, tienes un pedido de 2 llaveros y 1 lampara.</p>
                 </div>
                 <div class="ex-item">
                     <h5>🍪 Negocio 2: Repostería Escolar</h5>
-                    <p>Vendes brownies ($x$) y galletas ($y$). Los brownies dejan \$10 de ganancia y las galletas \$5. La restricción principal es el presupuesto para ingredientes (harina, chocolate) y la capacidad del horno de tu casa.</p>
+                    <p>Vendes brownies ($x$) y galletas ($y$). Los brownies dejan \$10 de ganancia y las galletas \$5.
+                        La restricción principal es el presupuesto para ingredientes (harina, chocolate) y la capacidad
+                        del horno de tu casa.Hacer un brownie cuesta \$4 y una galleta \$2. Tu capital es \$200;Tu charola permite hacer no más de 60 piezas totales.</p>
+                        
                 </div>
                 <div class="ex-item">
                     <h5>🎮 Negocio 3: Torneo de eSports</h5>
-                    <p>Organizas un torneo de Smash Bros ($x$) y FIFA ($y$). Cobras inscripciones diferentes. Tus restricciones son el número máximo de consolas disponibles, el tiempo de recreo y el aforo del salón.</p>
+                    <p>Organizas un torneo de Smash Bros ($x$) y FIFA ($y$). Cobras inscripciones diferentes. Tus
+                        restricciones son el número máximo de consolas disponibles, el tiempo de recreo y el aforo del
+                        salón. Cada partida de Smash toma 15 minutos y una de FIFA toma 20 minutos. Tienen prestado el salón solo por 120 minutos (2 horas), Por límite de espacio y pantallas disponibles, el torneo solo puede tener un máximo de 7 participantes en total</p>
+                       
                 </div>
             </div>
         </section>
@@ -99,13 +119,19 @@
             <h2><span class="badge">37.3</span> Incubadora de Proyectos (Actividades)</h2>
             <div class="activity-list">
                 <div class="act-card">
-                    <strong>💡 1. El Pitch del Negocio:</strong> Reúnete en equipo y definan un "negocio escolar"  realista. Decidan cuáles serán sus dos productos principales ($x$ e $y$) y cuánto esperan ganar por cada uno (Función Objetivo).
+                    <strong>💡 1. El Pitch del Negocio:</strong> Reúnete en equipo y definan un "negocio escolar"
+                    realista. Decidan cuáles serán sus dos productos principales ($x$ e $y$) y cuánto esperan ganar por
+                    cada uno (Función Objetivo).
                 </div>
                 <div class="act-card">
-                    <strong>🚧 2. Auditoría de Recursos:</strong> Identifiquen al menos 2 limitantes reales de su negocio (ej. capital inicial de \$500, máximo de 10 horas libres a la semana). Traduzcan estas limitantes a desigualdades matemáticas (Restricciones).
+                    <strong>🚧 2. Auditoría de Recursos:</strong> Identifiquen al menos 2 limitantes reales de su
+                    negocio (ej. capital inicial de \$500, máximo de 10 horas libres a la semana). Traduzcan estas
+                    limitantes a desigualdades matemáticas (Restricciones).
                 </div>
                 <div class="act-card">
-                    <strong>📊 3. El Informe de Estrategia:</strong> Grafiquen su modelo (pueden usar herramientas digitales), encuentren el vértice óptimo y redacten el "Informe de estrategia"  detallando la ruta para maximizar la utilidad.
+                    <strong>📊 3. El Informe de Estrategia:</strong> Grafiquen su modelo (pueden usar herramientas
+                    digitales), encuentren el vértice óptimo y redacten el "Informe de estrategia" detallando la ruta
+                    para maximizar la utilidad.
                 </div>
             </div>
         </section>
@@ -114,9 +140,13 @@
             <h2><span class="badge">37.4</span> Simulador Financiero (Ejercicios)</h2>
             <div class="exercise-box">
                 <ol>
-                    <li>Un estudiante diseña páginas web ($x$) y repara computadoras ($y$). Gana \$800 por web y \$300 por reparación. Escribe la función objetivo $Z$.</li>
-                    <li>Siguiendo el caso anterior, hacer una web toma 10 horas y una reparación 2 horas. El estudiante solo tiene 20 horas libres a la semana. Escribe la restricción de tiempo.</li>
-                    <li>Dado el sistema de tu negocio de corte láser, si el vértice óptimo arroja $x = 100$ y $y = 5$, ¿cuál es tu decisión final como CEO si la lámpara ($y$) es tu producto favorito de fabricar? (Argumenta tu respuesta basándote en datos, no en emociones).</li>
+                    <li>Un estudiante diseña páginas web ($x$) y repara computadoras ($y$). Gana \$800 por web y \$300
+                        por reparación. Escribe la función objetivo $Z$.</li>
+                    <li>Siguiendo el caso anterior, hacer una web toma 10 horas y una reparación 2 horas. El estudiante
+                        solo tiene 20 horas libres a la semana. Escribe la restricción de tiempo.</li>
+                    <li>Dado el sistema de tu negocio de corte láser, si el vértice óptimo arroja $x = 100$ y $y = 5$,
+                        ¿cuál es tu decisión final como CEO si la lámpara ($y$) es tu producto favorito de fabricar?
+                        (Argumenta tu respuesta basándote en datos, no en emociones).</li>
                 </ol>
             </div>
         </section>
@@ -124,12 +154,12 @@
         <section class="kahoot-section">
             <h2>🎮 Quiz Final: ¡Demuestra tu precisión!</h2>
             <div id="quiz-container">
-                
+
                 <div id="question-screen">
                     <p id="q-tracker" style="font-size: 0.9em; color: gray; font-weight: bold;"></p>
-                    
+
                     <h3 id="question-text">Cargando pregunta...</h3>
-                    
+
                     <div class="kahoot-grid" id="options-container">
                         <button class="answer-btn k-red" onclick="checkAns(0)"><span id="opt-0">A</span></button>
                         <button class="answer-btn k-blue" onclick="checkAns(1)"><span id="opt-1">B</span></button>
@@ -142,7 +172,7 @@
                     <h3 id="final-score"></h3>
                     <button onclick="resetQuiz()" class="btn-restart">Intentar de nuevo</button>
                 </div>
-                
+
             </div>
         </section>
     </main>
@@ -160,4 +190,5 @@
     <script src="script.js"></script>
 
 </body>
+
 </html>
